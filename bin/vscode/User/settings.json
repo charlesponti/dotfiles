@@ -1,0 +1,87 @@
+// Place your settings in this file to overwrite the default settings
+// Place your settings in this file to overwrite the default settings
+{
+  "eslint.autoFixOnSave": true,
+  "npm.enableScriptExplorer": true,
+  "python.venvPath": "~/.virtualenvs",
+  "css.validate": true,
+  "editor.fontFamily": "Hack",
+  "editor.fontSize": 12,
+  "editor.minimap.enabled": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSaveTimeout": 750,
+  "editor.renderWhitespace": "all",
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.rulers": [
+    80
+  ],
+  "editor.snippetSuggestions": "inline",
+  "editor.tabSize": 2,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "html.suggest.angular1": false,
+  "html.format.enable": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
+  "scss.validate": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "coverage": true,
+    ".vscode": true,
+    "assets": true,
+    "doc": true,
+    "release": true
+  },
+  "sonarlint.ls.javaHome": "/Library/Java/Home",
+  "terminal.external.osxExec": "Terminal.app",
+  "terminal.integrated.confirmOnExit": true,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "typescript.format.enable": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.statusBar.visible": true,
+  "launch": {
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "type": "node",
+        "name": "Launch current .ts file",
+        "cwd": "${workspaceFolder}",
+        "request": "launch",
+        "protocol": "inspector",
+        "internalConsoleOptions": "openOnSessionStart",
+        "args": [
+          "${relativeFile}"
+        ],
+        "runtimeArgs": [
+          "--inspect-brk",
+          "-r",
+          "ts-node/register"
+        ]
+      }
+    ],
+    "compounds": []
+  },
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.historyExplorer.enabled": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "tslint.autoFixOnSave": true,
+  "explorer.confirmDelete": false
+}

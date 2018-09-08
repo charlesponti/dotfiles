@@ -42,7 +42,8 @@
   "terminal.external.osxExec": "Terminal.app",
   "terminal.integrated.confirmOnExit": true,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "typescript.format.enable": true,
+  "typescript.format.enable": false,
+  "typescript.validate.enable": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
@@ -81,7 +82,14 @@
     "suppressShowKeyBindingsNotice": true
   },
   "gitlens.historyExplorer.enabled": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "eq-material-theme-icons",
   "tslint.autoFixOnSave": true,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "breadcrumbs.enabled": true,
+  "markdown.preview.breaks": true,
+  "search.location": "panel",
+  "debug.inlineValues": true,
+  "workbench.colorTheme": "Material Theme",
+  "terminal.integrated.fontFamily": "Hack",
+  "terminal.integrated.fontSize": 13
 }

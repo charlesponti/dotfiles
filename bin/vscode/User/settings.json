@@ -82,14 +82,14 @@
     "suppressShowKeyBindingsNotice": true
   },
   "gitlens.historyExplorer.enabled": true,
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "eq-material-theme-icons-light",
   "tslint.autoFixOnSave": true,
   "explorer.confirmDelete": false,
   "breadcrumbs.enabled": true,
   "markdown.preview.breaks": true,
   "search.location": "panel",
   "debug.inlineValues": true,
-  "workbench.colorTheme": "Material Theme",
+  "workbench.colorTheme": "Material Theme Lighter",
   "terminal.integrated.fontFamily": "Hack",
   "terminal.integrated.fontSize": 13
 }

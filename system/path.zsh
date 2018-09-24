@@ -8,7 +8,7 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export PYTHON_PATH="/usr/local/opt/python/libexec/bin"
 
 # Go
-export GOPATH=$PROJECTS/go
+export GOPATH=~/.go
 
 # SQLite
 export SQLITE_PATH="/usr/local/opt/sqlite/bin"
@@ -16,4 +16,7 @@ export SQLITE_PATH="/usr/local/opt/sqlite/bin"
 # HomeBrew
 export HOMEBREW_PATH="/usr/local/sbin:/usr/local/bin"
 
-export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$PATH"
+# Yarn
+export YARN_PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
+
+export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:${YARN_PATH}:$PATH"

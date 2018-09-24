@@ -5,3 +5,7 @@ function nvm-update-to-latest() {
     nvm install stable
     nvm alias default stable
 }
+
+function npm-update-all() {
+  npx npm-check-updates -ua
+}

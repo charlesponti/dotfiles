@@ -8,7 +8,6 @@
   "editor.fontFamily": "Hack",
   "editor.fontSize": 12,
   "editor.minimap.enabled": true,
-  "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.formatOnSaveTimeout": 750,
   "editor.renderWhitespace": "all",

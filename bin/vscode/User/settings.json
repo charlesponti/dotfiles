@@ -8,7 +8,6 @@
   "editor.fontFamily": "Hack",
   "editor.fontSize": 12,
   "editor.minimap.enabled": true,
-  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.formatOnSaveTimeout": 750,
@@ -82,14 +81,14 @@
     "suppressShowKeyBindingsNotice": true
   },
   "gitlens.historyExplorer.enabled": true,
-  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.iconTheme": "eq-material-theme-icons",
   "tslint.autoFixOnSave": true,
   "explorer.confirmDelete": false,
   "breadcrumbs.enabled": true,
   "markdown.preview.breaks": true,
   "search.location": "panel",
   "debug.inlineValues": true,
-  "workbench.colorTheme": "Material Theme Lighter",
+  "workbench.colorTheme": "Material Theme",
   "terminal.integrated.fontFamily": "Hack",
   "terminal.integrated.fontSize": 13
 }

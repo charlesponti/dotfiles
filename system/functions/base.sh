@@ -35,7 +35,7 @@ function brew-daily() {
   brew cleanup
 
   echo "Pruning Homebrew..."
-  brew prune
+  # brew prune
 
   echo "Sending Homebrew to the doctor..."
   brew doctor

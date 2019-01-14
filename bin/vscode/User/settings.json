@@ -87,7 +87,10 @@
   "markdown.preview.breaks": true,
   "search.location": "panel",
   "debug.inlineValues": true,
-  "workbench.colorTheme": "Material Theme",
+  "workbench.colorTheme": "Material Theme High Contrast",
   "terminal.integrated.fontFamily": "Hack",
-  "terminal.integrated.fontSize": 13
+  "terminal.integrated.fontSize": 13,
+  "eslint.alwaysShowStatus": true,
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true
 }

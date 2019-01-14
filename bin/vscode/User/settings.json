@@ -1,96 +1,95 @@
 // Place your settings in this file to overwrite the default settings
 // Place your settings in this file to overwrite the default settings
 {
-  "eslint.autoFixOnSave": true,
-  "npm.enableScriptExplorer": true,
-  "python.venvPath": "~/.virtualenvs",
+  "breadcrumbs.enabled": true,
   "css.validate": true,
+  "debug.inlineValues": true,
   "editor.fontFamily": "Hack",
   "editor.fontSize": 12,
-  "editor.minimap.enabled": true,
-  "editor.formatOnType": true,
   "editor.formatOnSaveTimeout": 750,
+  "editor.formatOnType": true,
+  "editor.minimap.enabled": true,
   "editor.renderWhitespace": "all",
-  "editor.suggestSelection": "recentlyUsed",
-  "editor.trimAutoWhitespace": true,
-  "files.trimTrailingWhitespace": true,
   "editor.rulers": [
-    80
+      80
   ],
   "editor.snippetSuggestions": "inline",
+  "editor.suggestSelection": "recentlyUsed",
   "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "explorer.confirmDelete": false,
+  "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "html.suggest.angular1": false,
+  "gitlens.advanced.messages": {
+      "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
   "html.format.enable": true,
   "html.format.wrapAttributes": "force-aligned",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "launch": {
+      "compounds": [],
+      "configurations": [
+          {
+              "args": [
+                  "${relativeFile}"
+              ],
+              "cwd": "${workspaceFolder}",
+              "internalConsoleOptions": "openOnSessionStart",
+              "name": "Launch current .ts file",
+              "protocol": "inspector",
+              "request": "launch",
+              "runtimeArgs": [
+                  "--inspect-brk",
+                  "-r",
+                  "ts-node/register"
+              ],
+              "type": "node"
+          },
+          {
+              "name": "Launch Chrome against localhost",
+              "request": "launch",
+              "type": "chrome",
+              "url": "http://localhost:3000",
+              "webRoot": "${workspaceFolder}"
+          }
+      ]
+  },
+  "markdown.preview.breaks": true,
+  "npm.enableScriptExplorer": true,
   "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
+  "python.venvPath": "~/.virtualenvs",
   "scss.validate": true,
   "search.exclude": {
-    "**/node_modules": true,
-    "**/bower_components": true,
-    "coverage": true,
-    ".vscode": true,
-    "assets": true,
-    "doc": true,
-    "release": true
+      "**/bower_components": true,
+      "**/node_modules": true,
+      ".vscode": true,
+      "assets": true,
+      "coverage": true,
+      "doc": true,
+      "release": true
   },
+  "search.location": "panel",
   "sonarlint.ls.javaHome": "/Library/Java/Home",
   "terminal.external.osxExec": "Terminal.app",
   "terminal.integrated.confirmOnExit": true,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "typescript.format.enable": false,
-  "typescript.validate.enable": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 0,
-  "workbench.activityBar.visible": true,
-  "workbench.editor.enablePreview": true,
-  "workbench.editor.enablePreviewFromQuickOpen": true,
-  "workbench.statusBar.visible": true,
-  "launch": {
-    "configurations": [
-      {
-        "type": "chrome",
-        "request": "launch",
-        "name": "Launch Chrome against localhost",
-        "url": "http://localhost:3000",
-        "webRoot": "${workspaceFolder}"
-      },
-      {
-        "type": "node",
-        "name": "Launch current .ts file",
-        "cwd": "${workspaceFolder}",
-        "request": "launch",
-        "protocol": "inspector",
-        "internalConsoleOptions": "openOnSessionStart",
-        "args": [
-          "${relativeFile}"
-        ],
-        "runtimeArgs": [
-          "--inspect-brk",
-          "-r",
-          "ts-node/register"
-        ]
-      }
-    ],
-    "compounds": []
-  },
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true
-  },
-  "gitlens.historyExplorer.enabled": true,
-  "workbench.iconTheme": "eq-material-theme-icons",
-  "tslint.autoFixOnSave": true,
-  "explorer.confirmDelete": false,
-  "breadcrumbs.enabled": true,
-  "markdown.preview.breaks": true,
-  "search.location": "panel",
-  "debug.inlineValues": true,
-  "workbench.colorTheme": "Material Theme High Contrast",
   "terminal.integrated.fontFamily": "Hack",
   "terminal.integrated.fontSize": 13,
-  "eslint.alwaysShowStatus": true,
-  "gitlens.views.fileHistory.enabled": true,
-  "gitlens.views.lineHistory.enabled": true
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "tslint.autoFixOnSave": true,
+  "typescript.format.enable": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.validate.enable": true,
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Material Theme Palenight",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  "workbench.statusBar.visible": true
 }

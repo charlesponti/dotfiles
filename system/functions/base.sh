@@ -41,23 +41,6 @@ function brew-daily() {
   brew doctor
 }
 
-function eslint-init () {
-  # Install all the things!
-  npm i -D \
-    eslint \
-    eslint-plugin-import \
-    eslint-plugin-node \
-    eslint-plugin-promise \
-    eslint-plugin-standard \
-    eslint-config-standard \
-    babel-eslint \
-    babel-preset-env;
-
-  # Once all the packages have been saved, add eslintrc file
-  cp ~/.dotfiles/templates/.eslintrc .eslintrc;
-  cp ~/.dotfiles/templates/.babelrc .babelrc;
-}
-
 function ts-init () {
   informer "Installing typescript dependencies"
   npm i typescript tslint ts-node @types/node -D

@@ -6,7 +6,7 @@
   "debug.inlineValues": true,
   "editor.fontFamily": "Hack",
   "editor.fontSize": 12,
-  "editor.formatOnSaveTimeout": 750,
+  "editor.formatOnSave": false,
   "editor.formatOnType": true,
   "editor.minimap.enabled": true,
   "editor.renderWhitespace": "all",
@@ -19,6 +19,21 @@
   "editor.trimAutoWhitespace": true,
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+      {
+          "autoFix": true,
+          "language": "javascript"
+      },
+      {
+          "autoFix": true,
+          "language": "javascriptreact"
+      },
+      {
+          "autoFix": true,
+          "language": "vue"
+      }
+  ],
   "explorer.confirmDelete": false,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
@@ -32,6 +47,7 @@
   "html.format.enable": true,
   "html.format.wrapAttributes": "force-aligned",
   "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "launch": {
       "compounds": [],
       "configurations": [
@@ -61,6 +77,7 @@
       ]
   },
   "markdown.preview.breaks": true,
+  "materialTheme.accent": "Pink",
   "npm.enableScriptExplorer": true,
   "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
   "python.venvPath": "~/.virtualenvs",
@@ -87,32 +104,30 @@
   "typescript.validate.enable": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+      "activityBarBadge.background": "#FF4081",
+      "breadcrumb.activeSelectionForeground": "#FF4081",
+      "editorSuggestWidget.highlightForeground": "#FF4081",
+      "editorWidget.border": "#FF4081",
+      "editorWidget.resizeBorder": "#FF4081",
+      "list.activeSelectionForeground": "#FF4081",
+      "list.highlightForeground": "#FF4081",
+      "list.inactiveSelectionForeground": "#FF4081",
+      "menu.selectionForeground": "#FF4081",
+      "menubar.selectionForeground": "#FF4081",
+      "notificationLink.foreground": "#FF4081",
+      "panelTitle.activeBorder": "#FF4081",
+      "pickerGroup.foreground": "#FF4081",
+      "progressBar.background": "#FF4081",
+      "scrollbarSlider.activeBackground": "#FF408150",
+      "settings.headerForeground": "#FF4081",
+      "settings.modifiedItemIndicator": "#FF4081",
+      "tab.activeBorder": "#FF4081",
+      "textLink.foreground": "#FF4081"
+  },
   "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "workbench.editor.enablePreview": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.iconTheme": "material-icon-theme",
-"workbench.statusBar.visible": true,
-"javascript.updateImportsOnFileMove.enabled": "always",
-"workbench.colorCustomizations": {
-    "activityBarBadge.background": "#FF4081",
-    "list.activeSelectionForeground": "#FF4081",
-    "list.inactiveSelectionForeground": "#FF4081",
-    "list.highlightForeground": "#FF4081",
-    "scrollbarSlider.activeBackground": "#FF408150",
-    "editorSuggestWidget.highlightForeground": "#FF4081",
-    "textLink.foreground": "#FF4081",
-    "progressBar.background": "#FF4081",
-    "pickerGroup.foreground": "#FF4081",
-    "tab.activeBorder": "#FF4081",
-    "notificationLink.foreground": "#FF4081",
-    "editorWidget.resizeBorder": "#FF4081",
-    "editorWidget.border": "#FF4081",
-    "settings.modifiedItemIndicator": "#FF4081",
-    "settings.headerForeground": "#FF4081",
-    "panelTitle.activeBorder": "#FF4081",
-    "breadcrumb.activeSelectionForeground": "#FF4081",
-    "menu.selectionForeground": "#FF4081",
-    "menubar.selectionForeground": "#FF4081"
-},
-"materialTheme.accent": "Pink"
+  "workbench.statusBar.visible": true
 }

@@ -34,11 +34,11 @@ function brew-daily() {
   echo "Cleaning up Homebrew..."
   brew cleanup
 
-  echo "Pruning Homebrew..."
-  # brew prune
-
   echo "Sending Homebrew to the doctor..."
   brew doctor
+
+  echo "Upgrade NPM stuff..."
+  npm i -g
 }
 
 function ts-init () {

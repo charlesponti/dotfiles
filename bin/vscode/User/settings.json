@@ -35,6 +35,9 @@
       }
   ],
   "explorer.confirmDelete": false,
+  "files.associations": {
+    "*.snap": "javascript"
+  },
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,

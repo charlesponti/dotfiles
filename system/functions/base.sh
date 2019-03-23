@@ -38,7 +38,7 @@ function brew-daily() {
   brew doctor
 
   echo "Upgrade NPM stuff..."
-  npm i -g
+  npm update -g
 }
 
 function ts-init () {

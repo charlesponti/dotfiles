@@ -21,6 +21,8 @@ echo ""
 echo "Setting default to stable..."
 nvm alias default stable
 
+git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
+
 # npm install typescript -g
 
 # For updating packages in a Node project

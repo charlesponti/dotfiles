@@ -39,8 +39,8 @@
     "*.snap": "javascript"
   },
   "files.trimTrailingWhitespace": true,
+  "git.path": "/usr/local/bin/hub",
   "git.autofetch": true,
-  "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "gitlens.advanced.messages": {
       "suppressShowKeyBindingsNotice": true
@@ -132,5 +132,6 @@
   "workbench.editor.enablePreview": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.statusBar.visible": true
+"workbench.statusBar.visible": true,
+"git.autoStash": true
 }

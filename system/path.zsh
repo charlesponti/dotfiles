@@ -1,14 +1,11 @@
 # MANPATH
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-# PHP
-# export PHP_PATH="$(brew --prefix homebrew/php/php@7.0)/bin"
-
 # Python
 export PYTHON_PATH="/usr/local/opt/python/libexec/bin"
 
 # Go
-export GOPATH=~/.go
+export GOPATH="~/.go"
 
 # SQLite
 export SQLITE_PATH="/usr/local/opt/sqlite/bin"

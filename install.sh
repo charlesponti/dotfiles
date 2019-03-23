@@ -85,11 +85,11 @@ link_file () {
 
 SCRIPTS=$dotfiles/bin
 
-info 'installing dotfiles'
+info '😲 Installing dotfiles'
 bash $SCRIPTS/symlinks.sh
 success "Done!"
 
-info "Installing dependencies"
+info "😲 Installing the goods"
 bash $SCRIPTS/homebrew-install.sh
 bash $SCRIPTS/git-install.sh
 bash $SCRIPTS/python-install.sh
@@ -99,12 +99,12 @@ bash $SCRIPTS/macos/base.sh
 bash $SCRIPTS/pcat-install.sh
 success "Done!"
 
-info 'Installing applications...'
+info '😲 Installing applications...'
 sh -c applications.sh
 success ' Done!'
 
-info ' Making ~/Developer folder'
+info '📁 Making ~/Developer folder'
 mkdir ~/Developer
-success ' Done!'
+success '✅ Done! ✅'
 
-success '  All installed!'
+success '🚀 All installed! 🚀'

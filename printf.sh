@@ -1,5 +1,7 @@
 informer () {
+  echo ''
   printf "[ \033[00;34m..\033[0m ] $1\n"
+  echo ''
 }
 
 user () {

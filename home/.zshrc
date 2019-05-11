@@ -4,6 +4,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
+ZSH_THEME=robbyrussell
+
 # Plugins (found in ~/.oh-my-zsh/plugins/*)
 plugins=(
   git
@@ -64,5 +66,3 @@ if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/.google-clo
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
-
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

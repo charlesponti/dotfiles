@@ -29,15 +29,16 @@ function kraken () {
 }
 
 function brew-daily() {
+  informer "Upgrading Homebrew packages..."
   brew upgrade
 
-  echo "Cleaning up Homebrew..."
+  informer "Cleaning up Homebrew..."
   brew cleanup
 
-  echo "Sending Homebrew to the doctor..."
+  informer "Sending Homebrew to the doctor..."
   brew doctor
 
-  echo "Upgrade NPM stuff..."
+  informer "Upgrading NPM modules..."
   npm update -g
 }
 

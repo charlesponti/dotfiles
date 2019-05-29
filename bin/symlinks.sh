@@ -30,9 +30,10 @@ VSCODE_BIN=$dotfiles/bin/vscode/User
 
 # Remove snippets folder if one already exists
 if [[ -d "$VSCODE/snippets" ]]; then
-  rm "$VSCODE/snippets"
+  trash "$VSCODE/snippets"
 fi
 
 # Symlink VSCode settings
+trash "$VSCODE/settings.json"
 ln -snf $VSCODE_BIN/settings.json "$VSCODE"
 ln -snf $VSCODE_BIN/snippets "$VSCODE"

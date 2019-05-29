@@ -15,6 +15,7 @@ brew install trash
 brew install unrar
 brew install wget
 brew install tree
+brew install kubernetes-cli
 
 brew prune
 brew doctor

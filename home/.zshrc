@@ -43,8 +43,9 @@ fi
 
 # NMV
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  2>/dev/null
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+$(nvm use node) 2>/dev/null
 
 dotfiles=$HOME/.dotfiles
 SYSTEM_PATH=$dotfiles/system

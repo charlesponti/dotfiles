@@ -67,6 +67,12 @@ source $SYSTEM_PATH/path.zsh
 # The next line enables shell command completion for gcloud.
 # if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
 
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+
+alias l='colorls --group-directories-first --almost-all'
+alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
+
+export PYENV_VERSION="3.6.9"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-12.0.2.jdk//Contents/Home"

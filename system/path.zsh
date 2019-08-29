@@ -13,4 +13,6 @@ export SQLITE_PATH="/usr/local/opt/sqlite/bin"
 # HomeBrew
 export HOMEBREW_PATH="/usr/local/sbin:/usr/local/bin"
 
-export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$PATH"
+export ARCANIST="~/.phabricator/arcanist/bin"
+
+export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$ARCANIST:$PATH"

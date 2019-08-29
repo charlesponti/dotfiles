@@ -129,6 +129,7 @@
   "workbench.editor.enablePreview": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.statusBar.visible": true,
-"git.autoStash": true,
-"explorer.confirmDragAndDrop": false
+    "git.autoStash": true,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.rendererType": "dom"
 }

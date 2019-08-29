@@ -71,6 +71,8 @@ source $SYSTEM_PATH/path.zsh
 autoload -U promptinit; promptinit
 prompt spaceship
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
 

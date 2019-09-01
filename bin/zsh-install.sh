@@ -1,5 +1,5 @@
 # Install ZSH & completions
-brew install zsh zsh-completions
+brew install zsh zsh-completions zsh-autosuggestions
 
 # Install Oh-My-Zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -8,8 +8,8 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 npm install spaceship-prompt -g
 
 # Install Powerline Fonts
-git clone https://github.com/powerline/fonts.git --depth=1; 
-cd fonts; 
-./install.sh; 
-cd ..; 
+git clone https://github.com/powerline/fonts.git --depth=1;
+cd fonts;
+./install.sh;
+cd ..;
 rm -rf fonts;

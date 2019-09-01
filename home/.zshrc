@@ -77,5 +77,8 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
 
+# PyEnv
 export PYENV_VERSION="3.6.9"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-12.0.2.jdk//Contents/Home"
+
+# Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"

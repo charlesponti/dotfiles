@@ -4,7 +4,7 @@
     "css.validate": true,
     "debug.inlineValues": true,
     "editor.fontFamily": "Menlo",
-    "editor.fontSize": 12,
+    "editor.fontSize": 14,
     "editor.formatOnSave": false,
     "editor.formatOnType": true,
     "editor.minimap.enabled": true,
@@ -14,7 +14,7 @@
         80
     ],
     "editor.snippetSuggestions": "inline",
-    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggestSelection": "first",
     "editor.tabSize": 2,
     "editor.trimAutoWhitespace": true,
     "eslint.alwaysShowStatus": true,
@@ -132,5 +132,18 @@
     "workbench.statusBar.visible": true,
     "git.autoStash": true,
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "python.jediEnabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration"
 }

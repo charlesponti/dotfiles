@@ -79,6 +79,10 @@ alias ll='colorls --group-directories-first --almost-all --long' # detailed list
 
 # PyEnv
 export PYENV_VERSION="3.6.9"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"

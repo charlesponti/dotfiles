@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-brew install pyenv
+brew install pyenv            # version control management
+brew install pyenv-virtualenv # virtual environment management
 
 pyenv install 3.6.9
 

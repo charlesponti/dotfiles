@@ -86,3 +86,8 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
+
+alias k="kubectl"
+alias d="docker"
+alias g="git"
+alias c="code"

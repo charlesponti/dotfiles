@@ -6,6 +6,8 @@ then
   # Load Git aliases
   source $HOME/.dotfiles/system/aliases/git.aliases.sh
 
+  # alias l='colorls --group-directories-first --almost-all'
+  # alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
   alias ls="gls -F --color"
   alias l="gls -lAh --color"
   alias ll="gls -l --color"

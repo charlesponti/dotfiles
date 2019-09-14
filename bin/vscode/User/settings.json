@@ -132,5 +132,9 @@
     "workbench.statusBar.visible": true,
     "git.autoStash": true,
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "workbench.colorTheme": "Default High Contrast",
+    "python.linting.pylintPath": "/Users/charlesponti/.pyenv/shims/pylint",
+    "python.pythonPath": "/Users/charlesponti/.pyenv/shims/python",
+    "python.pipenvPath": "/Users/charlesponti/.pyenv/shims/pipenv"
 }

@@ -1,8 +1,5 @@
 # Install commonly used applications
 
-# docker
-brew cask install docker
-
 # termianl
 brew cask install hyper
 
@@ -29,3 +26,6 @@ brew cask install gitkraken
 
 # Install OpenJava
 open https://adoptopenjdk.net/releases.html#x64_mac
+
+# Install Docker for Mac
+open https://hub.docker.com/editions/community/docker-ce-desktop-mac

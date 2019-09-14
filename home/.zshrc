@@ -61,6 +61,7 @@ source $SYSTEM_PATH/aliases/base.sh
 source $SYSTEM_PATH/functions/base.sh
 source $SYSTEM_PATH/path.zsh
 # source $dotfiles/bin/graphql-completion.sh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
@@ -68,21 +69,11 @@ source $SYSTEM_PATH/path.zsh
 # The next line enables shell command completion for gcloud.
 # if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
 
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-alias l='colorls --group-directories-first --almost-all'
-alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
-
 # PyEnv
 export PYENV_VERSION="3.6.9"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
@@ -91,3 +82,9 @@ alias k="kubectl"
 alias d="docker"
 alias g="git"
 alias c="code"
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+
+# prompt spaceship
+

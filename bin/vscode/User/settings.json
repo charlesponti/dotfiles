@@ -145,5 +145,9 @@
         "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "python.jediEnabled": false,
-    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration"
+    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
+    "workbench.colorTheme": "Default High Contrast",
+    "python.linting.pylintPath": "/Users/charlesponti/.pyenv/shims/pylint",
+    "python.pythonPath": "/Users/charlesponti/.pyenv/shims/python",
+    "python.pipenvPath": "/Users/charlesponti/.pyenv/shims/pipenv"
 }

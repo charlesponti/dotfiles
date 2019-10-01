@@ -85,6 +85,7 @@ alias c="code"
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
+prompt spaceship
 
-# prompt spaceship
+export AIRFLOW_HOME="$(pwd)/airflow_home"
 

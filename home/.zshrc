@@ -41,12 +41,6 @@ then
   source ~/.localrc
 fi
 
-# NMV
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  2>/dev/null
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-$(nvm use node) 2>/dev/null
-
 dotfiles=$HOME/.dotfiles
 SYSTEM_PATH=$dotfiles/system
 
@@ -69,7 +63,13 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # The next line enables shell command completion for gcloud.
 # if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
 
-# PyEnv
+# NodeJS - NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  2>/dev/null
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+$(nvm use node) 2>/dev/null
+
+# Python - PyEnv & Virtualenv
 export PYENV_VERSION="3.6.9"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -78,14 +78,15 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
 
-alias k="kubectl"
-alias d="docker"
-alias g="git"
-alias c="code"
-
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
 
+# Apache Airflow
+function airflow-init () {
+  mkdir ./airflow_home
+  cd airflow_home
+  airflow initdb
+}
 export AIRFLOW_HOME="$(pwd)/airflow_home"
 

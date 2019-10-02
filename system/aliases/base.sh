@@ -6,6 +6,11 @@ then
   # Load Git aliases
   source $HOME/.dotfiles/system/aliases/git.aliases.sh
 
+  alias k="kubectl"
+  alias d="docker"
+  alias g="git"
+  alias c="code"
+
   # alias l='colorls --group-directories-first --almost-all'
   # alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
   alias ls="gls -F --color"
@@ -76,6 +81,7 @@ then
   # Add base .eslintrc to current directory
   alias editorconfig-init="cp ${dotfiles}/home/.editorconfig .editorconfig"
 
+  # Git
   function git-init() {
     git init
     cp $HOME/.dotfiles/home/.gitignore_global .gitignore

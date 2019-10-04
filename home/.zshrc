@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-ZSH_THEME=robbyrussell
+# ZSH_THEME=robbyrussell
 
 # Plugins (found in ~/.oh-my-zsh/plugins/*)
 plugins=(
@@ -77,10 +77,6 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
-
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
 
 # Apache Airflow
 function airflow-init () {

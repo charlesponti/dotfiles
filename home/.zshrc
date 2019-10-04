@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-# ZSH_THEME=robbyrussell
+ZSH_THEME=robbyrussell
 
 # Plugins (found in ~/.oh-my-zsh/plugins/*)
 plugins=(

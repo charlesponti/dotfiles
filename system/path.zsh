@@ -3,10 +3,10 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 # Python
 export PYTHON_PATH="/usr/local/opt/python/libexec/bin"
-export ARCANIST="~/.phabricator/arcanist/bin"
+export ARCANIST="$HOME/.phabricator/arcanist/bin"
 
 # Go
-export GOPATH="~/.go"
+export GOPATH="$HOME/.go"
 
 # SQLite
 export SQLITE_PATH="/usr/local/opt/sqlite/bin"

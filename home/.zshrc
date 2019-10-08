@@ -87,5 +87,7 @@ function airflow-init () {
 }
 export AIRFLOW_HOME="$(pwd)/airflow_home"
 
-PATH=$PATH:/Users/charlesponti/arc/arcanist/bin
+# Apache Spark
+export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 
+PATH=$PATH:/Users/charlesponti/arc/arcanist/bin

@@ -61,9 +61,14 @@ then
   alias elastic="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 
   #-----------------------
-  # Ruby.
+  # Ruby
   #-----------------------
   alias bex='bundle exec'
+
+  #-----------------------
+  # Python
+  #-----------------------
+  alias venvs='pyenv virtualenvs'
 
   #-----------------------
   # NGINX

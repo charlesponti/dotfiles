@@ -69,7 +69,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 $(nvm use node) 2>/dev/null
 
-# Python - PyEnv & Virtualenv
+# Python, PyEnv, PipEnv & Pyenv-Virtualenv
+export PIPENV_VERBOSITY=-1
 export PYENV_VERSION="3.6.9"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -87,3 +88,4 @@ function airflow-init () {
 export AIRFLOW_HOME="$(pwd)/airflow_home"
 
 PATH=$PATH:/Users/charlesponti/arc/arcanist/bin
+

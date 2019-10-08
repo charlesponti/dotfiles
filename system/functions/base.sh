@@ -28,7 +28,7 @@ function kraken () {
   open -na 'GitKraken' --args -p $(pwd)
 }
 
-function brew-daily() {
+function daily() {
   informer "Upgrading Homebrew packages..."
   brew upgrade
 
@@ -40,6 +40,14 @@ function brew-daily() {
 
   informer "Upgrading NPM modules..."
   npm update -g
+}
+
+#-----------------------
+# Git
+#-----------------------
+function git-init() {
+  git init
+  cp $HOME/.dotfiles/home/.gitignore_global .gitignore
 }
 
 function ts-init () {

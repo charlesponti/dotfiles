@@ -81,12 +81,6 @@ then
   # Add base .eslintrc to current directory
   alias editorconfig-init="cp ${dotfiles}/home/.editorconfig .editorconfig"
 
-  # Git
-  function git-init() {
-    git init
-    cp $HOME/.dotfiles/home/.gitignore_global .gitignore
-  }
-
   # Empty OS X trash
   alias emptytrash="sudo rm -rf ~/.Trash/*"
 

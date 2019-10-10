@@ -69,3 +69,13 @@ function docker-rebuild () {
   informer "🏗 Rebuidling all the Docker things...."
   docker-compose up --build
 }
+
+#-------------------------------------------
+# command: venv
+# description: create new virtualenv
+# args:
+#   $1 - Name of virtualenv
+#-------------------------------------------
+function venv() {
+  pyenv virtualenv $1
+}

@@ -142,3 +142,20 @@ then
   alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
   alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
 fi
+
+function start-rabbitmq() {
+  docker run --rm \
+    --name rabbitmq-docker \
+    -p 5672:5672 rabbitmq
+}
+
+function start-postgres() {
+  docker run --rm \
+    --name pg-docker \
+    -e POSTGRES_PASSWORD=docker -d \
+    -p 5432:5432 \
+    -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data \
+    postgres
+}
+
+

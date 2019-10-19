@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 
-brew install pyenv            # version control management
-brew install pyenv-virtualenv # virtual environment management
-
+# Intall Pyenv for Python version managemnet
+brew install pyenv
 pyenv install 3.6.9
-
 pyenv global 3.6.9
-
 pyenv use 3.6.9
 
-pip install pipenv
-
-curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | $SHELL
-
-echo "\n#Virtualenv\nsource /$HOME/.venvburrito/startup.sh" >> ~/.bash_profile.local
+# Install Poetry
+curl -SSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python

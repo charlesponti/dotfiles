@@ -5,15 +5,18 @@
     "debug.inlineValues": true,
     "editor.fontFamily": "Menlo",
     "editor.fontSize": 14,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "all",
+    "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
-    "python.linting.pylintPath": "/Users/charlesponti/.pyenv/shims/pylint",
-    "python.pythonPath": "/Users/charlesponti/.pyenv/shims/python",
-    "python.pipenvPath": "/Users/charlesponti/.pyenv/shims/pipenv",
-    "python.formatting.provider": "autopep8",
+    "python.pythonPath": "~/.pyenv/shims/python",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintPath": "~/.pyenv/shims/pylint",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "~/Library/Caches/pypoetry/virtualenvs/airflow-py3.6/bin/black",
     "editor.rulers": [
         80
     ],
@@ -59,34 +62,6 @@
     "html.format.wrapAttributes": "force-aligned",
     "javascript.implicitProjectConfig.experimentalDecorators": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "launch": {
-        "compounds": [],
-        "configurations": [
-            // {
-            //     "args": [
-            //         "${relativeFile}"
-            //     ],
-            //     "cwd": "${workspaceFolder}",
-            //     "internalConsoleOptions": "openOnSessionStart",
-            //     "name": "Launch current .ts file",
-            //     "protocol": "inspector",
-            //     "request": "launch",
-            //     "runtimeArgs": [
-            //         "--inspect-brk",
-            //         "-r",
-            //         "ts-node/register"
-            //     ],
-            //     "type": "node"
-            // },
-            // {
-            //     "name": "Launch Chrome against localhost",
-            //     "request": "launch",
-            //     "type": "chrome",
-            //     "url": "http://localhost:3000",
-            //     "webRoot": "${workspaceFolder}"
-            // }
-        ]
-    },
     "markdown.preview.breaks": true,
     "npm.enableScriptExplorer": true,
     "scss.validate": true,
@@ -144,9 +119,9 @@
         "**/.factorypath": true
     },
     "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-        "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
     "workbench.colorTheme": "Default Light+",

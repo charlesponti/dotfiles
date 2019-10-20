@@ -1,5 +1,14 @@
 DOCKER_VOLUMES=$HOME/.docker/volumes
 
+#######################################
+# Run standard docker containers
+# Globals:
+#   HOME
+# Arguments:
+#   $1 - Container to run
+# Returns:
+#   None
+#######################################
 function docker-container () {
   if [ "$1" == "airflow" ]; then
     docker run \
@@ -19,4 +28,13 @@ function docker-container () {
       -p 5672:5672 \
       rabbitmq
   fi
+}
+
+# Destroy all the docker things and create that which u've destroyed!
+function docker-rebuild () {
+  informer "🗑 Destroying all the Docker things...."
+  docker-compose down --rmi all --remove-orphans -v
+
+  informer "🏗 Rebuidling all the Docker things...."
+  docker-compose up --build
 }

@@ -1,5 +1,25 @@
 #!/usr/bin/env bash
 
+#-----------------------
+# Git
+#-----------------------
+
+#######################################
+# Initialize a Git repository
+# Globals:
+#   HOME
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+function git-init() {
+  # Initialize repository
+  git init
+  # Copy .gitignore
+  cp $HOME/.dotfiles/home/.gitignore_global .gitignore
+}
+
 function gdiff {
   git --no-pager diff --color=auto --no-ext-diff --no-index "$@"
 }

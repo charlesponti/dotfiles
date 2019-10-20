@@ -43,14 +43,6 @@ function daily() {
   npm update -g
 }
 
-#-----------------------
-# Git
-#-----------------------
-function git-init() {
-  git init
-  cp $HOME/.dotfiles/home/.gitignore_global .gitignore
-}
-
 function ts-init () {
   informer "Installing typescript dependencies"
   npm i typescript tslint ts-node @types/node -D

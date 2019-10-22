@@ -48,7 +48,7 @@ SYSTEM_PATH=$dotfiles/system
 source <(kubectl completion zsh)
 
 # Import Stuffs
-source $dotfiles/printf.sh
+source $dotfiles/bin/printf.sh
 source $SYSTEM_PATH/grc.zsh
 source $SYSTEM_PATH/config.zsh
 source $SYSTEM_PATH/aliases/base.sh

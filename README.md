@@ -1,22 +1,23 @@
 # dotfiles
 
-your dotfiles are how you personalize your system.
+`dotfiles` are how you personalize your system.
 
 these are mine.
 
 largely taken from *holman* with some special stuff for my own needs.
 
-take and customise to your liking.
+take and customise to your liking 💁
 
-## Other Applications To Download
-- 1Password
-- Docker
-- Google Chrome
-- Google Drive
-- Keynote, Numbers, Pages
-- Kindle
-- Microsoft Office
+## dope applications to download
+- 1Password          (password manager)
+- Google Chrome      (web browsing)
+- Google Drive       (cloud storage)
+- Kindle             (reading)
+- Microsoft Office   (office suite)
 - SetApp
-	- CleanMyMac
-	- Shimo (VPN)
-- Bear
+	- CleanMyMac       (computer management)
+	- Shimo            (vpn)
+- App Store
+	- Bear             (writing)
+- Docker For Mac     (developer tools)
+- VS Code            (code editor)

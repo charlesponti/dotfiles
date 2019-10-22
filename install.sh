@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dotfiles=~/.dotfiles
-source $dotfiles/printf.sh
+source $dotfiles/bin/printf.sh
 
 set -e
 
@@ -85,43 +85,39 @@ link_file () {
 
 SCRIPTS=$dotfiles/bin
 
-informer '😲 Installing dotfiles'
+informer "😲 Installing dotfiles"
 bash $SCRIPTS/symlinks.sh
 success "Done!"
 
-informer "😲 Installing the goods"
-bash $SCRIPTS/homebrew-install.sh
+informer "😲 Installing Homebrew"
+bash $SCRIPTS/installers/homebrew-install.sh
 success "Done!"
 
 informer "😲 Installing Git"
-bash $SCRIPTS/git-install.sh
+bash $SCRIPTS/installers/git-install.sh
 success "Done!"
 
 informer "😲 Installing Python"
-bash $SCRIPTS/python-install.sh
+bash $SCRIPTS/installers/python-install.sh
 success "Done!"
 
 informer "😲 Installing NodeJS"
-bash $SCRIPTS/nodejs-install.sh
+bash $SCRIPTS/installers/nodejs-install.sh
 success "Done!"
 
 informer "😲 Installing ZSH"
-bash $SCRIPTS/zsh-install.sh
+bash $SCRIPTS/installers/zsh-install.sh
 success "Done!"
 
 informer "😲 Configuring MacOS"
 bash $SCRIPTS/macos/base.sh
 success "Done!"
 
-informer "😲 Installing PCat"
-bash $SCRIPTS/pcat-install.sh
-success "Done!"
-
-informer '😲 Installing applications...'
+informer "😲 Installing applications..."
 sh -c applications.sh
 success ' Done!'
 
-informer '📁 Making ~/Developer folder'
+informer "📁 Making ~/Developer folder"
 mkdir ~/Developer
 
-success '🚀 Ready to ROCK! 🚀'
+success "🚀 Ready to ROCK! 🚀"

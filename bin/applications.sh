@@ -3,7 +3,7 @@
 # termianl
 brew cask install hyper
 
-# browser
+# web browsing
 brew cask install google-chrome
 
 # spotify
@@ -20,9 +20,6 @@ brew cask install setapp
 
 # api testing
 brew cask install postman
-
-# git managment
-brew cask install gitkraken
 
 # Install OpenJava
 open https://adoptopenjdk.net/releases.html#x64_mac

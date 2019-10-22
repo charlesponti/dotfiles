@@ -1,5 +1,11 @@
 // Place your settings in this file to overwrite the default settings
 {
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[python]": {
+        "editor.tabSize": 4
+    },
     "breadcrumbs.enabled": true,
     "css.validate": true,
     "debug.inlineValues": true,
@@ -9,14 +15,6 @@
     "editor.formatOnType": true,
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "all",
-    "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
-    "python.pythonPath": "~/.pyenv/shims/python",
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintPath": "~/.pyenv/shims/pylint",
-    "python.formatting.provider": "black",
-    "python.formatting.blackPath": "~/Library/Caches/pypoetry/virtualenvs/airflow-py3.6/bin/black",
     "editor.rulers": [
         80
     ],
@@ -42,90 +40,35 @@
         }
     ],
     "explorer.confirmDelete": false,
-    "[javascript]": {
-        "editor.formatOnSave": false
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        ".env": "shellscript",
+        "*.snap": "javascript",
     },
     "files.autoSave": "onFocusChange",
-    "files.associations": {
-        "*.snap": "javascript"
-    },
-    "files.trimTrailingWhitespace": true,
-    "git.path": "/usr/local/bin/hub",
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "html.format.enable": true,
-    "html.format.wrapAttributes": "force-aligned",
-    "javascript.implicitProjectConfig.experimentalDecorators": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "markdown.preview.breaks": true,
-    "npm.enableScriptExplorer": true,
-    "scss.validate": true,
-    "search.exclude": {
-        "**/bower_components": true,
-        "**/node_modules": true,
-        ".vscode": true,
-        "assets": true,
-        "coverage": true,
-        "doc": true,
-        "release": true
-    },
-    "search.location": "panel",
-    "terminal.external.osxExec": "Terminal.app",
-    "terminal.integrated.confirmOnExit": true,
-    "terminal.integrated.fontFamily": "monospace",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "typescript.format.enable": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "typescript.validate.enable": true,
-    "window.zoomLevel": 0,
-    "workbench.activityBar.visible": true,
-    "workbench.colorCustomizations": {
-        "activityBarBadge.background": "#FF4081",
-        "breadcrumb.activeSelectionForeground": "#FF4081",
-        "editorSuggestWidget.highlightForeground": "#FF4081",
-        "editorWidget.border": "#FF4081",
-        "editorWidget.resizeBorder": "#FF4081",
-        "list.activeSelectionForeground": "#FF4081",
-        "list.highlightForeground": "#FF4081",
-        "list.inactiveSelectionForeground": "#FF4081",
-        "menu.selectionForeground": "#FF4081",
-        "menubar.selectionForeground": "#FF4081",
-        "notificationLink.foreground": "#FF4081",
-        "panelTitle.activeBorder": "#FF4081",
-        "pickerGroup.foreground": "#FF4081",
-        "progressBar.background": "#FF4081",
-        "scrollbarSlider.activeBackground": "#FF408150",
-        "settings.headerForeground": "#FF4081",
-        "settings.modifiedItemIndicator": "#FF4081",
-        "tab.activeBorder": "#FF4081",
-        "textLink.foreground": "#FF4081"
-    },
-    "workbench.editor.enablePreview": true,
-    "workbench.editor.enablePreviewFromQuickOpen": true,
-    "workbench.statusBar.visible": true,
-    "git.autoStash": true,
-    "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.rendererType": "dom",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "files.trimTrailingWhitespace": true,
+    "git.autoStash": true,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.path": "/usr/local/bin/hub",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
     },
-    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
-    "workbench.colorTheme": "Default Light+",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
     "hdinsight.disableOpenSurveyLink": true,
+    "html.format.enable": true,
+    "html.format.wrapAttributes": "force-aligned",
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "markdown.preview.breaks": true,
+    "npm.enableScriptExplorer": true,
     "peacock.favoriteColors": [
         {
             "name": "Angular Red",
@@ -179,5 +122,66 @@
             "name": "Vue Green",
             "value": "#42b883"
         }
-    ]
+    ],
+    "python.autoComplete.addBrackets": true,
+    "python.formatting.blackPath": "~/Library/Caches/pypoetry/virtualenvs/airflow-py3.6/bin/black",
+    "python.formatting.provider": "black",
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "~/.pyenv/shims/pylint",
+    "python.pythonPath": "~/.pyenv/shims/python",
+    "scss.validate": true,
+    "search.exclude": {
+        "**/bower_components": true,
+        "**/node_modules": true,
+        ".vscode": true,
+        "assets": true,
+        "coverage": true,
+        "doc": true,
+        "release": true
+    },
+    "search.location": "panel",
+    "terminal.external.osxExec": "Terminal.app",
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "typescript.format.enable": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.validate.enable": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#FF4081",
+        "breadcrumb.activeSelectionForeground": "#FF4081",
+        "editorSuggestWidget.highlightForeground": "#FF4081",
+        "editorWidget.border": "#FF4081",
+        "editorWidget.resizeBorder": "#FF4081",
+        "list.activeSelectionForeground": "#FF4081",
+        "list.highlightForeground": "#FF4081",
+        "list.inactiveSelectionForeground": "#FF4081",
+        "menu.selectionForeground": "#FF4081",
+        "menubar.selectionForeground": "#FF4081",
+        "notificationLink.foreground": "#FF4081",
+        "panelTitle.activeBorder": "#FF4081",
+        "pickerGroup.foreground": "#FF4081",
+        "progressBar.background": "#FF4081",
+        "scrollbarSlider.activeBackground": "#FF408150",
+        "settings.headerForeground": "#FF4081",
+        "settings.modifiedItemIndicator": "#FF4081",
+        "tab.activeBorder": "#FF4081",
+        "textLink.foreground": "#FF4081"
+    },
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.statusBar.visible": true
 }

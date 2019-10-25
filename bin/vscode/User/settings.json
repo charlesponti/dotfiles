@@ -131,6 +131,7 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pylintPath": "~/.pyenv/shims/pylint",
     "python.pythonPath": "~/.pyenv/shims/python",
+    "python.sortImports.path": "~/.pyenv/shims/isort",
     "scss.validate": true,
     "search.exclude": {
         "**/bower_components": true,

@@ -124,7 +124,7 @@
         }
     ],
     "python.autoComplete.addBrackets": true,
-    "python.formatting.blackPath": "~/Library/Caches/pypoetry/virtualenvs/airflow-py3.6/bin/black",
+    "python.formatting.blackPath": "~/.pyenv/shims/black",
     "python.formatting.provider": "black",
     "python.jediEnabled": false,
     "python.linting.enabled": true,

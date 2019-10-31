@@ -92,4 +92,4 @@ export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 
 # Hadoop
 alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
-alias hstop="/usr/local/Cellar/3.2.1/2.8.2/sbin/stop-all.sh"
+alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"

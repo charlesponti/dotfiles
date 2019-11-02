@@ -61,5 +61,9 @@ function ts-init () {
 #   $1 - Name of virtualenv
 #-------------------------------------------
 function venv() {
-  pyenv virtualenv $1
+  python -m venv $1
+}
+
+dev() {
+  cd ~/Developer/$1
 }

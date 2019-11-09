@@ -60,10 +60,26 @@ function ts-init () {
 # args:
 #   $1 - Name of virtualenv
 #-------------------------------------------
-function venv() {
-  python -m venv $1
+function venv () {
+  pyenv -m venv .venv
+  . ./.venv/bin/activate
+  pip install --upgrade pip
+  pip install pipenv pylint isort black
+  pipenv install typing pytest
 }
 
-dev() {
-  cd ~/Developer/$1
+#-------------------------------------------
+# command: dev
+# description: jump to folder in Developer directory
+# args:
+#   $1 - name of folder
+#   $2 - --open to open in VS Code
+#-------------------------------------------
+function dev() {
+  if [$2 == "--open"]; then
+    code ~/Developer/$1
+  else
+    cd ~/Developer/$1
+  fi
 }
+

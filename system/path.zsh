@@ -9,9 +9,6 @@ export POETRY=$HOME/.poetry/bin
 # Go
 export GOPATH="$HOME/.go"
 
-# miniconda
-export MINICONDA="$HOME/.miniconda/bin"
-
 # SQLite
 export SQLITE_PATH="/usr/local/opt/sqlite/bin"
 
@@ -21,4 +18,4 @@ export HOMEBREW_PATH="/usr/local/sbin:/usr/local/bin"
 # kafka
 export KAFKA="$HOME/.kafka/bin"
 
-export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$MINICONDA:$ARCANIST:$POETRY:$KAFKA:$PATH"
+export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$ARCANIST:$POETRY:$KAFKA:$PATH"

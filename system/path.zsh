@@ -19,6 +19,6 @@ export SQLITE_PATH="/usr/local/opt/sqlite/bin"
 export HOMEBREW_PATH="/usr/local/sbin:/usr/local/bin"
 
 # kafka
-export KAFKA="$HOME/.kafka/bin"
+export KAFKA="$HOME/.kafka"
 
 export PATH="$HOMEBREW_PATH:$SQLITE_PATH:$PHP_PATH:$PYTHON_PATH:$GOPATH/bin:$MINICONDA:$ARCANIST:$POETRY:$KAFKA:$PATH"

@@ -66,11 +66,6 @@ then
   alias bex='bundle exec'
 
   #-----------------------
-  # Python
-  #-----------------------
-  alias venvs='pyenv virtualenvs'
-
-  #-----------------------
   # NGINX
   #-----------------------
   alias ngup='sudo nginx'

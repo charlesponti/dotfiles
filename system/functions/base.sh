@@ -61,7 +61,7 @@ function ts-init () {
 #   $1 - Name of virtualenv
 #-------------------------------------------
 function venv () {
-  pyenv -m venv .venv
+  python -m venv .venv
   . ./.venv/bin/activate
   pip install --upgrade pip
   pip install pipenv pylint isort black

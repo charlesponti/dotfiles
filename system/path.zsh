@@ -3,7 +3,7 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 # Python
 export PYTHON_PATH="/usr/local/opt/python/libexec/bin"
-export ARCANIST="$HOME/.arc"
+export ARCANIST="$HOME/.arc/arcanist/bin"
 export POETRY=$HOME/.poetry/bin
 
 # Go

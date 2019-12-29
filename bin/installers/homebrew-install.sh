@@ -16,7 +16,8 @@ brew install trash            # Trash (rm -rf replacement)
 brew install unrar            #
 brew install wget             #
 brew install tree             # Tree (display directories as tree)
-brew install kubernetes-cli   # Kubernetes
+brew install kubectl          # Kubernetes
+brew install minikube         # Minikube
 
 brew prune
 brew doctor

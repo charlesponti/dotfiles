@@ -168,15 +168,11 @@
         }
     ],
     "python.autoComplete.addBrackets": true,
-    "python.formatting.blackPath": "~/.pyenv/shims/black",
     "python.formatting.provider": "black",
     "editor.formatOnSaveTimeout": 0,
     "python.jediEnabled": false,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintPath": "~/.pyenv/shims/pylint",
-    "python.pythonPath": "~/.pyenv/shims/python",
-    "python.sortImports.path": "~/.pyenv/shims/isort",
     "scss.validate": true,
     "search.exclude": {
         "**/bower_components": true,
@@ -230,5 +226,6 @@
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.statusBar.visible": true,
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "diffEditor.ignoreTrimWhitespace": false
 }

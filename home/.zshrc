@@ -69,14 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 $(nvm use node) 2>/dev/null
 
-# Python, PyEnv, PipEnv & Pyenv-Virtualenv
-export PIPENV_VERBOSITY=-1
-export PYENV_VERSION="3.6.9"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
 
@@ -95,4 +87,8 @@ export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
 alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
 
+# Python
+alias python="/usr/local/bin/python3"
+alias pip="/usr/local/bin/pip3"
 alias penv="./.venv/bin/pipenv"
+alias faust="./.venv/bin/faust"

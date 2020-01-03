@@ -60,12 +60,21 @@ function ts-init () {
 # args:
 #   $1 - Name of virtualenv
 #-------------------------------------------
-function venv () {
-  python -m venv .venv
+function ponti-venv () {
+  informer "Creating virtual environment..."
+  python3 -m venv .venv
+
+  informer "Activating virtual environment..."
   . ./.venv/bin/activate
+
+  informer "Installing pip things..."
   pip install --upgrade pip
   pip install pipenv pylint isort black
+
+  informer "Installing pipenv things..."
   pipenv install typing pytest
+
+  informer "DoneZo!..."
 }
 
 #-------------------------------------------

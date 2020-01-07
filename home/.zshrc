@@ -86,9 +86,3 @@ export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 # Hadoop
 alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
 alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
-
-# Python
-alias python="/usr/local/bin/python3"
-alias pip="/usr/local/bin/pip3"
-alias penv="./.venv/bin/pipenv"
-alias faust="./.venv/bin/faust"

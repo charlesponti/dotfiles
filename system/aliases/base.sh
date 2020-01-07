@@ -4,7 +4,8 @@
 if $(gls &>/dev/null)
 then
   # Load Git aliases
-  source $HOME/.dotfiles/system/aliases/git.aliases.sh
+  source $HOME/.dotfiles/system/aliases/git.sh
+  source $HOME/.dotfiles/system/aliases/python.sh
 
   alias k="kubectl"
   alias d="docker"

@@ -177,6 +177,7 @@
     "search.exclude": {
         "**/bower_components": true,
         "**/node_modules": true,
+        "**/.venv": true,
         ".vscode": true,
         "assets": true,
         "coverage": true,

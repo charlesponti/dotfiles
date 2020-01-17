@@ -77,13 +77,16 @@ function ponti-venv () {
   informer "DoneZo!..."
 }
 
-#-------------------------------------------
-# command: dev
-# description: jump to folder in Developer directory
-# args:
+#######################################
+# Jump to folder in Developer directory
+# Globals:
+#   None
+# Arguments:
 #   $1 - name of folder
 #   $2 - --open to open in VS Code
-#-------------------------------------------
+# Returns:
+#   None
+#######################################
 function dev() {
   if [$2 == "--open"]; then
     code ~/Developer/$1
@@ -92,6 +95,15 @@ function dev() {
   fi
 }
 
-function whos_listening() {
-  lsof -nP -iTCP:$1 | grep LISTEN
+#######################################
+# Return list of processes listening on a given port
+# Globals:
+#   None
+# Arguments:
+#   $1 - port to search
+# Returns:
+#   None
+#######################################
+whos_listening() {
+  lsof -nP -iTCP:$1
 }

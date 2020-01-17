@@ -92,3 +92,6 @@ function dev() {
   fi
 }
 
+function whos_listening() {
+  lsof -nP -iTCP:$1 | grep LISTEN
+}

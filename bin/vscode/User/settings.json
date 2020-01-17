@@ -223,7 +223,7 @@
         "tab.activeBorder": "#FF4081",
         "textLink.foreground": "#FF4081"
     },
-    "workbench.colorTheme": "Material Theme Ocean",
+    "workbench.colorTheme": "Default Light+",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.statusBar.visible": true,

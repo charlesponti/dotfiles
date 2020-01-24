@@ -62,19 +62,19 @@ function ts-init () {
 #-------------------------------------------
 function ponti-venv () {
   informer "Creating virtual environment..."
-  python3 -m venv .venv
+  python3 -m venv env
 
   informer "Activating virtual environment..."
-  . ./.venv/bin/activate
+  . env/bin/activate
 
   informer "Installing pip things..."
   pip install --upgrade pip
-  pip install pipenv pylint isort black
+  pip install -U pipenv pylint isort black
 
   informer "Installing pipenv things..."
   pipenv install typing pytest
 
-  informer "DoneZo!..."
+  success "Done!"
 }
 
 #######################################

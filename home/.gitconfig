@@ -31,3 +31,6 @@
     default = simple
 [commit]
 	template = ~/.gitcommitmessage
+[user]
+	email = cj@ponti.io
+	name = Charlie

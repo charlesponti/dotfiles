@@ -64,24 +64,17 @@
     ],
     "editor.snippetSuggestions": "inline",
     "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
     "editor.trimAutoWhitespace": true,
     "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
     "eslint.enable": true,
     "eslint.validate": [
-        {
-            "autoFix": true,
-            "language": "javascript"
-        },
-        {
-            "autoFix": true,
-            "language": "javascriptreact"
-        },
-        {
-            "autoFix": true,
-            "language": "vue"
-        }
+        "javascript",
+        "javascriptreact",
+        "vue"
     ],
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -106,7 +99,6 @@
     },
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
-    "hdinsight.disableOpenSurveyLink": true,
     "html.format.enable": true,
     "html.format.wrapAttributes": "force-aligned",
     "javascript.implicitProjectConfig.experimentalDecorators": true,
@@ -177,7 +169,7 @@
     "search.exclude": {
         "**/bower_components": true,
         "**/node_modules": true,
-        "**/.venv": true,
+        "**/env": true,
         ".vscode": true,
         "assets": true,
         "coverage": true,

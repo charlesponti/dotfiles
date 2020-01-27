@@ -9,7 +9,7 @@ DOCKER_VOLUMES=$HOME/.docker/volumes
 # Returns:
 #   None
 #######################################
-function docker-container () {
+docker-container () {
   if [ "$1" == "airflow" ]; then
     docker run \
       -d \
@@ -30,8 +30,12 @@ function docker-container () {
   fi
 }
 
+alias dcup="docker-compose up --build --remove-orphans -d"
+
+alias dcdown="docker-compose down --rmi all --remove-orphans -v"
+
 # Destroy all the docker things and create that which u've destroyed!
-function docker-rebuild () {
+docker-rebuild () {
   informer "🗑 Destroying all the Docker things...."
   docker-compose down --rmi all --remove-orphans -v
 

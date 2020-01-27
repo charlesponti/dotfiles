@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 # Flush DNS cache
-function flushdns() {
+flushdns() {
   sudo discoveryutil mdnsflushcache
 }
 
 # Show hidden files
-function showhidden() {
+showhidden() {
   defaults write com.apple.finder AppleShowAllFiles TRUE
   killall Finder
 }
 
 # Hide hidden files
-function hidehidden() {
+hidehidden() {
   defaults write com.apple.finder AppleShowAllFiles FALSE
   killall Finder
 }

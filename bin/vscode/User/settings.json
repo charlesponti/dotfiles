@@ -187,9 +187,9 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.validate.enable": true,
     "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+        "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
     "window.zoomLevel": 0,
@@ -220,5 +220,9 @@
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": "material-icon-theme",
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "kite.showWelcomeNotificationOnStartup": false
 }

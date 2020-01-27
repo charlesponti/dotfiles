@@ -53,7 +53,7 @@ git-init() {
   cp $HOME/.dotfiles/home/.gitignore_global .gitignore
 }
 
-gdiff {
+gdiff() {
   git --no-pager diff --color=auto --no-ext-diff --no-index "$@"
 }
 

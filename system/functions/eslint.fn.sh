@@ -1,5 +1,5 @@
 
-function eslint-init () {
+eslint-init () {
   npm i \
     eslint@^4.3.0 \
     eslint-plugin-import@^2.2.0 \

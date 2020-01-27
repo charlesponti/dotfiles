@@ -3,9 +3,6 @@
 # `brew install coreutils`
 if $(gls &>/dev/null)
 then
-  # Load Git aliases
-  source $HOME/.dotfiles/system/aliases/git.sh
-
   alias k="kubectl"
   alias d="docker"
   alias g="git"

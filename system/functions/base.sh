@@ -2,7 +2,6 @@
 
 BASEDIR=$(dirname "$0")
 source $BASEDIR/docker.fn.sh
-source $BASEDIR/git.functions.sh
 source $BASEDIR/nvm.functions.sh
 source $BASEDIR/osx.functions.sh
 

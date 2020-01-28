@@ -61,10 +61,10 @@ ts-init () {
 #-------------------------------------------
 ponti-venv () {
   informer "Creating virtual environment..."
-  python3 -m venv .venv
+  python3 -m venv env
 
   informer "Activating virtual environment..."
-  . ./.venv/bin/activate
+  source env/bin/activate
 
   informer "Installing pip things..."
   pip install --upgrade pip

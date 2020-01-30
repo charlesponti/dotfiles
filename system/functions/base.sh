@@ -2,16 +2,15 @@
 
 BASEDIR=$(dirname "$0")
 source $BASEDIR/docker.fn.sh
-source $BASEDIR/git.functions.sh
 source $BASEDIR/nvm.functions.sh
 source $BASEDIR/osx.functions.sh
 
-function renamer () {
+renamer () {
   rename -f $1 --remove-extension --append=$2
 }
 
 # Download YouTube Audio
-function youtube-dl-audio () {
+youtube-dl-audio () {
   youtube-dl \
     --download-archive downloaded.txt \
     --no-overwrites \
@@ -25,11 +24,11 @@ function youtube-dl-audio () {
 }
 
 # Open current directory in GitKraken
-function kraken () {
+kraken () {
   open -na 'GitKraken' --args -p $(pwd)
 }
 
-function daily() {
+daily() {
   informer "Upgrading Homebrew packages..."
   brew upgrade
 
@@ -43,7 +42,7 @@ function daily() {
   npm update -g
 }
 
-function ts-init () {
+ts-init () {
   informer "Installing typescript dependencies"
   npm i typescript tslint ts-node @types/node -D
 
@@ -60,12 +59,12 @@ function ts-init () {
 # args:
 #   $1 - Name of virtualenv
 #-------------------------------------------
-function ponti-venv () {
+ponti-venv () {
   informer "Creating virtual environment..."
   python3 -m venv env
 
   informer "Activating virtual environment..."
-  . env/bin/activate
+  source env/bin/activate
 
   informer "Installing pip things..."
   pip install --upgrade pip
@@ -75,24 +74,6 @@ function ponti-venv () {
   pipenv install typing pytest
 
   success "Done!"
-}
-
-#######################################
-# Jump to folder in Developer directory
-# Globals:
-#   None
-# Arguments:
-#   $1 - name of folder
-#   $2 - --open to open in VS Code
-# Returns:
-#   None
-#######################################
-function dev() {
-  if [$2 == "--open"]; then
-    code ~/Developer/$1
-  else
-    cd ~/Developer/$1
-  fi
 }
 
 #######################################

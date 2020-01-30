@@ -1,4 +1,4 @@
-function make_grpc_server() {
+make_grpc_server() {
   app_name=$1
   full_path=$(pwd)/$app_name
   mkdir $app_name

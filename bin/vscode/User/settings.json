@@ -1,10 +1,16 @@
 // Place your settings in this file to overwrite the default settings
 {
     "[javascript]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true
     },
     "[python]": {
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true
     },
     "breadcrumbs.enabled": true,
     "code-runner.executorMap": {
@@ -64,24 +70,17 @@
     ],
     "editor.snippetSuggestions": "inline",
     "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
     "editor.trimAutoWhitespace": true,
     "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
     "eslint.enable": true,
     "eslint.validate": [
-        {
-            "autoFix": true,
-            "language": "javascript"
-        },
-        {
-            "autoFix": true,
-            "language": "javascriptreact"
-        },
-        {
-            "autoFix": true,
-            "language": "vue"
-        }
+        "javascript",
+        "javascriptreact",
+        "vue"
     ],
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -106,7 +105,6 @@
     },
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
-    "hdinsight.disableOpenSurveyLink": true,
     "html.format.enable": true,
     "html.format.wrapAttributes": "force-aligned",
     "javascript.implicitProjectConfig.experimentalDecorators": true,
@@ -177,7 +175,7 @@
     "search.exclude": {
         "**/bower_components": true,
         "**/node_modules": true,
-        "**/.venv": true,
+        "**/env": true,
         ".vscode": true,
         "assets": true,
         "coverage": true,
@@ -195,9 +193,9 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "typescript.validate.enable": true,
     "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+        "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
     "window.zoomLevel": 0,
@@ -228,5 +226,9 @@
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": "material-icon-theme",
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "kite.showWelcomeNotificationOnStartup": false
 }

@@ -51,7 +51,8 @@ source <(kubectl completion zsh)
 source $dotfiles/bin/printf.sh
 source $SYSTEM_PATH/grc.zsh
 source $SYSTEM_PATH/config.zsh
-source $SYSTEM_PATH/aliases/base.sh
+source $SYSTEM_PATH/aliases.sh
+source $SYSTEM_PATH/git.sh
 source $SYSTEM_PATH/functions/base.sh
 source $SYSTEM_PATH/path.zsh
 # source $dotfiles/bin/graphql-completion.sh
@@ -73,7 +74,7 @@ $(nvm use node) 2>/dev/null
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
 
 # Apache Airflow
-function airflow-init () {
+airflow-init () {
   mkdir ./airflow_home
   cd airflow_home
   airflow initdb

@@ -10,6 +10,7 @@ ZSH_THEME=robbyrussell
 plugins=(
   git
   docker
+  poetry
 )
 
 # Load ZSH
@@ -55,7 +56,7 @@ source $SYSTEM_PATH/aliases.sh
 source $SYSTEM_PATH/git.sh
 source $SYSTEM_PATH/functions/base.sh
 source $SYSTEM_PATH/path.zsh
-# source $dotfiles/bin/graphql-completion.sh
+source $dotfiles/bin/graphql-completion.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -87,3 +88,5 @@ export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 # Hadoop
 alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
 alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
+
+source "/Users/charlesponti/.local/share/dephell/_dephell_zsh_autocomplete"

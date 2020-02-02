@@ -61,8 +61,6 @@
     },
     "css.validate": true,
     "debug.inlineValues": true,
-    "editor.fontFamily": "Menlo",
-    "editor.fontSize": 14,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.minimap.enabled": true,
@@ -89,6 +87,7 @@
     "files.associations": {
         ".env": "shellscript",
         "*.snap": "javascript",
+        ".gitignore*": "shellscript"
     },
     "files.autoSave": "onFocusChange",
     "files.exclude": {
@@ -187,8 +186,6 @@
     "search.location": "panel",
     "terminal.external.osxExec": "Terminal.app",
     "terminal.integrated.confirmOnExit": true,
-    "terminal.integrated.fontFamily": "monospace",
-    "terminal.integrated.fontSize": 13,
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.shell.osx": "/bin/zsh",
     "typescript.format.enable": false,
@@ -223,11 +220,16 @@
         "tab.activeBorder": "#FF4081",
         "textLink.foreground": "#FF4081"
     },
-    "workbench.colorTheme": "Default Light+",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.statusBar.visible": true,
-    "workbench.iconTheme": "material-icon-theme",
     "diffEditor.ignoreTrimWhitespace": false,
-    "kite.showWelcomeNotificationOnStartup": false
+    "kite.showWelcomeNotificationOnStartup": false,
+    "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+    "markdown.preview.fontFamily": "Meslo LG M for Powerline",
+    "editor.fontFamily": "Meslo LG M for Powerline",
+    "terminal.integrated.fontSize": 13,
+    "editor.fontSize": 13,
+
+    "workbench.iconTheme": "eq-material-theme-icons-ocean"
 }

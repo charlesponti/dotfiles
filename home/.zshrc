@@ -1,19 +1,29 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+source ~/.antigen/antigen.zsh
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-ZSH_THEME="spaceship"
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle lukechilds/zsh-nvm
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle docker
+antigen bundle command-not-found
 
-# Plugins (found in ~/.oh-my-zsh/plugins/*)
-plugins=(
-  git
-  docker
-)
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Load ZSH
-source $ZSH/oh-my-zsh.sh
+# source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+
+# Load the theme.
+antigen theme denysdovhan/spaceship-prompt
+# antigen theme bhilburn/powerlevel9k powerlevel9k
+
+# Tell Antigen that you're done.
+antigen apply
 
 #--------------------- User configuration -------------------------------------#
 
@@ -96,19 +106,6 @@ if which pyenv-virtualenv-init > /dev/null;
   then eval "$(pyenv virtualenv-init -)";
 fi
 
-source ~/.antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle lukechilds/zsh-nvm
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-# Load the theme.
-antigen theme robbyrussell
-# Tell Antigen that you're done.
-antigen apply
+source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
+
+export PATH="$HOME/.poetry/bin:$PATH"

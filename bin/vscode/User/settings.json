@@ -3,14 +3,16 @@
     "[javascript]": {
         "editor.formatOnSave": false,
         "editor.formatOnType": true,
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true
+        "editor.formatOnPaste": true
     },
     "[python]": {
-        "editor.tabSize": 4,
+        "editor.tabSize": 2,
         "editor.formatOnType": true,
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true
+    },
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
     "breadcrumbs.enabled": true,
     "code-runner.executorMap": {
@@ -227,8 +229,5 @@
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": "material-icon-theme",
     "diffEditor.ignoreTrimWhitespace": false,
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
     "kite.showWelcomeNotificationOnStartup": false
 }

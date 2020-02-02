@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-ZSH_THEME=robbyrussell
+ZSH_THEME="spaceship"
 
 # Plugins (found in ~/.oh-my-zsh/plugins/*)
 plugins=(
@@ -55,7 +55,7 @@ source $SYSTEM_PATH/aliases.sh
 source $SYSTEM_PATH/git.sh
 source $SYSTEM_PATH/functions/base.sh
 source $SYSTEM_PATH/path.zsh
-# source $dotfiles/bin/graphql-completion.sh
+source $dotfiles/bin/graphql-completion.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -87,3 +87,28 @@ export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
 # Hadoop
 alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
 alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
+
+# Pyenv
+if which pyenv > /dev/null;
+  then eval "$(pyenv init - )";
+fi
+if which pyenv-virtualenv-init > /dev/null;
+  then eval "$(pyenv virtualenv-init -)";
+fi
+
+source ~/.antigen/antigen.zsh
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle lukechilds/zsh-nvm
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+# Load the theme.
+antigen theme robbyrussell
+# Tell Antigen that you're done.
+antigen apply

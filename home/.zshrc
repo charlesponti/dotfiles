@@ -109,3 +109,4 @@ fi
 source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+source "/Users/charlesponti/.local/share/dephell/_dephell_zsh_autocomplete"

@@ -68,12 +68,12 @@ ponti-venv () {
 
   informer "Installing pip things..."
   pip install --upgrade pip
-  pip install pipenv pylint isort black
+  pip install -U pipenv pylint isort black
 
   informer "Installing pipenv things..."
   pipenv install typing pytest
 
-  informer "DoneZo!..."
+  success "Done!"
 }
 
 #######################################

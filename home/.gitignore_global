@@ -23,4 +23,9 @@ build
 .env.test.local
 .env.production.local
 
+# NodeJS
 npm-debug.log*
+
+# Python
+.python-version
+__pycache__

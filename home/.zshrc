@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -15,12 +22,11 @@ antigen bundle command-not-found
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
-
 # Load the theme.
-antigen theme denysdovhan/spaceship-prompt
-# antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme romkatv/powerlevel10k
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Tell Antigen that you're done.
 antigen apply
@@ -105,8 +111,8 @@ fi
 if which pyenv-virtualenv-init > /dev/null;
   then eval "$(pyenv virtualenv-init -)";
 fi
+export PATH="$HOME/.poetry/bin:$PATH"
 
 source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
 
-export PATH="$HOME/.poetry/bin:$PATH"
-source "/Users/charlesponti/.local/share/dephell/_dephell_zsh_autocomplete"
+echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"

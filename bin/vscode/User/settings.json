@@ -183,7 +183,6 @@
         "doc": true,
         "release": true
     },
-    "search.location": "panel",
     "terminal.external.osxExec": "Terminal.app",
     "terminal.integrated.confirmOnExit": true,
     "terminal.integrated.rendererType": "dom",

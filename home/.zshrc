@@ -111,8 +111,15 @@ fi
 if which pyenv-virtualenv-init > /dev/null;
   then eval "$(pyenv virtualenv-init -)";
 fi
+
+# Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 
+# Dephell
 source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
 
+# Python
+alias py='python'
+
+# Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"

@@ -14,6 +14,7 @@ alias gc='git commit'
 
 # Add uncommitted and unstaged changes to the last commit
 alias gcaa="git commit -a --amend -C HEAD"
+
 alias gcb='git copy-branch-name'
 alias gcl='git clone'
 alias gco='git checkout'
@@ -36,6 +37,8 @@ alias gus="git reset HEAD"
 repos() {
   git api --flat /users/$1/repos | grep git_url
 }
+
+alias git-top-level='cd /Users/charlesponti/Developer/zentreefish'
 
 #######################################
 # Initialize a Git repository

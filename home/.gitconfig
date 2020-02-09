@@ -10,6 +10,7 @@
     refresh = !git fetch --all && git pull --all
     cam = !git add . && git commit -m
     st = status
+    wip = !git add . && git commit -m "wip"  && git push
 [color]
     diff = auto
     status = auto

@@ -27,5 +27,6 @@ build
 npm-debug.log*
 
 # Python
+env
 .python-version
 __pycache__

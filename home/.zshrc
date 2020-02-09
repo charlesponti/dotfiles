@@ -52,8 +52,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
+if [[ -e ~/.localrc ]]; then
   source ~/.localrc
 fi
 
@@ -82,15 +81,15 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # NodeJS - NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  2>/dev/null
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 2>/dev/null
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 $(nvm use node) 2>/dev/null
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
 
 # Apache Airflow
-airflow-init () {
+airflow-init() {
   mkdir ./airflow_home
   cd airflow_home
   airflow initdb
@@ -105,11 +104,11 @@ alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
 alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
 
 # Pyenv
-if which pyenv > /dev/null;
-  then eval "$(pyenv init - )";
+if which pyenv >/dev/null; then
+  eval "$(pyenv init -)"
 fi
-if which pyenv-virtualenv-init > /dev/null;
-  then eval "$(pyenv virtualenv-init -)";
+if which pyenv-virtualenv-init >/dev/null; then
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 # Poetry
@@ -123,3 +122,6 @@ alias py='python'
 
 # Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

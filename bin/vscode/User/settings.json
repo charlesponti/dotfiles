@@ -6,7 +6,7 @@
         "editor.formatOnPaste": true
     },
     "[python]": {
-        "editor.tabSize": 2,
+        "editor.tabSize": 4,
         "editor.formatOnType": true,
         "editor.formatOnPaste": false,
         "editor.formatOnSave": true
@@ -229,6 +229,5 @@
     "editor.fontFamily": "Meslo LG M for Powerline",
     "terminal.integrated.fontSize": 13,
     "editor.fontSize": 13,
-
     "workbench.iconTheme": "eq-material-theme-icons-ocean"
 }

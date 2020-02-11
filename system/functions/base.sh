@@ -67,13 +67,17 @@ ponti-venv () {
   source env/bin/activate
 
   informer "Installing pip things..."
-  pip install --upgrade pip
-  pip install -U pipenv pylint isort black
+  install_pip_packages()
 
   informer "Installing pipenv things..."
   pipenv install typing pytest
 
   success "Done!"
+}
+
+install_pip_packages() {
+  pip install --upgrade pip
+  pip install -U pipenv pylint isort black
 }
 
 #######################################

@@ -229,5 +229,6 @@
     "editor.fontFamily": "Meslo LG M for Powerline",
     "terminal.integrated.fontSize": 13,
     "editor.fontSize": 13,
-    "workbench.iconTheme": "eq-material-theme-icons-ocean"
+    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "workbench.colorTheme": "Quiet Light"
 }

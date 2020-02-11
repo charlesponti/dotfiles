@@ -111,6 +111,9 @@ if which pyenv-virtualenv-init >/dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PIPENV_VERBOSITY=-1
+
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 

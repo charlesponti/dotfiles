@@ -68,7 +68,7 @@ source $SYSTEM_PATH/grc.zsh
 source $SYSTEM_PATH/config.zsh
 source $SYSTEM_PATH/aliases.sh
 source $SYSTEM_PATH/git.sh
-source $SYSTEM_PATH/functions/base.sh
+for f in $SYSTEM_PATH/functions/**; do source $f; done
 source $SYSTEM_PATH/path.zsh
 source $dotfiles/bin/graphql-completion.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

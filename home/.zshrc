@@ -111,6 +111,7 @@ if which pyenv-virtualenv-init >/dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+export PYENV_VERSION=3.6.9
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIPENV_VERBOSITY=-1
 

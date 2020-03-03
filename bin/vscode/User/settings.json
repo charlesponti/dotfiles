@@ -1,15 +1,10 @@
 // Place your settings in this file to overwrite the default settings
 {
     "[javascript]": {
-        "editor.formatOnSave": false,
-        "editor.formatOnType": true,
-        "editor.formatOnPaste": true
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[python]": {
-        "editor.tabSize": 4,
-        "editor.formatOnType": true,
-        "editor.formatOnPaste": false,
-        "editor.formatOnSave": true
+        "editor.tabSize": 4
     },
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
@@ -230,5 +225,5 @@
     "terminal.integrated.fontSize": 13,
     "editor.fontSize": 13,
     "workbench.iconTheme": "eq-material-theme-icons-ocean",
-    "workbench.colorTheme": "Quiet Light"
+    "workbench.colorTheme": "Community Material Theme Palenight High Contrast"
 }

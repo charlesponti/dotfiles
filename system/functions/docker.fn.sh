@@ -23,10 +23,7 @@ docker-container () {
       -v $DOCKER_VOLUMES/postgres:/var/lib/postgresql/data \
       postgres
   elif [ "$1" == "rabbitmq" ]; then
-    docker run --rm \
-      --name rabbitmq-docker \
-      -p 5672:5672 \
-      rabbitmq
+    docker-compose -f $HOME/.dotfiles/services/docker-compose.yml up rabbitmq
   fi
 }
 

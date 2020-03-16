@@ -92,3 +92,10 @@ install_pip_packages() {
 whos_listening() {
   lsof -nP -iTCP:$1
 }
+function venv () {
+  pyenv -m venv .venv
+  . ./.venv/bin/activate
+  pip install --upgrade pip
+  pip install pipenv pylint isort black
+  pipenv install typing pytest
+}

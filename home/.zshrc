@@ -130,3 +130,4 @@ echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 alias py='python'
+alias penv="./.venv/bin/pipenv"

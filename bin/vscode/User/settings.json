@@ -4,7 +4,10 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[python]": {
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true
     },
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
@@ -224,6 +227,5 @@
     "editor.fontFamily": "Meslo LG M for Powerline",
     "terminal.integrated.fontSize": 13,
     "editor.fontSize": 13,
-    "workbench.iconTheme": "eq-material-theme-icons-ocean",
-    "workbench.colorTheme": "Community Material Theme Palenight High Contrast"
+    "workbench.iconTheme": "eq-material-theme-icons-ocean"
 }

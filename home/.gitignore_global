@@ -27,5 +27,6 @@ build
 *.log*
 
 # Python
+env
 .python-version
 __pycache__

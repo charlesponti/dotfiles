@@ -1,231 +1,142 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[python]": {
-        "editor.tabSize": 4,
-        "editor.formatOnType": true,
-        "editor.formatOnPaste": false,
-        "editor.formatOnSave": true
-    },
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "breadcrumbs.enabled": true,
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "php": "php",
-        "python": "$pythonPath -u $fullFileName",
-        "perl": "perl",
-        "perl6": "perl6",
-        "ruby": "ruby",
-        "go": "go run",
-        "lua": "lua",
-        "groovy": "groovy",
-        "powershell": "powershell -ExecutionPolicy ByPass -File",
-        "bat": "cmd /c",
-        "shellscript": "bash",
-        "fsharp": "fsi",
-        "csharp": "scriptcs",
-        "vbscript": "cscript //Nologo",
-        "typescript": "ts-node",
-        "coffeescript": "coffee",
-        "scala": "scala",
-        "swift": "swift",
-        "julia": "julia",
-        "crystal": "crystal",
-        "ocaml": "ocaml",
-        "r": "Rscript",
-        "applescript": "osascript",
-        "clojure": "lein exec",
-        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-        "racket": "racket",
-        "scheme": "csi -script",
-        "ahk": "autohotkey",
-        "autoit": "autoit3",
-        "dart": "dart",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runhaskell",
-        "nim": "nim compile --verbosity:0 --hints:off --run",
-        "lisp": "sbcl --script",
-        "kit": "kitc --run"
-    },
-    "css.validate": true,
-    "debug.inlineValues": true,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[python]": {
+    "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.minimap.enabled": true,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [
-        80
-    ],
-    "editor.snippetSuggestions": "inline",
-    "editor.suggestSelection": "first",
-    "editor.trimAutoWhitespace": true,
-    "eslint.alwaysShowStatus": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
-    },
-    "eslint.enable": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-    ],
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "files.associations": {
-        ".env": "shellscript",
-        "*.snap": "javascript",
-        ".gitignore*": "shellscript"
-    },
-    "files.autoSave": "onFocusChange",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "files.trimTrailingWhitespace": true,
-    "git.autoStash": true,
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "git.path": "/usr/local/bin/hub",
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "html.format.enable": true,
-    "html.format.wrapAttributes": "force-aligned",
-    "javascript.implicitProjectConfig.experimentalDecorators": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "markdown.preview.breaks": true,
-    "npm.enableScriptExplorer": true,
-    "peacock.favoriteColors": [
-        {
-            "name": "Angular Red",
-            "value": "#b52e31"
-        },
-        {
-            "name": "Auth0 Orange",
-            "value": "#eb5424"
-        },
-        {
-            "name": "Azure Blue",
-            "value": "#007fff"
-        },
-        {
-            "name": "C# Purple",
-            "value": "#68217A"
-        },
-        {
-            "name": "Gatsby Purple",
-            "value": "#639"
-        },
-        {
-            "name": "Go Cyan",
-            "value": "#5dc9e2"
-        },
-        {
-            "name": "Java Blue-Gray",
-            "value": "#557c9b"
-        },
-        {
-            "name": "JavaScript Yellow",
-            "value": "#f9e64f"
-        },
-        {
-            "name": "Mandalorian Blue",
-            "value": "#1857a4"
-        },
-        {
-            "name": "Node Green",
-            "value": "#215732"
-        },
-        {
-            "name": "React Blue",
-            "value": "#00b3e6"
-        },
-        {
-            "name": "Something Different",
-            "value": "#832561"
-        },
-        {
-            "name": "Vue Green",
-            "value": "#42b883"
-        }
-    ],
-    "python.autoComplete.addBrackets": true,
-    "python.formatting.provider": "black",
-    "editor.formatOnSaveTimeout": 0,
-    "python.jediEnabled": false,
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "scss.validate": true,
-    "search.exclude": {
-        "**/bower_components": true,
-        "**/node_modules": true,
-        "**/env": true,
-        ".vscode": true,
-        "assets": true,
-        "coverage": true,
-        "doc": true,
-        "release": true
-    },
-    "terminal.external.osxExec": "Terminal.app",
-    "terminal.integrated.confirmOnExit": true,
-    "terminal.integrated.rendererType": "dom",
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "typescript.format.enable": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "typescript.validate.enable": true,
-    "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-        "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
-    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
-    "window.zoomLevel": 0,
-    "workbench.activityBar.visible": true,
-    "workbench.colorCustomizations": {
-        "activityBarBadge.background": "#FF4081",
-        "breadcrumb.activeSelectionForeground": "#FF4081",
-        "editorSuggestWidget.highlightForeground": "#FF4081",
-        "editorWidget.border": "#FF4081",
-        "editorWidget.resizeBorder": "#FF4081",
-        "list.activeSelectionForeground": "#FF4081",
-        "list.highlightForeground": "#FF4081",
-        "list.inactiveSelectionForeground": "#FF4081",
-        "menu.selectionForeground": "#FF4081",
-        "menubar.selectionForeground": "#FF4081",
-        "notificationLink.foreground": "#FF4081",
-        "panelTitle.activeBorder": "#FF4081",
-        "pickerGroup.foreground": "#FF4081",
-        "progressBar.background": "#FF4081",
-        "scrollbarSlider.activeBackground": "#FF408150",
-        "settings.headerForeground": "#FF4081",
-        "settings.modifiedItemIndicator": "#FF4081",
-        "tab.activeBorder": "#FF4081",
-        "textLink.foreground": "#FF4081"
-    },
-    "workbench.editor.enablePreview": true,
-    "workbench.editor.enablePreviewFromQuickOpen": true,
-    "workbench.statusBar.visible": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "kite.showWelcomeNotificationOnStartup": false,
-    "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
-    "markdown.preview.fontFamily": "Meslo LG M for Powerline",
-    "editor.fontFamily": "Meslo LG M for Powerline",
-    "terminal.integrated.fontSize": 13,
-    "editor.fontSize": 13,
-    "workbench.iconTheme": "eq-material-theme-icons-ocean"
+    "editor.tabSize": 4
+  },
+  "breadcrumbs.enabled": true,
+  "code-runner.executorMap": {
+    "ahk": "autohotkey",
+    "applescript": "osascript",
+    "autoit": "autoit3",
+    "bat": "cmd /c",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "clojure": "lein exec",
+    "coffeescript": "coffee",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "crystal": "crystal",
+    "csharp": "scriptcs",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "dart": "dart",
+    "fsharp": "fsi",
+    "go": "go run",
+    "groovy": "groovy",
+    "haskell": "runhaskell",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "javascript": "node",
+    "julia": "julia",
+    "kit": "kitc --run",
+    "lisp": "sbcl --script",
+    "lua": "lua",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "ocaml": "ocaml",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "perl": "perl",
+    "perl6": "perl6",
+    "php": "php",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "python": "$pythonPath -u $fullFileName",
+    "r": "Rscript",
+    "racket": "racket",
+    "ruby": "ruby",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "scala": "scala",
+    "scheme": "csi -script",
+    "shellscript": "bash",
+    "swift": "swift",
+    "typescript": "ts-node",
+    "vbscript": "cscript //Nologo"
+  },
+  "css.validate": true,
+  "debug.inlineValues": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.fontFamily": "Meslo LG M for Powerline",
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 0,
+  "editor.formatOnType": true,
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80
+  ],
+  "editor.snippetSuggestions": "inline",
+  "editor.suggestSelection": "first",
+  "editor.trimAutoWhitespace": true,
+  "eslint.alwaysShowStatus": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.snap": "javascript",
+    ".env": "shellscript",
+    ".gitignore*": "shellscript"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "git.autoStash": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.path": "/usr/local/bin/hub",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "html.format.enable": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "kite.showWelcomeNotificationOnStartup": false,
+  "markdown.preview.breaks": true,
+  "markdown.preview.fontFamily": "Meslo LG M for Powerline",
+  "npm.enableScriptExplorer": true,
+  "prettier.prettierPath": "$(which prettier)",
+  "python.autoComplete.addBrackets": true,
+  "python.formatting.provider": "black",
+  "python.jediEnabled": false,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "scss.validate": true,
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/env": true,
+    "**/node_modules": true,
+    ".vscode": true,
+    "assets": true,
+    "coverage": true,
+    "doc": true,
+    "release": true
+  },
+  "terminal.external.osxExec": "Terminal.app",
+  "terminal.integrated.confirmOnExit": true,
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "vs-kubernetes": {
+    "vs-kubernetes.draft-path": "/Users/charlesponti/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+    "vs-kubernetes.helm-path": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vs-kubernetes.minikube-path": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
+  "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.statusBar.visible": true
 }

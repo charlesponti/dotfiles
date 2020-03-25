@@ -7,6 +7,12 @@ source $BASEDIR/osx.functions.sh
 
 renamer () {
   rename -f $1 --remove-extension --append=$2
+  # find . -name '*.less' -exec sh -c 'mv "$0" "${0%.less}.css"' {} \; 
+}
+
+download-urls () {
+  wget -i $1
+  cat $1 | xargs -n 1 curl -LO
 }
 
 # Download YouTube Audio
@@ -51,6 +57,23 @@ ts-init () {
 
   informer "Initialising Typescript Configuration"
   $(npm bin)/tsc --init
+}
+
+add-pretter () {
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+}
+
+ponti-api () {
+  # Copy files
+  cp $HOME/.dotfiles/templates/ponti-api/** .
+  
+  # Copy dotfiles
+  cp $HOME/.dotfiles/templates/ponti-api/.* .
+}
+
+npm-update () {
+    npx npm-check-updates -u
+    npm install
 }
 
 #-------------------------------------------

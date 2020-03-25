@@ -47,6 +47,13 @@ then
   # Get Fingerprint of SSH key
   alias ssh-fingerprint="ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'"
 
+  ssh-create () {
+    ssh-keygen -t rsa -b 4096 -C “”
+    eval “$(ssh-agent -s)”
+    ssh-add ~/.ssh/id_rsa
+    https://github.com/settings/ssh
+  }
+  
   #-----------------------
   # Postgres
   #-----------------------

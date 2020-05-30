@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(dirname "$0")
-source $BASEDIR/osx.functions.sh
-source $BASEDIR/docker.fn.sh
-source $BASEDIR/javascript.functions.sh
-source $BASEDIR/python.functions.sh
-
 renamer () {
   rename -f $1 --remove-extension --append=$2
   # find . -name '*.less' -exec sh -c 'mv "$0" "${0%.less}.css"' {} \; 

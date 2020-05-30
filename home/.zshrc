@@ -64,13 +64,14 @@ source <(kubectl completion zsh)
 
 # Import Stuffs
 source $dotfiles/bin/printf.sh
-source $SYSTEM_PATH/grc.zsh
-source $SYSTEM_PATH/config.zsh
-source $SYSTEM_PATH/aliases.sh
-source $SYSTEM_PATH/git.sh
-for f in $SYSTEM_PATH/functions/**; do source $f; done
+
+# Import user-defined stuff
+for f in $SYSTEM_PATH/**; do source $f; done
+
+# Import Path script again to ensure that the path is correct
 source $SYSTEM_PATH/path.zsh
-source $dotfiles/bin/graphql-completion.sh
+
+# Add Auto-Suggestions to ZSH
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.

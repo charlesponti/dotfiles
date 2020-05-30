@@ -41,7 +41,7 @@ module.exports = {
     color: "dark",
     unibody: false
   },
-  plugins: ["hyper-search", "hyperpower", "hyper-pokemon-cli", "hyper-pokemon"],
+  plugins: [],
   localPlugins: [],
   keymaps: {}
 };

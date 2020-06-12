@@ -82,9 +82,6 @@ then
   # Other
   #-----------------------
 
-  # Add base .eslintrc to current directory
-  alias editorconfig-init="cp ${dotfiles}/home/.editorconfig .editorconfig"
-
   # Empty OS X trash
   alias emptytrash="sudo rm -rf ~/.Trash/*"
 

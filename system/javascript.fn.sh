@@ -27,19 +27,3 @@ ts-init () {
   informer "Initialising Typescript Configuration"
   $(npm bin)/tsc --init
 }
-
-eslint-init () {
-  npm i \
-    eslint \
-    eslint-plugin-import \
-    eslint-plugin-node \
-    eslint-plugin-promise \
-    eslint-plugin-standard \
-    eslint-config-standard \
-    prettier \
-    eslint-config-prettier \
-    eslint-plugin-prettier \
-    -D
-  
-  cp "~/.dotfiles/.eslintrc.js" $(pwd)
-}

@@ -30,5 +30,5 @@ export const $NAME = () => {
 
   echo $COMPONENT >> $COMPONENT_PATH.js
 
-  touch $COMPONENT_PATH.text.js
+  touch $COMPONENT_PATH.test.js
 }

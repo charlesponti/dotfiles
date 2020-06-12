@@ -1,34 +1,46 @@
 #!/usr/bin/bash
 
 generateReactComponent() {
-  NAME=$1
-  COMPONENT_PATH="src/components/$NAME/$NAME"
-  
-  # Make directory for component
-  mkdir src/components/$NAME
-  
 
-  STYLES=""".container {
+NAME=$1
+COMPONENT_PATH="src/components/$NAME/$NAME"
+
+# Make directory for component
+mkdir src/components/$NAME
+  
+# Create stylesheet
+echo """.container {
   display: flex;
 }
-"""
+""" >> $COMPONENT_PATH.module.scss
 
-  echo $STYLES >> $COMPONENT_PATH.module.scss
-
-  COMPONENT="""import React from 'react'
+# Create component
+echo """import React from 'react'
 import t from 'prop-types'
 import styles from './$NAME.module.scss'
 
-export const $NAME = () => {
+function $NAME() {
   return (
     <div className={styles.container}>
       
     </div>
   )
 }
-"""
 
-  echo $COMPONENT >> $COMPONENT_PATH.js
+export default $NAME
+""" >> src/components/$NAME/index.js
 
-  touch $COMPONENT_PATH.test.js
+# Create test file
+echo """
+import React from 'react'
+import { render } from '@testing-library/react'
+import $NAME from './$NAME'
+
+describe('<$NAME/>', () => {
+  it('should render component', () => {
+    const { container } = render(<$NAME/>)
+    expect(container).toMatchSnapshot()
+  })
+})
+""" >> $COMPONENT_PATH.test.js
 }

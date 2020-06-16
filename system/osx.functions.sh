@@ -2,7 +2,9 @@
 
 # Flush DNS cache
 flushdns() {
-  sudo discoveryutil mdnsflushcache
+  sudo killall -HUP mDNSResponder
+  sudo killall mDNSResponderHelper
+  sudo dscacheutil -flushcache
 }
 
 # Show hidden files

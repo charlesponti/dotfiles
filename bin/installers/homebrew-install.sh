@@ -9,7 +9,6 @@ brew update
 
 brew tap 'homebrew/bundle'
 
-brew install hub              # Git.. but better
 brew install grc              # Generic Colorizer
 brew install jq               # JSON parser
 brew install trash            # Trash (rm -rf replacement)

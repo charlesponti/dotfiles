@@ -4,9 +4,6 @@
 # Git
 #-----------------------
 
-# Use Hub instead of Git
-alias git=hub
-
 # The rest of my fun git aliases
 alias gac='git add -A && git commit -m'
 alias gb='git branch'
@@ -71,12 +68,6 @@ git-rename-author() {
      GIT_COMMITTER_EMAIL=$2;
      GIT_COMMITTER_NAME=$1; fi" -f -- --all
 }
-
-# Deploy directory to Github gh-pages branch
-github-pages-deploy() {
-  git subtree push --prefix "$@" origin gh-pages
-}
-
 
 case $OSTYPE in
   darwin*)

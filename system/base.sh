@@ -5,6 +5,16 @@ renamer () {
   # find . -name '*.less' -exec sh -c 'mv "$0" "${0%.less}.css"' {} \; 
 }
 
+block-em () {
+  sudo cp ~/.dotfiles/bin/block-em/block-em.txt /etc/hosts
+  flushdns
+}
+
+unblock-em () {
+  sudo cp ~/.dotfiles/bin/block-em/original.txt /etc/hosts
+  flushdns
+}
+
 download-urls () {
   wget -i $1
   cat $1 | xargs -n 1 curl -LO

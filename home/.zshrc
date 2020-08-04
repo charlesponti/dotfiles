@@ -120,7 +120,7 @@ export PIPENV_VERBOSITY=-1
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # Dephell
-source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
+# source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
 
 # Python
 alias py='python'

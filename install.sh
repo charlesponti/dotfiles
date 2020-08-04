@@ -110,7 +110,7 @@ bash $SCRIPTS/macos/base.sh
 success "Done!"
 
 informer "😲 Installing applications..."
-sh -c applications.sh
+sh -c $SCRIPTS/applications.sh
 success ' Done!'
 
 informer "📁 Making ~/Developer folder"

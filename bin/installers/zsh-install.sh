@@ -6,7 +6,7 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 
 # Install Antigen
 mkdir $HOME/.antigen
-curl -L git.io/antigen > antigen.zsh
+curl -L git.io/antigen > $HOME/.antigen/antigen.zsh
 
 # Install Meslo font
 brew tap homebrew/cask-fonts

@@ -85,10 +85,6 @@ link_file () {
 
 SCRIPTS=$dotfiles/bin
 
-informer "😲 Installing dotfiles"
-bash $SCRIPTS/symlinks.sh
-success "Done!"
-
 informer "😲 Installing Homebrew"
 bash $SCRIPTS/installers/homebrew-install.sh
 success "Done!"
@@ -119,5 +115,9 @@ success ' Done!'
 
 informer "📁 Making ~/Developer folder"
 mkdir ~/Developer
+
+informer "😲 Installing dotfiles"
+bash $SCRIPTS/symlinks.sh
+success "Done!"
 
 success "🚀 Ready to ROCK! 🚀"

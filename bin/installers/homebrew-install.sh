@@ -18,5 +18,4 @@ brew install tree             # Tree (display directories as tree)
 brew install kubectl          # Kubernetes
 brew install minikube         # Minikube
 
-brew prune
 brew doctor

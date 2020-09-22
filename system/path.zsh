@@ -9,6 +9,7 @@ unset path
 
 # List all path entries you want before the "standard" PATH
 PATH="\
+$HOME/.pyenv/bin:\
 /usr/local/opt/python@3.7/bin:\
 /usr/bin:/usr/sbin:\
 /usr/local/bin:/usr/local/sbin:\

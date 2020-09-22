@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 source ~/.antigen/antigen.zsh
 
@@ -62,23 +62,17 @@ SYSTEM_PATH=$dotfiles/system
 # Enable Kubernetes ZSH completion
 source <(kubectl completion zsh)
 
-# Import Stuffs
+# Import fancy print function
 source $dotfiles/bin/printf.sh
 
-# Import user-defined stuff
-for f in $SYSTEM_PATH/**; do source $f; done
+# Import aliases, functions, and more
+# for f in $SYSTEM_PATH/**; do source $f; done
 
 # Import Path script again to ensure that the path is correct
 source $SYSTEM_PATH/path.zsh
 
 # Add Auto-Suggestions to ZSH
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
 
 # NodeJS - NVM
 export NVM_DIR="$HOME/.nvm"
@@ -89,46 +83,14 @@ $(nvm use node) 2>/dev/null
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
 
-# Apache Airflow
-airflow-init() {
-  mkdir ./airflow_home
-  cd airflow_home
-  airflow initdb
-}
-export AIRFLOW_HOME="$(pwd)/airflow_home"
-
-# Apache Spark
-export PYSPARK_DRIVER_PYTHON="/usr/local/ipython/bin/ipython"
-
-# Hadoop
-alias hstart="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh"
-alias hstop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh"
-
-# Pyenv
-if which pyenv >/dev/null; then
-  eval "$(pyenv init -)"
-fi
-if which pyenv-virtualenv-init >/dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-export PYENV_VERSION=3.6.9
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PIPENV_VERBOSITY=-1
-
-# Poetry
-export PATH="$HOME/.poetry/bin:$PATH"
-
 # Dephell
 # source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
 
+# Ruby
+eval "$(rbenv init -)"
+
 # Python
-alias py='python'
+source $SYSTEM_PATH/python.sh
 
 # Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-alias py='python'
-alias penv="./.venv/bin/pipenv"

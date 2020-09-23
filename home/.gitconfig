@@ -3,7 +3,7 @@
     path = ~/.gitconfig.local
 
 [core]
-	excludesfile = /Users/charlesponti/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
     co = checkout
     cob = checkout -b

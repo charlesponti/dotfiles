@@ -1,5 +1,6 @@
 #-------------------------------------------
-# Python Things
+# Python
+#
 # The Ponti Inc. 2020
 #-------------------------------------------
 
@@ -11,14 +12,8 @@ if which pyenv >/dev/null; then
   eval "$(pyenv init -)"
 fi
 
-# Pyenv Virtualenv
-if which pyenv-virtualenv-init >/dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-
+# Set version of Python to use
 export PYENV_VERSION=3.6.9
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PIPENV_VERBOSITY=-1
 
 # Add Pyenv to PATH
 export PATH="$(pyenv root)/shims:$PATH"
@@ -29,25 +24,19 @@ export PATH="$(pyenv root)/shims:$PATH"
 # args:
 #   $1 - Name of virtualenv
 #-------------------------------------------
-ponti-venv () {
+create-python-environment () {
   informer "Creating virtual environment..."
   python3 -m venv env
 
   informer "Activating virtual environment..."
   source env/bin/activate
 
-  informer "Installing pip things..."
+  informer "Installing Pipenv..."
   pip install --upgrade pip
-  pip install -U pipenv pylint isort black
+  pip install -U pipenv 
 
-  informer "Installing pipenv things..."
-  pipenv install typing pytest
+  informer "Installing project dependencies..."
+  pipenv install pylint isort black typing pytest
 
   success "Done!"
-}
-
-developer-environment() {
-    if [[ "$1" == "python" ]]; then
-        pip install --upgrade pip poetry isort pylint black
-    fi
 }

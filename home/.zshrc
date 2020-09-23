@@ -69,7 +69,16 @@ source $dotfiles/bin/printf.sh
 # for f in $SYSTEM_PATH/**; do source $f; done
 
 # Import Path script again to ensure that the path is correct
-source $SYSTEM_PATH/path.zsh
+source $SYSTEM_PATH/aliases.sh
+source $SYSTEM_PATH/base.sh
+source $SYSTEM_PATH/config.zsh
+source $SYSTEM_PATH/docker.sh
+source $SYSTEM_PATH/path.sh
+source $SYSTEM_PATH/git.sh
+source $SYSTEM_PATH/grc.sh
+source $SYSTEM_PATH/javascript.sh
+source $SYSTEM_PATH/osx.sh
+source $SYSTEM_PATH/python.sh
 
 # Add Auto-Suggestions to ZSH
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -90,7 +99,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents
 eval "$(rbenv init -)"
 
 # Python
-source $SYSTEM_PATH/python.sh
+
 
 # Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"

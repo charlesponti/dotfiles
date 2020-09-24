@@ -90,16 +90,10 @@ export NVM_DIR="$HOME/.nvm"
 $(nvm use node) 2>/dev/null
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk//Contents/Home"
-
-# Dephell
-# source "$HOME/.local/share/dephell/_dephell_zsh_autocomplete"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
 # Ruby
 eval "$(rbenv init -)"
-
-# Python
-
 
 # Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"

@@ -1,18 +1,14 @@
 # MANPATH
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-# SQLite
-export SQLITE_PATH="/usr/local/opt/sqlite/bin"
-
 # Clears every item in your path
 unset path
 
 # List all path entries you want before the "standard" PATH
 PATH="\
-$HOME/.pyenv/bin:\
-/usr/local/opt/python@3.7/bin:\
-/usr/bin:/usr/sbin:\
 /usr/local/bin:/usr/local/sbin:\
+$HOME/.pyenv/bin:\
+/usr/bin:/usr/sbin:\
 /bin:/sbin:\
 /usr/local/opt/openssl/bin:\
 /usr/local/opt/curl/bin:\

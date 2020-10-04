@@ -1,14 +1,17 @@
 # Local/private config goes in the include
 [include]
     path = ~/.gitconfig.local
+
+[core]
+	excludesfile = ~/.gitignore_global
 [alias]
     co = checkout
     cob = checkout -b
+    commit-all = !git add . && git commit -m
     count   = !git shortlog -sn
-    refresh = !git fetch --all && git pull --all
-    cam = !git add . && git commit -m
-    st = status
-    wip = !git add . && git commit -m "wip"  && git push
+    refresh = !git fetch --all && git pull --all --prune
+    s = status
+    wip = !git add . && git commit -m "wip" && git push
 [color]
     diff = auto
     status = auto
@@ -22,14 +25,22 @@
     prompt = false
 [help]
     autocorrect = 1
+[pull]
+    rebase = true
 [push]
     # See `git help config` (search for push.default)
     # for more information on different options of the below setting.
     #
     # Setting to git 2.0 default to suppress warning message
     default = simple
-[commit]
-	template = ~/.gitcommitmessage
 [user]
 	email = cj@ponti.io
 	name = Charles Ponti
+[rebase]
+    autoStash = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -5,16 +5,16 @@ npm-update () {
   npm install
 }
 
+npm-update-all() {
+  npx npm-check-updates -ua
+}
+
 nvm-update-to-latest() {
   # Get current version of NPM installed
   current_version=$(nvm version)
   nvm install stable
   nvm alias default stable
   nvm reinstall-packages $current_version
-}
-
-npm-update-all() {
-  npx npm-check-updates -ua
 }
 
 ts-init () {

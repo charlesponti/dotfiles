@@ -21,8 +21,10 @@ brew cask install setapp
 # api testing
 brew cask install postman
 
-# Install OpenJava
-open https://adoptopenjdk.net/releases.html#x64_mac
+# Install Java
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk15
 
 # Install Docker for Mac
-open https://hub.docker.com/editions/community/docker-ce-desktop-mac
+curl https://download.docker.com/mac/stable/Docker.dmg -o Docker.dmg
+open ./Docker.dmg

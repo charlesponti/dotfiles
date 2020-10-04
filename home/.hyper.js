@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     updateChannel: "stable",
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "Meslo LG M for Powerline",
     cursorColor: "rgba(248,28,229,0.8)",
     cursorShape: "BLOCK",

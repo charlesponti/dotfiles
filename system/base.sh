@@ -2,7 +2,6 @@
 
 renamer () {
   rename -f $1 --remove-extension --append=$2
-  # find . -name '*.less' -exec sh -c 'mv "$0" "${0%.less}.css"' {} \; 
 }
 
 block-em () {
@@ -13,30 +12,6 @@ block-em () {
 unblock-em () {
   sudo cp ~/.dotfiles/bin/block-em/original.txt /etc/hosts
   flushdns
-}
-
-download-urls () {
-  wget -i $1
-  cat $1 | xargs -n 1 curl -LO
-}
-
-# Download YouTube Audio
-youtube-dl-audio () {
-  youtube-dl \
-    --download-archive downloaded.txt \
-    --no-overwrites \
-    -ict \
-    --yes-playlist \
-    --extract-audio \
-    --audio-format mp3 \
-    --audio-quality 0 \
-    --socket-timeout 5 \
-    $1
-}
-
-# Open current directory in GitKraken
-kraken () {
-  open -na 'GitKraken' --args -p $(pwd)
 }
 
 daily() {
@@ -64,4 +39,21 @@ daily() {
 #######################################
 whos_listening() {
   lsof -nP -iTCP:$1
+}
+
+#######################################
+#   PYTHON
+#######################################
+
+# Install Poetry
+install_poetry () {
+    curl -SSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+    mkdir $ZSH/plugins/poetry
+    poetry completions zsh > $ZSH/plugins/poetry/_poetry
+}
+
+# Install dephell
+install_dephell() {
+    python3 -m pip install --user dephell[full]
+    dephell self autocomplete
 }

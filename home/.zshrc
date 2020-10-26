@@ -95,5 +95,13 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents
 # Ruby
 eval "$(rbenv init -)"
 
+# HomeBrew
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # Display welcome message
 echo "$(python $HOME/.dotfiles/commands/welcome_message.py)"

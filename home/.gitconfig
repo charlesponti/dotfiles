@@ -11,7 +11,7 @@
     count   = !git shortlog -sn
     refresh = !git fetch --all && git pull --all --prune
     s = status
-    wip = !git add . && git commit -m "wip" && git push
+    wip = !git add . && git commit -m "wip" --no-verify && git push
     squash = !git merge --no-commit --squash
 [color]
     diff = auto

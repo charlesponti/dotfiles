@@ -10,7 +10,7 @@ curl -L git.io/antigen > $HOME/.antigen/antigen.zsh
 
 # Install Meslo font
 brew tap homebrew/cask-fonts
-brew cask install font-meslo-nerd-font
+brew install --cask font-hack-nerd-font
 
 # Install Powerline Fonts
 git clone https://github.com/powerline/fonts.git --depth=1;

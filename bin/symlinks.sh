@@ -26,7 +26,7 @@ done
 # Visual Studio Code
 # ------------------------------------------------------------------------------
 VSCODE=$HOME/Library/"Application Support"/Code/User
-VSCODE_BIN=$dotfiles/bin/vscode/User
+VSCODE_BIN=$dotfiles/home/vscode
 
 # Remove snippets folder if one already exists
 if [[ -d "$VSCODE/snippets" ]]; then

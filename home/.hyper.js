@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     updateChannel: "stable",
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: "Meslo LG M for Powerline",
     cursorColor: "rgba(248,28,229,0.8)",
     cursorShape: "BLOCK",
@@ -37,11 +37,11 @@ module.exports = {
     env: {},
     bell: "SOUND",
     copyOnSelect: false,
-    pokemon: "arbok",
+    pokemon: "snorlax",
     color: "dark",
     unibody: false
   },
-  plugins: [],
+  plugins: ["hyper-search", "hyper-pokemon"],
   localPlugins: [],
   keymaps: {}
 };

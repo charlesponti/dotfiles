@@ -16,8 +16,9 @@ alias gcl='git clone'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
 alias gexport='git archive --format zip --output'
+alias gf='git fetch --all --prune'
 alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gl='git pull --prune'
+alias gl='git pull'
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gm="git merge"

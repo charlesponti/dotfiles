@@ -13,7 +13,6 @@ source $SYSTEM_PATH/base.sh
 source $SYSTEM_PATH/config.zsh
 source $SYSTEM_PATH/docker.sh
 source $SYSTEM_PATH/git.sh
-source $SYSTEM_PATH/grc.sh
 source $SYSTEM_PATH/javascript.sh
 source $SYSTEM_PATH/osx.sh
 source $SYSTEM_PATH/path.sh

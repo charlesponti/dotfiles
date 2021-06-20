@@ -1,6 +1,5 @@
-# Made possible through contributions from generous benefactors like
 # `brew install coreutils`
-if $(gls &>/dev/null)
+if $(ls &>/dev/null)
 then
   alias k="kubectl"
   alias d="docker"
@@ -9,10 +8,10 @@ then
 
   # alias l='colorls --group-directories-first --almost-all'
   # alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
+  alias ls="ls -F --color"
+  alias l="ls -lAh --color"
+  alias ll="ls -l --color"
+  alias la='ls -A --color'
   alias zshconfig="code ~/.zshrc"
   alias ohmyzsh="code ~/.oh-my-zsh"
   alias dotfiles="code ~/.dotfiles"

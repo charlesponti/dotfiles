@@ -6,5 +6,7 @@
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
     "eslint.run": "onType",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Abyss"
 }

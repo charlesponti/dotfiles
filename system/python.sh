@@ -13,7 +13,7 @@ if which pyenv >/dev/null; then
 fi
 
 # Set version of Python to use
-export PYENV_VERSION=3.6.9
+export PYENV_VERSION=3.9.5
 
 # Add Pyenv to PATH
 export PATH="$(pyenv root)/shims:$PATH"

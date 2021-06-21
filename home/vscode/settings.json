@@ -1,12 +1,16 @@
 {
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
+    "editor.suggestSelection": "first",
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
     "eslint.run": "onType",
     "explorer.confirmDelete": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Abyss"
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "GitHub Dark Default"   
 }

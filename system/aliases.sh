@@ -6,12 +6,11 @@ then
   alias g="git"
   alias c="code"
 
-  # alias l='colorls --group-directories-first --almost-all'
-  # alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
-  alias ls="ls -F --color"
-  alias l="ls -lAh --color"
-  alias ll="ls -l --color"
-  alias la='ls -A --color'
+  alias l='colorls --group-directories-first --almost-all'
+  alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
+  alias ls="ls -F"
+  alias la='ls -A'
+  
   alias zshconfig="code ~/.zshrc"
   alias ohmyzsh="code ~/.oh-my-zsh"
   alias dotfiles="code ~/.dotfiles"

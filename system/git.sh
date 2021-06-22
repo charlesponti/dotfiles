@@ -30,7 +30,7 @@ alias gmu='git fetch origin -v; git fetch upstream -v; git merge upstream/master
 # Show commits since last pull
 alias gnew="git log HEAD@{1}..HEAD@{0}"
 
-alias gp="git push origin HEAD"
+alias gp="git push"
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gsl="git shortlog -sn"
 alias gus="git reset HEAD"

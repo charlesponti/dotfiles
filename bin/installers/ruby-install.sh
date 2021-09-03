@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-# Install RVM
-\curl -sSL https://get.rvm.io | bash -s stable
+# Install rbenv
+brew install rbenv
 
-# Add to end of zshrc
-echo "source $HOME/.rvm/bin" >> $dotfiles/home/.zshrc
+# Install Ruby version
+rbenv install 2.7.1
 
-# Restart shell
-reload!
-
-# Install Ruby
-rvm install 2.2.0
+sudo gem install colorls

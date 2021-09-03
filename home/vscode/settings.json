@@ -9,8 +9,13 @@
     "eslint.lintTask.enable": true,
     "eslint.run": "onType",
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "redhat.telemetry.enabled": false,
     "vsintellicode.features.python.deepLearning": "enabled",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "GitHub Dark Default"   
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+    },
+    "workbench.colorTheme": "Default Light+"
 }

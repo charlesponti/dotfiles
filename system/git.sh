@@ -6,6 +6,11 @@
 
 # The rest of my fun git aliases
 alias gac='git add -A && git commit -m'
+
+gacnv() {
+  git add -A && git commit -m $1 --no-verify
+}
+
 alias gb='git branch'
 alias gc='git commit'
 

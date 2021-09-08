@@ -117,6 +117,6 @@ alias drmid=drmid-fn
 alias drun=drun-fn
 alias dsp="docker system prune --all"
 alias dsr=dsr-fn
+alias dsrf="docker system prune --all --force --volumes"
 alias dcup="docker-compose up --build --remove-orphans"
 alias dcdown="docker-compose down --rmi all --remove-orphans -v"
-alias docker-clean="docker system prune --all --force --volumes"

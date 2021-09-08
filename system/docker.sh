@@ -102,7 +102,9 @@ function d-aws-cli-fn {
 alias daws=d-aws-cli-fn
 alias dc=dc-fn
 alias dcu="docker-compose up"
+alias dcub="docker-compose up --build --remove-orphans"
 alias dcd="docker-compose down"
+alias dcdr="docker-compose down --rmi all --remove-orphans -v"
 alias dcr=dcr-fn
 alias dex=dex-fn
 alias di=di-fn
@@ -118,5 +120,3 @@ alias drun=drun-fn
 alias dsp="docker system prune --all"
 alias dsr=dsr-fn
 alias dsrf="docker system prune --all --force --volumes"
-alias dcup="docker-compose up --build --remove-orphans"
-alias dcdown="docker-compose down --rmi all --remove-orphans -v"

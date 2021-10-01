@@ -17,5 +17,7 @@
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm"
     },
-    "workbench.colorTheme": "Default Light+"
+    "editor.fontFamily": "'Droid Sans Mono for Powerline Regular', Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "workbench.colorTheme": "Quiet Light"
 }

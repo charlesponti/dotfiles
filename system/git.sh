@@ -20,6 +20,7 @@ alias gcaa="git commit -a --amend -C HEAD"
 alias gcl='git clone'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
+alias gbd='git branch -D'
 alias gexport='git archive --format zip --output'
 alias gf='git fetch --all --prune'
 alias gfp='git fetch --all --prune && git pull'

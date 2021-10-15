@@ -9,6 +9,7 @@
     commit-all = !git add . && git commit -m
     count   = !git shortlog -sn
     refresh = !git fetch --all && git pull --all --prune
+    rhh = !git reset HEAD --hard
     s = status
     wip = !git add . && git commit -m "wip" --no-verify && git push
     squash = !git merge --no-commit --squash

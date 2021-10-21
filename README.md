@@ -1,6 +1,6 @@
 # dotfiles
 
-`dotfiles` are how you personalize your system.
+your dotfiles are how you personalize your system.
 
 these are mine.
 
@@ -36,3 +36,13 @@ take and customise to your liking 💁
 - Docker For Mac     (developer tools)
 - VS Code            (code editor)
 - Hyper              (terminal)
+
+## Settings
+- macOS
+  - ComputerName & HostName
+  - trackpad
+  - dock
+
+## When Setting Up New Computer
+1. Github
+  - Regenerate Personal Access Token and use for Hub authentication

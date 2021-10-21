@@ -31,5 +31,7 @@
 [commit]
 	template = ~/.gitcommitmessage
 [user]
-	email = cj@ponti.io
 	name = Charles Ponti
+	email = cj@ponti.io
+[core]
+	excludesfile = /Users/charlesponti/.gitignore_global

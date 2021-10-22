@@ -11,10 +11,10 @@ export DOCKER_VOLUMES=$HOME/.docker/volumes
 #                                                                          #
 #     # Usage:                                                             #
 #     daws <svc> <cmd> <opts> : aws cli in docker with <svc> <cmd> <opts>  #
-#     dc             : docker-compose                                      #
-#     dcu            : docker-compose up -d                                #
-#     dcd            : docker-compose down                                 #
-#     dcr            : docker-compose run                                  #
+#     dc             : docker compose                                      #
+#     dcu            : docker compose up -d                                #
+#     dcd            : docker compose down                                 #
+#     dcr            : docker compose run                                  #
 #     dex <container>: execute a bash shell inside the RUNNING <container> #
 #     di <container> : docker inspect <container>                          #
 #     dim            : docker images                                       #
@@ -66,7 +66,7 @@ function drun-fn {
 }
 
 function dcr-fn {
-	docker-compose run $@
+	docker compose run $@
 }
 
 function dsr-fn {
@@ -101,10 +101,10 @@ function d-aws-cli-fn {
 
 alias daws=d-aws-cli-fn
 alias dc=dc-fn
-alias dcu="docker-compose up"
-alias dcub="docker-compose up --build --remove-orphans"
-alias dcd="docker-compose down"
-alias dcdr="docker-compose down --rmi all --remove-orphans -v"
+alias dcu="docker compose up"
+alias dcub="docker compose up --build --force-recreate --remove-orphans -V"
+alias dcd="docker compose down"
+alias dcdr="docker compose down --rmi all --remove-orphans -v"
 alias dcr=dcr-fn
 alias dex=dex-fn
 alias di=di-fn

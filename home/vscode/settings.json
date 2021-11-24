@@ -19,5 +19,7 @@
     },
     "editor.fontFamily": "'Droid Sans Mono for Powerline Regular', Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
-    "workbench.colorTheme": "Quiet Light"
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
 }

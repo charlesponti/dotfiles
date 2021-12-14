@@ -26,6 +26,5 @@ $(nvm use node) 2>/dev/null
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
-autoload -Uz promptinit
-promptinit
-prompt cloud
+# Local computer stuff
+source ~/.chaserc

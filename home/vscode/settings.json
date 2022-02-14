@@ -15,7 +15,8 @@
     "vsintellicode.features.python.deepLearning": "enabled",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "vs-kubernetes": {
-        "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+        "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "editor.fontFamily": "'Droid Sans Mono for Powerline Regular', Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,

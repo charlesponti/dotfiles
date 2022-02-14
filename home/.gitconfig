@@ -4,6 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
+    c = commit
     co = checkout
     cob = checkout -b
     commit-all = !git add . && git commit -m

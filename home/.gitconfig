@@ -5,9 +5,9 @@
 	excludesfile = ~/.gitignore_global
 [alias]
     c = commit
+    ca = !git add . && git commit
     co = checkout
     cob = checkout -b
-    commit-all = !git add . && git commit -m
     count   = !git shortlog -sn
     refresh = !git fetch --all && git pull --all --prune
     rhh = !git reset HEAD --hard

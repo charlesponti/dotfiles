@@ -22,8 +22,6 @@ alias gco='git checkout'
 alias gcount='git shortlog -sn'
 alias gbd='git branch -D'
 alias gexport='git archive --format zip --output'
-alias gf='git fetch --all --prune'
-alias gfp='git fetch --all --prune && git pull'
 alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gl='git pull'
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
@@ -38,6 +36,8 @@ alias gmu='git fetch origin -v; git fetch upstream -v; git merge upstream/master
 alias gnew="git log HEAD@{1}..HEAD@{0}"
 
 alias gp="git push"
+alias gpl='git pull --all --prune'
+alias gpr='git prune'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gsl="git shortlog -sn"
 alias gus="git reset HEAD"

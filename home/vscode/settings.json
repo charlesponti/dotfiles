@@ -18,7 +18,7 @@
         "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
         "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
-    "editor.fontFamily": "'Droid Sans Mono for Powerline Regular', Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Source Code Pro for Powerline",
     "editor.fontSize": 13,
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"

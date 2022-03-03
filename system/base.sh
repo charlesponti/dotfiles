@@ -23,9 +23,6 @@ daily() {
 
   informer "Sending Homebrew to the doctor..."
   brew doctor
-
-  informer "Upgrading NPM modules..."
-  npm update -g
 }
 
 #######################################

@@ -26,6 +26,19 @@ daily() {
 }
 
 #######################################
+# Delete all local Git branches matching some pattern
+# Globals:
+#   None
+# Arguments:
+#   $1 - pattern to find
+# Returns:
+#   None
+#######################################
+delete-all-branches() {
+  git branch | grep $1 | xargs git branch -D 
+}
+
+#######################################
 # Return list of processes listening on a given port
 # Globals:
 #   None

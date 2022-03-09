@@ -22,5 +22,9 @@
     "editor.fontSize": 13,
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "workbench.colorTheme": "Quiet Light"
 }

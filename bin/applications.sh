@@ -1,29 +1,23 @@
 # Install commonly used applications
 
-# termianl
-brew cask install hyper
-
 # web browsing
-brew cask install google-chrome
+brew install google-chrome --cask
 
 # spotify
-brew cask install spotify
-
-# source code management
-brew cask install sourcetree
+brew install spotify --cask
 
 # diagram editor
-brew cask install drawio
+brew install drawio --cask
 
 # application managment
-brew cask install setapp
+brew install setapp --cask
 
 # api testing
-brew cask install postman
+brew install postman --cask
 
 # Install Java
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk15
+brew install adoptopenjdk15 --cask
 
 # Install Docker for Mac
 curl https://download.docker.com/mac/stable/Docker.dmg -o Docker.dmg

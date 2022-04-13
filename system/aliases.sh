@@ -44,13 +44,6 @@ then
   # Get Fingerprint of SSH key
   alias ssh-fingerprint="ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'"
 
-  ssh-create () {
-    ssh-keygen -t rsa -b 4096 -C “”
-    eval “$(ssh-agent -s)”
-    ssh-add ~/.ssh/id_rsa
-    https://github.com/settings/ssh
-  }
-
   #-----------------------
   # Postgres
   #-----------------------
@@ -85,9 +78,6 @@ then
   # Restart Mac
   alias restartmac="sudo shutdown -r now"
 
-  # Create symlink
-  alias symlink="ln -sfv $1 $2"
-
   # Disable sertificate check for wget.
   alias wget='wget --no-check-certificate'
 
@@ -97,9 +87,6 @@ then
   # Pretty print json
   alias json='python -m json.tool'
 
-  # Start selenium-server at supplied port
-  alias selenium="selenium-server -p $1"
-
   # Short-cuts for copy-paste.
   alias copy='pbcopy'
   alias paste='pbpaste'
@@ -107,16 +94,13 @@ then
   # Remove all items safely, to Trash (`brew install trash`).
   alias rm='trash'
 
-  # Case-insensitive pgrep that outputs full path.
-  alias pgrep='pgrep -fli'
-
   # Lock current session and proceed to the login screen.
   alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
   # Sniff network info.
   alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 
-  # Process grep should output full paths to binaries.
+  # Case-insensitive pgrep that outputs full path.
   alias pgrep='pgrep -fli'
 
   #------------------------------------------------------------------------
@@ -124,10 +108,8 @@ then
   #------------------------------------------------------------------------
   # List all packages downloaded by Homebrew
   alias brews="brew list"
-  # Shorthand for 'brew cask'
-  alias cask="brew cask"
   # List all packages downloaded by brew cask
-  alias casks="brew cask list"
+  alias casks="brew list --casks"
 
   #------------------------------------------------------------------------
   # Xcode

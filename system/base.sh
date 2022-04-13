@@ -51,6 +51,19 @@ whos_listening() {
   lsof -nP -iTCP:$1
 }
 
+# Create SSH key for github
+github-ssh () {
+  ssh-keygen -t rsa -b 4096 -C “”
+  eval “$(ssh-agent -s)”
+  ssh-add ~/.ssh/id_rsa
+  open https://github.com/settings/ssh
+}
+
+# Create symlink
+symlink() {
+  ln -sfv $1 $2
+}
+
 #######################################
 #   PYTHON
 #######################################

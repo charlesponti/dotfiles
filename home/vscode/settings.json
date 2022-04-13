@@ -19,12 +19,23 @@
         "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "editor.fontFamily": "Source Code Pro for Powerline",
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[typescript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
-    "workbench.colorTheme": "Quiet Light"
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.activeIconPack": "react",
+    "material-icon-theme.opacity": 0.4,
+    "material-icon-theme.showUpdateMessage": true,
+    "editor.inlineSuggest.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": true
+    }
 }

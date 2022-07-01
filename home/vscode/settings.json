@@ -1,6 +1,7 @@
 {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.codeActionsOnSave": {
+        "source.fixAll": true,
         "source.fixAll.eslint": true
     },
     "editor.suggestSelection": "first",
@@ -20,6 +21,7 @@
     },
     "editor.fontFamily": "Source Code Pro for Powerline",
     "editor.fontSize": 14,
+    "editor.formatOnSave": false,
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
@@ -34,7 +36,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "github.copilot.enable": {
         "*": true,
-        "yaml": false,
+        "yaml": true,
         "plaintext": true,
         "markdown": true
     }

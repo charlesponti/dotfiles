@@ -1,34 +1,39 @@
 export DOCKER_VOLUMES=$HOME/.docker/volumes
 
-############################################################################
-#                                                                          #
-#               ------- Useful Docker Aliases --------                     #
-#                                                                          #
-#     # Installation :                                                     #
-#     copy/paste these lines into your .bashrc or .zshrc file or just      #
-#     type the following in your current shell to try it out:              #
+#######################################################################################
+#                                                                                     #
+#               ------- Useful Docker Aliases --------                                #
+#                                                                                     #
+#     # Installation :                                                                #
+#     copy/paste these lines into your .bashrc or .zshrc file or just                 #
+#     type the following in your current shell to try it out:                         #
 #     wget -O - https://gist.githubusercontent.com/jgrodziski/9ed4a17709baad10dbcd4530b60dfcbb/raw/d84ef1741c59e7ab07fb055a70df1830584c6c18/docker-aliases.sh | bash
-#                                                                          #
-#     # Usage:                                                             #
-#     daws <svc> <cmd> <opts> : aws cli in docker with <svc> <cmd> <opts>  #
-#     dc             : docker compose                                      #
-#     dcu            : docker compose up -d                                #
-#     dcd            : docker compose down                                 #
-#     dcr            : docker compose run                                  #
-#     dex <container>: execute a bash shell inside the RUNNING <container> #
-#     di <container> : docker inspect <container>                          #
-#     dim            : docker images                                       #
-#     dip            : IP addresses of all running containers              #
-#     dl <container> : docker logs -f <container>                          #
-#     dnames         : names of all running containers                     #
-#     dps            : docker ps                                           #
-#     dpsa           : docker ps -a                                        #
-#     drmc           : remove all exited containers                        #
-#     drmid          : remove all dangling images                          #
-#     drun <image>   : execute a bash shell in NEW container from <image>  #
-#     dsr <container>: stop then remove <container>                        #
-#                                                                          #
-############################################################################
+#                                                                                     #
+#     # Usage:                                                                        #
+#     daws <svc> <cmd> <opts> : aws cli in docker with <svc> <cmd> <opts>             #
+#     dc             : docker compose                                                 #
+#     dcu            : docker compose up                                              #
+#     dcub           : docker compose up --build --force-recreate --remove-orphans -V #
+#     dcd            : docker compose down                                            #
+#     dcdr           : docker compose down --rmi all --remove-orphans -v              #
+#     dcr            : docker compose run                                             #
+#     dc-reboot      : docker compose stop && docker compose up --build -d            #
+#     dex <container>: execute a bash shell inside the RUNNING <container>            #
+#     di <container> : docker inspect <container>                                     #
+#     dim            : docker images                                                  #
+#     dip            : IP addresses of all running containers                         #
+#     dl <container> : docker logs -f <container>                                     #
+#     dnames         : names of all running containers                                #
+#     dps            : docker ps                                                      #
+#     dpsa           : docker ps -a                                                   #
+#     drmc           : remove all exited containers                                   #
+#     drmid          : remove all dangling images                                     #
+#     drun <image>   : execute a bash shell in NEW container from <image>             #
+#     dsp            : docker system prune --all                                      #
+#     dsr <container>: stop then remove <container>                                   #
+#     dsrf           : docker system prune --all --force --volumes                    #
+#                                                                                     #
+#######################################################################################
 
 function dnames-fn {
 	for ID in `docker ps | awk '{print $1}' | grep -v 'CONTAINER'`
@@ -106,6 +111,7 @@ alias dcub="docker compose up --build --force-recreate --remove-orphans -V"
 alias dcd="docker compose down"
 alias dcdr="docker compose down --rmi all --remove-orphans -v"
 alias dcr=dcr-fn
+alias dc-reboot="docker compose stop && docker compose up --build -d"
 alias dex=dex-fn
 alias di=di-fn
 alias dim="docker images"

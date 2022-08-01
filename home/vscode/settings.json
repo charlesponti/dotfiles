@@ -8,7 +8,7 @@
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
-    "eslint.run": "onType",
+    // "eslint.run": "onType",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -39,5 +39,11 @@
         "yaml": true,
         "plaintext": true,
         "markdown": true
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     }
 }

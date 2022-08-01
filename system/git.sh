@@ -85,6 +85,11 @@ git-init() {
   cp $HOME/.dotfiles/home/.gitignore_global .gitignore
 }
 
+git-merge-main() {
+  # Merge lastest main branch into current branch
+  git co main && gpl && git co $1 && git merge main
+}
+
 gdiff() {
   git --no-pager diff --color=auto --no-ext-diff --no-index "$@"
 }

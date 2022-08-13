@@ -4,13 +4,22 @@
         "source.fixAll": true,
         "source.fixAll.eslint": true
     },
+    "editor.fontFamily": "Space Mono",
+    "editor.fontSize": 14,
+    "editor.formatOnSave": false,
     "editor.suggestSelection": "first",
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
-    // "eslint.run": "onType",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": true,
+      "plaintext": true,
+      "markdown": true
+    },
+    "githubPullRequests.pullBranch": "never",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "redhat.telemetry.enabled": false,
     "vsintellicode.features.python.deepLearning": "enabled",
@@ -19,9 +28,6 @@
         "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
         "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
-    "editor.fontFamily": "Source Code Pro for Powerline",
-    "editor.fontSize": 14,
-    "editor.formatOnSave": false,
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
@@ -34,12 +40,6 @@
     "material-icon-theme.showUpdateMessage": true,
     "editor.inlineSuggest.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": true,
-        "plaintext": true,
-        "markdown": true
-    },
     "[javascriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },

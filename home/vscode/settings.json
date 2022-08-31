@@ -10,6 +10,7 @@
     "editor.suggestSelection": "first",
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
+    "editor.inlineSuggest.enabled": true,
     "eslint.lintTask.enable": true,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -29,7 +30,7 @@
         "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
@@ -38,12 +39,12 @@
     "material-icon-theme.activeIconPack": "react",
     "material-icon-theme.opacity": 0.4,
     "material-icon-theme.showUpdateMessage": true,
-    "editor.inlineSuggest.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "[javascriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    }
+    },
+    "workbench.colorTheme": "Default Light+"
 }

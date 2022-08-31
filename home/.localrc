@@ -26,5 +26,8 @@ $(nvm use node) 2>/dev/null
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
+# GOOGLE CLOUD CLI
+export CLOUDSDK_PYTHON="/usr/local/bin/python3.7"
+
 # Local computer stuff
 source ~/.chaserc

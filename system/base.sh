@@ -14,17 +14,6 @@ unblock-em () {
   flushdns
 }
 
-daily() {
-  informer "Upgrading Homebrew packages..."
-  brew upgrade
-
-  informer "Cleaning up Homebrew..."
-  brew cleanup
-
-  informer "Sending Homebrew to the doctor..."
-  brew doctor
-}
-
 #######################################
 # Delete all local Git branches matching some pattern
 # Globals:
@@ -35,7 +24,7 @@ daily() {
 #   None
 #######################################
 delete-all-branches() {
-  git branch | grep $1 | xargs git branch -D 
+  git branch | grep $1 | xargs git branch -D
 }
 
 #######################################

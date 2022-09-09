@@ -45,6 +45,5 @@
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "workbench.colorTheme": "Default Light+"
+    }
 }

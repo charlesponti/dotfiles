@@ -2,13 +2,19 @@
 [include]
     path = ~/.gitconfig.local
 [core]
-	excludesfile = ~/.gitignore_global
+    editor = code
+    excludesfile = ~/.gitignore_global
 [alias]
     c = commit
     ca = !git add . && git commit
     co = checkout
     cob = checkout -b
     count   = !git shortlog -sn
+    force-amend = !git commit --amend && git push --force
+    fix-pnpm = !git add . && git commit -m 'fix(package) fix pnpm-lock'
+    mc = merge --continue
+    p = push
+    pl = pull
     refresh = !git fetch --all && git pull --all --prune
     rhh = !git reset HEAD --hard
     s = status
@@ -37,11 +43,5 @@
     default = simple
 [rebase]
     autoStash = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [init]
-	defaultBranch = main
+  	defaultBranch = main

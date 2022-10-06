@@ -1,49 +1,56 @@
 {
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.fixAll.eslint": true
-    },
-    "editor.fontFamily": "Space Mono",
-    "editor.fontSize": 14,
-    "editor.formatOnSave": false,
-    "editor.suggestSelection": "first",
-    "eslint.alwaysShowStatus": true,
-    "eslint.format.enable": true,
-    "editor.inlineSuggest.enabled": true,
-    "eslint.lintTask.enable": true,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "github.copilot.enable": {
-      "*": true,
-      "yaml": true,
-      "plaintext": true,
-      "markdown": true
-    },
-    "githubPullRequests.pullBranch": "never",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "redhat.telemetry.enabled": false,
-    "vsintellicode.features.python.deepLearning": "enabled",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "vs-kubernetes": {
-        "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "material-icon-theme.activeIconPack": "react",
-    "material-icon-theme.opacity": 0.4,
-    "material-icon-theme.showUpdateMessage": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    }
+  "material-icon-theme.activeIconPack" : "react",
+  "githubPullRequests.pullBranch" : "never",
+  "workbench.iconTheme" : "material-icon-theme",
+  "[javascriptreact]" : {
+    "editor.defaultFormatter" : "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "editor.fontSize" : 14,
+  "workbench.colorTheme" : "GitHub Dark Colorblind (Beta)",
+  "editor.inlineSuggest.enabled" : true,
+  "vsintellicode.features.python.deepLearning" : "enabled",
+  "diffEditor.ignoreTrimWhitespace" : false,
+  "eslint.lintTask.enable" : true,
+  "editor.suggestSelection" : "first",
+  "editor.codeActionsOnSave" : {
+    "source.fixAll.eslint" : true,
+    "source.fixAll" : true
+  },
+  "security.workspace.trust.untrustedFiles" : "open",
+  "material-icon-theme.opacity" : 0.40000000000000002,
+  "github.copilot.enable" : {
+    "markdown" : true,
+    "*" : true,
+    "plaintext" : true,
+    "yaml" : true
+  },
+  "vsintellicode.modify.editor.suggestSelection" : "automaticallyOverrodeDefaultValue",
+  "vs-kubernetes" : {
+    "vscode-kubernetes.minikube-path.mac" : "\/Users\/charlesponti\/.vs-kubernetes\/tools\/minikube\/darwin-amd64\/minikube",
+    "vscode-kubernetes.helm-path.mac" : "\/Users\/charlesponti\/.vs-kubernetes\/tools\/helm\/darwin-amd64\/helm"
+  },
+  "eslint.alwaysShowStatus" : true,
+  "[javascript]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily" : "Source Code Pro for Powerline",
+  "redhat.telemetry.enabled" : false,
+  "material-icon-theme.showUpdateMessage" : true,
+  "editor.accessibilitySupport" : "off",
+  "explorer.confirmDelete" : false,
+  "[typescript]" : {
+    "editor.defaultFormatter" : "dbaeumer.vscode-eslint"
+  },
+  "javascript.updateImportsOnFileMove.enabled" : "always",
+  "eslint.format.enable" : true,
+  "scss.showErrors" : true,
+  "editor.formatOnSave" : false,
+  "typescript.updateImportsOnFileMove.enabled" : "always",
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
 }

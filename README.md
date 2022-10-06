@@ -6,6 +6,10 @@ these are mine.
 
 take and customise to your liking 💁
 
+## Features
+* [Spaceship Prompt](https://spaceship-prompt.sh)
+* [Fig](https://fig.io/)
+
 ## Steps
 1. 💰 Purchase the newest and most 🔥🔥🔥 MacBook Pro
 2. 🚌 Gleefully return home with your marvelous purchase

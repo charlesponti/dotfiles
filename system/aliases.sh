@@ -10,14 +10,14 @@ then
   alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
   alias ls="ls -F"
   alias la='ls -A'
-  
+
   alias zshconfig="code ~/.zshrc"
-  alias ohmyzsh="code ~/.oh-my-zsh"
   alias dotfiles="code ~/.dotfiles"
 
   # Use Pygments for shell code syntax highlighting
   alias pcat='pygmentize -f terminal256 -O style=native -g'
 
+  # Reload shell
   alias reload!='exec $SHELL -l'
 
   # Simple clear command.

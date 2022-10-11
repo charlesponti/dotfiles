@@ -4,16 +4,6 @@ renamer () {
   rename -f $1 --remove-extension --append=$2
 }
 
-block-em () {
-  sudo cp ~/.dotfiles/bin/block-em/block-em.txt /etc/hosts
-  flushdns
-}
-
-unblock-em () {
-  sudo cp ~/.dotfiles/bin/block-em/original.txt /etc/hosts
-  flushdns
-}
-
 #######################################
 # Delete all local Git branches matching some pattern
 # Globals:

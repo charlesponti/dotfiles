@@ -1,11 +1,12 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
+# Load for compdef
+autoload -Uz compinit
+compinit
+
 # Use Spaceship [https://spaceship-prompt.sh]
 source "$HOME/.zsh/spaceship/spaceship.zsh"
-
-# Helpful env variables
-SYSTEM_PATH=~/.dotfiles/system
 
 # Enable Kubernetes ZSH completion
 source <(kubectl completion zsh)
@@ -17,6 +18,7 @@ source $HOME/.dotfiles/bin/printf.sh
 source ~/.localrc
 
 # Import personal tings
+SYSTEM_PATH=~/.dotfiles/system
 source $SYSTEM_PATH/aliases.sh
 source $SYSTEM_PATH/base.sh
 source $SYSTEM_PATH/config.zsh

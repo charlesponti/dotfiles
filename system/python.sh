@@ -1,9 +1,3 @@
-#-------------------------------------------
-# Python
-#
-# The Ponti Inc. 2020
-#-------------------------------------------
-
 # Python
 alias py='python'
 
@@ -33,7 +27,7 @@ create-python-environment () {
 
   informer "Installing Pipenv..."
   pip install --upgrade pip
-  pip install -U pipenv 
+  pip install -U pipenv
 
   informer "Installing project dependencies..."
   pipenv install pylint isort black typing pytest

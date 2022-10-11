@@ -1,5 +1,8 @@
 # Install commonly used applications
 
+# terminal
+brew install --cask fig
+
 # web browsing
 brew install google-chrome --cask
 

@@ -10,11 +10,11 @@ brew update
 brew tap 'homebrew/bundle'
 
 brew install jq               # JSON parser
+brew install kubectl          # Kubernetes
+brew install minikube         # Minikube
+brew install tree             # Tree (display directories as tree)
 brew install trash            # Trash (rm -rf replacement)
 brew install unrar            #
 brew install wget             #
-brew install tree             # Tree (display directories as tree)
-brew install kubectl          # Kubernetes
-brew install minikube         # Minikube
 
 brew doctor

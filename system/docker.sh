@@ -79,29 +79,29 @@ function dsr-fn {
 }
 
 function drmc-fn {
-       docker rm $(docker ps --all -q -f status=exited)
+  docker rm $(docker ps --all -q -f status=exited)
 }
 
 function drmid-fn {
-       imgs=$(docker images -q -f dangling=true)
-       [ ! -z "$imgs" ] && docker rmi "$imgs" || echo "no dangling images."
+  imgs=$(docker images -q -f dangling=true)
+  [ ! -z "$imgs" ] && docker rmi "$imgs" || echo "no dangling images."
 }
 
 # in order to do things like dex $(dlab label) sh
 function dlab {
-       docker ps --filter="label=$1" --format="{{.ID}}"
+  docker ps --filter="label=$1" --format="{{.ID}}"
 }
 
 function dc-fn {
-        docker-compose $*
+  docker-compose $*
 }
 
 function d-aws-cli-fn {
-    docker run \
-           -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-           -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-           -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-           amazon/aws-cli:latest $1 $2 $3
+  docker run \
+    -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+    -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+    -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+    amazon/aws-cli:latest $1 $2 $3
 }
 
 alias daws=d-aws-cli-fn

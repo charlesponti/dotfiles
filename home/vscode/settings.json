@@ -1,6 +1,9 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascriptreact]" : {
-    "editor.defaultFormatter" : "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]" : {
     "editor.defaultFormatter" : "esbenp.prettier-vscode"
@@ -42,5 +45,5 @@
     "vscode-kubernetes.minikube-path.mac" : "\/Users\/charlesponti\/.vs-kubernetes\/tools\/minikube\/darwin-amd64\/minikube",
     "vscode-kubernetes.helm-path.mac" : "\/Users\/charlesponti\/.vs-kubernetes\/tools\/helm\/darwin-amd64\/helm"
   },
-  "workbench.colorTheme" : "GitHub Dark Colorblind (Beta)"
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)"
 }

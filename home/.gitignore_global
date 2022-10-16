@@ -2,7 +2,6 @@
 
 # dependencies
 node_modules
-env
 .venv
 
 # testing
@@ -10,23 +9,14 @@ coverage
 htmlcov
 
 # production
+dist
 build
 
 # macOS
-*~
 .DS_Store
-
-# Code Editors
-.vscode # Visual Studio Code
-.idea   # JetBrains
 
 # Environment files
 .env*
 
 # Log files
 *.log*
-
-# Python
-env
-.python-version
-__pycache__

@@ -2,15 +2,6 @@
 
 # dependencies
 node_modules
-.venv
-
-# testing
-coverage
-htmlcov
-
-# production
-dist
-build
 
 # macOS
 .DS_Store

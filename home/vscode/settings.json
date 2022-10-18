@@ -45,6 +45,6 @@
     "vscode-kubernetes.minikube-path.mac": "\/Users\/charlesponti\/.vs-kubernetes\/tools\/minikube\/darwin-amd64\/minikube",
     "vscode-kubernetes.helm-path.mac": "\/Users\/charlesponti\/.vs-kubernetes\/tools\/helm\/darwin-amd64\/helm"
   },
-  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons"
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.iconTheme": "material-icon-theme"
 }

@@ -1,22 +1,24 @@
 {
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.inlineSuggest.enabled": true,
   "editor.accessibilitySupport": "off",
-  "editor.fontFamily": "Roboto Mono for Powerline",
+  "editor.fontFamily": "Hack Nerd Font",
   "editor.formatOnSave": false,
   "editor.suggestSelection": "first",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
     "source.fixAll": true
   },
   "eslint.format.enable": true,

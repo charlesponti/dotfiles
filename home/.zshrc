@@ -35,7 +35,7 @@ source $SYSTEM_PATH/path.sh
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
 # GOOGLE CLOUD CLI
-export CLOUDSDK_PYTHON="/usr/local/bin/python3.7"
+export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.7.14/bin/python3"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/path.zsh.inc"; fi

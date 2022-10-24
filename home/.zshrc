@@ -30,6 +30,7 @@ source $SYSTEM_PATH/git.sh
 source $SYSTEM_PATH/javascript.sh
 source $SYSTEM_PATH/osx.sh
 source $SYSTEM_PATH/path.sh
+source $SYSTEM_PATH/python.sh
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"

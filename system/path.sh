@@ -6,6 +6,8 @@ unset path
 
 # List all path entries you want before the "standard" PATH
 PATH="\
+/opt/homebrew/sbin:\
+/opt/homebrew/bin:\
 /usr/local/bin:/usr/local/sbin:\
 $HOME/.pyenv/bin:\
 /usr/bin:/usr/sbin:\
@@ -16,7 +18,6 @@ $HOME/.pyenv/bin:\
 /usr/local/opt/sqlite/bin:\
 /usr/libexec:\
 /Library/Apple/usr/bin"
-
 
 # Clean up possible duplicates in your path (ex. if iTerm is launching shells as login shells)
 # Make PATH Entries Great Again: (Unique)

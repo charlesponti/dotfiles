@@ -36,5 +36,6 @@
     "vscode-kubernetes.helm-path.mac": "\/Users\/charlesponti\/.vs-kubernetes\/tools\/helm\/darwin-amd64\/helm"
   },
   "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "window.newWindowDimensions": "maximized"
 }

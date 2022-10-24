@@ -42,20 +42,3 @@ github-ssh () {
 symlink() {
   ln -sfv $1 $2
 }
-
-#######################################
-#   PYTHON
-#######################################
-
-# Install Poetry
-install_poetry () {
-    curl -SSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-    mkdir $ZSH/plugins/poetry
-    poetry completions zsh > $ZSH/plugins/poetry/_poetry
-}
-
-# Install dephell
-install_dephell() {
-    python3 -m pip install --user dephell[full]
-    dephell self autocomplete
-}

@@ -1,41 +1,43 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.fontSize": 13,
-  "editor.inlineSuggest.enabled": true,
   "editor.accessibilitySupport": "off",
-  "editor.fontFamily": "Hack Nerd Font",
-  "editor.formatOnSave": false,
-  "editor.suggestSelection": "first",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "editor.fontFamily": "Hack Nerd Font",
+  "editor.fontSize": 13,
+  "editor.formatOnSave": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggestSelection": "first",
+  "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
-  "eslint.alwaysShowStatus": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "github.copilot.enable": {
-    "markdown": true,
     "*": true,
+    "markdown": true,
     "plaintext": true,
     "yaml": true
   },
+  "githubPullRequests.fileListLayout": "flat",
   "githubPullRequests.pullBranch": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "redhat.telemetry.enabled": false,
-  "security.workspace.trust.untrustedFiles": "open",
   "scss.showErrors": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
   "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "vs-kubernetes": {
-    "vscode-kubernetes.minikube-path.mac": "\/Users\/charlesponti\/.vs-kubernetes\/tools\/minikube\/darwin-amd64\/minikube",
-    "vscode-kubernetes.helm-path.mac": "\/Users\/charlesponti\/.vs-kubernetes\/tools\/helm\/darwin-amd64\/helm"
-  },
   "workbench.colorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
-  "window.newWindowDimensions": "maximized"
+  "window.commandCenter": true,
+  "window.newWindowDimensions": "inherit"
 }

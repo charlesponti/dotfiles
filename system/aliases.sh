@@ -110,6 +110,8 @@ then
   alias brews="brew list"
   # List all packages downloaded by brew cask
   alias casks="brew list --casks"
+  # Install arm64 brew packages
+  alias brew-arm="arch -arm64 brew"
 
   #------------------------------------------------------------------------
   # Xcode

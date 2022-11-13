@@ -4,7 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "editor.fontFamily": "Hack Nerd Font",
+  "editor.fontFamily": "Roboto Mono for Powerline",
   "editor.fontSize": 13,
   "editor.formatOnSave": false,
   "editor.inlineSuggest.enabled": true,

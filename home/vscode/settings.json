@@ -39,5 +39,11 @@
   "workbench.colorTheme": "GitHub Dark Default",
   "workbench.iconTheme": "material-icon-theme",
   "window.commandCenter": true,
-  "window.newWindowDimensions": "inherit"
+  "window.newWindowDimensions": "inherit",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

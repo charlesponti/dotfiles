@@ -1,5 +1,7 @@
 {
+  "bicep.enableSurveys": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -14,6 +16,7 @@
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "git.openRepositoryInParentFolders": "always",
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
@@ -40,10 +43,19 @@
   "workbench.iconTheme": "material-icon-theme",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "[typescriptreact]": {
+  "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

@@ -5,5 +5,3 @@ brew install rbenv
 
 # Install Ruby version
 rbenv install 2.7.1
-
-sudo gem install colorls

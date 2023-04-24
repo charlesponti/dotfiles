@@ -6,10 +6,8 @@ then
   alias g="git"
   alias c="code"
 
-  alias l='colorls --group-directories-first --almost-all'
-  alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
-  alias ls="ls -F"
-  alias la='ls -A'
+  alias l='lsd --group-dirs first -a -l'
+  alias ls="lsd"
 
   alias zshconfig="code ~/.zshrc"
   alias dotfiles="code ~/.dotfiles"

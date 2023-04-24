@@ -13,13 +13,14 @@ brew tap 'homebrew/bundle'
 brew install coreutils
 brew install jq               # JSON parser
 brew install kubectl          # Kubernetes
+brew install lsd              # `ls` replacement
 brew install minikube         # Minikube
 brew install starship         # Prompt
 brew install trash            # Trash (rm -rf replacement)
 brew install tree             # Tree (display directories as tree)
-brew install unrar            #
+brew install unrar            # Unarchiving tool
 brew install volta            # NodeJS version management
-brew install wget             #
+brew install wget             # Download tool
 
 ## Install commonly used applications
 

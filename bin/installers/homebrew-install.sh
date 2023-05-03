@@ -13,6 +13,7 @@ brew tap 'homebrew/bundle'
 brew install coreutils
 brew install jq               # JSON parser
 brew install kubectl          # Kubernetes
+brew install ffmpeg@4         # Video converter
 brew install lsd              # `ls` replacement
 brew install minikube         # Minikube
 brew install starship         # Prompt
@@ -22,31 +23,15 @@ brew install unrar            # Unarchiving tool
 brew install volta            # NodeJS version management
 brew install wget             # Download tool
 
-## Install commonly used applications
-
-# terminal
-brew install --cask fig
-
-# Notes
-brew install --cask obsidian
-
-# web browsing
-brew install --cask google-chrome
-
-# spotify
-brew install --cask spotify
-
-# diagram editor
-brew install --cask drawio
-
-# application managment
-brew install --cask setapp
-
-# api testing
-brew install --cask postman
-
-# Java
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk15
+## Install applications
+brew install --cask fig                  # Terminal
+brew install --cask obsidian             # Note taking
+brew install --cask google-chrome        # Browser
+brew install --cask spotify              # Music
+brew install --cask drawio               # Diagrams
+brew install --cask setapp               # App store
+brew install --cask postman              # API testing
+brew tap AdoptOpenJDK/openjdk            # Java
+brew install --cask adoptopenjdk15       # Java
 
 brew doctor

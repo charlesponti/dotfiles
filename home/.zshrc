@@ -54,3 +54,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# Add Github Copilot CLI
+eval "$(github-copilot-cli alias -- "$0")"

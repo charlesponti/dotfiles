@@ -22,7 +22,7 @@ read -e git_authorname
 user ' - What is your github author email?'
 read -e git_authoremail
 
-informer "🏗Adding configuration to .gitconfig.local ..."
+informer "🏗 Adding .gitconfig.local configuration"
 touch $dotfiles/home/.gitconfig.local
 sed \
   -e "s/AUTHORNAME/$git_authorname/g" \

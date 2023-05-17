@@ -6,4 +6,4 @@ informer "Installing Volta..."
 curl https://get.volta.sh | bash
 
 informer "Installing stable..."
-volta install 16.16.0
+volta install node@16.16.0

@@ -16,6 +16,7 @@
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
   "github.copilot.enable": {
     "*": true,

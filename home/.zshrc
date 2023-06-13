@@ -1,6 +1,5 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # Load for compdef
 autoload -Uz compinit
 compinit
@@ -52,8 +51,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PNPM_HOME="/Users/charlesponti/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
 # Add Github Copilot CLI
 eval "$(github-copilot-cli alias -- "$0")"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

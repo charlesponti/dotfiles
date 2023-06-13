@@ -39,7 +39,6 @@
   },
   "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "Community Material Theme Ocean High Contrast",
   "workbench.iconTheme": "material-icon-theme",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",

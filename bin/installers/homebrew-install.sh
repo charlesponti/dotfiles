@@ -2,15 +2,18 @@
 
 source ~/.dotfiles/bin/printf.sh
 
-informer "Installing Homebrew..."
+informer "🍺 Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
 brew tap 'homebrew/bundle'
 
 ## Install tools
-brew install coreutils
+brew install coreutils        # GNU core utilities
 brew install jq               # JSON parser
 brew install kubectl          # Kubernetes
 brew install ffmpeg@4         # Video converter

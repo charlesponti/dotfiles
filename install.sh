@@ -101,10 +101,6 @@ informer "😲 Installing NodeJS"
 bash $SCRIPTS/installers/nodejs-install.sh
 success "Done!"
 
-informer "😲 Installing ZSH"
-bash $SCRIPTS/installers/zsh-install.sh
-success "Done!"
-
 informer "😲 Configuring MacOS"
 bash $SCRIPTS/macos/base.sh
 success "Done!"

@@ -9,13 +9,6 @@ coverage
 # production
 build
 
-# misc
-*~
-.DS_Store
-.vscode
-.idea
-.venv
-
 # environment files
 .env
 .env.local
@@ -27,8 +20,13 @@ build
 npm-debug.log*
 
 # Python
+.venv
 .python-version
 
+# misc
+.DS_Store
+.vscode
+.idea
 .gitconfig.local
 .idea
-Docker.dmg
+.localrc

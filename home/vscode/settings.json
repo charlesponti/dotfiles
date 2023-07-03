@@ -40,9 +40,10 @@
   },
   "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.iconTheme": "material-icon-theme",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
+  "workbench.colorTheme": "Community Material Theme",
+  "workbench.iconTheme": "material-icon-theme",
   "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

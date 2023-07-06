@@ -4,16 +4,11 @@
 # Git
 #-----------------------
 
-# The rest of my fun git aliases
-alias gac='git add -A && git commit'
-
-gacnv() {
-  git add -A && git commit -m $1 --no-verify
-}
-
 alias gb='git branch'
 alias gc='git commit'
-
+alias gca='git commit -a'
+alias gcam='git commit -am'
+alias gcanv='git commit -m $1 --no-verify'
 # Add uncommitted and unstaged changes to the last commit
 alias gcaa="git commit -a --amend -C HEAD"
 
@@ -104,4 +99,22 @@ git-rename-author() {
      GIT_AUTHOR_NAME=$1;
      GIT_COMMITTER_EMAIL=$2;
      GIT_COMMITTER_NAME=$1; fi" -f -- --all
+}
+
+# Function to add, commit, and push changes if the current branch is not "main" or "beta"
+function gitWIP() {
+  # Get the name of the current branch
+  currentBranch=$(git rev-parse --abbrev-ref HEAD)
+
+  # Check if the current branch is not "main" or "beta"
+  if [ "$currentBranch" != "main" ] && [ "$currentBranch" != "beta" ]; then
+    # Add all changes
+    git add .
+
+    # Commit changes with the message "wip" and skip pre-commit hooks (--no-verify)
+    git commit -m "wip" --no-verify
+
+    # Push changes to the remote repository
+    git push
+  fi
 }

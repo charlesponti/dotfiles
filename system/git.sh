@@ -32,26 +32,8 @@ alias gd='git diff | mate'
 alias gde="git diff | $EDITOR"
 alias gexport='git archive --format zip --output'
 
-
-git-merge-main() {
-  # Merge lastest main branch into current branch
-  git co main && gpl && git co $1 && git merge main
-}
-
 gdiff() {
   git --no-pager diff --color=auto --no-ext-diff --no-index "$@"
-}
-
-# Replace the author and email of old commits. Very handy when updating someone's name and/or email.
-# $1 - Original Author Name which will be replaced
-# $2 - Name to replace original name with
-# $3 - Email to replace original email with
-git-rename-author() {
-  git filter-branch --env-filter "if [ '$GIT_AUTHOR_NAME' = $1 ]; then
-     GIT_AUTHOR_EMAIL=$2;
-     GIT_AUTHOR_NAME=$3;
-     GIT_COMMITTER_EMAIL=$2;
-     GIT_COMMITTER_NAME=$3; fi" -f -- --all
 }
 
 # Function to add, commit, and push changes if the current branch is not "main" or "beta"

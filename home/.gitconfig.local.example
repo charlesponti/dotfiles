@@ -4,5 +4,4 @@
 [credential]
         helper = GIT_CREDENTIAL_HELPER
 [core]
-        excludesfile = ~/.gitignore_global
         editor = code

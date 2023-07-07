@@ -54,35 +54,27 @@ function dip-fn {
     unset OUT
 }
 
-function dex-fn {
-	docker exec -it $1 ${2:-bash}
-}
+alias dexec='docker exec -it'
+alias dexecroot='docker exec -u root -it'
+alias dinspect='docker inspect'
+alias dlogs='docker logs'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias drun="docker run "
+alias dstop="docker stop"
+alias drmc="docker rm $(docker ps --all -q -f status=exited)"
+alias dim="docker images"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dsp="docker system prune --all"
+alias dsrf="docker system prune --all --force --volumes"
 
-function di-fn {
-	docker inspect $1
-}
-
-function dl-fn {
-	docker logs -f $1
-}
-
-function drun-fn {
-	docker run -it $1 $2
-}
-
-function dcr-fn {
-	docker compose run $@
-}
-
-function dsr-fn {
+function dsr {
 	docker stop $1;docker rm $1
 }
 
-function drmc-fn {
-  docker rm $(docker ps --all -q -f status=exited)
-}
-
-function drmid-fn {
+# This will remove all dangling images:
+function drm-dangling {
   imgs=$(docker images -q -f dangling=true)
   [ ! -z "$imgs" ] && docker rmi "$imgs" || echo "no dangling images."
 }
@@ -90,10 +82,6 @@ function drmid-fn {
 # in order to do things like dex $(dlab label) sh
 function dlab {
   docker ps --filter="label=$1" --format="{{.ID}}"
-}
-
-function dc-fn {
-  docker-compose $*
 }
 
 function d-aws-cli-fn {
@@ -105,24 +93,10 @@ function d-aws-cli-fn {
 }
 
 alias daws=d-aws-cli-fn
-alias dc=dc-fn
+alias dc="docker compose"
 alias dcu="docker compose up"
 alias dcub="docker compose up --build --force-recreate --remove-orphans -V"
 alias dcd="docker compose down"
 alias dcdr="docker compose down --rmi all --remove-orphans -v"
-alias dcr=dcr-fn
 alias dc-reboot="docker compose stop && docker compose up --build -d"
-alias dex=dex-fn
-alias di=di-fn
-alias dim="docker images"
-alias dip=dip-fn
-alias dl=dl-fn
-alias dnames=dnames-fn
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias drmc=drmc-fn
-alias drmid=drmid-fn
-alias drun=drun-fn
-alias dsp="docker system prune --all"
-alias dsr=dsr-fn
-alias dsrf="docker system prune --all --force --volumes"
+alias dc-stop="docker compose stop"

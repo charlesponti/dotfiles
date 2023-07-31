@@ -18,6 +18,7 @@
   "explorer.confirmDragAndDrop": false,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
+  "git.path": "/usr/bin/git",
   "github.copilot.enable": {
     "*": true,
     "markdown": true,

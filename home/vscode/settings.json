@@ -43,7 +43,7 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.colorTheme": "Community Material Theme",
+  "workbench.colorTheme": "Community Material Theme Ocean High Contrast",
   "workbench.iconTheme": "material-icon-theme",
   "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

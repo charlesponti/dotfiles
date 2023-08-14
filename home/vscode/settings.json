@@ -11,7 +11,6 @@
   "editor.formatOnSave": false,
   "editor.inlineSuggest.enabled": true,
   "editor.suggestSelection": "first",
-  "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
@@ -44,6 +43,7 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.colorTheme": "Community Material Theme Ocean High Contrast",
+  "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

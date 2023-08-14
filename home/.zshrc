@@ -7,9 +7,6 @@ compinit
 # Use [Starship](https://starship.rs)
 eval "$(starship init zsh)"
 
-# Use Spaceship [https://spaceship-prompt.sh]
-# source "$HOME/.zsh/spaceship/spaceship.zsh"
-
 # Enable Kubernetes ZSH completion
 source <(kubectl completion zsh)
 

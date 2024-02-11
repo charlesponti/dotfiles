@@ -53,8 +53,5 @@ export NVM_DIR="$HOME/.nvm"
 # Github Copilot CLI
 eval "$(github-copilot-cli alias -- "$0")"
 
-# Tea package manager
-# test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
-
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

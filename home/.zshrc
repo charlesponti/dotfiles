@@ -8,7 +8,7 @@ compinit
 eval "$(starship init zsh)"
 
 # Enable Kubernetes ZSH completion
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 # Import fancy print function
 source $HOME/.dotfiles/bin/printf.sh

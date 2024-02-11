@@ -25,6 +25,7 @@ alias gp="git push"
 alias gpr='git prune'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gsl="git shortlog -sn"
+alias gsw="git switch"
 alias gcount='git shortlog -sn'
 alias gus="git reset HEAD"
 alias gtls="git tag -l | gsort -V"

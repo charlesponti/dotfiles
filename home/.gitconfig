@@ -5,6 +5,7 @@
     editor = code
 [alias]
     c = commit
+    cn = commit -n
     co = checkout
     cob = checkout -b
     count   = !git shortlog -sn

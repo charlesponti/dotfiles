@@ -16,7 +16,7 @@ source $HOME/.dotfiles/bin/printf.sh
 # Local computer stuff
 source ~/.localrc
 
-# Import personal tings
+# Source helpers
 SYSTEM_PATH=~/.dotfiles/system
 source $SYSTEM_PATH/aliases.sh
 source $SYSTEM_PATH/base.sh

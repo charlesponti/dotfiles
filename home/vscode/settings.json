@@ -12,6 +12,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.suggestSelection": "first",
   "eslint.format.enable": true,
+  "editor.linkedEditing": true,
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -42,9 +43,10 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.colorTheme": "Community Material Theme Ocean High Contrast",
+  "workbench.colorTheme": "Community Material Theme High Contrast",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
   "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

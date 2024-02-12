@@ -10,6 +10,7 @@ PATH="\
 /opt/homebrew/bin:\
 /usr/local/bin:/usr/local/sbin:\
 $HOME/.pyenv/bin:\
+$HOME/.cargo/bin:\
 /usr/bin:/usr/sbin:\
 /bin:/sbin:\
 /usr/local/opt/openssl/bin:\

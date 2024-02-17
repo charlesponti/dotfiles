@@ -31,9 +31,6 @@
   "redhat.telemetry.enabled": false,
   "scss.showErrors": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",

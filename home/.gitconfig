@@ -48,3 +48,6 @@
     autoStash = true
 [init]
   	defaultBranch = main
+[user]
+	email = cj@ponti.io
+	name = Charles Ponti

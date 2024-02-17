@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Load for compdef
 autoload -Uz compinit
 compinit
@@ -52,6 +50,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Github Copilot CLI
 eval "$(github-copilot-cli alias -- "$0")"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

@@ -26,10 +26,8 @@ brew install unrar            # Unarchiving tool
 brew install wget             # Download tool
 
 ## Install applications
-brew install --cask fig                  # Terminal
 brew install --cask obsidian             # Note taking
 brew install --cask google-chrome        # Browser
-brew install --cask spotify              # Music
 brew install --cask drawio               # Diagrams
 brew install --cask setapp               # App store
 brew install --cask postman              # API testing

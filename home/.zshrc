@@ -25,6 +25,7 @@ source $SYSTEM_PATH/javascript.sh
 source $SYSTEM_PATH/osx.sh
 source $SYSTEM_PATH/path.sh
 source $SYSTEM_PATH/python.sh
+source $SYSTEM_PATH/gcloud.sh
 
 # Puppeteer
 # This is needed for puppeteer to work on M1 Macs
@@ -34,19 +35,10 @@ export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
-# GOOGLE CLOUD CLI
-export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.7.14/bin/python3"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
-
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Github Copilot CLI
-eval "$(github-copilot-cli alias -- "$0")"
+# eval "$(github-copilot-cli alias -- "$0")"

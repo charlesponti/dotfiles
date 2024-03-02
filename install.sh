@@ -5,9 +5,6 @@ source $dotfiles/bin/printf.sh
 
 set -e
 
-echo ''
-
-
 link_file () {
   local src=$1 dst=$2
 

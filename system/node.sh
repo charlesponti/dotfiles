@@ -1,6 +1,8 @@
 npm_clean() {
   informer "Cleaning node_modules"
-  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +;
+
+  informer "Clearing npm cache"
   npm cache clean --force
 }
 

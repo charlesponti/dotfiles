@@ -6,6 +6,6 @@ npm_clean() {
 
 npm_refresh () {
   informer "Reinstalling node_modules"
-  node_modules_clean
-  node_modules_install
+  npm_clean
+  npm install
 }

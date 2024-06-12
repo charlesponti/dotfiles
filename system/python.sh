@@ -9,11 +9,11 @@ if which pyenv >/dev/null; then
   eval "$(pyenv init -)"
 fi
 
-# Set version of Python to use
-export PYENV_VERSION=3.7.14
-
-# Add Pyenv to PATH
-export PATH="$(pyenv root)/shims:$PATH"
+# pyenv
+export PYENV_VERSION=3.9.19
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Install Poetry
 install_poetry () {

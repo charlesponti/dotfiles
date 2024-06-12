@@ -6,9 +6,6 @@ then
   alias g="git"
   alias c="code"
 
-  alias l='lsd --group-dirs first -a -l'
-  alias ls="lsd"
-
   alias zshconfig="code ~/.zshrc"
   alias dotfiles="code ~/.dotfiles"
 
@@ -16,7 +13,7 @@ then
   alias pcat='pygmentize -f terminal256 -O style=native -g'
 
   # Reload shell
-  alias reload!='exec $SHELL -l'
+  alias reload!='source ~/.zshrc'
 
   # Simple clear command.
   alias cl='clear'
@@ -90,7 +87,7 @@ then
   alias paste='pbpaste'
 
   # Remove all items safely, to Trash (`brew install trash`).
-  alias rm='trash'
+  # alias rm='trash'
 
   # Lock current session and proceed to the login screen.
   alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'

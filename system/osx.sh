@@ -10,9 +10,6 @@ ensure_rosetta() {
       sudo softwareupdate --install-rosetta --agree-to-license
     fi
   else
-    # Switch to ARM64
-    
-
     echo "Running on Intel"
   fi
 }

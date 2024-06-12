@@ -1,18 +1,40 @@
 {
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "bicep.enableSurveys": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
   "editor.fontFamily": "Roboto Mono for Powerline",
   "editor.fontSize": 13,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
   "editor.suggestSelection": "first",
   "eslint.format.enable": true,
-  "editor.linkedEditing": true,
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -31,38 +53,30 @@
   "redhat.telemetry.enabled": false,
   "scss.showErrors": true,
   "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.env.osx": {
+    "CW_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1"
+  },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vscode-kubernetes.minikube-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
   },
   "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.colorTheme": "Community Material Theme High Contrast",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
-  "[handlebars]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "security.promptForLocalFileProtocolHandling": false,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "biome.enabled": false,
+  "svelte.enable-ts-plugin": true,
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "cloudcode.duetAI.project": "cool-furnace-419122",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "git.enableSmartCommit": true,
+  "terminal.integrated.defaultProfile.osx": "zsh"
 }

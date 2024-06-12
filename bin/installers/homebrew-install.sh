@@ -22,7 +22,6 @@ brew install minikube         # Minikube
 brew install starship         # Prompt
 brew install trash            # Trash (rm -rf replacement)
 brew install tree             # Tree (display directories as tree)
-brew install unrar            # Unarchiving tool
 brew install wget             # Download tool
 
 ## Install applications

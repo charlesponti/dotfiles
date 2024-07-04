@@ -45,6 +45,7 @@
     "*": true,
     "markdown": true,
     "plaintext": true,
+    "scminput": false,
     "yaml": true
   },
   "githubPullRequests.fileListLayout": "flat",
@@ -72,11 +73,37 @@
   "workbench.startupEditor": "none",
   "security.promptForLocalFileProtocolHandling": false,
   "prisma.showPrismaDataPlatformNotification": false,
-  "biome.enabled": false,
   "svelte.enable-ts-plugin": true,
-  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.colorTheme": "Ayu Mirage",
   "cloudcode.duetAI.project": "cool-furnace-419122",
   "github.copilot.editor.enableAutoCompletions": true,
   "git.enableSmartCommit": true,
-  "terminal.integrated.defaultProfile.osx": "zsh"
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "Cargo.toml": "Cargo.lock",
+    "*.ts": "${capture}.typegen.ts",
+    "*.tsx": "${capture}.typegen.ts",
+    "*.mts": "${capture}.typegen.ts",
+    "*.cts": "${capture}.typegen.ts"
+  },
+
+  // Python
+  "python.languageServer": "Pylance",
+  "vsintellicode.python.completionsEnabled": true,
+
+  // Type Checking with Pylance
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.useLibraryCodeForTypes": true,
+
+  // Venv Configuration
+  "python.venvPath": "${workspaceFolder}/venv",
+
+  // IntelliSense Configuration
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.autoImportCompletions": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
 }

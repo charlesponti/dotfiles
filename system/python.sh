@@ -4,16 +4,18 @@
 
 alias py='python'
 
-# Pyenv
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+# Add pyenv to PATH
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Initialize pyenv
 if which pyenv >/dev/null; then
   eval "$(pyenv init -)"
+  eval "$(command pyenv init --path)"
 fi
-
-# pyenv
-export PYENV_VERSION=3.9.19
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # Install Poetry
 install_poetry () {
@@ -36,10 +38,10 @@ install_dephell() {
 #-------------------------------------------
 create-python-environment () {
   informer "Creating virtual environment..."
-  python3 -m venv env
+  python -m venv .venv
 
   informer "Activating virtual environment..."
-  source env/bin/activate
+  source .venv/bin/activate
 
   informer "Installing Pipenv..."
   pip install --upgrade pip

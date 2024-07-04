@@ -1,10 +1,16 @@
 # `brew install coreutils`
 if $(ls &>/dev/null)
 then
-  alias k="kubectl"
+  # Open files in Visual Studio Code.
+  alias c="code"
+  
+  # Simple clear command.
+  alias cl='clear'
+
   alias d="docker"
   alias g="git"
-  alias c="code"
+  alias k="kubectl"
+  alias ll='ls -AFGlhT --color=auto | sort -fk1,1r -k9 -r'
 
   alias zshconfig="code ~/.zshrc"
   alias dotfiles="code ~/.dotfiles"
@@ -13,10 +19,7 @@ then
   alias pcat='pygmentize -f terminal256 -O style=native -g'
 
   # Reload shell
-  alias reload!='source ~/.zshrc'
-
-  # Simple clear command.
-  alias cl='clear'
+  alias reload='source ~/.zshrc'
 
   # Delete all .DS_Store files
   alias noDS="sudo find / -name \".DS_Store\"  -exec rm {} \;"

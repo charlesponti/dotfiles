@@ -34,6 +34,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
   "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,

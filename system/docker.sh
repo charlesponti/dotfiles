@@ -36,6 +36,7 @@ export DOCKER_VOLUMES=$HOME/.docker/volumes
 #######################################################################################
 
 function dnames-fn {
+  echo "Names of all running containers"
 	for ID in `docker ps | awk '{print $1}' | grep -v 'CONTAINER'`
 	do
     	docker inspect $ID | grep Name | head -1 | awk '{print $2}' | sed 's/,//g' | sed 's%/%%g' | sed 's/"//g'
@@ -54,21 +55,6 @@ function dip-fn {
     unset OUT
 }
 
-alias dexec='docker exec -it'
-alias dexecroot='docker exec -u root -it'
-alias dinspect='docker inspect'
-alias dlogs='docker logs'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias drun="docker run "
-alias dstop="docker stop"
-alias drmc="docker rm $(docker ps --all -q -f status=exited)"
-alias dim="docker images"
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias dsp="docker system prune --all"
-alias dsrf="docker system prune --all --force --volumes"
-
 function dsr {
 	docker stop $1;docker rm $1
 }
@@ -84,14 +70,20 @@ function dlab {
   docker ps --filter="label=$1" --format="{{.ID}}"
 }
 
-function d-aws-cli-fn {
-  docker run \
-    -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-    -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-    -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-    amazon/aws-cli:latest $1 $2 $3
-}
-
+alias dexec='docker exec -it'
+alias dexecroot='docker exec -u root -it'
+alias dinspect='docker inspect'
+alias dlogs='docker logs'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias drun="docker run "
+alias dstop="docker stop"
+alias drmc="docker rm $(docker ps --all -q -f status=exited)"
+alias dim="docker images"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dsp="docker system prune --all"
+alias dsrf="docker system prune --all --force --volumes"
 alias daws=d-aws-cli-fn
 alias dc="docker compose"
 alias dcu="docker compose up"

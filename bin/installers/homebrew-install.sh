@@ -17,7 +17,7 @@ brew install coreutils        # GNU core utilities
 brew install jq               # JSON parser
 brew install kubectl          # Kubernetes
 brew install ffmpeg@4         # Video converter
-brew install lsd              # `ls` replacement
+brew install eza              # `ls` replacement
 brew install minikube         # Minikube
 brew install starship         # Prompt
 brew install trash            # Trash (rm -rf replacement)

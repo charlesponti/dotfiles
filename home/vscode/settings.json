@@ -9,7 +9,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -27,8 +27,8 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
-  "editor.fontFamily": "Roboto Mono for Powerline",
-  "editor.fontSize": 13,
+  "editor.fontFamily": "Source Code Pro for Powerline",
+  "editor.fontSize": 12,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
@@ -49,6 +49,9 @@
     "scminput": false,
     "yaml": true
   },
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.quoteProps": "consistent",
   "githubPullRequests.fileListLayout": "flat",
   "githubPullRequests.pullBranch": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -106,5 +109,6 @@
   "python.analysis.autoImportCompletions": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
-  }
+  },
+  "go.toolsManagement.autoUpdate": true
 }

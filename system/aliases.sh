@@ -10,7 +10,7 @@ then
   alias d="docker"
   alias g="git"
   alias k="kubectl"
-  alias ll='ls -AFGlhT --color=auto | sort -fk1,1r -k9 -r'
+  alias ll='eza -la --group-directories-first --git'
 
   alias zshconfig="code ~/.zshrc"
   alias dotfiles="code ~/.dotfiles"

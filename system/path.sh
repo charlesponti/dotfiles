@@ -9,7 +9,6 @@ PATH="\
 /opt/homebrew/sbin:\
 /opt/homebrew/bin:\
 /usr/local/bin:/usr/local/sbin:\
-$HOME/.pyenv/bin:\
 $HOME/.cargo/bin:\
 /usr/bin:/usr/sbin:\
 /bin:/sbin:\

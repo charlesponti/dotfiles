@@ -24,12 +24,6 @@ install_poetry () {
     poetry completions zsh > $ZSH/plugins/poetry/_poetry
 }
 
-# Install dephell
-install_dephell() {
-    python3 -m pip install --user dephell[full]
-    dephell self autocomplete
-}
-
 #-------------------------------------------
 # command: venv
 # description: create new virtualenv

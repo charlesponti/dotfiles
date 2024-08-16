@@ -7,7 +7,6 @@ then
   # Simple clear command.
   alias cl='clear'
 
-  alias d="docker"
   alias g="git"
   alias k="kubectl"
   alias ll='eza -la --group-directories-first --git'
@@ -27,9 +26,6 @@ then
   # Lists the ten most used commands.
   alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
-  # Faster NPM for europeans.
-  alias npme='npm --registry http://registry.npmjs.eu'
-
   #-----------------------
   # Keys
   #-----------------------
@@ -48,33 +44,14 @@ then
   alias pg='postgres -D /usr/local/var/postgres'
 
   #-----------------------
-  # ElasticSearch
-  #-----------------------
-  alias elastic="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
-
-  #-----------------------
   # Ruby
   #-----------------------
   alias bex='bundle exec'
 
-  #-----------------------
-  # NGINX
-  #-----------------------
-  alias ngup='sudo nginx'
-  alias ngdown='sudo nginx -s stop'
-  alias ngre='sudo nginx -s stop && sudo nginx'
-  alias nglog='tail -f /usr/local/var/log/nginx/access.log'
-  alias ngerr='tail -f /usr/local/var/log/nginx/error.log'
 
   #-----------------------
   # Other
   #-----------------------
-
-  # Empty OS X trash
-  alias emptytrash="sudo rm -rf ~/.Trash/*"
-
-  # Restart Mac
-  alias restartmac="sudo shutdown -r now"
 
   # Disable sertificate check for wget.
   alias wget='wget --no-check-certificate'
@@ -90,16 +67,17 @@ then
   alias paste='pbpaste'
 
   # Remove all items safely, to Trash (`brew install trash`).
-  # alias rm='trash'
-
-  # Lock current session and proceed to the login screen.
-  alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+  alias rm='trash'
 
   # Sniff network info.
   alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 
   # Case-insensitive pgrep that outputs full path.
   alias pgrep='pgrep -fli'
+
+  jwt() {
+    node -e "console.log(require('crypto').randomBytes(256).toString('base64'));"
+  }
 
   #------------------------------------------------------------------------
   # Homebrew
@@ -110,10 +88,4 @@ then
   alias casks="brew list --casks"
   # Install arm64 brew packages
   alias brew-arm="arch -arm64 brew"
-
-  #------------------------------------------------------------------------
-  # Xcode
-  #------------------------------------------------------------------------
-  alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-  alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
 fi

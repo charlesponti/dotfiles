@@ -28,7 +28,7 @@
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.fontFamily": "Roboto Mono Light for Powerline",
-  "editor.fontSize": 12,
+  "editor.fontSize": 11,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
@@ -110,5 +110,7 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "diffEditor.codeLens": true,
+  "git.autofetch": true
 }

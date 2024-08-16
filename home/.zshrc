@@ -33,7 +33,7 @@ source $SYSTEM_PATH/git.sh
 source $SYSTEM_PATH/javascript.sh
 source $SYSTEM_PATH/osx.sh
 source $SYSTEM_PATH/python.sh
-# source $SYSTEM_PATH/gcloud.sh
+source $SYSTEM_PATH/gcloud.sh
 
 # Puppeteer
 # This is needed for puppeteer to work on M1 Macs

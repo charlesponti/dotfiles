@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+# Empty OS X trash
+alias emptytrash="sudo rm -rf ~/.Trash/*"
+
+# Restart Mac
+alias restartmac="sudo shutdown -r now"
+
+# Lock current session and proceed to the login screen.
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+#------------------------------------------------------------------------
+# Xcode
+#------------------------------------------------------------------------
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
+
 # Ensure that arch arm64 is used for Rosetta 2
 ensure_rosetta() {
   if [[ "$(uname -m)" == "arm64" ]]; then

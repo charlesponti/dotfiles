@@ -36,13 +36,14 @@ function dlab {
 }
 
 alias d="docker"
+alias dc="docker compose"
 alias dc-d="docker compose down"
 alias dc-dr="docker compose down --rmi all --remove-orphans -v"
-alias dc-reboot="docker compose stop && docker compose up --build -d"
+alias dc-reboot="docker compose stop && docker compose up -d"
 alias dc-stop="docker compose stop"
 alias dc-u="docker compose up"
-alias dc-ub="docker compose up --build --force-recreate --remove-orphans -V"
-alias dc="docker compose"
+alias dc-ub="docker compose up --build"
+alias dc-ubr="docker compose up --build --force-recreate --remove-orphans -V"
 alias dexec='docker exec -it'
 alias dexecroot='docker exec -u root -it'
 alias dim="docker images"

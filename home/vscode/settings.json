@@ -9,7 +9,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -23,12 +23,16 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
   "bicep.enableSurveys": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.fontFamily": "Roboto Mono Light for Powerline",
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
@@ -101,16 +105,14 @@
   "python.analysis.typeCheckingMode": "standard",
   "python.analysis.useLibraryCodeForTypes": true,
 
-  // Venv Configuration
   "python.venvPath": "${workspaceFolder}/venv",
-
-  // IntelliSense Configuration
   "python.analysis.completeFunctionParens": true,
   "python.analysis.autoImportCompletions": true,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
   "go.toolsManagement.autoUpdate": true,
   "diffEditor.codeLens": true,
-  "git.autofetch": true
+  "workbench.sideBar.location": "right",
+  "editor.suggest.showWords": false,
+  "makefile.configureOnOpen": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "githubPullRequests.pushBranch": "always"
 }

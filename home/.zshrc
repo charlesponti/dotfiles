@@ -70,3 +70,5 @@ zinit snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bi
 
 # Local computer stuff
 source ~/.localrc
+
+export PATH=$PATH:$HOME/.maestro/bin

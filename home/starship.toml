@@ -1,51 +1,175 @@
-# Use custom format
-format = '''
-[┌───────────────────>](bold green)
-[│](bold green) 📁 $directory $nodejs $rust$package $git_branch $git_commit $git_state $git_metrics $git_status $python
-[└─>](bold green) '''
+# ~/.config/starship.toml
 
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+[custom.reponame]
+require_repo = true
+symbol = ' '
+command = """
+git ls-remote --get-url | sed 's#.*:\\(.*\\).git#\\1#'
+"""
+description = "display the directory root of the current repo"
+when = true
 
-# Disable the blank line at the start of the prompt
-add_newline = false
+[aws]
+symbol = "  "
 
-# Increase the command timeout to 1 second
-command_timeout = 10000
+[buf]
+symbol = " "
 
-# Set 'foo' as custom color palette
-palette = 'foo'
+[c]
+symbol = " "
 
-[line_break]
-disabled = true
+[conda]
+symbol = " "
 
-# Define custom colors
-[palettes.foo]
+[crystal]
+symbol = " "
 
-# Overwrite existing color
-blue = '21'
+[dart]
+symbol = " "
 
-# Define new color
-mustard = '#af8700'
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
 
 [git_branch]
-symbol = '🌱 '
-truncation_length = 10
-truncation_symbol = '~'
-format = '[$symbol$branch(:$remote_branch)]($style)'
-# ignore_branches = ['master', 'main']
+symbol = " "
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = '🔖 '
+[golang]
+symbol = " "
 
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style)'
-cherry_pick = '[🍒 PICKING](bold red)'
+[guix_shell]
+symbol = " "
 
-[git_metrics]
-added_style = 'bold blue'
-format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
 
 [nodejs]
-format = '[$version](green)'
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "

@@ -45,7 +45,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # deno
-. "/Users/charlesponti/.deno/env"
+. "$HOME/.deno/env"
 
 # maestro (for Expo and React Native)
 export PATH=$PATH:$HOME/.maestro/bin

@@ -75,18 +75,18 @@ source ~/.localrc
 
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/charlesponti/.cache/lm-studio/bin"
+export PATH="$PATH:$HOME/.cache/lm-studio/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 # bun completions
-[ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Added by Windsurf
-export PATH="/Users/charlesponti/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)

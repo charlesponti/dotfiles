@@ -1,175 +1,98 @@
 # ~/.config/starship.toml
+format = '''
+[┌──────────────────────────────────────>](bold green)
+[│](bold green) $directory$rust$package$git_branch$git_commit$git_state
+[│](bold green) $cmd_duration$nodejs$python$julia
+[└─>](bold green) '''
 
-[custom.reponame]
-require_repo = true
-symbol = ' '
-command = """
-git ls-remote --get-url | sed 's#.*:\\(.*\\).git#\\1#'
-"""
-description = "display the directory root of the current repo"
-when = true
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
 
-[aws]
-symbol = "  "
+[[battery.display]]
+threshold = 30
+style = "bold red"
 
-[buf]
-symbol = " "
+[character]
+error_symbol = "[✖](bold red) "
 
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
 
 [directory]
-read_only = " 󰌾"
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
+truncation_length = 5
+format = "[$path]($style)[$lock_symbol]($lock_style)"
 
 [git_branch]
-symbol = " "
+format = " [$symbol$branch]($style) "
+symbol = "🍣 "
+style = "bold yellow"
 
-[golang]
-symbol = " "
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
 
-[guix_shell]
-symbol = " "
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️  ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️  ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
 
 [hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
 
 [julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
+format = "[$symbol$version]($style) "
+symbol = "ஃ "
+style = "bold green"
 
 [memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[ocaml]
-symbol = " "
-
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-AlmaLinux = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Kali = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-RockyLinux = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Void = " "
-Windows = "󰍲 "
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
+disabled = false
 
 [package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
+disabled = true
 
 [python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
+format = "[$symbol$version]($style) "
+style = "bold green"
 
 [rust]
-symbol = " "
+format = "[$symbol$version]($style) "
+style = "bold green"
 
-[scala]
-symbol = " "
+[time]
+time_format = "%T"
+format = "🕙 $time($style) "
+style = "bright-white"
+disabled = false
 
-[swift]
-symbol = " "
+[typst]
+format = "[$symbol($version)]($style)"
+style = "bold #239dae"
 
-[zig]
-symbol = " "
+[username]
+style_user = "bold dimmed blue"
+show_always = false
+
+[nodejs]
+format = "via [🤖 $version](bold green) "

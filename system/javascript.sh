@@ -13,23 +13,26 @@ npm_clean() {
 
 npm_refresh () {
   informer "Reinstalling node_modules"
-  npm_clean
-  npm install
+  
+  
+  # Remove all node_modules folders
+  find . -name "node_modules" -type d -exec rm -rf {} +
+  
+  # Remove all package-lock.json files
+  find . -name "package-lock.json" -type f -delete
+
+  # Remove all yarn.lock files
+  find . -name "bun.lockb" -type f -delete
+  
+  # Clear npm cache
+  npm cache clean --force
+  
+  # Reinstall node_modules
+  npm install --verbose
+
+  printf "\r✓ Reinstalling node_modules\n"
 }
 
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# fnm
-FNM_PATH="$HOME/Library/Application Support/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  # eval "`fnm env`"
-  eval "$(fnm env --use-on-cd --shell zsh)"
-fi
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -42,5 +45,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # deno
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+. "/Users/charlesponti/.deno/env"
+
+# maestro (for Expo and React Native)
+export PATH=$PATH:$HOME/.maestro/bin

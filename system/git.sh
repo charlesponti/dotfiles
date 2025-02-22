@@ -16,9 +16,7 @@ alias gcanv='git commit -m $1 --no-verify'
 alias gcaa="git commit -a --amend -C HEAD"
 # Show commits since last pull
 alias gnew="git log HEAD@{1}..HEAD@{0}"
-alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gm="git merge"
 alias gpl='git pull --all --prune'
 alias gp="git push"
@@ -53,4 +51,55 @@ function gitWIP() {
     # Push changes to the remote repository
     git push
   fi
+}
+
+function glog() {
+    local usage="Usage: glog [options]
+    Options:
+        -h, --help     Show this help message
+        -g, --graph    Show graph view
+        -o, --oneline  Show each commit on one line
+        -a, --author   Show author names
+        -d, --date     Show relative dates
+        -b, --branch   Show branch names and tags
+    Example: glog -gab (graph view with authors and branches)"
+
+    local show_graph=0
+    local show_oneline=0
+    local show_author=0
+    local show_date=0
+    local show_branch=0
+
+    # Parse arguments
+    for arg in "$@"; do
+        case $arg in
+            -h|--help) echo "$usage"; return 0 ;;
+            -g|--graph) show_graph=1 ;;
+            -o|--oneline) show_oneline=1 ;;
+            -a|--author) show_author=1 ;;
+            -d|--date) show_date=1 ;;
+            -b|--branch) show_branch=1 ;;
+        esac
+    done
+
+    # Build the git log command
+    local cmd="git log"
+    [[ $show_graph == 1 ]] && cmd+=" --graph"
+    
+    # Build the format string
+    local format=""
+    format+="%C(red)%h%C(reset)"  # Always show hash
+    [[ $show_author == 1 ]] && format+=" %C(bold blue)<%an>%C(reset)"
+    format+=" %s"  # Always show commit message
+    [[ $show_branch == 1 ]] && format+=" %C(yellow)%d%C(reset)"
+    [[ $show_date == 1 ]] && format+=" %C(green)(%cr)%C(reset)"
+
+    if [[ $show_oneline == 1 ]]; then
+        cmd+=" --pretty=oneline --abbrev-commit"
+    else
+        cmd+=" --pretty=format:'$format'"
+    fi
+
+    # Execute the command
+    eval $cmd
 }

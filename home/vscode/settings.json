@@ -1,118 +1,139 @@
 {
-  "[handlebars]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[markdown]": {
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "on"
   },
   "[python]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "bicep.enableSurveys": false,
+  "cmake.showOptionsMovedNotification": false,
+  "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
-  "editor.fontFamily": "Roboto Mono Light for Powerline",
-  "editor.fontSize": 12,
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "editor.fontFamily": "Space Mono for Powerline",
+  "editor.fontSize": 11,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
   "editor.linkedEditing": true,
+  "editor.suggest.showWords": false,
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.cts": "${capture}.typegen.ts",
+    "*.mts": "${capture}.typegen.ts",
+    "*.ts": "${capture}.typegen.ts",
+    "*.tsx": "${capture}.typegen.ts",
+    "Cargo.toml": "Cargo.lock"
+  },
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
   "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "git.openRepositoryInParentFolders": "always",
   "git.path": "/usr/bin/git",
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": "${workspaceFolder}/.vscode/.copilot-codeGeneration-instructions.md"
+    }
+  ],
+  "github.copilot.chat.edits.codesearch.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "markdown": true,
-    "plaintext": true,
-    "scminput": false,
-    "yaml": true
+    "markdown": false,
+    "plaintext": false,
+    "scminput": false
   },
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-  "prettier.quoteProps": "consistent",
-  "githubPullRequests.fileListLayout": "flat",
+  "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
+  "go.toolsManagement.autoUpdate": true,
+  "javascript.preferences.quoteStyle": "single",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "makefile.configureOnOpen": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.languageServerMode": "full",
+  "python.defaultInterpreterPath": "",
+  "python.experiments.enabled": false,
+  "python.languageServer": "Pylance",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.venvPath": "${workspaceFolder}/.venv",
   "redhat.telemetry.enabled": false,
   "scss.showErrors": true,
+  "security.promptForLocalFileProtocolHandling": false,
   "security.workspace.trust.untrustedFiles": "open",
+  "svelte.enable-ts-plugin": true,
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.env.osx": {
     "CW_NEW_SESSION": "1",
     "Q_NEW_SESSION": "1"
   },
+  "terminal.integrated.fontFamily": "Inconsolata XL",
+  "typescript.preferences.quoteStyle": "single",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vscode-kubernetes.minikube-path.mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
-    "vscode-kubernetes.minikube-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
-  },
-  "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.python.completionsEnabled": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
+  "workbench.colorTheme": "Ayu Mirage",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none",
-  "security.promptForLocalFileProtocolHandling": false,
-  "prisma.showPrismaDataPlatformNotification": false,
-  "svelte.enable-ts-plugin": true,
-  "workbench.colorTheme": "Ayu Dark",
-  "cloudcode.duetAI.project": "cool-furnace-419122",
-  "github.copilot.editor.enableAutoCompletions": true,
-  "git.enableSmartCommit": true,
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.patterns": {
-    "Cargo.toml": "Cargo.lock",
-    "*.ts": "${capture}.typegen.ts",
-    "*.tsx": "${capture}.typegen.ts",
-    "*.mts": "${capture}.typegen.ts",
-    "*.cts": "${capture}.typegen.ts"
-  },
-
-  // Python
-  "python.languageServer": "Pylance",
-  "vsintellicode.python.completionsEnabled": true,
-
-  // Type Checking with Pylance
-  "python.analysis.autoSearchPaths": true,
-  "python.analysis.typeCheckingMode": "standard",
-  "python.analysis.useLibraryCodeForTypes": true,
-
-  "python.venvPath": "${workspaceFolder}/venv",
-  "python.analysis.completeFunctionParens": true,
-  "python.analysis.autoImportCompletions": true,
-  "go.toolsManagement.autoUpdate": true,
-  "diffEditor.codeLens": true,
   "workbench.sideBar.location": "right",
-  "editor.suggest.showWords": false,
-  "makefile.configureOnOpen": true,
-  "editor.inlineSuggest.suppressSuggestions": true,
-  "githubPullRequests.pushBranch": "always"
+  "workbench.startupEditor": "none",
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.fontWeight": "100",
+  "terminal.integrated.fontWeightBold": "100",
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/{info,lfs,logs,refs,objects}/**",
+    ".git/{index,*refs,*HEAD}",
+    ".vscode",
+    ".vscode-insiders",
+    ".zsh_history"
+  ],
 }

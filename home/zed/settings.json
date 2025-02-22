@@ -1,53 +1,161 @@
+// settings.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
 {
-  "project_panel": {
-    "enabled": true,
-    "auto_fold_dirs": true,
-    "dock": "right"
-  },
-  "features": {
-    "inline_completion_provider": "copilot"
-  },
-  "show_inline_completions": true,
-  "assistant": {
-    "version": "2",
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
-    }
-  },
-  "ui_font_size": 12,
-  "buffer_font_size": 12,
-  "buffer_font_family": "Roboto Mono Light for Powerline",
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Ayu Dark"
-  },
-  "languages": {
-    "Python": {
-      "language_servers": ["pyright", "ruff"],
-      "format_on_save": "on",
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
-  }
+	"icon_theme": "Zed (Default)",
+	"features": {
+		"edit_prediction_provider": "zed"
+	},
+	"base_keymap": "VSCode",
+	"theme": "Ayu Mirage",
+	"ui_font_size": 16,
+	"buffer_font_size": 12,
+	// NOTE: Change the font family to your preference
+	"buffer_font_family": "Anonymous Pro for Powerline",
+	// Vim mode settings
+	// "vim_mode": true,
+	// use relative line numbers
+	// "relative_line_numbers": true,
+	"code_actions_on_format": {
+		"source.fixAll.biome": true,
+		"source.organizeImports.biome": true
+	},
+	"tab_bar": {
+		"show": true
+	},
+	"scrollbar": {
+		"show": "never"
+	},
+	// Indentation, rainbow indentation
+	"indent_guides": {
+		"enabled": true,
+		"coloring": "indent_aware"
+	},
+	// NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+	"centered_layout": {
+		"left_padding": 0.15,
+		"right_padding": 0.15
+	},
+	// Use Copilot Chat AI as default
+	"assistant": {
+		"default_model": {
+			"provider": "lmstudio",
+			"model": "zeta"
+		},
+		"version": "2"
+	},
+	// Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
+	// "assistant": {
+	//   "default_model": {
+	//     "provider": "ollama",
+	//     "model": "llama3.1:latest"
+	//   },
+	//   "version": "2",
+	//   "provider": null
+	// },
+	"language_models": {
+		"ollama": {
+			"api_url": "http://localhost:11434"
+		}
+	},
+	// Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
+	"inlay_hints": {
+		"enabled": true
+	},
+	// LSP
+	"lsp": {
+		"biome": {
+			"settings": {
+				"config_path": "<path>/biome.json"
+			}
+		},
+		"tailwindcss-language-server": {
+			"settings": {
+				"classAttributes": ["class", "className", "ngClass", "styles"]
+			}
+		}
+	},
+	"languages": {
+		// Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
+		"TypeScript": {
+			"format_on_save": {
+				"language_server": {
+					"name": "biome"
+				}
+			},
+			// Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
+			"inlay_hints": {
+				"enabled": true,
+				"show_parameter_hints": false,
+				"show_other_hints": true,
+				"show_type_hints": true
+			}
+		},
+		"Python": {
+			"format_on_save": {
+				"language_server": {
+					"name": "ruff"
+				}
+			},
+			"formatter": {
+				"language_server": {
+					"name": "ruff"
+				}
+			},
+			"language_servers": ["pyright", "ruff"]
+		}
+	},
+	"formatter": {
+		"language_server": {
+			"name": "biome"
+		}
+	},
+	// Use zed commit editor
+	"terminal": {
+		"env": {
+			"EDITOR": "zed --wait"
+		},
+		"font_family": "Anonymous Pro for Powerline",
+		"font_size": 11
+	},
+	// File syntax highlighting
+	"file_types": {
+		"Dockerfile": [
+			"*.dockerfile",
+			"*.Dockerfile",
+			"Dockerfile",
+			"Dockerfile.*"
+		],
+		"JSON": ["json", "jsonc", "*.code-snippets"]
+	},
+	// Turn off telemetry
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	// Move all panel to the right
+	"project_panel": {
+		"button": true,
+		"dock": "right",
+		"git_status": true
+	},
+	"outline_panel": {
+		"dock": "right"
+	},
+	"collaboration_panel": {
+		"dock": "left"
+	},
+	// Move some unnecessary panels to the left
+	"notification_panel": {
+		"dock": "left"
+	},
+	"chat_panel": {
+		"dock": "left"
+	}
 }

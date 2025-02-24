@@ -6,7 +6,10 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[markdown]": {
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
@@ -38,13 +41,24 @@
   },
   "bicep.enableSurveys": false,
   "cmake.showOptionsMovedNotification": false,
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/{info,lfs,logs,refs,objects}/**",
+    ".git/{index,*refs,*HEAD}",
+    ".vscode",
+    ".vscode-insiders",
+    ".zsh_history"
+  ],
   "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.defaultFormatter": "charliermarsh.ruff",
-  "editor.fontFamily": "Space Mono for Powerline",
-  "editor.fontSize": 11,
+  "editor.fontFamily": "Anonymous Pro for Powerline",
+  "editor.fontSize": 12,
+  "editor.fontWeight": "500",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.inlineSuggest.enabled": true,
@@ -108,7 +122,10 @@
     "CW_NEW_SESSION": "1",
     "Q_NEW_SESSION": "1"
   },
-  "terminal.integrated.fontFamily": "Inconsolata XL",
+  "terminal.integrated.fontFamily": "Anonymous Pro for Powerline",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeight": "100",
+  "terminal.integrated.fontWeightBold": "100",
   "typescript.preferences.quoteStyle": "single",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -119,21 +136,5 @@
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "terminal.integrated.fontSize": 11,
-  "terminal.integrated.fontWeight": "100",
-  "terminal.integrated.fontWeightBold": "100",
-  "[jsonc]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "cSpell.ignorePaths": [
-    "package-lock.json",
-    "node_modules",
-    "vscode-extension",
-    ".git/{info,lfs,logs,refs,objects}/**",
-    ".git/{index,*refs,*HEAD}",
-    ".vscode",
-    ".vscode-insiders",
-    ".zsh_history"
-  ],
+  "workbench.startupEditor": "none"
 }

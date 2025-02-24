@@ -1,7 +1,7 @@
 # ~/.config/starship.toml
 format = '''
 [┌──────────────────────────────────────>](bold green)
-[│](bold green) $directory$rust$package$git_branch$git_commit$git_state
+[│](bold green) $directory$rust$package$git_branch$git_commit$git_state$git_status
 [│](bold green) $cmd_duration$nodejs$python$julia
 [└─>](bold green) '''
 
@@ -39,11 +39,11 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
 conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count} "
+ahead = " 🏎️ 💨 ×${count} "
 behind = "🐢 ×${count} "
 diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
 untracked = "🛤️  ×${count} "
-stashed = "📦 "
+stashed = " (📦 ×${count}) "
 modified = "📝 ×${count} "
 staged = "🗃️  ×${count} "
 renamed = "📛 ×${count} "

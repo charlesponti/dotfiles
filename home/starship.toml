@@ -1,9 +1,8 @@
 # ~/.config/starship.toml
 format = '''
 [┌──────────────────────────────────────>](bold green)
-[│](bold green) $directory$rust$package$git_branch$git_commit$git_state$git_status
-[│](bold green) $cmd_duration$nodejs$python$julia
-[└─>](bold green) '''
+[│](bold green) $directory$rust$package$git_branch$git_commit$git_state$git_status$cmd_duration$nodejs$python$julia$time$cmd_duration
+[└─$character](bold green) '''
 
 [battery]
 full_symbol = "🔋"

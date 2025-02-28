@@ -1,7 +1,7 @@
 # ~/.config/starship.toml
 format = '''
 [┌──────────────────────────────────────>](bold green)
-[│](bold green) $directory$rust$package$git_branch$git_commit$git_state$git_status$cmd_duration$nodejs$python$julia$time$cmd_duration
+[│](bold green) $directory$rust$package | $git_branch$git_commit$git_state$git_status$cmd_duration$nodejs$python | $time
 [└─$character](bold green) '''
 
 [battery]
@@ -72,8 +72,9 @@ disabled = false
 disabled = true
 
 [python]
-format = "[$symbol$version]($style) "
+format = "| [$symbol $version – $virtualenv]($style) "
 style = "bold green"
+symbol = "🐍 "
 
 [rust]
 format = "[$symbol$version]($style) "
@@ -94,4 +95,8 @@ style_user = "bold dimmed blue"
 show_always = false
 
 [nodejs]
-format = "via [🤖 $version](bold green) "
+format = "| [$symbol$version](bold green) "
+symbol = "⬢ "
+
+[bun]
+format = '| [🍔 $version](bold green) '

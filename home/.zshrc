@@ -45,12 +45,12 @@ export PATH="/usr/local/opt/python@3.12/libexec/bin:$PATH"
 
 # Plugins
 # zinit load zdharma-continuum/history-search-multi-word
-# zinit light zdharma-continuum/fast-syntax-highlighting
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light zsh-users/zsh-completions
-# zinit light mafredri/zsh-async
-# zinit light rupa/z
-# zinit light hlissner/zsh-autopair
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light mafredri/zsh-async
+zinit light rupa/z
+zinit light hlissner/zsh-autopair
 
 # Load powerlevel10k theme
 # zinit ice depth"1" # git clone depth
@@ -101,3 +101,5 @@ zinit light starship/starship
 
 # Print welcome message
 source "$HOME/.dotfiles/commands/welcome_message.sh"
+# Hominem environment variables
+export HOMINEM_DB_PATH="/Users/charlesponti/.hominem/db.sqlite"

@@ -72,7 +72,7 @@ disabled = false
 disabled = true
 
 [python]
-format = "| [$symbol $version – $virtualenv]($style) "
+format = "| [$symbol$version – $virtualenv]($style) "
 style = "bold green"
 symbol = "🐍 "
 

@@ -42,3 +42,8 @@ github-ssh () {
 symlink() {
   ln -sfv $1 $2
 }
+
+# Search zsh history
+search-zsh-history() {
+  cat $HOME/.zsh_history | grep $1
+}

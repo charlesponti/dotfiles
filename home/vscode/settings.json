@@ -1,6 +1,9 @@
 {
-	"[html]": {
-		"editor.defaultFormatter": "vscode.html-language-features"
+	"[csv]": {
+		"editor.inlayHints.maximumLength": 0
+	},
+	"[go]": {
+		"editor.defaultFormatter": "golang.go"
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -30,8 +33,14 @@
 		"editor.defaultFormatter": "charliermarsh.ruff",
 		"editor.formatOnSave": true
 	},
+	"[search-result]": {
+		"editor.lineNumbers": "on"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
 	"[typescript]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -40,7 +49,6 @@
 		"editor.defaultFormatter": "redhat.vscode-xml"
 	},
 	"bicep.enableSurveys": false,
-	"cmake.showOptionsMovedNotification": false,
 	"cSpell.ignorePaths": [
 		"package-lock.json",
 		"node_modules",
@@ -51,22 +59,38 @@
 		".vscode-insiders",
 		".zsh_history"
 	],
+	"cSpell.userWords": [
+		"charliermarsh",
+		"codesearch",
+		"geminicodeassist",
+		"Powerline",
+		"Pylance",
+		"venv",
+		"vsintellicode"
+	],
+	"debug.console.fontFamily": "Geist Mono",
 	"diffEditor.codeLens": true,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.renderSideBySide": false,
 	"editor.accessibilitySupport": "off",
+	"editor.codeLensFontFamily": "Geist Mono",
 	"editor.defaultFormatter": "biomejs.biome",
-	"editor.fontFamily": "Anonymous Pro for Powerline",
-	"editor.fontSize": 12,
-	"editor.fontWeight": "500",
+	"editor.fontFamily": "Geist Mono",
+	"editor.fontSize": 11,
+	"editor.fontWeight": "350",
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
+	"editor.inlayHints.fontFamily": "Geist Mono",
 	"editor.inlineSuggest.enabled": true,
+	"editor.inlineSuggest.fontFamily": "Geist Mono",
 	"editor.inlineSuggest.suppressSuggestions": true,
+	"editor.largeFileOptimizations": true,
+	"editor.lineHeight": 2,
 	"editor.linkedEditing": true,
 	"editor.suggest.showWords": false,
 	"editor.suggestSelection": "first",
 	"editor.tabSize": 2,
+	"editor.unicodeHighlight.ambiguousCharacters": false,
 	"eslint.format.enable": true,
 	"eslint.lintTask.enable": true,
 	"explorer.confirmDelete": false,
@@ -79,31 +103,35 @@
 		"*.tsx": "${capture}.typegen.ts",
 		"Cargo.toml": "Cargo.lock"
 	},
+	"git.autofetch": true,
 	"git.blame.editorDecoration.enabled": true,
 	"git.blame.statusBarItem.enabled": true,
 	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
 	"git.openRepositoryInParentFolders": "always",
 	"git.path": "/usr/bin/git",
-	"github.copilot.chat.codeGeneration.instructions": [
-		{
-			"file": "${workspaceFolder}/.vscode/.copilot-codeGeneration-instructions.md"
-		}
-	],
-	"github.copilot.chat.edits.codesearch.enabled": true,
-	"github.copilot.enable": {
-		"*": true,
-		"markdown": false,
-		"plaintext": false,
-		"scminput": false
-	},
+	"github.copilot.chat.codesearch.enabled": true,
+	"github.copilot.selectedCompletionModel": "",
 	"githubPullRequests.fileListLayout": "tree",
-	"githubPullRequests.pullBranch": "never",
+	"githubPullRequests.pullBranch": "always",
 	"githubPullRequests.pushBranch": "always",
 	"go.toolsManagement.autoUpdate": true,
 	"javascript.preferences.quoteStyle": "single",
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"makefile.configureOnOpen": true,
+	"markdown.preview.fontFamily": "Geist Mono",
+	"mcp": {
+		"servers": {
+			"hominem": {
+				"args": [
+					"node",
+					"/Users/charlesponti/Developer/hominem/apps/mcp/build/index.js"
+				],
+				"command": "DATABASE_URL=postgresql://postgres:postgres@postgres:4432/hominem",
+				"type": "stdio"
+			}
+		}
+	},
 	"python.analysis.autoImportCompletions": true,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.languageServerMode": "full",
@@ -113,7 +141,14 @@
 	"python.terminal.activateEnvInCurrentTerminal": true,
 	"python.venvPath": "${workspaceFolder}/.venv",
 	"redhat.telemetry.enabled": false,
+	"remote.defaultExtensionsIfInstalledLocally": [
+		"GitHub.copilot",
+		"GitHub.copilot-chat",
+		"GitHub.vscode-pull-request-github"
+	],
+	"scm.defaultViewMode": "tree",
 	"scss.showErrors": true,
+	"search.defaultViewMode": "tree",
 	"security.promptForLocalFileProtocolHandling": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	"svelte.enable-ts-plugin": true,
@@ -122,38 +157,23 @@
 		"CW_NEW_SESSION": "1",
 		"Q_NEW_SESSION": "1"
 	},
-	"terminal.integrated.fontFamily": "Anonymous Pro for Powerline",
+	"terminal.integrated.fontFamily": "Geist Mono",
+	"terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"liga\" on",
 	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.fontWeight": "100",
-	"terminal.integrated.fontWeightBold": "100",
+	"terminal.integrated.fontWeightBold": "400",
 	"typescript.preferences.quoteStyle": "single",
 	"typescript.updateImportsOnFileMove.enabled": "always",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"vsintellicode.python.completionsEnabled": true,
-	"window.commandCenter": true,
-	"window.newWindowDimensions": "inherit",
-	"workbench.colorTheme": "Default Light+",
-	"workbench.editor.enablePreview": false,
-	"workbench.iconTheme": "material-icon-theme",
-	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-	"geminicodeassist.project": "",
-	"cSpell.userWords": [
-		"charliermarsh",
-		"codesearch",
-		"geminicodeassist",
-		"Powerline",
-		"Pylance",
-		"venv",
-		"vsintellicode"
-	],
-	"editor.unicodeHighlight.ambiguousCharacters": false,
 	"vs-kubernetes": {
 		"vscode-kubernetes.helm-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-arm64/helm",
 		"vscode-kubernetes.minikube-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
 	},
-	"editor.largeFileOptimizations": false,
-	"[csv]": {
-		"editor.inlayHints.maximumLength": 0
-	}
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"vsintellicode.python.completionsEnabled": true,
+	"window.commandCenter": true,
+	"window.newWindowDimensions": "inherit",
+	"workbench.colorTheme": "Ayu Dark",
+	"workbench.editor.enablePreview": false,
+	"workbench.iconTheme": "catppuccin-frappe",
+	"workbench.sideBar.location": "right",
+	"workbench.startupEditor": "none"
 }

@@ -65,7 +65,7 @@ type Tile struct {
 
 func main() {
 	config := parseFlags()
-	
+
 	if err := validateConfig(config); err != nil {
 		fmt.Printf("❌ Error: %v\n", err)
 		os.Exit(1)
@@ -89,7 +89,7 @@ func main() {
 
 func parseFlags() *Config {
 	config := &Config{}
-	
+
 	flag.StringVar(&config.Input, "i", "", "Input image file (required)")
 	flag.StringVar(&config.Input, "input", "", "Input image file (required)")
 	flag.StringVar(&config.OutputDir, "o", "icons", "Output directory")

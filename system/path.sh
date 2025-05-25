@@ -6,6 +6,7 @@ unset path
 
 # List all path entries you want before the "standard" PATH
 PATH="\
+$HOME/.dotfiles/bin:\
 /opt/homebrew/sbin:\
 /opt/homebrew/bin:\
 /usr/local/bin:/usr/local/sbin:\

@@ -1,0 +1,199 @@
+#!/bin/bash
+
+INPUT=$1
+OUTPUT_DIR=${2:-icons}
+SITE_NAME=${3:-"My Website"}
+SITE_URL=${4:-"/"}
+THEME_COLOR=${5:-"#ffffff"}
+BACKGROUND_COLOR=${6:-"#ffffff"}
+
+if [ -z "$INPUT" ]; then
+  echo "Usage: webicon-maker path/to/input.png [output-dir] [site-name] [site-url] [theme-color] [background-color]"
+  echo "Example: webicon-maker logo.png icons \"My Website\" https://example.com \"#4285f4\" \"#ffffff\""
+  exit 1
+fi
+
+echo "🔍 Checking for ImageMagick..."
+if ! command -v magick &> /dev/null; then
+  echo "❌ ImageMagick not found. Please install it first:"
+  echo "   brew install imagemagick"
+  exit 1
+fi
+
+# Output directory
+mkdir -p "$OUTPUT_DIR"
+echo "📁 Creating output directory: $OUTPUT_DIR"
+
+# Favicon ICO (multi-size)
+echo "🔄 Generating favicon.ico..."
+magick convert "$INPUT" -define icon:auto-resize=16,32,48,64,128,256 "$OUTPUT_DIR/favicon.ico"
+
+# Standard favicon PNG sizes
+echo "🔄 Generating standard favicon PNGs..."
+magick convert "$INPUT" -resize 16x16 "$OUTPUT_DIR/favicon-16x16.png"
+magick convert "$INPUT" -resize 32x32 "$OUTPUT_DIR/favicon-32x32.png"
+magick convert "$INPUT" -resize 48x48 "$OUTPUT_DIR/favicon-48x48.png"
+magick convert "$INPUT" -resize 96x96 "$OUTPUT_DIR/favicon-96x96.png"
+
+# Apple touch icons
+echo "🔄 Generating Apple touch icons..."
+magick convert "$INPUT" -resize 57x57 "$OUTPUT_DIR/apple-touch-icon-57x57.png"
+magick convert "$INPUT" -resize 60x60 "$OUTPUT_DIR/apple-touch-icon-60x60.png"
+magick convert "$INPUT" -resize 72x72 "$OUTPUT_DIR/apple-touch-icon-72x72.png"
+magick convert "$INPUT" -resize 76x76 "$OUTPUT_DIR/apple-touch-icon-76x76.png"
+magick convert "$INPUT" -resize 114x114 "$OUTPUT_DIR/apple-touch-icon-114x114.png"
+magick convert "$INPUT" -resize 120x120 "$OUTPUT_DIR/apple-touch-icon-120x120.png"
+magick convert "$INPUT" -resize 144x144 "$OUTPUT_DIR/apple-touch-icon-144x144.png"
+magick convert "$INPUT" -resize 152x152 "$OUTPUT_DIR/apple-touch-icon-152x152.png"
+magick convert "$INPUT" -resize 180x180 "$OUTPUT_DIR/apple-touch-icon.png"
+magick convert "$INPUT" -resize 180x180 "$OUTPUT_DIR/apple-touch-icon-180x180.png"
+
+# Android & PWA icons
+echo "🔄 Generating Android & PWA icons..."
+magick convert "$INPUT" -resize 36x36 "$OUTPUT_DIR/android-icon-36x36.png"
+magick convert "$INPUT" -resize 48x48 "$OUTPUT_DIR/android-icon-48x48.png"
+magick convert "$INPUT" -resize 72x72 "$OUTPUT_DIR/android-icon-72x72.png"
+magick convert "$INPUT" -resize 96x96 "$OUTPUT_DIR/android-icon-96x96.png"
+magick convert "$INPUT" -resize 144x144 "$OUTPUT_DIR/android-icon-144x144.png"
+magick convert "$INPUT" -resize 192x192 "$OUTPUT_DIR/android-icon-192x192.png"
+magick convert "$INPUT" -resize 192x192 "$OUTPUT_DIR/icon-192x192.png"
+magick convert "$INPUT" -resize 384x384 "$OUTPUT_DIR/icon-384x384.png"
+magick convert "$INPUT" -resize 512x512 "$OUTPUT_DIR/icon-512x512.png"
+
+# Microsoft Tile icons
+echo "🔄 Generating Microsoft Tile icons..."
+magick convert "$INPUT" -resize 70x70 "$OUTPUT_DIR/ms-icon-70x70.png"
+magick convert "$INPUT" -resize 144x144 "$OUTPUT_DIR/ms-icon-144x144.png"
+magick convert "$INPUT" -resize 150x150 "$OUTPUT_DIR/ms-icon-150x150.png"
+magick convert "$INPUT" -resize 310x310 "$OUTPUT_DIR/ms-icon-310x310.png"
+
+# Social Media icons (larger sizes for better quality)
+echo "🔄 Generating Social Media sharing icons..."
+# OpenGraph / Facebook
+magick convert "$INPUT" -resize 1200x630 "$OUTPUT_DIR/og-image.jpg"
+# Twitter Card
+magick convert "$INPUT" -resize 1200x600 "$OUTPUT_DIR/twitter-card.jpg"
+
+# Safari Pinned Tab icon - monochrome SVG is recommended
+echo "⚠️  Note: For Safari Pinned Tab, a monochrome SVG is recommended."
+echo "   If you have an SVG source, manually copy it to $OUTPUT_DIR/safari-pinned-tab.svg"
+
+# Generate manifest.json
+echo "📝 Generating manifest.json..."
+cat > "$OUTPUT_DIR/manifest.json" << EOF
+{
+  "name": "$SITE_NAME",
+  "short_name": "$SITE_NAME",
+  "description": "$SITE_NAME - Web Application",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "$BACKGROUND_COLOR",
+  "theme_color": "$THEME_COLOR",
+  "icons": [
+    {
+      "src": "./icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+EOF
+
+# Generate HTML link tags file
+echo "📝 Generating link-tags.html..."
+cat > "$OUTPUT_DIR/link-tags.html" << EOF
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="$OUTPUT_DIR/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="$OUTPUT_DIR/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="$OUTPUT_DIR/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="$OUTPUT_DIR/favicon-96x96.png">
+
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="$OUTPUT_DIR/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="$OUTPUT_DIR/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="$OUTPUT_DIR/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="$OUTPUT_DIR/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="$OUTPUT_DIR/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="$OUTPUT_DIR/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="$OUTPUT_DIR/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="$OUTPUT_DIR/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="$OUTPUT_DIR/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="$OUTPUT_DIR/apple-touch-icon-180x180.png">
+
+<!-- Android Icons -->
+<link rel="icon" type="image/png" sizes="36x36" href="$OUTPUT_DIR/android-icon-36x36.png">
+<link rel="icon" type="image/png" sizes="48x48" href="$OUTPUT_DIR/android-icon-48x48.png">
+<link rel="icon" type="image/png" sizes="72x72" href="$OUTPUT_DIR/android-icon-72x72.png">
+<link rel="icon" type="image/png" sizes="96x96" href="$OUTPUT_DIR/android-icon-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144" href="$OUTPUT_DIR/android-icon-144x144.png">
+<link rel="icon" type="image/png" sizes="192x192" href="$OUTPUT_DIR/android-icon-192x192.png">
+
+<!-- Microsoft Tile Icons -->
+<meta name="msapplication-TileColor" content="$THEME_COLOR">
+<meta name="msapplication-TileImage" content="$OUTPUT_DIR/ms-icon-144x144.png">
+<meta name="msapplication-square70x70logo" content="$OUTPUT_DIR/ms-icon-70x70.png">
+<meta name="msapplication-square150x150logo" content="$OUTPUT_DIR/ms-icon-150x150.png">
+<meta name="msapplication-square310x310logo" content="$OUTPUT_DIR/ms-icon-310x310.png">
+
+<!-- Web Manifest -->
+<link rel="manifest" href="$OUTPUT_DIR/manifest.json">
+
+<!-- Theme Color -->
+<meta name="theme-color" content="$THEME_COLOR">
+
+<!-- Safari Pinned Tab Icon -->
+<link rel="mask-icon" href="$OUTPUT_DIR/safari-pinned-tab.svg" color="$THEME_COLOR">
+
+<!-- Social Media / OpenGraph -->
+<meta property="og:image" content="$SITE_URL/$OUTPUT_DIR/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="$SITE_URL/$OUTPUT_DIR/twitter-card.jpg">
+EOF
+
+# Generate browserconfig.xml for Microsoft browsers
+echo "📝 Generating browserconfig.xml..."
+cat > "$OUTPUT_DIR/browserconfig.xml" << EOF
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="$OUTPUT_DIR/ms-icon-70x70.png"/>
+      <square150x150logo src="$OUTPUT_DIR/ms-icon-150x150.png"/>
+      <square310x310logo src="$OUTPUT_DIR/ms-icon-310x310.png"/>
+      <TileColor>$THEME_COLOR</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>
+EOF
+
+echo "✅ All icons generated in the '$OUTPUT_DIR/' folder."
+echo "📄 Generated files:"
+echo "   - favicon.ico and various favicon PNGs"
+echo "   - Apple Touch icons in various sizes"
+echo "   - Android/PWA icons in various sizes"
+echo "   - Microsoft Tile icons"
+echo "   - Social media sharing images (og-image.jpg, twitter-card.jpg)"
+echo "   - manifest.json for PWAs"
+echo "   - link-tags.html with HTML tags to include in your page"
+echo "   - browserconfig.xml for Microsoft browsers"
+echo ""
+echo "📋 To use these icons, copy the contents of link-tags.html into your HTML <head> section"
+echo "   and adjust the paths as needed for your project structure."

@@ -103,3 +103,14 @@ zinit light starship/starship
 source "$HOME/.dotfiles/commands/welcome_message.sh"
 # Hominem environment variables
 export HOMINEM_DB_PATH="/Users/charlesponti/.hominem/db.sqlite"
+
+# Added by Windsurf
+export PATH="/Users/charlesponti/.codeium/windsurf/bin:$PATH"
+
+# Set default shell for VSCode
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code-insiders --locate-shell-integration-path zsh)"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/charlesponti/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+

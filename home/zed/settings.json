@@ -13,11 +13,11 @@
 		"edit_prediction_provider": "zed"
 	},
 	"base_keymap": "VSCode",
-	"theme": "Ayu Mirage",
+	"theme": "Catppuccin Macchiato",
 	"ui_font_size": 16,
-	"buffer_font_size": 12,
+	"buffer_font_size": 13,
 	// NOTE: Change the font family to your preference
-	"buffer_font_family": "Anonymous Pro for Powerline",
+	"buffer_font_family": "Geist Mono",
 	// Vim mode settings
 	// "vim_mode": true,
 	// use relative line numbers
@@ -44,9 +44,10 @@
 	},
 	// Use Copilot Chat AI as default
 	"assistant": {
-		"default_model": {
-			"provider": "lmstudio",
-			"model": "zeta"
+		"always_allow_tool_actions": true,
+  "default_model": {
+			"provider": "copilot_chat",
+			"model": "claude-3-7-sonnet"
 		},
 		"version": "2"
 	},

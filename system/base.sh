@@ -47,3 +47,120 @@ symlink() {
 search-zsh-history() {
   cat $HOME/.zsh_history | grep $1
 }
+
+#######################################
+# Performance and productivity functions
+#######################################
+
+# Kill process by name
+killp() {
+  if [ -z "$1" ]; then
+    echo "Usage: killp <process_name>"
+    return 1
+  fi
+  pkill -f "$1"
+}
+
+# Find large files
+findlarge() {
+  local size=${1:-100M}
+  find . -type f -size +"$size" -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+}
+
+# Quick system info
+sysinfo() {
+  echo "🖥️  System Information"
+  echo "===================="
+  echo "OS: $(uname -s)"
+  echo "Kernel: $(uname -r)"
+  echo "Architecture: $(uname -m)"
+  echo "Hostname: $(hostname)"
+  echo "Uptime: $(uptime | awk '{print $3,$4}' | sed 's/,//')"
+  echo "Shell: $SHELL"
+  echo "Terminal: $TERM_PROGRAM"
+  echo "CPU: $(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo "Unknown")"
+  echo "Memory: $(system_profiler SPHardwareDataType 2>/dev/null | grep "Memory:" || echo "Unknown")"
+}
+
+# Quick disk usage for current directory
+usage() {
+  du -sh * 2>/dev/null | sort -hr
+}
+
+# Find duplicate files
+finddup() {
+  find "${1:-.}" -type f -exec md5sum {} \; | sort | uniq -w32 -dD
+}
+
+# Quick backup of a file or directory
+qbackup() {
+  if [ -z "$1" ]; then
+    echo "Usage: qbackup <file_or_directory>"
+    return 1
+  fi
+  cp -r "$1" "$1.backup.$(date +%Y%m%d_%H%M%S)"
+  echo "Backup created: $1.backup.$(date +%Y%m%d_%H%M%S)"
+}
+
+# URL encode/decode
+urlencode() {
+  python3 -c "import urllib.parse; print(urllib.parse.quote('$1'))"
+}
+
+urldecode() {
+  python3 -c "import urllib.parse; print(urllib.parse.unquote('$1'))"
+}
+
+# JSON pretty print from clipboard
+jsonpp() {
+  pbpaste | python3 -m json.tool | pbcopy
+  echo "JSON formatted and copied to clipboard"
+}
+
+# Generate random password
+genpass() {
+  local length=${1:-16}
+  openssl rand -base64 32 | head -c "$length" && echo
+}
+
+# Quick web search from terminal
+google() {
+  open "https://www.google.com/search?q=$(urlencode "$*")"
+}
+
+# Convert markdown to HTML
+md2html() {
+  if [ -z "$1" ]; then
+    echo "Usage: md2html <markdown_file>"
+    return 1
+  fi
+  if command -v pandoc >/dev/null 2>&1; then
+    pandoc "$1" -o "${1%.*}.html"
+    echo "Converted $1 to ${1%.*}.html"
+  else
+    echo "pandoc not found. Install with: brew install pandoc"
+  fi
+}
+
+# Quick HTTP status check
+httpstatus() {
+  if [ -z "$1" ]; then
+    echo "Usage: httpstatus <url>"
+    return 1
+  fi
+  curl -s -o /dev/null -w "%{http_code}" "$1"
+  echo
+}
+
+# Generate QR code for text
+qr() {
+  if [ -z "$1" ]; then
+    echo "Usage: qr <text>"
+    return 1
+  fi
+  if command -v qrencode >/dev/null 2>&1; then
+    qrencode -t UTF8 "$1"
+  else
+    echo "qrencode not found. Install with: brew install qrencode"
+  fi
+}

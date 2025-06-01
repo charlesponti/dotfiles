@@ -19,7 +19,6 @@ brew install kubectl          # Kubernetes
 brew install ffmpeg@4         # Video converter
 brew install eza              # `ls` replacement
 brew install minikube         # Minikube
-brew install starship         # Prompt
 brew install trash            # Trash (rm -rf replacement)
 brew install tree             # Tree (display directories as tree)
 brew install wget             # Download tool

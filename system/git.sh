@@ -103,3 +103,72 @@ function glog() {
     # Execute the command
     eval $cmd
 }
+
+# Enhanced git aliases for productivity
+alias gundo='git reset --soft HEAD~1'  # Undo last commit but keep changes
+alias gwip='gitWIP'  # Shortcut for the WIP function
+alias gclean='git clean -fd'  # Remove untracked files and directories
+alias gstash='git stash'
+alias gstashp='git stash pop'
+alias gstashl='git stash list'
+alias gstashs='git stash show -p'
+alias grh='git reset --hard'  # Hard reset
+alias grs='git reset --soft'  # Soft reset
+alias greset='git reset HEAD~1'  # Reset last commit
+alias gpf='git push --force-with-lease'  # Safer force push
+alias gfm='git fetch && git merge'  # Fetch and merge
+alias grib='git rebase -i'  # Interactive rebase
+alias gsub='git submodule update --init --recursive'  # Update submodules
+
+# Show git status with more info
+alias gss='git status --porcelain=v1 --branch'
+
+# Git log variations
+alias glp='git log --patch'  # Show patches
+alias gls='git log --stat'   # Show stats
+alias glg='git log --graph --oneline --decorate --all'  # Graph view
+
+# Branch management
+alias gbc='git branch --show-current'  # Show current branch
+alias gbr='git branch -r'  # Show remote branches
+alias gba='git branch -a'  # Show all branches
+alias gbm='git branch -m'  # Rename branch
+
+# Work with commits
+alias gcf='git commit --fixup'  # Create fixup commit
+alias gcs='git commit --squash'  # Create squash commit
+alias gcn='git commit --no-verify'  # Commit without hooks
+
+# Fast commit with message
+gccm() {
+    git add -A && git commit -m "$1"
+}
+
+# Create and switch to new branch
+gcob() {
+    git checkout -b "$1"
+}
+
+# Delete merged branches (except main/master/develop)
+gbd-merged() {
+    git branch --merged | grep -v -E "(main|master|develop|\*)" | xargs -n 1 git branch -d
+}
+
+# Show files changed in last commit
+glast() {
+    git diff --name-only HEAD~1 HEAD
+}
+
+# Git ignore function - add files to .gitignore
+gign() {
+    echo "$1" >> .gitignore
+}
+
+# Quick sync with upstream
+gsync() {
+    current_branch=$(git branch --show-current)
+    git checkout main 2>/dev/null || git checkout master 2>/dev/null
+    git pull upstream main 2>/dev/null || git pull upstream master 2>/dev/null || git pull origin main 2>/dev/null || git pull origin master 2>/dev/null
+    git checkout "$current_branch"
+    git rebase main 2>/dev/null || git rebase master 2>/dev/null
+}

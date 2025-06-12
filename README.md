@@ -1,25 +1,90 @@
 # dotfiles
 
-`dotfiles` are how you personalize your machine.
+> Personal dotfiles for macOS development environment
 
-these are mine.
+`dotfiles` are how you personalize your machine. These are mine.
 
-take and customise to your liking 💁
+Take and customize to your liking 💁
 
 ## Features
 
-- [Spaceship Prompt](https://spaceship-prompt.sh)
+- 🚀 [Starship](https://starship.rs/) prompt with Git integration
+- ⚡ [Zinit](https://github.com/zdharma-continuum/zinit) plugin manager
+- 🔍 Enhanced Git workflow with custom aliases and functions
+- 🛠️ Development tools setup (Node.js, Python, Docker, etc.)
+- 💻 VS Code and Zed editor configurations
+- 🍎 macOS system preferences automation
+- 📁 Smart project initialization scripts
 
-## Steps
+## Quick Overview
 
-1. 💰 Purchase the newest and most 🔥🔥🔥 MacBook Pro
-2. 🚌 Gleefully return home with your marvelous purchase
-3. 🎶 Turn down the lights and play some smooth jazz
-4. 🎁 Unsheath the Macbook Pro from its meticulously designed recycable cardboard home
-5. 🔌 Power up and go through all the set up screens
-6. 👩🏻‍💻 `cd ~ && git clone git@github.com:charlesponti/dotfiles.git .dotfiles`
-7. 👩🏻‍💻 `cd .dotfiles && sh install.sh`
-8. 🌈 Pour yourself a glass of wine. You deserve it.
+```
+├── home/           # Dotfiles that get symlinked to ~/
+├── system/         # Shell configuration modules
+├── bin/            # Utility scripts and installers
+├── commands/       # Custom shell commands
+└── templates/      # Project templates
+```
+
+## Installation
+
+### Fresh Installation (Recommended)
+
+```bash
+# One-liner installation
+curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.sh | bash
+```
+
+### Manual Installation
+
+1. **Prerequisites**: Ensure you have Xcode Command Line Tools installed:
+   ```bash
+   xcode-select --install
+   ```
+
+2. **Clone the repository**:
+   ```bash
+   git clone https://github.com/charlesponti/dotfiles.git ~/.dotfiles
+   ```
+
+3. **Run the installer**:
+   ```bash
+   cd ~/.dotfiles && ./install.sh
+   ```
+
+### Post-Installation
+
+1. **Restart your terminal** or source your shell configuration:
+   ```bash
+   source ~/.zshrc
+   ```
+
+2. **Run a health check**:
+   ```bash
+   ~/.dotfiles/bin/doctor.sh
+   ```
+
+3. **Install additional applications** (optional):
+   ```bash
+   brew bundle --file ~/.dotfiles/Brewfile
+   ```
+
+## Maintenance
+
+### Update Everything
+```bash
+~/.dotfiles/update.sh
+```
+
+### Health Check
+```bash
+~/.dotfiles/bin/doctor.sh
+```
+
+### Install New Apps from Brewfile
+```bash
+brew bundle --file ~/.dotfiles/Brewfile
+```
 
 ## Applications
 

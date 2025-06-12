@@ -62,9 +62,13 @@
 	"cSpell.userWords": [
 		"charliermarsh",
 		"codesearch",
+		"firestore",
 		"geminicodeassist",
 		"Powerline",
 		"Pylance",
+		"Rewardful",
+		"rgba",
+		"supabase",
 		"venv",
 		"vsintellicode"
 	],
@@ -171,9 +175,16 @@
 	"vsintellicode.python.completionsEnabled": true,
 	"window.commandCenter": true,
 	"window.newWindowDimensions": "inherit",
-	"workbench.colorTheme": "Ayu Dark",
+	"workbench.colorTheme": "Catppuccin Latte",
 	"workbench.editor.enablePreview": false,
-	"workbench.iconTheme": "catppuccin-frappe",
+	"workbench.iconTheme": "catppuccin-latte",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"docker.extension.enableComposeLanguageServer": false,
+	"amp.commands.allowlist": [
+		"timeout"
+	],
+	"[postcss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	}
 }

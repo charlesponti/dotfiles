@@ -26,9 +26,20 @@ link() {
   ln -sf "$from_file" "$2"
 }
 
-for location in $(find "$HOME/.dotfiles/home" -name '.*'); do
+# Symlink all dotfiles from home directory
+for location in $(find "$HOME/.dotfiles/home" -maxdepth 1 -name '.*' -type f); do
   file="${location##*/}"
   file="${file%.sh}"
+  link "$location" "$HOME/$file"
+done
+
+# Also symlink non-hidden files that should be in home
+for location in $(find "$HOME/.dotfiles/home" -maxdepth 1 -name '[^.]*' -type f); do
+  file="${location##*/}"
+  # Skip directories and certain files
+  case "$file" in
+    "vscode"|"zed") continue ;;
+  esac
   link "$location" "$HOME/$file"
 done
 

@@ -1,0 +1,6 @@
+[include]
+    path = ~/.dotfiles/home/.gitconfig.base
+    path = ~/.dotfiles/home/.gitconfig.local
+
+[user]
+    # This will be set in .gitconfig.local

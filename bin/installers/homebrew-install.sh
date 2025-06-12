@@ -8,28 +8,9 @@ informer "🍺 Installing Homebrew..."
 # Add Homebrew to PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-brew update
+informer "📦 Installing packages from Brewfile..."
+# Install everything from Brewfile
+brew bundle install --file ~/.dotfiles/Brewfile
 
-brew tap 'homebrew/bundle'
-
-## Install tools
-brew install coreutils        # GNU core utilities
-brew install jq               # JSON parser
-brew install kubectl          # Kubernetes
-brew install ffmpeg@4         # Video converter
-brew install eza              # `ls` replacement
-brew install minikube         # Minikube
-brew install trash            # Trash (rm -rf replacement)
-brew install tree             # Tree (display directories as tree)
-brew install wget             # Download tool
-
-## Install applications
-brew install --cask obsidian             # Note taking
-brew install --cask google-chrome        # Browser
-brew install --cask drawio               # Diagrams
-brew install --cask setapp               # App store
-brew install --cask postman              # API testing
-brew tap AdoptOpenJDK/openjdk            # Java
-brew install --cask adoptopenjdk15       # Java
-
+informer "🔍 Running brew doctor..."
 brew doctor

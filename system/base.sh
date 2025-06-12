@@ -1,56 +1,67 @@
 #!/usr/bin/env bash
+# Core system utilities and helper functions
 
-renamer () {
-  rename -f $1 --remove-extension --append=$2
+#=======================================================================
+# FILE & DIRECTORY OPERATIONS
+#=======================================================================
+
+# File renaming utility
+renamer() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: renamer <pattern> <extension>"
+    return 1
+  fi
+  rename -f "$1" --remove-extension --append="$2"
 }
 
-#######################################
-# Delete all local Git branches matching some pattern
-# Globals:
-#   None
-# Arguments:
-#   $1 - pattern to find
-# Returns:
-#   None
-#######################################
-delete-all-branches() {
-  git branch | grep $1 | xargs git branch -D
-}
-
-#######################################
-# Return list of processes listening on a given port
-# Globals:
-#   None
-# Arguments:
-#   $1 - port to search
-# Returns:
-#   None
-#######################################
-whos_listening() {
-  lsof -nP -iTCP:$1
-}
-
-# Create SSH key for github
-github-ssh () {
-  ssh-keygen -t rsa -b 4096 -C “”
-  eval “$(ssh-agent -s)”
-  ssh-add ~/.ssh/id_rsa
-  open https://github.com/settings/ssh
-}
-
-# Create symlink
+# Create symlink with verbose output
 symlink() {
-  ln -sfv $1 $2
+  if [ $# -ne 2 ]; then
+    echo "Usage: symlink <source> <target>"
+    return 1
+  fi
+  ln -sfv "$1" "$2"
 }
 
-# Search zsh history
-search-zsh-history() {
-  cat $HOME/.zsh_history | grep $1
+# Quick backup of a file or directory
+qbackup() {
+  if [ -z "$1" ]; then
+    echo "Usage: qbackup <file_or_directory>"
+    return 1
+  fi
+  local backup_name="$1.backup.$(date +%Y%m%d_%H%M%S)"
+  cp -r "$1" "$backup_name"
+  echo "Backup created: $backup_name"
 }
 
-#######################################
-# Performance and productivity functions
-#######################################
+# Find large files
+findlarge() {
+  local size=${1:-100M}
+  find . -type f -size +"$size" -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+}
+
+# Find duplicate files (macOS compatible)
+finddup() {
+  find "${1:-.}" -type f -exec md5 {} \; 2>/dev/null | sort | uniq -w32 -dD
+}
+
+# Quick disk usage for current directory
+usage() {
+  du -sh * 2>/dev/null | sort -hr
+}
+
+#=======================================================================
+# NETWORK & SYSTEM MONITORING
+#=======================================================================
+
+# Show processes listening on a specific port
+whos_listening() {
+  if [ -z "$1" ]; then
+    echo "Usage: whos_listening <port>"
+    return 1
+  fi
+  lsof -nP -iTCP:"$1"
+}
 
 # Kill process by name
 killp() {
@@ -61,13 +72,7 @@ killp() {
   pkill -f "$1"
 }
 
-# Find large files
-findlarge() {
-  local size=${1:-100M}
-  find . -type f -size +"$size" -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
-}
-
-# Quick system info
+# Quick system information
 sysinfo() {
   echo "🖥️  System Information"
   echo "===================="
@@ -78,29 +83,86 @@ sysinfo() {
   echo "Uptime: $(uptime | awk '{print $3,$4}' | sed 's/,//')"
   echo "Shell: $SHELL"
   echo "Terminal: $TERM_PROGRAM"
-  echo "CPU: $(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo "Unknown")"
-  echo "Memory: $(system_profiler SPHardwareDataType 2>/dev/null | grep "Memory:" || echo "Unknown")"
+  if command -v sysctl >/dev/null 2>&1; then
+    echo "CPU: $(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo "Unknown")"
+  fi
+  if command -v system_profiler >/dev/null 2>&1; then
+    echo "Memory: $(system_profiler SPHardwareDataType 2>/dev/null | grep "Memory:" || echo "Unknown")"
+  fi
 }
 
-# Quick disk usage for current directory
-usage() {
-  du -sh * 2>/dev/null | sort -hr
-}
-
-# Find duplicate files
-finddup() {
-  find "${1:-.}" -type f -exec md5sum {} \; | sort | uniq -w32 -dD
-}
-
-# Quick backup of a file or directory
-qbackup() {
+# Quick HTTP status check
+httpstatus() {
   if [ -z "$1" ]; then
-    echo "Usage: qbackup <file_or_directory>"
+    echo "Usage: httpstatus <url>"
     return 1
   fi
-  cp -r "$1" "$1.backup.$(date +%Y%m%d_%H%M%S)"
-  echo "Backup created: $1.backup.$(date +%Y%m%d_%H%M%S)"
+  curl -s -o /dev/null -w "%{http_code}" "$1"
+  echo
 }
+
+#=======================================================================
+# GIT UTILITIES
+#=======================================================================
+
+# Delete all local Git branches matching a pattern
+delete-all-branches() {
+  if [ -z "$1" ]; then
+    echo "Usage: delete-all-branches <pattern>"
+    return 1
+  fi
+  git branch | grep "$1" | xargs git branch -D
+}
+
+#=======================================================================
+# SSH & SECURITY
+#=======================================================================
+
+# Create modern SSH key for GitHub (using ed25519)
+github-ssh() {
+  local email=${1:-""}
+  if [ -z "$email" ]; then
+    read -p "Enter your GitHub email: " email
+  fi
+  
+  echo "Creating ed25519 SSH key..."
+  ssh-keygen -t ed25519 -C "$email" -f ~/.ssh/id_ed25519
+  
+  echo "Starting SSH agent..."
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+  
+  # Copy public key to clipboard
+  pbcopy < ~/.ssh/id_ed25519.pub
+  echo "✓ SSH public key copied to clipboard"
+  
+  # Open GitHub SSH settings
+  open https://github.com/settings/ssh
+  echo "✓ GitHub SSH settings opened in browser"
+}
+
+# Generate random password
+genpass() {
+  local length=${1:-16}
+  openssl rand -base64 32 | head -c "$length" && echo
+}
+
+#=======================================================================
+# HISTORY & SEARCH
+#=======================================================================
+
+# Search zsh history
+search-history() {
+  if [ -z "$1" ]; then
+    echo "Usage: search-history <pattern>"
+    return 1
+  fi
+  grep "$1" "$HOME/.zsh_history"
+}
+
+#=======================================================================
+# TEXT & DATA PROCESSING
+#=======================================================================
 
 # URL encode/decode
 urlencode() {
@@ -117,17 +179,6 @@ jsonpp() {
   echo "JSON formatted and copied to clipboard"
 }
 
-# Generate random password
-genpass() {
-  local length=${1:-16}
-  openssl rand -base64 32 | head -c "$length" && echo
-}
-
-# Quick web search from terminal
-google() {
-  open "https://www.google.com/search?q=$(urlencode "$*")"
-}
-
 # Convert markdown to HTML
 md2html() {
   if [ -z "$1" ]; then
@@ -142,16 +193,6 @@ md2html() {
   fi
 }
 
-# Quick HTTP status check
-httpstatus() {
-  if [ -z "$1" ]; then
-    echo "Usage: httpstatus <url>"
-    return 1
-  fi
-  curl -s -o /dev/null -w "%{http_code}" "$1"
-  echo
-}
-
 # Generate QR code for text
 qr() {
   if [ -z "$1" ]; then
@@ -163,4 +204,14 @@ qr() {
   else
     echo "qrencode not found. Install with: brew install qrencode"
   fi
+}
+
+#=======================================================================
+# WEB UTILITIES
+#=======================================================================
+
+# Quick web search from terminal
+google() {
+  local query=$(python3 -c "import urllib.parse; print(urllib.parse.quote(' '.join(['$@'])))")
+  open "https://www.google.com/search?q=${query}"
 }

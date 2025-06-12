@@ -1,43 +1,92 @@
 #!/usr/bin/env bash
+# JavaScript/Node.js development utilities
 
-# Faster NPM for europeans.
+#=======================================================================
+# NPM UTILITIES
+#=======================================================================
+
+# Faster NPM for Europeans (legacy alias)
 alias npme='npm --registry http://registry.npmjs.eu'
 
+# Clean node_modules and npm cache
 npm_clean() {
-  informer "Cleaning node_modules"
-  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +;
+  echo "🧹 Cleaning node_modules..."
+  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 
-  informer "Clearing npm cache"
+  echo "🧹 Clearing npm cache..."
   npm cache clean --force
+  echo "✅ NPM cleanup complete"
 }
 
-npm_refresh () {
-  informer "Reinstalling node_modules"
-  
+# Full refresh: remove everything and reinstall
+npm_refresh() {
+  echo "🔄 Full NPM refresh starting..."
   
   # Remove all node_modules folders
+  echo "  → Removing node_modules folders..."
   find . -name "node_modules" -type d -exec rm -rf {} +
   
-  # Remove all package-lock.json files
+  # Remove all lock files
+  echo "  → Removing lock files..."
   find . -name "package-lock.json" -type f -delete
-
-  # Remove all yarn.lock files
+  find . -name "yarn.lock" -type f -delete
   find . -name "bun.lockb" -type f -delete
   
   # Clear npm cache
+  echo "  → Clearing npm cache..."
   npm cache clean --force
   
-  # Reinstall node_modules
+  # Reinstall dependencies
+  echo "  → Reinstalling dependencies..."
   npm install --verbose
 
-  printf "\r✓ Reinstalling node_modules\n"
+  echo "✅ NPM refresh complete"
 }
 
+#=======================================================================
+# PACKAGE MANAGER SHORTCUTS
+#=======================================================================
+
+# NPM shortcuts
+alias ni='npm install'
+alias nid='npm install --save-dev'
+alias nig='npm install -g'
+alias nr='npm run'
+alias ns='npm start'
+alias nt='npm test'
+alias nb='npm run build'
+alias nd='npm run dev'
+alias nls='npm list --depth=0'
+alias nou='npm outdated'
+alias nup='npm update'
+
+# Yarn shortcuts
+alias yi='yarn install'
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yr='yarn run'
+alias ys='yarn start'
+alias yt='yarn test'
+alias yb='yarn build'
+alias yd='yarn dev'
+
+# pnpm shortcuts
+alias pni='pnpm install'
+alias pna='pnpm add'
+alias pnad='pnpm add --save-dev'
+alias pnr='pnpm run'
+alias pns='pnpm start'
+alias pnt='pnpm test'
+alias pnb='pnpm build'
+alias pnd='pnpm dev'
+
+#=======================================================================
+# RUNTIME ENVIRONMENT PATHS
+#=======================================================================
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -45,10 +94,52 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # deno
-. "$HOME/.deno/env"
+if [ -f "$HOME/.deno/env" ]; then
+  . "$HOME/.deno/env"
+fi
 
 # maestro (for Expo and React Native)
 export PATH=$PATH:$HOME/.maestro/bin
+
+#=======================================================================
+# DEVELOPMENT UTILITIES
+#=======================================================================
+
+# Quick project initialization
+init_node() {
+  local project_name=${1:-"new-project"}
+  echo "🚀 Initializing Node.js project: $project_name"
+  mkdir -p "$project_name"
+  cd "$project_name"
+  npm init -y
+  echo "✅ Node.js project initialized"
+}
+
+# Check for security vulnerabilities
+npm_audit() {
+  echo "🔍 Running npm security audit..."
+  npm audit
+  echo "💡 Run 'npm audit fix' to attempt automatic fixes"
+}
+
+# Show package information
+pkg_info() {
+  if [ -z "$1" ]; then
+    echo "Usage: pkg_info <package-name>"
+    return 1
+  fi
+  npm view "$1"
+}
+
+# Find large packages in node_modules
+find_heavy_packages() {
+  echo "📦 Finding largest packages in node_modules..."
+  if [ -d "node_modules" ]; then
+    du -sh node_modules/* | sort -hr | head -20
+  else
+    echo "❌ No node_modules directory found"
+  fi
+}
 
 # Enhanced development aliases and functions
 alias ni='npm install'
@@ -106,25 +197,7 @@ alias serve='python3 -m http.server 8000'  # Quick HTTP server
 alias serve3='python3 -m http.server 3000'
 alias servephp='php -S localhost:8000'     # PHP dev server
 
-# Docker shortcuts
-alias dps='docker ps'
-alias dpa='docker ps -a'
-alias di='docker images'
-alias dex='docker exec -it'
-alias dlog='docker logs -f'
-alias dstop='docker stop $(docker ps -q)'  # Stop all containers
-alias drm='docker rm $(docker ps -aq)'     # Remove all containers
-alias drmi='docker rmi $(docker images -q)' # Remove all images
-
-# Docker compose shortcuts
-alias dcu='docker-compose up'
-alias dcd='docker-compose down'
-alias dcb='docker-compose build'
-alias dcl='docker-compose logs -f'
-alias dcp='docker-compose pull'
-alias dcr='docker-compose restart'
-
-# Python shortcuts
+# Python shortcuts (JavaScript-related Python tools)
 alias py='python3'
 alias pip='pip3'
 alias venv='python3 -m venv'

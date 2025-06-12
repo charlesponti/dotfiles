@@ -43,11 +43,11 @@
 		"right_padding": 0.15
 	},
 	// Use Copilot Chat AI as default
-	"assistant": {
+	"agent": {
 		"always_allow_tool_actions": true,
   "default_model": {
 			"provider": "copilot_chat",
-			"model": "claude-3-7-sonnet"
+			"model": "gpt-4.1"
 		},
 		"version": "2"
 	},
@@ -67,7 +67,7 @@
 	},
 	// Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
 	"inlay_hints": {
-		"enabled": true
+		"enabled": false
 	},
 	// LSP
 	"lsp": {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Install UV for Python version and project management
-brew install uv
+# Note: uv is installed via Brewfile
+# This script can be used for additional Python setup if needed
 
-success 'Installed UV'
+success 'Python tools available via Brewfile'

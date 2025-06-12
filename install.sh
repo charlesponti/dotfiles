@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
 
-dotfiles=~/.dotfiles
-source $dotfiles/bin/printf.sh
+# Dotfiles installation script
+# Usage: ./install.sh
 
-set -e
+set -euo pipefail
+
+dotfiles="$HOME/.dotfiles"
+source "$dotfiles/bin/printf.sh"
+
+# Initialize options
+overwrite_all=false
+backup_all=false
+skip_all=false
+
+# Function to check if running on macOS
+check_os() {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        error "This setup script is designed for macOS only."
+        exit 1
+    fi
+}
 
 link_file () {
   local src=$1 dst=$2
@@ -80,11 +96,26 @@ link_file () {
   fi
 }
 
-SCRIPTS=$dotfiles/bin
+SCRIPTS="$dotfiles/bin"
 
-informer "😲 Installing Homebrew"
-bash $SCRIPTS/installers/homebrew-install.sh
-success "Done!"
+# Check operating system
+check_os
+
+informer "🚀 Starting dotfiles installation..."
+
+# Check for required directories
+if [[ ! -d "$dotfiles" ]]; then
+    error "Dotfiles directory not found at $dotfiles"
+    exit 1
+fi
+
+informer "📦 Installing Homebrew"
+if ! command -v brew >/dev/null 2>&1; then
+    bash "$SCRIPTS/installers/homebrew-install.sh"
+    success "Homebrew installed!"
+else
+    success "Homebrew already installed!"
+fi
 
 informer "😲 Installing Git"
 bash $SCRIPTS/installers/git-install.sh
@@ -98,15 +129,31 @@ informer "😲 Installing NodeJS"
 bash $SCRIPTS/installers/nodejs-install.sh
 success "Done!"
 
-informer "😲 Configuring MacOS"
-bash $SCRIPTS/macos/base.sh
-success "Done!"
+informer "🍎 Configuring macOS"
+echo "Would you like to apply macOS system configurations? This includes:"
+echo "  • Finder, Dock, and Trackpad settings"
+echo "  • Performance optimizations"
+echo "  • Developer-friendly defaults"
+echo ""
+read -p "Apply macOS configurations? [y/N]: " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    bash "$SCRIPTS/macos.sh" --all
+    success "macOS configuration applied!"
+else
+    echo "Skipped macOS configuration (you can run 'macos-config' later)"
+fi
 
-informer "📁 Making ~/Developer folder"
-mkdir ~/Developer
+informer "📁 Creating ~/Developer folder"
+mkdir -p ~/Developer
 
-informer "😲 Installing dotfiles"
-bash $SCRIPTS/symlinks.sh
-success "Done!"
+informer "🔗 Installing dotfiles symlinks"
+bash "$SCRIPTS/symlinks.sh"
+success "Symlinks created!"
 
-success "🚀 Ready to ROCK! 🚀"
+success "🚀 Installation complete!"
+echo ""
+echo "Next steps:"
+echo "  1. Restart your terminal: source ~/.zshrc"
+echo "  2. Run health check: ~/.dotfiles/bin/doctor.sh"
+echo "  3. Install apps: brew bundle --file ~/.dotfiles/Brewfile"

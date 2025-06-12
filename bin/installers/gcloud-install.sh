@@ -1,5 +1,6 @@
-curl https://sdk.cloud.google.com | bash
+#!/usr/bin/env bash
 
-exec -l $SHELL
+# Note: google-cloud-sdk is installed via Brewfile
+# This script just initializes gcloud
 
 gcloud init

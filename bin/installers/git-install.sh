@@ -3,11 +3,8 @@
 dotfiles=~/.dotfiles
 source $dotfiles/bin/printf.sh
 
-# Install git
-brew install git
-
-# Install Github CLI
-brew install github/gh/gh
+# Note: git and gh are installed via Brewfile
+# This script just configures git
 
 informer "😃Let's set up your gitconfig!! \n\n"
 

@@ -309,3 +309,139 @@ gsync() {
   git checkout "$current_branch"
   git rebase main 2>/dev/null || git rebase master 2>/dev/null
 }
+
+# Remove large files from Git history using BFG Repo-Cleaner
+gremove() {
+  if [ -z "$1" ]; then
+    echo "Usage: gremove <filename-or-pattern>"
+    echo ""
+    echo "Examples:"
+    echo "  gremove large-file.csv"
+    echo "  gremove '*.log'"
+    echo "  gremove 'data/*.csv'"
+    echo ""
+    echo "This function will:"
+    echo "  1. Create a backup clone"
+    echo "  2. Use BFG to remove the file from history"
+    echo "  3. Clean up the repository"
+    echo "  4. Show you the commands to complete the process"
+    return 1
+  fi
+
+  local filename="$1"
+  local repo_name=$(basename "$(git rev-parse --show-toplevel)")
+  local backup_name="${repo_name}-backup.git"
+  
+  # Check if we're in a git repository
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "❌ Not in a git repository"
+    return 1
+  fi
+
+  # Check if BFG is installed
+  if ! command -v bfg &> /dev/null; then
+    echo "❌ BFG Repo-Cleaner not found. Install it first:"
+    echo "   brew install bfg"
+    return 1
+  fi
+
+  echo "🗑️  Removing '$filename' from Git history..."
+  echo ""
+  
+  # Step 1: Add to .gitignore if it's a specific file
+  if [[ "$filename" != *"*"* ]] && [[ -f "$filename" ]]; then
+    if ! grep -q "^$filename$" .gitignore 2>/dev/null; then
+      echo "📝 Adding '$filename' to .gitignore"
+      echo "" >> .gitignore
+      echo "# Removed from Git history" >> .gitignore
+      echo "$filename" >> .gitignore
+      git add .gitignore
+      git commit -m "Add $filename to .gitignore before removing from history"
+    fi
+  fi
+
+  # Step 2: Create backup clone
+  echo "📦 Creating backup clone..."
+  cd .. || return 1
+  
+  if [ -d "$backup_name" ]; then
+    echo "🗑️  Removing existing backup..."
+    rm -rf "$backup_name"
+  fi
+  
+  git clone --mirror "$repo_name" "$backup_name"
+  
+  # Step 3: Run BFG
+  echo "🔧 Running BFG to remove '$filename'..."
+  bfg --delete-files "$filename" "$backup_name"
+  
+  # Step 4: Clean up the backup
+  echo "🧹 Cleaning up backup repository..."
+  cd "$backup_name" || return 1
+  git reflog expire --expire=now --all
+  git gc --prune=now --aggressive
+  
+  # Step 5: Return to original repo and show next steps
+  cd "../$repo_name" || return 1
+  
+  echo ""
+  echo "✅ File removal complete! Next steps:"
+  echo ""
+  echo "1. Update your repository with cleaned history:"
+  echo "   git remote set-url origin ../$backup_name"
+  echo "   git fetch origin"
+  echo "   git reset --hard origin/main"
+  echo ""
+  echo "2. Restore your remote URL (replace with your actual repo):"
+  echo "   git remote set-url origin https://github.com/username/repo.git"
+  echo ""
+  echo "3. Force push the cleaned history:"
+  echo "   git push --force-with-lease origin main"
+  echo ""
+  echo "4. Clean up backup:"
+  echo "   rm -rf ../$backup_name"
+  echo ""
+  echo "⚠️  WARNING: After force pushing, all collaborators must re-clone the repository!"
+}
+
+# Quick version that does everything automatically (use with caution!)
+gremove-auto() {
+  if [ -z "$1" ]; then
+    echo "Usage: gremove-auto <filename-or-pattern>"
+    echo "⚠️  This will automatically apply changes and force push!"
+    return 1
+  fi
+
+  local filename="$1"
+  local repo_name=$(basename "$(git rev-parse --show-toplevel)")
+  local backup_name="${repo_name}-backup.git"
+  local original_remote=$(git remote get-url origin)
+  
+  echo "⚠️  AUTO MODE: This will automatically remove '$filename' and force push!"
+  echo "Original remote: $original_remote"
+  echo ""
+  read -p "Are you sure? Type 'YES' to continue: " confirm
+  
+  if [ "$confirm" != "YES" ]; then
+    echo "❌ Cancelled"
+    return 1
+  fi
+
+  # Run the removal process
+  gremove "$filename"
+  
+  # Auto-apply the changes
+  echo "🤖 Auto-applying changes..."
+  git remote set-url origin "../$backup_name"
+  git fetch origin
+  git reset --hard origin/main
+  git remote set-url origin "$original_remote"
+  
+  echo "🚀 Force pushing cleaned history..."
+  git push --force-with-lease origin main
+  
+  echo "🧹 Cleaning up backup..."
+  rm -rf "../$backup_name"
+  
+  echo "✅ Auto-removal complete!"
+}

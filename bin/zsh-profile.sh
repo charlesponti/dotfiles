@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # ZSH profiling script to identify slow components
+# Usage: ./zsh-profile.sh
+
+set -euo pipefail
 
 echo "🔍 Profiling ZSH startup components..."
 echo "This will show which parts of your .zshrc are taking the most time"

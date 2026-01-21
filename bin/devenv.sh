@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Smart Development Environment Detection and Auto-Setup
+# Usage: ./devenv.sh [path]
+
+set -euo pipefail
 
 # Colors
 GREEN='\033[0;32m'

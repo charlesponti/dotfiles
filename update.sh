@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-
 # Update script for existing dotfiles installations
-# Usage: ~/.dotfiles/update.sh
+# Usage: ./update.sh
 
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="$HOME/.dotfiles"
 
 # Source printf functions
-source "$DOTFILES_DIR/bin/printf.sh"
+source "$HOME/.dotfiles/bin/lib.sh"
 
 informer "🔄 Updating dotfiles..."
 

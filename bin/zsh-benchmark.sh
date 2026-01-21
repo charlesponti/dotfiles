@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # ZSH startup time benchmark
+# Usage: ./zsh-benchmark.sh
+
+set -euo pipefail
 
 echo "🚀 Benchmarking ZSH startup time..."
 echo "Running 10 iterations to get average..."

@@ -2,17 +2,22 @@
 	"[csv]": {
 		"editor.inlayHints.maximumLength": 0
 	},
+	"[dockercompose]": {
+		"editor.autoIndent": "advanced",
+		"editor.defaultFormatter": "redhat.vscode-yaml",
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"comments": false,
+			"other": true,
+			"strings": true
+		},
+		"editor.tabSize": 2
+	},
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
 	"[go]": {
 		"editor.defaultFormatter": "golang.go"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[markdown]": {
 		"cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
@@ -39,16 +44,24 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[xml]": {
-		"editor.defaultFormatter": "redhat.vscode-xml"
-	},
+	"amp.dangerouslyAllowAll": true,
 	"bicep.enableSurveys": false,
+	"chat.agent.maxRequests": 100,
+	"chat.editor.fontFamily": "Monaspace Neon",
+	"chat.fontFamily": "Monaspace Neon",
+	"chat.instructionsFilesLocations": {
+		".github/instructions": true,
+		"${userHome}/.aitk/instructions/": true
+	},
+	"chat.mcp.discovery.enabled": {
+		"claude-desktop": true,
+		"cursor-global": true,
+		"cursor-workspace": true,
+		"windsurf": true
+	},
+	"chat.mcp.gallery.enabled": true,
+	"chat.useAgentSkills": true,
+	"chat.viewSessions.orientation": "stacked",
 	"cSpell.ignorePaths": [
 		"package-lock.json",
 		"node_modules",
@@ -59,34 +72,23 @@
 		".vscode-insiders",
 		".zsh_history"
 	],
-	"cSpell.userWords": [
-		"charliermarsh",
-		"codesearch",
-		"firestore",
-		"geminicodeassist",
-		"Powerline",
-		"Pylance",
-		"Rewardful",
-		"rgba",
-		"supabase",
-		"venv",
-		"vsintellicode"
-	],
-	"debug.console.fontFamily": "Geist Mono",
+	"debug.console.fontFamily": "Monaspace Neon",
 	"diffEditor.codeLens": true,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.renderSideBySide": false,
+	"docker.extension.dockerEngineAvailabilityPrompt": false,
+	"docker.extension.enableComposeLanguageServer": false,
 	"editor.accessibilitySupport": "off",
 	"editor.codeLensFontFamily": "Geist Mono",
-	"editor.defaultFormatter": "biomejs.biome",
-	"editor.fontFamily": "Geist Mono",
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+	"editor.fontFamily": "Monaspace Neon",
 	"editor.fontSize": 11,
 	"editor.fontWeight": "350",
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
-	"editor.inlayHints.fontFamily": "Geist Mono",
+	"editor.inlayHints.fontFamily": "Monaspace Neon",
 	"editor.inlineSuggest.enabled": true,
-	"editor.inlineSuggest.fontFamily": "Geist Mono",
+	"editor.inlineSuggest.fontFamily": "Monaspace Neon",
 	"editor.inlineSuggest.suppressSuggestions": true,
 	"editor.largeFileOptimizations": true,
 	"editor.lineHeight": 2,
@@ -95,8 +97,6 @@
 	"editor.suggestSelection": "first",
 	"editor.tabSize": 2,
 	"editor.unicodeHighlight.ambiguousCharacters": false,
-	"eslint.format.enable": true,
-	"eslint.lintTask.enable": true,
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.fileNesting.enabled": true,
@@ -121,25 +121,13 @@
 	"githubPullRequests.pushBranch": "always",
 	"go.toolsManagement.autoUpdate": true,
 	"javascript.preferences.quoteStyle": "single",
-	"javascript.updateImportsOnFileMove.enabled": "always",
 	"makefile.configureOnOpen": true,
-	"markdown.preview.fontFamily": "Geist Mono",
-	"mcp": {
-		"servers": {
-			"hominem": {
-				"args": [
-					"node",
-					"/Users/charlesponti/Developer/hominem/apps/mcp/build/index.js"
-				],
-				"command": "DATABASE_URL=postgresql://postgres:postgres@postgres:4432/hominem",
-				"type": "stdio"
-			}
-		}
-	},
+	"markdown.preview.fontFamily": "Monaspace Neon",
+	"nightwatch.quickSettings.parallels": 10,
 	"python.analysis.autoImportCompletions": true,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.languageServerMode": "full",
-	"python.defaultInterpreterPath": "",
+	"python.defaultInterpreterPath": "/usr/local/bin/python3",
 	"python.experiments.enabled": false,
 	"python.languageServer": "Pylance",
 	"python.terminal.activateEnvInCurrentTerminal": true,
@@ -161,30 +149,28 @@
 		"CW_NEW_SESSION": "1",
 		"Q_NEW_SESSION": "1"
 	},
-	"terminal.integrated.fontFamily": "Geist Mono",
-	"terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"liga\" on",
+	"terminal.integrated.fontFamily": "Monaspace Neon",
 	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.fontWeightBold": "400",
-	"typescript.preferences.quoteStyle": "single",
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"vs-kubernetes": {
-		"vscode-kubernetes.helm-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/helm/darwin-arm64/helm",
-		"vscode-kubernetes.minikube-path-mac": "/Users/charlesponti/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+		"vscode-kubernetes.helm-path-mac": "${userHome}/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+		"vscode-kubernetes.minikube-path-mac": "${userHome}/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
 	},
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"vsintellicode.python.completionsEnabled": true,
 	"window.commandCenter": true,
 	"window.newWindowDimensions": "inherit",
-	"workbench.colorTheme": "Catppuccin Latte",
+	"workbench.colorTheme": "Ayu Mirage",
+	"workbench.commandPalette.experimental.suggestCommands": true,
 	"workbench.editor.enablePreview": false,
-	"workbench.iconTheme": "catppuccin-latte",
+	"workbench.externalBrowser": "chrome",
+	"workbench.panel.showLabels": false,
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-	"docker.extension.enableComposeLanguageServer": false,
-	"amp.commands.allowlist": [
-		"timeout"
-	],
-	"[postcss]": {
-		"editor.defaultFormatter": "stylelint.vscode-stylelint"
-	}
+	"typescript.tsserver.enableTracing": true,
+	"typescript.tsserver.experimental.enableProjectDiagnostics": true,
+	"typescript.tsserver.maxTsServerMemory": 16000,
+	"github.copilot.chat.alternateGeminiModelFPrompt.enabled": true,
+	"typescript.tsserver.log": "verbose",
+	"geminicodeassist.displayInlineContextHint": false,
+	"http.systemCertificatesNode": true
 }

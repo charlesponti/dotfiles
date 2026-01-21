@@ -71,14 +71,24 @@ curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.s
 
 ## Maintenance
 
+The repository includes a `Makefile` for easy management:
+
+- `make help`: Show available commands
+- `make update`: Update dotfiles and homebrew packages
+- `make symlinks`: Refresh symlinks
+- `make doctor`: Run system health check
+- `make test-performance`: Benchmark terminal startup
+
+Or use the scripts directly:
+
 ### Update Everything
 ```bash
-~/.dotfiles/update.sh
+./update.sh
 ```
 
 ### Health Check
 ```bash
-~/.dotfiles/bin/doctor.sh
+./bin/doctor.sh
 ```
 
 ### Install New Apps from Brewfile

@@ -6,6 +6,7 @@ tap "homebrew/services"
 # Essential CLI tools
 brew "git"
 brew "zsh"
+brew "shellcheck" # Static analysis tool for shell scripts
 brew "curl"
 brew "wget"
 brew "tree"

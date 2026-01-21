@@ -1,0 +1,54 @@
+# Starship configuration — performant and featureful
+
+# Keep prompt compact
+add_newline = false
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+vicmd_symbol = "❮"
+
+[directory]
+style = "cyan"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "bold yellow"
+
+[git_status]
+# minimal git status to avoid heavy repo scanning
+format = "([$all_status]($style))"
+style = "red"
+disabled = false
+
+[git_state]
+disabled = false
+
+[package]
+disabled = false
+
+[nodejs]
+format = "via [${symbol} ${version}]($style)"
+disabled = false
+
+[python]
+format = "via [${symbol} ${version}]($style)"
+disabled = false
+
+# Note: docker, kubernetes, and aws modules are intentionally omitted to avoid
+# configuration keys that the installed Starship version doesn't recognize.
+
+[battery]
+disabled = false
+full_symbol = "🔋"
+
+[time]
+format = "[$time]($style)"
+disabled = false
+
+
+# [prompt] section removed for compatibility and performance
+
+# End of starship.toml

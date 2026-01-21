@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Terminal Performance Monitoring Tool
+# Usage: ./terminal-performance.sh
+
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'

@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-dotfiles=~/.dotfiles
-source $dotfiles/bin/printf.sh
+set -euo pipefail
+
+source "$HOME/.dotfiles/bin/lib.sh"
 
 # Note: git and gh are installed via Brewfile
 # This script just configures git
 
-informer "😃Let's set up your gitconfig!! \n\n"
+informer "😃 Let's set up your gitconfig!!"
 
 git_credential='cache'
-if [ "$(uname -s)" == "Darwin" ]
-then
+if [[ "$(uname -s)" == "Darwin" ]]; then
   git_credential='osxkeychain'
 fi
 
 user ' - What is your github author name?'
-read -e git_authorname
+read -r git_authorname
 user ' - What is your github author email?'
-read -e git_authoremail
+read -r git_authoremail
 
 informer "🏗 Adding .gitconfig.local configuration"
 touch $dotfiles/home/.gitconfig.local

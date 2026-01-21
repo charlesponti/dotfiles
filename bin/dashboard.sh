@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Terminal Dashboard - Quick overview of system and development status
+# Usage: ./dashboard.sh
+
+set -euo pipefail
 
 # Colors
 RED='\033[0;31m'

@@ -20,6 +20,9 @@
     squash = !git merge --no-commit --squash
     stash-index = stash save --keep-index
     stash-index-all = stash save --keep-index --include-untracked
+    list-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}'
+    remove-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D
+    prune-deleted-branches = !git fetch --prune && git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D
 [color]
     diff = auto
     status = auto

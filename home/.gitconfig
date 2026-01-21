@@ -3,4 +3,5 @@
     path = ~/.dotfiles/home/.gitconfig.local
 
 [user]
-    # This will be set in .gitconfig.local
+	name = Charles Ponti
+	email = 1757624+charlesponti@users.noreply.github.com

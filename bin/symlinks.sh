@@ -2,39 +2,41 @@
 
 set -euo pipefail
 
-dotfiles="$HOME/.dotfiles"
+source "$HOME/.dotfiles/bin/lib.sh"
 
-if [[ -d "$dotfiles" ]]; then
-  echo "Symlinking dotfiles from $dotfiles"
+if [[ -d "$DOTFILES" ]]; then
+  informer "Symlinking dotfiles from $DOTFILES"
 else
-  echo "$dotfiles does not exist"
-  exit 1
+  fail "$DOTFILES does not exist"
 fi
 
 link() {
-  if ! from_file=$(realpath "$1" 2>/dev/null); then
-    echo "Error: Source file '$1' does not exist"
+  local from="$1"
+  local to="$2"
+  
+  if ! from_file=$(realpath "$from" 2>/dev/null); then
+    echo "Error: Source file '$from' does not exist"
     return 1
   fi
   
-  to_dir=$(dirname "$2")
+  local to_dir
+  to_dir=$(dirname "$to")
   if [[ ! -d "$to_dir" ]]; then
     mkdir -p "$to_dir"
   fi
   
-  echo "Linking '$1' to '$2'"
-  ln -sf "$from_file" "$2"
+  echo "Linking '$from' to '$to'"
+  ln -sf "$from_file" "$to"
 }
 
 # Symlink all dotfiles from home directory
-for location in $(find "$HOME/.dotfiles/home" -maxdepth 1 -name '.*' -type f); do
+find "$DOTFILES/home" -maxdepth 1 -name '.*' -type f -print0 | while IFS= read -r -d '' location; do
   file="${location##*/}"
-  file="${file%.sh}"
   link "$location" "$HOME/$file"
 done
 
 # Also symlink non-hidden files that should be in home
-for location in $(find "$HOME/.dotfiles/home" -maxdepth 1 -name '[^.]*' -type f); do
+find "$DOTFILES/home" -maxdepth 1 -name '[^.]*' -type f -print0 | while IFS= read -r -d '' location; do
   file="${location##*/}"
   # Skip directories and certain files
   case "$file" in
@@ -46,17 +48,30 @@ done
 # ------------------------------------------------------------------------------
 # Visual Studio Code
 # ------------------------------------------------------------------------------
-VSCODE="$HOME/Library/Application Support/Code/User"
-VSCODE_BIN="$dotfiles/home/vscode"
+VSCODE_DST="$HOME/Library/Application Support/Code/User"
+VSCODE_SRC="$DOTFILES/home/vscode"
 
-if [[ ! -d "$VSCODE_BIN" ]]; then
-  echo "VSCode config directory not found at $VSCODE_BIN"
-  exit 1
+if [[ -d "$VSCODE_SRC" ]]; then
+  mkdir -p "$VSCODE_DST"
+  link "$VSCODE_SRC/settings.json" "$VSCODE_DST/settings.json"
+  link "$VSCODE_SRC/snippets" "$VSCODE_DST/snippets"
 fi
 
-# Create VSCode config directory if it doesn't exist
-mkdir -p "$VSCODE"
+# ------------------------------------------------------------------------------
+# Zed Editor
+# ------------------------------------------------------------------------------
+ZED_DST="$HOME/.config/zed"
+ZED_SRC="$DOTFILES/home/zed"
 
-# Symlink VSCode settings
-link "$VSCODE_BIN/settings.json" "$VSCODE/settings.json"
-link "$VSCODE_BIN/snippets" "$VSCODE/snippets"
+if [[ -d "$ZED_SRC" ]]; then
+  mkdir -p "$ZED_DST"
+  link "$ZED_SRC/settings.json" "$ZED_DST/settings.json"
+fi
+
+# ------------------------------------------------------------------------------
+# Starship config
+# ------------------------------------------------------------------------------
+mkdir -p "$XDG_CONFIG_HOME"
+link "$DOTFILES/.config/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
+
+success "Symlinking complete"

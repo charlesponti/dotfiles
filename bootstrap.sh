@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-
 # Bootstrap script for fresh installations
 # Usage: curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.sh | bash
 
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="$HOME/.dotfiles"
 DOTFILES_REPO="https://github.com/charlesponti/dotfiles.git"
@@ -73,5 +72,5 @@ read -p "Would you like to install recommended applications via Homebrew? (y/N):
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     log "Installing recommended applications..."
-    bash "$DOTFILES_DIR/bin/installers/apps.sh"
+    bash "$DOTFILES_DIR/bin/installers/homebrew-install.sh"
 fi

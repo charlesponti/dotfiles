@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-
 # Health check script for dotfiles
-# Usage: ~/.dotfiles/bin/doctor.sh
+# Usage: ./doctor.sh
+
+set -euo pipefail
 
 DOTFILES_DIR="$HOME/.dotfiles"
-source "$DOTFILES_DIR/bin/printf.sh"
+source "$HOME/.dotfiles/bin/lib.sh"
 
 # Colors
 RED='\033[0;31m'
@@ -67,6 +68,8 @@ check_command "zsh" "Zsh is installed"
 check_command "node" "Node.js is installed"
 check_command "python3" "Python 3 is installed"
 check_command "code" "VS Code CLI is available"
+check_command "starship" "Starship prompt is installed"
+check_command "mise" "Mise tool manager is installed"
 
 echo
 echo "Shell Configuration:"

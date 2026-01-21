@@ -15,3 +15,8 @@ fi
 if [ -f "$HOME/.dotfiles/system/path.sh" ]; then
     source "$HOME/.dotfiles/system/path.sh"
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/charlesponti/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+

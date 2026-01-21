@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Quick help system for your dotfiles
+# Usage: ./help.sh
+
+set -euo pipefail
 
 # Colors
 BLUE='\033[0;34m'

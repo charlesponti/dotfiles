@@ -1,0 +1,16 @@
+name: ShellCheck
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-with: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        run: |
+          find . -type f -name "*.sh" -not -path "./.git/*" | xargs shellcheck -e SC1090,SC1091

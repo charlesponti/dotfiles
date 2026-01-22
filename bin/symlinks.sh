@@ -13,18 +13,18 @@ fi
 link() {
   local from="$1"
   local to="$2"
-  
+
   if ! from_file=$(realpath "$from" 2>/dev/null); then
     echo "Error: Source file '$from' does not exist"
     return 1
   fi
-  
+
   local to_dir
   to_dir=$(dirname "$to")
   if [[ ! -d "$to_dir" ]]; then
     mkdir -p "$to_dir"
   fi
-  
+
   echo "Linking '$from' to '$to'"
   ln -sf "$from_file" "$to"
 }
@@ -66,6 +66,7 @@ ZED_SRC="$DOTFILES/home/zed"
 if [[ -d "$ZED_SRC" ]]; then
   mkdir -p "$ZED_DST"
   link "$ZED_SRC/settings.json" "$ZED_DST/settings.json"
+  link "$ZED_SRC/snippets.json" "$ZED_DST/snippets.json"
 fi
 
 # ------------------------------------------------------------------------------

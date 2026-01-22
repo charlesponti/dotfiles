@@ -1,158 +1,145 @@
-// settings.json, generated at Wed Sep 04 2024 20:28:56 GMT+0800 (Singapore Standard Time)
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
-	"icon_theme": "Zed (Default)",
-	"features": {
-		"edit_prediction_provider": "copilot"
-	},
-	"base_keymap": "VSCode",
-	"theme": "Catppuccin Macchiato",
-	"ui_font_size": 16,
-	"buffer_font_size": 13,
-	// NOTE: Change the font family to your preference
-	"buffer_font_family": "Geist Mono",
-	// Vim mode settings
-	// "vim_mode": true,
-	// use relative line numbers
-	// "relative_line_numbers": true,
-	"code_actions_on_format": {
-		"source.fixAll.biome": true,
-		"source.organizeImports.biome": true
-	},
-	"tab_bar": {
-		"show": true
-	},
-	"scrollbar": {
-		"show": "never"
-	},
-	// Indentation, rainbow indentation
-	"indent_guides": {
-		"enabled": true,
-		"coloring": "indent_aware"
-	},
-	// NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
-	"centered_layout": {
-		"left_padding": 0.15,
-		"right_padding": 0.15
-	},
-	// Use Copilot Chat AI as default
-	"agent": {
-		"always_allow_tool_actions": true,
-  "default_model": {
-			"provider": "copilot_chat",
-			"model": "gpt-4.1"
-		},
-	},
-	// Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
-	// "assistant": {
-	//   "default_model": {
-	//     "provider": "ollama",
-	//     "model": "llama3.1:latest"
-	//   },
-	//   "version": "2",
-	//   "provider": null
-	// },
-	"language_models": {
-		"ollama": {
-			"api_url": "http://localhost:11434"
-		}
-	},
-	// Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
-	"inlay_hints": {
-		"enabled": false
-	},
-	// LSP
-	"lsp": {
-		"biome": {
-			"settings": {
-				"config_path": "<path>/biome.json"
-			}
-		},
-		"tailwindcss-language-server": {
-			"settings": {
-				"classAttributes": ["class", "className", "ngClass", "styles"]
-			}
-		}
-	},
-	"languages": {
-		// Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
-		"TypeScript": {
-			"formatter": {
-    "language_server": {
-     "name": "biome"
+  "theme": "Ayu Mirage",
+  "icon_theme": "Zed (Default)",
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 13,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_weight": 350,
+  "buffer_line_height": "comfortable",
+  "tab_size": 2,
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "right",
+    "git_status": true
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "terminal": {
+    "font_family": "JetBrains Mono",
+    "font_size": 12,
+    "env": {
+      "EDITOR": "zed --wait"
     }
-   },
-   "format_on_save": "on",
-			// Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
-			"inlay_hints": {
-				"enabled": true,
-				"show_parameter_hints": false,
-				"show_other_hints": true,
-				"show_type_hints": true
-			}
-		},
-		"Python": {
-			"format_on_save": "on",
-			"formatter": {
-				"language_server": {
-					"name": "ruff"
-				}
-			},
-			"language_servers": ["pyright", "ruff"]
-		}
-	},
-	"formatter": {
-		"language_server": {
-			"name": "biome"
-		}
-	},
-	// Use zed commit editor
-	"terminal": {
-		"env": {
-			"EDITOR": "zed --wait"
-		},
-		"font_family": "Anonymous Pro for Powerline",
-		"font_size": 11
-	},
-	// File syntax highlighting
-	"file_types": {
-		"Dockerfile": [
-			"*.dockerfile",
-			"*.Dockerfile",
-			"Dockerfile",
-			"Dockerfile.*"
-		],
-		"JSON": ["json", "jsonc", "*.code-snippets"]
-	},
-	// Turn off telemetry
-	"telemetry": {
-		"diagnostics": false,
-		"metrics": false
-	},
-	// Move all panel to the right
-	"project_panel": {
-		"button": true,
-		"dock": "right",
-		"git_status": true
-	},
-	"outline_panel": {
-		"dock": "right"
-	},
-	"collaboration_panel": {
-		"dock": "left"
-	},
-	// Move some unnecessary panels to the left
-	"notification_panel": {
-		"dock": "left"
-	},
-	"chat_panel": {
-		"dock": "left"
-	}
+  },
+  "languages": {
+    "Python": {
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      },
+      "language_servers": [
+        "pyright",
+        "ruff"
+      ]
+    },
+    "Markdown": {
+      "soft_wrap": "editor_width",
+      "format_on_save": "off"
+    },
+    "Go": {
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "gopls"
+        }
+      }
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "typescript-language-server"
+        }
+      }
+    },
+    "Svelte": {
+      "format_on_save": "on"
+    },
+    "JSON": {
+      "format_on_save": "on"
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path_lookup": true
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": [
+          "class",
+          "className",
+          "ngClass",
+          "styles"
+        ]
+      }
+    }
+  },
+  "agent": {
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "grok-code-fast-1"
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5-mini"
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "gemini-3-flash-preview"
+      }
+    ],
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gemini-3-flash-preview"
+    }
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "file_types": {
+    "Dockerfile": [
+      "*.dockerfile",
+      "*.Dockerfile",
+      "Dockerfile",
+      "Dockerfile.*"
+    ],
+    "JSON": [
+      "json",
+      "jsonc",
+      "*.code-snippets"
+    ]
+  },
+  "inlay_hints": {
+    "enabled": false
+  }
 }

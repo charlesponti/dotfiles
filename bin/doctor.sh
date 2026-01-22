@@ -4,7 +4,6 @@
 
 set -euo pipefail
 
-DOTFILES_DIR="$HOME/.dotfiles"
 source "$HOME/.dotfiles/bin/lib.sh"
 
 # Colors

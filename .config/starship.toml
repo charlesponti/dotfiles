@@ -1,54 +1,156 @@
-# Starship configuration — performant and featureful
+# Starship configuration — optimized for performance and clarity
+# Following best practices for a minimal, fast, and informative prompt.
 
-# Keep prompt compact
+# Explicitly define the prompt order for better control and performance
+format = """
+$username\
+$hostname\
+$os\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$package\
+$python\
+$nodejs\
+$rust\
+$golang\
+$terraform\
+$docker_context\
+$nix_shell\
+$fill\
+$cmd_duration\
+$status\
+$line_break\
+$character"""
+
+# Keep prompt compact: don't print a new line at the start of the prompt
 add_newline = false
 
+# Set a timeout for commands to prevent shell hangs in slow filesystems (ms)
+command_timeout = 500
+
+[username]
+style_user = "white bold"
+style_root = "black bold yellow"
+format = "[$user]($style) "
+disabled = false
+show_always = false
+
+[hostname]
+ssh_only = true
+format = "@[$hostname]($style) "
+style = "bold dim white"
+disabled = false
+
+[os]
+disabled = false
+style = "bold white"
+
+[os.symbols]
+Macos = " "
+Linux = "🐧 "
+Windows = "🪟 "
+
 [character]
-success_symbol = "❯"
-error_symbol = "❯"
-vicmd_symbol = "❮"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "🔴 "
+style = "bold red"
 
 [directory]
-style = "cyan"
+style = "bold cyan"
 truncation_length = 3
-truncate_to_repo = false
+truncate_to_repo = true
+read_only = " 🔒"
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = " "
-style = "bold yellow"
+symbol = "🌿 "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
 
 [git_status]
-# minimal git status to avoid heavy repo scanning
-format = "([$all_status]($style))"
-style = "red"
-disabled = false
+format = "([$all_status$ahead_behind]($style) )"
+style = "bold red"
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "🗑️"
 
 [git_state]
-disabled = false
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+style = "yellow"
+
+[fill]
+symbol = " "
 
 [package]
-disabled = false
-
-[nodejs]
-format = "via [${symbol} ${version}]($style)"
+symbol = "📦 "
+style = "bold 208"
 disabled = false
 
 [python]
-format = "via [${symbol} ${version}]($style)"
-disabled = false
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = "🐍 "
+style = "yellow"
 
-# Note: docker, kubernetes, and aws modules are intentionally omitted to avoid
-# configuration keys that the installed Starship version doesn't recognize.
+[nodejs]
+symbol = "🟢 "
+style = "green"
+format = "via [${symbol}(${version} )]($style)"
+
+[rust]
+symbol = "🦀 "
+style = "bold red"
+format = "via [${symbol}(${version} )]($style)"
+
+[golang]
+symbol = " "
+style = "cyan"
+format = "via [${symbol}(${version} )]($style)"
+
+[terraform]
+symbol = "🏗️ "
+style = "purple"
+format = "via [${symbol}($workspace )]($style)"
+
+[docker_context]
+symbol = "🐳 "
+style = "blue"
+format = "via [${symbol}($context )]($style)"
+
+[nix_shell]
+format = 'via [${symbol}$state( \($name\))]($style)'
+symbol = "❄️ "
+style = "blue"
 
 [battery]
-disabled = false
-full_symbol = "🔋"
+full_symbol = "🔋 "
+charging_symbol = "⚡ "
+discharging_symbol = "🪫 "
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
 
 [time]
-format = "[$time]($style)"
-disabled = false
-
-
-# [prompt] section removed for compatibility and performance
-
-# End of starship.toml
+disabled = true
+format = "at [$time]($style) "
+style = "bold yellow"

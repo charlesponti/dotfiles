@@ -1,0 +1,36 @@
+{
+  "React Request Hook": {
+    "prefix": "react-request-hook",
+    "body": [
+      "export const use$1 = () => {",
+      "    const reqRef = useRef();",
+      "    const [error, setError] = useState(null);",
+      "    const [loading, setLoading] = useState(false);",
+      "    const [data, setData] = useState(null);",
+      "",
+      "    const get$1 = useCallback(async () => {",
+      "        if (reqRef.current) {",
+      "            return;",
+      "        }",
+      "",
+      "        setError(null);",
+      "        setLoading(true);",
+      "",
+      "        try {",
+      "            reqRef.current = true;",
+      "            const response = await $2;",
+      "            setData(response);",
+      "        } catch (err) {",
+      "            setError(err.statusCode === 0 ? feedback.connection : feedback.server);",
+      "        } finally {",
+      "            reqRef.current = null;",
+      "            setLoading(false);",
+      "        }",
+      "    }, []);",
+      "",
+      "    return { loading, error, data, get$1 };",
+      "};"
+    ],
+    "description": "React Request Hook"
+  }
+}

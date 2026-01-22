@@ -67,6 +67,7 @@ cask "font-source-code-pro"
 
 # Applications
 cask "visual-studio-code"
+cask "zed"
 cask "docker"
 cask "google-chrome"
 cask "firefox"

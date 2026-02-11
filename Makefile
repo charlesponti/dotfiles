@@ -1,4 +1,4 @@
-.PHONY: help install update symlinks doctor test-performance
+.PHONY: help install update symlinks status lint
 
 # Colors
 BLUE := \033[0;34m
@@ -12,7 +12,10 @@ lint: ## Run shellcheck on all shell scripts
 	./bin/lint.sh
 
 install: ## Run fresh installation
-	./bootstrap.sh
+	./install.sh
+
+bootstrap: ## Bootstrap fresh system (clone and install)
+	./install.sh --bootstrap
 
 update: ## Update dotfiles and packages
 	./update.sh
@@ -20,8 +23,11 @@ update: ## Update dotfiles and packages
 symlinks: ## Re-link all dotfiles
 	./bin/symlinks.sh
 
-doctor: ## Run system health check
-	./bin/doctor.sh
+status: ## Show dotfiles status (use ./bin/status.sh for more options)
+	./bin/status.sh
 
-test-performance: ## Run terminal performance benchmarks
-	./bin/terminal-performance.sh
+doctor: ## Run system health check (alias for status health)
+	./bin/status.sh health
+
+help-commands: ## Show command reference (alias for status help)
+	./bin/status.sh help

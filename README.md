@@ -13,17 +13,15 @@ Take and customize to your liking 💁
 - 🔍 Enhanced Git workflow with custom aliases and functions
 - 🛠️ Development tools setup (Node.js, Python, Docker, etc.)
 - 💻 VS Code and Zed editor configurations
-- 🍎 macOS system preferences automation
-- 📁 Smart project initialization scripts
+- 📊 Unified status and health checking system
 
 ## Quick Overview
 
 ```
 ├── home/           # Dotfiles that get symlinked to ~/
 ├── system/         # Shell configuration modules
-├── bin/            # Utility scripts and installers
-├── commands/       # Custom shell commands
-└── templates/      # Project templates
+├── bin/            # Utility scripts
+└── .config/       # Application configurations
 ```
 
 ## Installation
@@ -31,9 +29,26 @@ Take and customize to your liking 💁
 ### Fresh Installation (Recommended)
 
 ```bash
-# One-liner installation
-curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.sh | bash
+# One-liner bootstrap (clone + install)
+curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/install.sh | bash -s --bootstrap
 ```
+
+### Manual Installation
+
+1. **Prerequisites**: Ensure you have Xcode Command Line Tools installed:
+   ```bash
+   xcode-select --install
+   ```
+
+2. **Clone repository**:
+   ```bash
+   git clone https://github.com/charlesponti/dotfiles.git ~/.dotfiles
+   ```
+
+3. **Run installer**:
+   ```bash
+   cd ~/.dotfiles && ./install.sh
+   ```
 
 ### Manual Installation
 
@@ -61,12 +76,12 @@ curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.s
 
 2. **Run a health check**:
    ```bash
-   ~/.dotfiles/bin/doctor.sh
+   ~/.dotfiles/bin/status.sh health
    ```
 
-3. **Install additional applications** (optional):
+3. **Show available commands**:
    ```bash
-   brew bundle --file ~/.dotfiles/Brewfile
+   ~/.dotfiles/bin/status.sh help
    ```
 
 ## Maintenance
@@ -74,12 +89,25 @@ curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/bootstrap.s
 The repository includes a `Makefile` for easy management:
 
 - `make help`: Show available commands
-- `make update`: Update dotfiles and homebrew packages
+- `make update`: Update dotfiles and packages
 - `make symlinks`: Refresh symlinks
+- `make status`: Show dotfiles status overview
 - `make doctor`: Run system health check
-- `make test-performance`: Benchmark terminal startup
 
-Or use the scripts directly:
+### Status Management
+```bash
+# Show summary
+./bin/status.sh
+
+# Run health check
+./bin/status.sh health
+
+# Show command help
+./bin/status.sh help
+
+# Show dashboard
+./bin/status.sh dashboard
+```
 
 ### Update Everything
 ```bash
@@ -96,13 +124,11 @@ Or use the scripts directly:
 brew bundle --file ~/.dotfiles/Brewfile
 ```
 
-## Applications
+## Core Tools
 
-- password manager 1Password
-- browser Google Chrome
-- code editor Visual Studio Code
-- terminal Hyper
-- containers [Docker](https://docs.docker.com/desktop/install/mac-install/)
-- app management [SetApp](https://setapp.com/download)
-  - CleanMyMac (Mac Management)
-  - Ulysses (writing)
+- **Package Management**: Homebrew with Brewfile
+- **Shell**: Zsh with Starship prompt and Zinit plugins
+- **Version Control**: Git with enhanced aliases and GitHub CLI
+- **Development**: Node.js, Python 3, Docker
+- **Editors**: VS Code, Zed (optional)
+- **Terminal**: Custom aliases, functions, and smart PATH management

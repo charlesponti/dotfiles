@@ -124,6 +124,13 @@ mkdir -p "$HOME/Developer"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
 
+# Ensure zinit (plugin manager) is installed
+if [[ ! -f "$HOME/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
+    log "Installing zinit plugin manager..."
+    mkdir -p "$HOME/.local/share/zinit" && chmod g-rwX "$HOME/.local/share/zinit"
+    git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
+fi
+
 # 5. Final Setup
 informer "🎯 Final setup..."
 

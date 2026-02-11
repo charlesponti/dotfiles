@@ -28,19 +28,12 @@ exec 1>&3 2>&4 3>&- 4>&-
 # ======================================================================
 # ZINIT SETUP
 # ======================================================================
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    # Completely suppress all installation output to avoid interfering with instant prompt
-    {
-        command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
-    } >/dev/null 2>&1
+# Load zinit if installed (install via ./install.sh)
+if [[ -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    source "$HOME/.local/share/zinit/zinit.git/zinit.zsh" 2>/dev/null
+    autoload -Uz _zinit 2>/dev/null
+    (( ${+_comps} )) && _comps[zinit]=_zinit
 fi
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh" 2>/dev/null
-autoload -Uz _zinit 2>/dev/null
-(( ${+_comps} )) && _comps[zinit]=_zinit
-### End of Zinit's installer chunk
 
 # ======================================================================
 # CORE SYSTEM CONFIGURATION
@@ -59,25 +52,10 @@ source $HOME/.dotfiles/bin/lib.sh 2>/dev/null
 # ======================================================================
 # DEVELOPMENT TOOLS SETUP
 # ======================================================================
-# Activate mise for Node and other tool version management - lazy loaded
-mise_activate() {
-    if [[ -z "${MISE_ACTIVATED:-}" ]]; then
-        eval "$(mise activate zsh --shims)"
-        export MISE_ACTIVATED=1
-    fi
-}
-
-# Lazy load mise for relevant commands
-node() { mise_activate; command node "$@"; }
-npm() { mise_activate; command npm "$@"; }
-npx() { mise_activate; command npx "$@"; }
-yarn() { mise_activate; command yarn "$@"; }
-pnpm() { mise_activate; command pnpm "$@"; }
-ruby() { mise_activate; command ruby "$@"; }
-gem() { mise_activate; command gem "$@"; }
-go() { mise_activate; command go "$@"; }
-rustc() { mise_activate; command rustc "$@"; }
-cargo() { mise_activate; command cargo "$@"; }
+if [[ -z "${MISE_ACTIVATED:-}" ]]; then
+    eval "$(mise activate zsh --shims)"
+    export MISE_ACTIVATED=1
+fi
 
 # ======================================================================
 # PLUGINS AND THEMES
@@ -138,3 +116,45 @@ fi
 # ======================================================================
 # Load local computer specific configuration if it exists - suppress output
 [ -f ~/.localrc ] && source ~/.localrc 2>/dev/null
+
+# Homebrew
+if ! grep -qxF 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile 2>/dev/null; then
+    printf '\n' >> ~/.zprofile
+    printf '%s\n' 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+. "$HOME/.turso/env"
+
+# ======================================================================
+# COMPLETION CONFIGURATION (Added by Gemini)
+# ======================================================================
+# 1. Add Homebrew completions to fpath
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
+# 2. Initialize completion system (explicitly required if skipped above)
+autoload -Uz compinit
+# Deduplicate FPATH to avoid repeated directories on reload
+typeset -U fpath
+# Use cached compdump when present to speed startup; rebuild only if missing
+if [[ -f ~/.zcompdump ]]; then
+  compinit -C
+else
+  compinit
+fi
+
+# 3. Case-Insensitive Completion (Key feature request)
+# Matches: a -> A, a -> a
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
+
+# 4. Usability Enhancements
+# Use a selection menu when multiple options are available
+zstyle ":completion:*" menu select
+# Group completions by category (e.g., Aliases, Commands, Files)
+zstyle ":completion:*" group-name ""
+# Colored completion lists
+zstyle ":completion:*" list-colors ""
+# Complete . and .. special directories
+zstyle ":completion:*" special-dirs true

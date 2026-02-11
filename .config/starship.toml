@@ -2,37 +2,17 @@
 # Following best practices for a minimal, fast, and informative prompt.
 
 # Explicitly define the prompt order for better control and performance
-format = """
-$username\
-$hostname\
-$os\
-$directory\
-$git_branch\
-$git_status\
-$git_state\
-$package\
-$python\
-$nodejs\
-$rust\
-$golang\
-$terraform\
-$docker_context\
-$nix_shell\
-$fill\
-$cmd_duration\
-$status\
-$line_break\
-$character"""
+format = '$all'
 
-# Keep prompt compact: don't print a new line at the start of the prompt
-add_newline = false
+# Insert blank line between shell prompts for readability
+add_newline = true
 
 # Set a timeout for commands to prevent shell hangs in slow filesystems (ms)
 command_timeout = 500
 
 [username]
-style_user = "white bold"
-style_root = "black bold yellow"
+style_user = "fg:white bold"
+style_root = "fg:black bg:yellow bold"
 format = "[$user]($style) "
 disabled = false
 show_always = false
@@ -40,7 +20,7 @@ show_always = false
 [hostname]
 ssh_only = true
 format = "@[$hostname]($style) "
-style = "bold dim white"
+style = "bold dimmed fg:white"
 disabled = false
 
 [os]
@@ -55,7 +35,7 @@ Windows = "🪟 "
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-vicmd_symbol = "[❮](bold green)"
+vimcmd_symbol = "[❮](bold green)"
 
 [status]
 disabled = false
@@ -83,7 +63,7 @@ ahead = "⇡"
 behind = "⇣"
 diverged = "⇕"
 untracked = "?"
-stashed = "$$"
+stashed = '\$'
 modified = "!"
 staged = "+"
 renamed = "»"
@@ -91,12 +71,12 @@ deleted = "🗑️"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "fg:bright-black"
 
 [cmd_duration]
 min_time = 2000
 format = "took [$duration]($style) "
-style = "yellow"
+style = "fg:yellow"
 
 [fill]
 symbol = " "
@@ -142,6 +122,7 @@ symbol = "❄️ "
 style = "blue"
 
 [battery]
+disabled = false
 full_symbol = "🔋 "
 charging_symbol = "⚡ "
 discharging_symbol = "🪫 "
@@ -150,7 +131,20 @@ discharging_symbol = "🪫 "
 threshold = 10
 style = "bold red"
 
-[time]
-disabled = true
-format = "at [$time]($style) "
+[[battery.display]]
+threshold = 30
 style = "bold yellow"
+discharging_symbol = "💦 "
+
+[memory_usage]
+disabled = false
+threshold = 50
+format = 'via $symbol [${ram}]($style) '
+symbol = '🐏'
+style = 'fg:dimmed green' 
+
+[time]
+disabled = false
+format = "🕙 [$time]($style) "
+time_format = "%T"
+style = "fg:yellow bold"

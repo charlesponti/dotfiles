@@ -3,6 +3,8 @@
 # ======================================================================
 
 # Using Zsh associative array for clean path management
+
+typeset -U path
 path=(
     "$HOME/.dotfiles/bin"
     "/opt/homebrew/bin"
@@ -46,9 +48,6 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents
 export PNPM_HOME="$HOME/Library/pnpm"
 export BUN_INSTALL="$HOME/.bun"
 export HOMINEM_DB_PATH="$HOME/.hominem/db.sqlite"
-
-# Python
-export CLOUDSDK_PYTHON="/opt/homebrew/bin/python3"
 
 # Colors
 export LSCOLORS="exfxcxdxbxegedabagacad"

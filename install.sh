@@ -124,11 +124,32 @@ mkdir -p "$HOME/Developer"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
 
-# Ensure zinit (plugin manager) is installed
-if [[ ! -f "$HOME/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
-    log "Installing zinit plugin manager..."
-    mkdir -p "$HOME/.local/share/zinit" && chmod g-rwX "$HOME/.local/share/zinit"
-    git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git"
+# Ensure antibody (plugin manager) is installed
+if [[ ! -x "$HOME/.local/bin/antibody" ]]; then
+    log "Installing antibody plugin manager..."
+    if command -v brew >/dev/null 2>&1; then
+        brew install antibody || (brew tap getantibody/tap && brew install getantibody/tap/antibody) || true
+    else
+        mkdir -p "$HOME/.local/bin"
+        ARCH="$(uname -m)"
+        if [[ "$ARCH" == "arm64" || "$ARCH" == "aarch64" ]]; then
+            ARCH_TAG=arm64
+        else
+            ARCH_TAG=amd64
+        fi
+        curl -sL "https://github.com/getantibody/antibody/releases/latest/download/antibody_darwin_${ARCH_TAG}.gz" -o /tmp/antibody.gz || true
+        if [[ -f /tmp/antibody.gz ]]; then
+            gunzip -c /tmp/antibody.gz > "$HOME/.local/bin/antibody" || true
+            chmod +x "$HOME/.local/bin/antibody"
+        fi
+    fi
+fi
+
+# Build antibody bundle from plugin list (if available)
+ANTIBODY_BUNDLE="$HOME/.local/share/antibody/bundle.zsh"
+mkdir -p "$(dirname "$ANTIBODY_BUNDLE")"
+if command -v antibody >/dev/null 2>&1 && [[ -f "$DOTFILES_DIR/home/antibody-plugins.txt" ]]; then
+    antibody bundle < "$DOTFILES_DIR/home/antibody-plugins.txt" > "$ANTIBODY_BUNDLE" || true
 fi
 
 # 5. Final Setup

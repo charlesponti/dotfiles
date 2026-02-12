@@ -136,17 +136,20 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ZSH_SITE_FUNCS="${HOME}/.local/share/zsh/site-functions"
 mkdir -p "$ZSH_SITE_FUNCS"
 
+# Prefer Homebrew completion directories (both legacy locations)
 if type brew &>/dev/null; then
-  BREW_COMP_DIR="$(brew --prefix)/share/zsh-completions"
-  if [[ -d "$BREW_COMP_DIR" ]]; then
-    if command -v rsync >/dev/null 2>&1; then
-      rsync -a --ignore-existing "$BREW_COMP_DIR/" "$ZSH_SITE_FUNCS/" 2>/dev/null || true
-    else
-      for f in "$BREW_COMP_DIR"/*; do
-        [[ -f "$f" && ! -e "$ZSH_SITE_FUNCS/$(basename "$f")" ]] && cp -n "$f" "$ZSH_SITE_FUNCS/"
-      done
+  BREW_PREFIX="$(brew --prefix)"
+  for BREW_COMP_DIR in "$BREW_PREFIX/share/zsh/site-functions" "$BREW_PREFIX/share/zsh-completions"; do
+    if [[ -d "$BREW_COMP_DIR" ]]; then
+      if command -v rsync >/dev/null 2>&1; then
+        rsync -a --ignore-existing "$BREW_COMP_DIR/" "$ZSH_SITE_FUNCS/" 2>/dev/null || true
+      else
+        for f in "$BREW_COMP_DIR"/*; do
+          [[ -f "$f" && ! -e "$ZSH_SITE_FUNCS/$(basename "$f")" ]] && cp -n "$f" "$ZSH_SITE_FUNCS/"
+        done
+      fi
     fi
-  fi
+  done
 fi
 
 # Ensure site-functions is first in FPATH (deduplicated)

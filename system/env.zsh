@@ -5,7 +5,7 @@
 # Using Zsh associative array for clean path management
 
 typeset -U path
-path=(
+PATH_CANDIDATES=(
     "$HOME/.dotfiles/bin"
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
@@ -24,10 +24,21 @@ path=(
     "/usr/sbin"
     "/bin"
     "/sbin"
-    "$path[@]"
 )
 
-# Export unique PATH
+path=()
+for candidate in "${PATH_CANDIDATES[@]}"; do
+    [[ -d "$candidate" ]] && path+=("$candidate")
+done
+
+if [[ -n "${PATH:-}" ]]; then
+    IFS=: read -ra existing_path <<< "$PATH"
+    for entry in "${existing_path[@]}"; do
+        [[ -n "$entry" && -d "$entry" ]] && path+=("$entry")
+    done
+fi
+
+# Export unique PATH (includes existing entries if they point to directories)
 export PATH
 
 # Man pages

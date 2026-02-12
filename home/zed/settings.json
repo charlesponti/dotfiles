@@ -1,4 +1,25 @@
 {
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "git_panel": {
+    "tree_view": true
+  },
+  "agent_servers": {
+    "opencode": {
+      "favorite_models": ["github-copilot/gpt-5-mini", "opencode/claude-haiku-4-5"],
+      "type": "registry"
+    },
+    "github-copilot": {
+      "type": "registry"
+    },
+    "claude": {
+      "default_model": "haiku",
+      "favorite_models": [],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+    }
+  },
   "theme": "Ayu Mirage",
   "icon_theme": "Zed (Default)",
   "base_keymap": "VSCode",
@@ -10,9 +31,6 @@
   "tab_size": 2,
   "format_on_save": "on",
   "formatter": "language_server",
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware"
@@ -22,7 +40,7 @@
   },
   "project_panel": {
     "button": true,
-    "dock": "right",
+    "dock": "left",
     "git_status": true
   },
   "outline_panel": {
@@ -34,9 +52,6 @@
   "notification_panel": {
     "dock": "left"
   },
-  "chat_panel": {
-    "dock": "left"
-  },
   "terminal": {
     "font_family": "JetBrains Mono",
     "font_size": 12,
@@ -45,46 +60,218 @@
     }
   },
   "languages": {
-    "Python": {
+    "CSS": {
       "format_on_save": "on",
-      "formatter": {
-        "language_server": {
-          "name": "ruff"
-        }
+      "prettier": {
+        "allowed": false
       },
-      "language_servers": [
-        "pyright",
-        "ruff"
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "HTML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSON5": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSONC": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Less": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
       ]
     },
     "Markdown": {
-      "soft_wrap": "editor_width",
-      "format_on_save": "off"
-    },
-    "Go": {
       "format_on_save": "on",
-      "formatter": {
-        "language_server": {
-          "name": "gopls"
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
         }
-      }
+      ]
+    },
+    "MDX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "SCSS": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
     },
     "TypeScript": {
       "format_on_save": "on",
-      "formatter": {
-        "language_server": {
-          "name": "typescript-language-server"
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
         }
-      }
+      ]
     },
-    "Svelte": {
-      "format_on_save": "on"
+    "TSX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
     },
-    "JSON": {
-      "format_on_save": "on"
+    "Vue.js": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "YAML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
     }
   },
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "rust-analyzer": {
       "binary": {
         "path_lookup": true
@@ -92,16 +279,31 @@
     },
     "tailwindcss-language-server": {
       "settings": {
-        "classAttributes": [
-          "class",
-          "className",
-          "ngClass",
-          "styles"
-        ]
+        "classAttributes": ["class", "className", "ngClass", "styles"]
+      }
+    },
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": null
+        }
       }
     }
   },
   "agent": {
+    "default_profile": "write",
+    "profiles": {
+      "ask": {
+        "default_model": {
+          "provider": "copilot_chat",
+          "model": "gemini-3-flash-preview"
+        },
+        "name": "Ask",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
     "favorite_models": [
       {
         "provider": "copilot_chat",
@@ -119,7 +321,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gemini-3-flash-preview"
+      "model": "gpt-5.1-codex"
     }
   },
   "telemetry": {
@@ -127,17 +329,8 @@
     "metrics": false
   },
   "file_types": {
-    "Dockerfile": [
-      "*.dockerfile",
-      "*.Dockerfile",
-      "Dockerfile",
-      "Dockerfile.*"
-    ],
-    "JSON": [
-      "json",
-      "jsonc",
-      "*.code-snippets"
-    ]
+    "Dockerfile": ["*.dockerfile", "*.Dockerfile", "Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
   },
   "inlay_hints": {
     "enabled": false

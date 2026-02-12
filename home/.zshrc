@@ -60,21 +60,24 @@ fi
 # ======================================================================
 # PLUGINS AND THEMES
 # ======================================================================
-# Load Zinit plugins with turbo mode for faster startup
-zinit wait lucid for \
-    zdharma-continuum/fast-syntax-highlighting \
-    zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-completions \
-    mafredri/zsh-async \
-    rupa/z \
-    hlissner/zsh-autopair
-
-# Load Zinit annexes with turbo mode
-zinit wait lucid light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+# Defer zinit runtime and plugin registration until after the first prompt to improve startup latency
+if [[ -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+  autoload -Uz add-zsh-hook 2>/dev/null
+  function __defer_zinit_and_plugins() {
+    # Only source zinit runtime if it's not already present
+    if ! typeset -f _zinit >/dev/null 2>&1; then
+      source "$HOME/.local/share/zinit/zinit.git/zinit.zsh" 2>/dev/null
+      autoload -Uz _zinit 2>/dev/null
+      (( ${+_comps} )) && _comps[zinit]=_zinit
+    fi
+    # Source deferred plugin list (registered after zinit runtime is available)
+    [ -f "${HOME}/.dotfiles/home/zinit-plugins.zsh" ] && source "${HOME}/.dotfiles/home/zinit-plugins.zsh" 2>/dev/null
+    # Remove hook and cleanup
+    add-zsh-hook -d precmd __defer_zinit_and_plugins 2>/dev/null || true
+    unfunction __defer_zinit_and_plugins
+  }
+  add-zsh-hook precmd __defer_zinit_and_plugins
+fi
 
 # Powerlevel10k removed in favor of Starship (Starship is initialized below if installed)
 # If you later want to restore Powerlevel10k, uncomment the lines below.
@@ -129,16 +132,31 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ======================================================================
 # COMPLETION CONFIGURATION (Added by Gemini)
 # ======================================================================
-# 1. Add Homebrew completions to fpath
+# 1. Dedicated site-functions directory for completions (consolidate sources to speed compinit)
+ZSH_SITE_FUNCS="${HOME}/.local/share/zsh/site-functions"
+mkdir -p "$ZSH_SITE_FUNCS"
+
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  BREW_COMP_DIR="$(brew --prefix)/share/zsh-completions"
+  if [[ -d "$BREW_COMP_DIR" ]]; then
+    if command -v rsync >/dev/null 2>&1; then
+      rsync -a --ignore-existing "$BREW_COMP_DIR/" "$ZSH_SITE_FUNCS/" 2>/dev/null || true
+    else
+      for f in "$BREW_COMP_DIR"/*; do
+        [[ -f "$f" && ! -e "$ZSH_SITE_FUNCS/$(basename "$f")" ]] && cp -n "$f" "$ZSH_SITE_FUNCS/"
+      done
+    fi
+  fi
+fi
+
+# Ensure site-functions is first in FPATH (deduplicated)
+if [[ ":$FPATH:" != *":$ZSH_SITE_FUNCS:"* ]]; then
+  FPATH="$ZSH_SITE_FUNCS:$FPATH"
 fi
 
 # 2. Initialize completion system (explicitly required if skipped above)
 autoload -Uz compinit
-# Deduplicate FPATH to avoid repeated directories on reload
-typeset -U fpath
-# Use cached compdump when present to speed startup; rebuild only if missing
+# Use cached compdump when present; rebuild only if missing
 if [[ -f ~/.zcompdump ]]; then
   compinit -C
 else

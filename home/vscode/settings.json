@@ -279,5 +279,8 @@
 	"workbench.editor.enablePreview": false,
 	"workbench.externalBrowser": "chrome",
 	"workbench.panel.showLabels": false,
-	"workbench.sideBar.location": "right"
+	"workbench.sideBar.location": "right",
+	"vs-kubernetes": {
+		"vs-kubernetes.suppress-helm-not-found-alerts": true
+	}
 }

@@ -6,6 +6,7 @@
 
 typeset -U path
 PATH_CANDIDATES=(
+    "$HOME/.local/share/mise/shims"
     "$HOME/.dotfiles/bin"
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
@@ -20,6 +21,7 @@ PATH_CANDIDATES=(
     "$HOME/.sst/bin"
     "$HOME/.cache/lm-studio/bin"
     "$HOME/.antigravity/antigravity/bin"
+    "$HOME/bin"
     "/usr/bin"
     "/usr/sbin"
     "/bin"

@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+#
+# .githooks/pre-commit
+# Pre-commit hook: run gitleaks on staged files to prevent committing secrets.
+#
+# Behavior:
+# - Scans only staged files that are added/modified/copied (A,C,M).
+# - Uses local `gitleaks` if available; otherwise falls back to the official gitleaks Docker image.
+# - Produces a redacted JSON report in a temporary directory and blocks the commit if any findings are detected.
+# - If neither `gitleaks` nor `docker` are available, prints an informational message and allows the commit.
+#
+# Make sure this file is executable:
+#   chmod +x .githooks/pre-commit
+#
+
+set -euo pipefail
+
+# Helper to print to stderr
+err() { printf '%s\n' "$*" >&2; }
+
+# Only check added/modified/staged files
+mapfile -t STAGED < <(git diff --cached --name-only --diff-filter=ACM)
+
+if [ ${#STAGED[@]} -eq 0 ]; then
+  # Nothing staged to check
+  exit 0
+fi
+
+TMPDIR="$(mktemp -d "${TMPDIR:-/tmp}"/gitleaks-pre-commit.XXXX)"
+REPORTS_DIR="$TMPDIR/reports"
+mkdir -p "$REPORTS_DIR"
+
+HAS_GITLEAKS=0
+HAS_DOCKER=0
+HAS_JQ=0
+
+if command -v gitleaks >/dev/null 2>&1; then
+  HAS_GITLEAKS=1
+fi
+if command -v docker >/dev/null 2>&1; then
+  HAS_DOCKER=1
+fi
+if command -v jq >/dev/null 2>&1; then
+  HAS_JQ=1
+fi
+
+if [ $HAS_GITLEAKS -eq 0 ] && [ $HAS_DOCKER -eq 0 ]; then
+  err "⚠️  gitleaks not found and docker not available — skipping pre-commit secret scan."
+  err "    To enable scanning, install gitleaks (brew install gitleaks) or make docker available."
+  rm -rf "$TMPDIR"
+  exit 0
+fi
+
+TOTAL_FINDINGS=0
+
+# Normalize repo root
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo "$(pwd)")"
+cd "$REPO_ROOT" || exit 1
+
+run_gitleaks_local() {
+  local src="$1"
+  local out="$2"
+  # Use --no-git so gitleaks treats the path as a regular file/dir
+  gitleaks detect --source "$src" --report-format json --report-path "$out" --redact --no-git >/dev/null 2>&1 || true
+}
+
+run_gitleaks_docker() {
+  local src="$1"
+  local out="$2"
+  # docker will write the report to the mounted repo path
+  docker run --rm -v "${REPO_ROOT}":/repo zricethezav/gitleaks:latest \
+    detect --source "/repo/${src}" --report-format json --report-path "/repo/${out}" --redact --no-git >/dev/null 2>&1 || true
+}
+
+# Scan each staged file (only files; skip directories)
+for f in "${STAGED[@]}"; do
+  # Skip if file was deleted or is not a regular file in the index
+  if [ ! -f "$f" ]; then
+    # Sometimes staged files exist in index but not on disk (e.g., deletions) — skip
+    continue
+  fi
+
+  safe_name="$(echo "$f" | tr '/' '_' | tr ' ' '_')"
+  report="$REPORTS_DIR/${safe_name}.json"
+
+  if [ $HAS_GITLEAKS -eq 1 ]; then
+    run_gitleaks_local "$f" "$report"
+  else
+    run_gitleaks_docker "$f" "$report"
+  fi
+
+  if [ -f "$report" ]; then
+    # Determine how many findings the JSON contains
+    if [ $HAS_JQ -eq 1 ]; then
+      count="$(jq 'length' "$report" 2>/dev/null || echo "0")"
+    else
+      # Fallback: check for presence of braces/entries - crude heuristic
+      if grep -q '"rule"' "$report" 2>/dev/null || grep -q '"match"' "$report" 2>/dev/null; then
+        count=1
+      else
+        count=0
+      fi
+    fi
+
+    if [ -n "$count" ] && [ "$count" -gt 0 ]; then
+      TOTAL_FINDINGS=$((TOTAL_FINDINGS + count))
+      err "🔒 Potential secret(s) detected in staged file: $f"
+      err "  -> Redacted report: $report"
+      if [ $HAS_JQ -eq 1 ]; then
+        err "  -> Summary:"
+        jq -r '.[] | "  - Rule: \(.rule.id) | File: \(.file) | Entropy: \(.entropy // \"-\") | Commit: \(.commit // \"-\")"' "$report" 2>/dev/null | sed 's/^/    /'
+      else
+        err "  -> Install 'jq' to see a nicer summary. Raw (redacted) JSON is at: $report"
+      fi
+      err ""
+    else
+      # No findings for this file; remove empty report to reduce clutter
+      rm -f "$report" >/dev/null 2>&1 || true
+    fi
+  fi
+done
+
+if [ "$TOTAL_FINDINGS" -gt 0 ]; then
+  err "❌ gitleaks detected ${TOTAL_FINDINGS} potential secret(s) in staged files."
+  err "   Commit blocked. Inspect and remove secrets before committing, or move them to environment variables/secret stores."
+  err "   Report files (redacted JSON) are available under: $REPORTS_DIR"
+  err "   To skip this check temporarily, you can commit with: git commit --no-verify"
+  exit 1
+fi
+
+# Clean up and allow commit
+rm -rf "$TMPDIR"
+exit 0

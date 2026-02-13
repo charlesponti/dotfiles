@@ -118,6 +118,63 @@ The repository includes a `Makefile` for easy management:
 
 ### Health Check
 ```bash
+# Run the built-in health check to verify your environment
+~/.dotfiles/bin/status.sh health
+```
+
+### Contributing & local developer setup
+
+If you contribute to this repo, please follow these steps to enable local secret scanning and pre-commit hooks so we don't accidentally commit credentials.
+
+1) Enable the repository pre-commit hook
+- Make the shipped hook executable and tell Git to use it:
+  ```bash
+  chmod +x .githooks/pre-commit
+  git config core.hooksPath .githooks
+  ```
+  This will run a staged-file secret scan before each commit (it uses `gitleaks` if installed, otherwise a Docker fallback).
+
+2) Install gitleaks locally (recommended)
+- macOS (Homebrew):
+  ```bash
+  brew install gitleaks
+  ```
+- Or use the Docker fallback in the pre-commit hook; Docker must be available for that fallback to work.
+
+3) Optional: install `jq` for nicer pre-commit output
+- The pre-commit hook prints a redacted JSON report when it finds potential secrets. Installing `jq` makes the summary human-friendly:
+  ```bash
+  brew install jq
+  ```
+
+4) How the CI secret scan works
+- A GitHub Actions workflow has been added (`.github/workflows/secret-scan.yml`) that runs `gitleaks` on pushes, pull requests, and weekly via cron.
+- The job scans the full repository history and uploads a redacted JSON report as an artifact. The workflow will fail the PR if any findings are detected.
+
+5) Running gitleaks manually (useful for audits)
+- Full repo history scan (local):
+  ```bash
+  # with gitleaks installed
+  gitleaks detect --source . --report-format json --redact --report-path gitleaks-report.json
+  ```
+- Scan a single file or directory:
+  ```bash
+  gitleaks detect --source path/to/dir_or_file --report-format json --redact --report-path report.json --no-git
+  ```
+
+6) If the hook flags something
+- Investigate whether the finding is a false positive. If it's valid, remove the secret from the code and move it to an environment variable or secret manager, rotate the secret as necessary, and then re-commit.
+- If it's a known benign finding you want to ignore globally, create a `.gitleaks.toml` baseline and consult the repo maintainers before committing it.
+
+7) Notes for maintainers
+- The CI workflow runs `gitleaks` in Docker to avoid installing additional binaries on runners.
+- The pre-commit hook is intentionally permissive when neither `gitleaks` nor `docker` is available: it will skip scanning but prints a reminder to enable scanning.
+- Consider enforcing `core.hooksPath` in developer onboarding docs or via an automated bootstrap script to ensure consistent local behavior.
+
+Thank you for helping keep secrets out of the repository — these checks are intentionally conservative and redacted to avoid leaking sensitive values in build logs or artifacts.
+
+### Health Check
+```bash
 ./bin/doctor.sh
 ```
 

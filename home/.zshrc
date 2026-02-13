@@ -168,3 +168,4 @@ zstyle ":completion:*" group-name ""
 zstyle ":completion:*" list-colors ""
 # Complete . and .. special directories
 zstyle ":completion:*" special-dirs true
+export PATH="$HOME/bin:$PATH"

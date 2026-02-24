@@ -178,7 +178,7 @@
 	"editor.codeLensFontFamily": "Source Code Pro for Powerline",
 	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"editor.fontFamily": "Source Code Pro for Powerline",
-	"editor.fontSize": 11,
+	"editor.fontSize": 13,
 	"editor.fontWeight": "350",
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
@@ -274,7 +274,6 @@
 	"vsintellicode.python.completionsEnabled": true,
 	"window.commandCenter": true,
 	"window.newWindowDimensions": "inherit",
-	"workbench.colorTheme": "Ayu Mirage",
 	"workbench.commandPalette.experimental.suggestCommands": true,
 	"workbench.editor.enablePreview": false,
 	"workbench.externalBrowser": "chrome",
@@ -282,5 +281,6 @@
 	"workbench.sideBar.location": "right",
 	"vs-kubernetes": {
 		"vs-kubernetes.suppress-helm-not-found-alerts": true
-	}
+	},
+	"C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }

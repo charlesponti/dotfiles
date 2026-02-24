@@ -169,3 +169,5 @@ zstyle ":completion:*" list-colors ""
 # Complete . and .. special directories
 zstyle ":completion:*" special-dirs true
 export PATH="$HOME/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

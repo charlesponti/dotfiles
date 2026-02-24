@@ -57,10 +57,9 @@ export VISUAL="code"
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
 
-# Node/Bun/JS/Hominem
+# JavaScript
 export PNPM_HOME="$HOME/Library/pnpm"
 export BUN_INSTALL="$HOME/.bun"
-export HOMINEM_DB_PATH="$HOME/.hominem/db.sqlite"
 
 # Colors
 export LSCOLORS="exfxcxdxbxegedabagacad"

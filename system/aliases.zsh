@@ -12,7 +12,6 @@ alias -- -='cd -'
 # Better ls commands
 if command -v eza >/dev/null 2>&1; then
   alias l='eza -la --group-directories-first --git'
-  alias ll='eza -la --group-directories-first --git'
   alias ls='eza --group-directories-first'
   alias lt='eza --tree --level=2'
 else
@@ -30,6 +29,7 @@ alias reload='source ~/.zshrc'
 alias copy='pbcopy'
 alias paste='pbpaste'
 alias json='python3 -m json.tool'
+alias rm="trash"
 
 # Modern Replacements
 if command -v bat >/dev/null 2>&1; then
@@ -88,6 +88,12 @@ alias py='python3'
 alias pip='pip3'
 alias venv='python3 -m venv'
 alias activate='source venv/bin/activate || source .venv/bin/activate'
+
+# Other
+alias specify-init="uvx --from git+https://github.com/github/spec-kit.git specify init . --ai copilot"
+alias ghostwire="bun ~/Developer/ghostwire/dist/index.js"
+alias config="zed ~/.config"
+alias dotfiles="zed ~/.dotfiles"
 
 # ======================================================================
 # MACOS ALIASES

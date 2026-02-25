@@ -38,12 +38,6 @@ if command -v brew >/dev/null 2>&1; then
     brew cleanup
 fi
 
-# Update Zinit plugins
-if [[ -d "$HOME/.local/share/zinit" ]]; then
-    informer "⚡ Updating Zinit plugins..."
-    zsh -c "source ~/.zshrc && zinit update --all"
-fi
-
 # Update npm global packages
 if command -v npm >/dev/null 2>&1; then
     informer "📦 Updating npm global packages..."

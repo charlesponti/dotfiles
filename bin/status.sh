@@ -12,17 +12,11 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
 # Unicode symbols
-CHECK="✅"
-CROSS="❌"
-WARNING="⚠️"
-INFO="ℹ️"
-ROCKET="🚀"
 GEAR="⚙️"
 FOLDER="📁"
 
@@ -56,7 +50,8 @@ check_symlink() {
     local description="$2"
     
     if [[ -L "$file" ]]; then
-        local target=$(readlink "$file")
+        local target
+        target=$(readlink "$file")
         if [[ -f "$target" ]]; then
             echo -e "${GREEN}✓${NC} $description"
         else
@@ -79,18 +74,41 @@ show_health() {
     echo "Essential Commands:"
     check_command "git" "Git is installed"
     check_command "brew" "Homebrew is installed"
-    check_command "zsh" "Zsh is installed"
+    check_command "zsh" "zsh is installed"
     check_command "node" "Node.js is installed"
     check_command "python3" "Python 3 is installed"
     check_command "code" "VS Code CLI is available"
-    check_command "starship" "Starship prompt is installed"
-    check_command "mise" "Mise tool manager is installed"
+    check_command "rg" "ripgrep is installed"
+    check_command "fd" "fd is installed"
+    check_command "fzf" "fzf is installed"
+    check_command "watchexec" "watchexec is installed"
+    check_command "hyperfine" "hyperfine is installed"
+    check_command "mise" "mise tool manager is installed"
+    check_command "direnv" "direnv is installed"
     
     echo
     echo "Shell Configuration:"
     check_symlink "$HOME/.zshrc" "Zsh configuration is symlinked"
     check_symlink "$HOME/.gitconfig" "Git configuration is symlinked"
     check_file "$HOME/.localrc" "Local configuration exists"
+
+    echo
+    echo "Brewfile Drift:"
+    if brew bundle check --file "$HOME/.dotfiles/Brewfile" >/dev/null 2>&1; then
+        echo -e "${GREEN}✓${NC} Brewfile dependencies are converged"
+    else
+        echo -e "${RED}✗${NC} Brewfile drift detected (run: make brew-sync)"
+        ((ERRORS++))
+    fi
+
+    echo
+    echo "Doctor:"
+    if "$HOME/.dotfiles/bin/doctor.sh" >/dev/null 2>&1; then
+        echo -e "${GREEN}✓${NC} Doctor checks passed"
+    else
+        echo -e "${RED}✗${NC} Doctor checks failed"
+        ((ERRORS++))
+    fi
     
     echo
     echo "Git Configuration:"
@@ -180,7 +198,8 @@ show_dashboard() {
     # Git status
     if [[ -d "$DOTFILES/.git" ]]; then
         cd "$DOTFILES"
-        local git_status=$(git status --porcelain | wc -l | tr -d ' ')
+        local git_status
+        git_status=$(git status --porcelain | wc -l | tr -d ' ')
         if [[ $git_status -eq 0 ]]; then
             echo -e "  Dotfiles repo: ${GREEN}Clean${NC}"
         else
@@ -198,7 +217,8 @@ show_dashboard() {
     fi
     
     # Disk usage
-    local disk_usage=$(df -h / | awk 'NR==2{print $5}' | sed 's/%//')
+    local disk_usage
+    disk_usage=$(df -h / | awk 'NR==2{print $5}' | sed 's/%//')
     if [ "$disk_usage" -lt 80 ]; then
         echo -e "  Disk usage: ${GREEN}$disk_usage%${NC}"
     else

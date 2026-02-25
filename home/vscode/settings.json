@@ -45,14 +45,13 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"amp.dangerouslyAllowAll": true,
 	"bicep.enableSurveys": false,
 	"chat.agent.maxRequests": 100,
 	"chat.editor.fontFamily": "Source Code Pro for Powerline",
 	"chat.fontFamily": "Source Code Pro for Powerline",
 	"chat.instructionsFilesLocations": {
 		".github/instructions": true,
-		"${userHome}/.aitk/instructions/": true
+		"~/.aitk/instructions/": true
 	},
 	"chat.mcp.discovery.enabled": {
 		"claude-desktop": true,
@@ -140,12 +139,8 @@
 		"xargs": false
 	},
 	"chat.tools.urls.autoApprove": {
-		"https://*.wikipedia.org": true,
-		"https://en.wikipedia.org": true,
-		"https://en.wikipedia.org/wiki": true,
-		"https://en.wikipedia.org/wiki/Quantified_self": true,
-		"https://github.com": true,
-		"https://github.com/search": true
+		"https://*.wikipedia.org/*": true,
+		"https://github.com/*": true,
 	},
 	"chat.useAgentSkills": true,
 	"chat.viewSessions.orientation": "stacked",
@@ -203,6 +198,7 @@
 		"*.tsx": "${capture}.typegen.ts",
 		"Cargo.toml": "Cargo.lock"
 	},
+
 	"geminicodeassist.displayInlineContextHint": false,
 	"git.autofetch": true,
 	"git.blame.editorDecoration.enabled": true,
@@ -261,7 +257,6 @@
 	"security.promptForLocalFileProtocolHandling": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	"svelte.enable-ts-plugin": true,
-	"terminal.integrated.defaultProfile.osx": "zsh",
 	"terminal.integrated.env.osx": {
 		"CW_NEW_SESSION": "1",
 		"Q_NEW_SESSION": "1"
@@ -278,9 +273,10 @@
 	"workbench.editor.enablePreview": false,
 	"workbench.externalBrowser": "chrome",
 	"workbench.panel.showLabels": false,
-	"workbench.sideBar.location": "right",
+	"workbench.sideBar.location": "left",
 	"vs-kubernetes": {
 		"vs-kubernetes.suppress-helm-not-found-alerts": true
 	},
-	"C_Cpp.default.compilerPath": "/usr/bin/gcc"
+	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
+	"chat.editing.confirmEditRequestRemoval": false
 }

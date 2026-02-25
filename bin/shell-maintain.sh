@@ -19,6 +19,11 @@ echo "🔁 Regenerating zcompdump..."
 ZSH_SITE_FUNCS="$HOME/.local/share/zsh/site-functions"
 mkdir -p "$ZSH_SITE_FUNCS"
 
+# Remove stale completion symlinks before running compinit.
+if command -v find >/dev/null 2>&1; then
+  find -L "$ZSH_SITE_FUNCS" -type l -delete 2>/dev/null || true
+fi
+
 zsh -c "FPATH=\"$ZSH_SITE_FUNCS:\$FPATH\"; autoload -Uz compinit >/dev/null 2>&1; compinit -d '$HOME/.zcompdump'"
 
 echo "✅ zcompdump regenerated"

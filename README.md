@@ -8,8 +8,8 @@ Take and customize to your liking 💁
 
 ## Features
 
-- 🚀 [Starship](https://starship.rs/) prompt with Git integration
-- ⚡ [Antibody](https://getantibody.github.io/) plugin bundle (precompiled for fast startup)
+- 🚀 [Starship](https://starship.rs/) prompt tuned for low startup latency
+- ⚡ [Antibody](https://getantibody.github.io/) as the single plugin manager with a precompiled bundle
 - 🔍 Enhanced Git workflow with custom aliases and functions
 - 🛠️ Development tools setup (Node.js, Python, Docker, etc.)
 - 💻 VS Code and Zed editor configurations
@@ -95,6 +95,18 @@ The repository includes a `Makefile` for easy management:
 - `make doctor`: Run system health check
 
 - `./bin/shell-maintain.sh`: Regenerate the antibody bundle and zcompdump cache after adding/removing plugins or completions
+- `./bin/bench-shell.sh`: Measure interactive startup (`zsh -i -c exit`) and enforce the latency budget
+
+### Automation and Agent Workflow
+
+- Interactive shell is `zsh`.
+- Shell automation entrypoints are moving toward POSIX `sh` compatibility.
+- Preferred command surface for humans and agents:
+  - `make <target>`
+  - `just <recipe>`
+- Core diagnostics and benchmarking targets are implemented via `./bin/*.sh` and do not require any non-POSIX shell.
+- Plugin source of truth is `home/antibody-plugins.txt` and generated `~/.local/share/antibody/bundle.zsh`.
+- `DOTFILES_ENABLE_MISE_HOOK=1` enables the full `mise` shell hook; default startup path uses `mise` shims only for faster prompt time.
 
 ### Status Management
 ```bash
@@ -186,7 +198,7 @@ brew bundle --file ~/.dotfiles/Brewfile
 ## Core Tools
 
 - **Package Management**: Homebrew with Brewfile
-- **Shell**: Zsh with Starship prompt, Antibody bundle, and cached zsh completions
+- **Shell**: Zsh with a performance-tuned Starship prompt, Antibody bundle, and cached zsh completions
 - **Version Control**: Git with enhanced aliases and GitHub CLI
 - **Development**: Node.js, Python 3, Docker
 - **Editors**: VS Code, Zed (optional)

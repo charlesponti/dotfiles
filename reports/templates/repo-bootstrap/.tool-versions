@@ -1,0 +1,4 @@
+# Example runtime pins; adjust by repo.
+node 22
+python 3.12
+go 1.24

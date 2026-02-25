@@ -9,7 +9,6 @@
 # ==============================================================================
 
 # --- Configuration & Colors ---
-LOG_FILE="analysis_$(date +%Y%m%d_%H%M%S).log"
 
 # ANSI Color Codes
 BOLD='\033[1m'
@@ -25,7 +24,8 @@ NC='\033[0m' # No Color
 log() {
     local level=$1
     local message=$2
-    local timestamp=$(date "+%H:%M:%S")
+    local timestamp
+    timestamp=$(date "+%H:%M:%S")
     case $level in
         "INFO")
             echo -e "${BLUE}[${timestamp}] ${BOLD}INFO:${NC} ${message}"

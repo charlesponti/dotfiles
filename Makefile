@@ -1,4 +1,4 @@
-.PHONY: help install update symlinks status lint
+.PHONY: help install update symlinks status lint doctor brew-sync snapshot-baseline bench-shell bench-git bench-fs bench-corpus watch-test watch-lint resource-scan resource-guard lane-core lane-advanced
 
 # Colors
 BLUE := \033[0;34m
@@ -26,8 +26,45 @@ symlinks: ## Re-link all dotfiles
 status: ## Show dotfiles status (use ./bin/status.sh for more options)
 	./bin/status.sh
 
-doctor: ## Run system health check (alias for status health)
-	./bin/status.sh health
+doctor: ## Run doctor checks
+	./bin/doctor.sh
+
+brew-sync: ## Enforce Brewfile as canonical package state
+	brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile
+	brew bundle cleanup --file ./Brewfile --force
+
+snapshot-baseline: ## Capture machine baseline versions into reports/machine-baseline.md
+	./bin/snapshot-baseline.sh
+
+bench-shell: ## Benchmark zsh startup latency
+	./bin/bench-shell.sh
+
+bench-git: ## Benchmark git and search latency in current repo
+	./bin/bench-git.sh --repo .
+
+bench-fs: ## Benchmark filesystem search latency in current directory
+	./bin/bench-fs.sh --path .
+
+bench-corpus: ## Benchmark git/search across fixed repo corpus
+	./bin/bench-corpus.sh
+
+watch-test: ## Watch files and run test loop
+	./bin/watch-test.sh
+
+watch-lint: ## Watch files and run lint/typecheck loop
+	./bin/watch-lint.sh
+
+resource-scan: ## Print memory/swap/thermal resource telemetry snapshot
+	./bin/resource-scan.sh
+
+resource-guard: ## Fail if resource pressure exceeds thresholds
+	./bin/resource-guard.sh
+
+lane-core: ## Print strict core lane PATH export command
+	./bin/lane-core.sh
+
+lane-advanced: ## Print advanced compute lane PATH export command
+	./bin/lane-advanced.sh
 
 help-commands: ## Show command reference (alias for status help)
 	./bin/status.sh help

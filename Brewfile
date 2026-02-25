@@ -9,10 +9,6 @@
 # Additional taps from backups
 tap "charmbracelet/tap"
 tap "facebook/fb"
-# Homebrew core taps
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
 tap "modularml/packages"
 tap "supabase/tap"
 
@@ -23,18 +19,20 @@ tap "supabase/tap"
 brew "bat"
 brew "coreutils" # GNU core utilities
 brew "curl"
-brew "exa" # Better ls
 brew "eza" # Modern ls replacement (successor to exa)
 brew "fd"
 brew "fzf"
 brew "git"
 brew "htop"
+brew "hyperfine"
+brew "just"
 brew "jq"
 brew "ripgrep"
 brew "shellcheck" # Static analysis tool for shell scripts
 brew "tldr" # Better man pages
 brew "tree"
 brew "trash" # Safe rm replacement
+brew "watchexec"
 brew "wget"
 brew "zoxide" # Better cd
 brew "zsh"
@@ -46,19 +44,23 @@ brew "zsh"
 brew "composer"
 brew "cocoapods"
 brew "go"
+brew "go-air"
+brew "delve"
+brew "gopls"
+brew "mise"
 brew "node"
 brew "php"
 brew "python@3.12"
 brew "rbenv" # Ruby version manager
 brew "rust"
 brew "uv" # Python package and project manager
+brew "direnv"
 
 # -------------------------
 # Containers & infra
 # -------------------------
 brew "awscli"
 brew "docker"
-brew "docker-compose"
 brew "kubectl"
 brew "minikube" # Local Kubernetes
 brew "terraform"
@@ -67,7 +69,7 @@ brew "terraform"
 # Networking, servers & infra tools
 # -------------------------
 brew "caddy"
-brew "ngrok" # note: also available as cask in some setups
+brew "cloudflared"
 
 # -------------------------
 # Multimedia & general utilities
@@ -93,7 +95,6 @@ brew "sqlite"
 # -------------------------
 brew "gh" # GitHub CLI
 brew "git-delta" # Better git diff
-brew "starship" # shell prompt
 
 # -------------------------
 # Other CLI utilities
@@ -102,13 +103,9 @@ brew "block-goose-cli"
 brew "huggingface-cli"
 
 # -------------------------
-# Fonts (Homebrew Cask Fonts)
+# Fonts (single canonical coding font)
 # -------------------------
-cask "font-fira-code"
 cask "font-geist-mono-nerd-font"
-cask "font-jetbrains-mono"
-cask "font-monaspace"
-cask "font-source-code-pro"
 
 # -------------------------
 # GUI applications (casks)
@@ -127,7 +124,6 @@ cask "setapp" # App store
 cask "slack" # Team communication
 cask "spotify" # Music streaming
 cask "visual-studio-code" # Code editor
-cask "warp"
 
 # -------------------------
 # Utilities (GUI)
@@ -222,10 +218,3 @@ vscode "vitest.explorer"
 vscode "yoavbls.pretty-ts-errors"
 vscode "yzhang.markdown-all-in-one"
 vscode "zamerick.vscode-caddyfile-syntax"
-
-# -------------------------
-# Go tools
-# -------------------------
-go "github.com/air-verse/air"
-go "github.com/go-delve/delve/cmd/dlv"
-go "golang.org/x/tools/gopls"

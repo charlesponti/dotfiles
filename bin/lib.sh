@@ -17,19 +17,19 @@ export NC='\033[0m'
 
 # Messaging functions
 informer () {
-  printf "\n[ ${BLUE}..${NC} ] $1\n"
+  printf "\n[ %b..%b ] %s\n" "$BLUE" "$NC" "$1"
 }
 
 user () {
-  printf "\n[ ${YELLOW}??${NC} ] $1\n"
+  printf "\n[ %b??%b ] %s\n" "$YELLOW" "$NC" "$1"
 }
 
 success () {
-  printf "\n\r\033[2K  [ ${GREEN}OK${NC} ] $1\n"
+  printf "\n\r\033[2K  [ %bOK%b ] %s\n" "$GREEN" "$NC" "$1"
 }
 
 fail () {
-  printf "\n\r\033[2K  [${RED}FAIL${NC}] $1\n"
+  printf "\n\r\033[2K  [%bFAIL%b] %s\n" "$RED" "$NC" "$1"
   exit 1
 }
 

@@ -125,22 +125,32 @@ mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
 
 # Ensure antibody (plugin manager) is installed
-if [[ ! -x "$HOME/.local/bin/antibody" ]]; then
+if ! command -v antibody >/dev/null 2>&1; then
     log "Installing antibody plugin manager..."
     if command -v brew >/dev/null 2>&1; then
-        brew install antibody || (brew tap getantibody/tap && brew install getantibody/tap/antibody) || true
-    else
+        brew install getantibody/tap/antibody >/dev/null 2>&1 || brew install antibody >/dev/null 2>&1 || true
+    fi
+
+    # Fallback to direct binary download if antibody is still unavailable.
+    if ! command -v antibody >/dev/null 2>&1; then
         mkdir -p "$HOME/.local/bin"
+        TMP_ARCHIVE="/tmp/antibody.tar.gz"
+        TMP_DIR="/tmp/antibody-extract"
         ARCH="$(uname -m)"
         if [[ "$ARCH" == "arm64" || "$ARCH" == "aarch64" ]]; then
-            ARCH_TAG=arm64
+            curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_arm64.tar.gz" -o "$TMP_ARCHIVE" \
+              || curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" \
+              || true
         else
-            ARCH_TAG=amd64
+            curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" || true
         fi
-        curl -sL "https://github.com/getantibody/antibody/releases/latest/download/antibody_darwin_${ARCH_TAG}.gz" -o /tmp/antibody.gz || true
-        if [[ -f /tmp/antibody.gz ]]; then
-            gunzip -c /tmp/antibody.gz > "$HOME/.local/bin/antibody" || true
-            chmod +x "$HOME/.local/bin/antibody"
+        if [[ -f "$TMP_ARCHIVE" ]]; then
+            rm -rf "$TMP_DIR"
+            mkdir -p "$TMP_DIR"
+            if tar -xzf "$TMP_ARCHIVE" -C "$TMP_DIR" >/dev/null 2>&1 && [[ -f "$TMP_DIR/antibody" ]]; then
+                cp "$TMP_DIR/antibody" "$HOME/.local/bin/antibody"
+                chmod +x "$HOME/.local/bin/antibody"
+            fi
         fi
     fi
 fi
@@ -158,7 +168,7 @@ informer "🎯 Final setup..."
 # Set shell to zsh
 if [[ "$SHELL" != */zsh ]]; then
     log "Changing default shell to zsh..."
-    chsh -s $(which zsh)
+    chsh -s "$(which zsh)"
     success "Default shell changed to zsh."
 fi
 

@@ -1,57 +1,35 @@
-# Starship configuration — optimized for performance and clarity
-# Following best practices for a minimal, fast, and informative prompt.
+# Starship configuration - tuned for fast interactive startup.
 
-# Explicitly define the prompt order for better control and performance
-format = '$all'
-
-# Insert blank line between shell prompts for readability
-add_newline = true
-
-# Set a timeout for commands to prevent shell hangs in slow filesystems (ms)
-command_timeout = 500
+format = "$username$hostname$directory$git_branch$git_status$cmd_duration$line_break$character"
+add_newline = false
+command_timeout = 150
+scan_timeout = 30
 
 [username]
 style_user = "fg:white bold"
 style_root = "fg:black bg:yellow bold"
 format = "[$user]($style) "
-disabled = false
 show_always = false
 
 [hostname]
 ssh_only = true
 format = "@[$hostname]($style) "
 style = "bold dimmed fg:white"
-disabled = false
-
-[os]
-disabled = false
-style = "bold white"
-
-[os.symbols]
-Macos = " "
-Linux = "🐧 "
-Windows = "🪟 "
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold green)"
-
-[status]
-disabled = false
-format = "[$symbol$status]($style) "
-symbol = "🔴 "
-style = "bold red"
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+vimcmd_symbol = "[<](bold green)"
 
 [directory]
 style = "bold cyan"
 truncation_length = 3
 truncate_to_repo = true
-read_only = " 🔒"
+read_only = " [ro]"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = "🌿 "
+symbol = "git:"
 style = "bold purple"
 format = "on [$symbol$branch]($style) "
 
@@ -59,92 +37,17 @@ format = "on [$symbol$branch]($style) "
 format = "([$all_status$ahead_behind]($style) )"
 style = "bold red"
 conflicted = "="
-ahead = "⇡"
-behind = "⇣"
-diverged = "⇕"
+ahead = "^"
+behind = "v"
+diverged = "~"
 untracked = "?"
-stashed = '\$'
+stashed = "$"
 modified = "!"
 staged = "+"
-renamed = "»"
-deleted = "🗑️"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "fg:bright-black"
+renamed = ">"
+deleted = "x"
 
 [cmd_duration]
 min_time = 2000
 format = "took [$duration]($style) "
 style = "fg:yellow"
-
-[fill]
-symbol = " "
-
-[package]
-symbol = "📦 "
-style = "bold 208"
-disabled = false
-
-[python]
-format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-symbol = "🐍 "
-style = "yellow"
-
-[nodejs]
-symbol = "🟢 "
-style = "green"
-format = "via [${symbol}(${version} )]($style)"
-
-[rust]
-symbol = "🦀 "
-style = "bold red"
-format = "via [${symbol}(${version} )]($style)"
-
-[golang]
-symbol = " "
-style = "cyan"
-format = "via [${symbol}(${version} )]($style)"
-
-[terraform]
-symbol = "🏗️ "
-style = "purple"
-format = "via [${symbol}($workspace )]($style)"
-
-[docker_context]
-symbol = "🐳 "
-style = "blue"
-format = "via [${symbol}($context )]($style)"
-
-[nix_shell]
-format = 'via [${symbol}$state( \($name\))]($style)'
-symbol = "❄️ "
-style = "blue"
-
-[battery]
-disabled = false
-full_symbol = "🔋 "
-charging_symbol = "⚡ "
-discharging_symbol = "🪫 "
-
-[[battery.display]]
-threshold = 10
-style = "bold red"
-
-[[battery.display]]
-threshold = 30
-style = "bold yellow"
-discharging_symbol = "💦 "
-
-[memory_usage]
-disabled = false
-threshold = 50
-format = 'via $symbol [${ram}]($style) '
-symbol = '🐏'
-style = 'fg:dimmed green' 
-
-[time]
-disabled = false
-format = "🕙 [$time]($style) "
-time_format = "%T"
-style = "fg:yellow bold"

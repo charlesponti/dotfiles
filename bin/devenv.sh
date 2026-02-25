@@ -11,8 +11,6 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 detect_project_type() {
-    local current_dir="$(pwd)"
-    
     # Check for various project indicators
     if [ -f "package.json" ]; then
         echo "node"
@@ -90,7 +88,8 @@ auto_setup_env() {
 
 show_project_info() {
     local project_type="$1"
-    local project_name="$(basename "$(pwd)")"
+    local project_name
+    project_name="$(basename "$(pwd)")"
     
     echo -e "${GREEN}📊 Project Information${NC}"
     echo -e "${GREEN}=====================${NC}"
@@ -182,8 +181,8 @@ suggest_commands() {
 
 main() {
     local auto_setup=${1:-false}
-    
-    local project_type=$(detect_project_type)
+    local project_type
+    project_type=$(detect_project_type)
     
     if [ "$project_type" = "unknown" ]; then
         echo -e "${YELLOW}❓ No known project type detected in current directory${NC}"

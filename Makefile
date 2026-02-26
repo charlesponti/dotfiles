@@ -1,4 +1,4 @@
-.PHONY: help install update symlinks status lint doctor brew-sync snapshot-baseline bench-shell bench-git bench-fs bench-corpus watch-test watch-lint resource-scan resource-guard lane-core lane-advanced
+.PHONY: help install update symlinks status lint doctor brew-sync snapshot-baseline bench-shell bench-git bench-fs bench-corpus watch-test watch-lint resource-scan resource-guard lane-core lane-advanced shell-audit
 
 # Colors
 BLUE := \033[0;34m
@@ -28,6 +28,7 @@ status: ## Show dotfiles status (use ./bin/status.sh for more options)
 
 doctor: ## Run doctor checks
 	./bin/doctor.sh
+	@if [ "$(SHELL_AUDIT)" = "1" ]; then ./bin/shell-surface-audit.sh; else echo "Skipping shell surface audit (set SHELL_AUDIT=1 or run make shell-audit)"; fi
 
 brew-sync: ## Enforce Brewfile as canonical package state
 	brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile
@@ -65,6 +66,9 @@ lane-core: ## Print strict core lane PATH export command
 
 lane-advanced: ## Print advanced compute lane PATH export command
 	./bin/lane-advanced.sh
+
+shell-audit: ## Audit shell command surface and required aliases/functions
+	./bin/shell-surface-audit.sh
 
 help-commands: ## Show command reference (alias for status help)
 	./bin/status.sh help

@@ -1,53 +1,46 @@
 # Starship configuration - tuned for fast interactive startup.
 
-format = "$username$hostname$directory$git_branch$git_status$cmd_duration$line_break$character"
+format = "$directory$git_branch$git_status$line_break$character"
 add_newline = false
-command_timeout = 150
-scan_timeout = 30
+command_timeout = 100
+scan_timeout = 20
 
 [username]
-style_user = "fg:white bold"
-style_root = "fg:black bg:yellow bold"
-format = "[$user]($style) "
-show_always = false
+disabled = true
 
 [hostname]
-ssh_only = true
-format = "@[$hostname]($style) "
-style = "bold dimmed fg:white"
+disabled = true
 
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[>](bold red)"
-vimcmd_symbol = "[<](bold green)"
+success_symbol = "[❯](fg:250)"
+error_symbol = "[❯](fg:250)"
+vimcmd_symbol = "[❮](fg:245)"
 
 [directory]
-style = "bold cyan"
+style = "fg:250"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " [ro]"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = "git:"
-style = "bold purple"
-format = "on [$symbol$branch]($style) "
+symbol = "・"
+style = "fg:245"
+format = "[$symbol$branch]($style) "
 
 [git_status]
-format = "([$all_status$ahead_behind]($style) )"
-style = "bold red"
-conflicted = "="
-ahead = "^"
-behind = "v"
-diverged = "~"
-untracked = "?"
-stashed = "$"
-modified = "!"
-staged = "+"
-renamed = ">"
-deleted = "x"
+format = "[$staged$modified$untracked$renamed$deleted$conflicted$stashed$ahead_behind]($style) "
+style = "fg:240"
+conflicted = "=${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+stashed = "*${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "x${count} "
 
 [cmd_duration]
-min_time = 2000
-format = "took [$duration]($style) "
-style = "fg:yellow"
+disabled = true

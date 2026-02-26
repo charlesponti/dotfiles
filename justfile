@@ -2,8 +2,21 @@ set shell := ["/usr/bin/env", "sh", "-c"]
 
 # POSIX-shell operational commands
 
+setup:
+    brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile
+    ./bin/tmux-maintain.sh
+    ./bin/shell-maintain.sh
+    ./bin/runtime-verify.sh
+
 doctor:
     ./bin/doctor.sh
+
+perf:
+    ./bin/bench-shell.sh --runs 20
+    ./bin/prompt-bench.sh 30
+
+runtime-check:
+    ./bin/runtime-verify.sh
 
 brew-sync:
     brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile

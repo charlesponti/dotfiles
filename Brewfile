@@ -100,7 +100,9 @@ brew "git-delta" # Better git diff
 # Other CLI utilities
 # -------------------------
 brew "block-goose-cli"
+cask "codex"
 brew "huggingface-cli"
+brew "opencode"
 
 # -------------------------
 # Fonts (single canonical coding font)
@@ -111,8 +113,6 @@ cask "font-geist-mono-nerd-font"
 # GUI applications (casks)
 # -------------------------
 cask "1password" # Password manager
-cask "claude"
-cask "copilot-cli"
 cask "discord" # Community
 cask "drawio"
 cask "figma" # Design tool
@@ -155,11 +155,9 @@ vscode "eamodio.gitlens"
 vscode "expo.vscode-expo-tools"
 vscode "figma.figma-vscode-extension"
 vscode "foam.foam-vscode"
-vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "golang.go"
-vscode "google.gemini-cli-vscode-ide-companion"
 vscode "llvm-vs-code-extensions.lldb-dap"
 vscode "lokalise.i18n-ally"
 vscode "mechatroner.rainbow-csv"
@@ -190,9 +188,7 @@ vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
-vscode "ms-vscode.vscode-websearchforcopilot"
 vscode "ms-vsliveshare.vsliveshare"
-vscode "ms-windows-ai-studio.windows-ai-studio"
 vscode "msjsdiag.vscode-react-native"
 vscode "mushan.vscode-paste-image"
 vscode "oven.bun-vscode"
@@ -202,14 +198,12 @@ vscode "prisma.prisma"
 vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
-vscode "sst-dev.opencode"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "svelte.svelte-vscode"
 vscode "swiftlang.swift-vscode"
 vscode "takumii.markdowntable"
 vscode "tamasfe.even-better-toml"
 vscode "teabyii.ayu"
-vscode "teamsdevapp.vscode-ai-foundry"
 vscode "tldraw-org.tldraw-vscode"
 vscode "twxs.cmake"
 vscode "unifiedjs.vscode-mdx"

@@ -206,6 +206,40 @@ Thank you for helping keep secrets out of the repository — these checks are in
 brew bundle --file ~/.dotfiles/Brewfile
 ```
 
+## Ultimate 2026+
+
+Power-user, publishable setup contract:
+
+- Hybrid runtime: Homebrew for system/GUI, Nix flakes for deterministic dev runtimes.
+- Shell UX: zsh + tmux + Ghostty + starship with strict performance budgets.
+- AI tooling: CLI availability only (`codex`, `opencode`) with no embedded agent workflow.
+
+Primary docs:
+
+- `docs/ultimate-setup-2026.md`
+- `docs/capabilities.md`
+- `docs/architecture/shell-ux.md`
+- `docs/architecture/runtime-reproducibility.md`
+- `docs/architecture/performance-budgets.md`
+- `docs/architecture/nix-policy.md`
+
+New command surface:
+
+```bash
+just setup
+just doctor
+just perf
+just runtime-check
+./bin/ux-profile.sh core --exports
+./bin/ux-profile.sh power --exports
+./bin/workspace-new.sh myproject power
+```
+
+Profile env vars:
+
+- `DOTFILES_PROFILE=core|power`
+- `DOTFILES_RUNTIME_MODE=hybrid|nix-heavy|brew-heavy`
+
 ## Core Tools
 
 - **Package Management**: Homebrew with Brewfile

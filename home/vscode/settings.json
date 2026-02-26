@@ -199,34 +199,27 @@
 		"Cargo.toml": "Cargo.lock"
 	},
 
-	"geminicodeassist.displayInlineContextHint": false,
-	"git.autofetch": true,
+		"git.autofetch": true,
 	"git.blame.editorDecoration.enabled": true,
 	"git.blame.statusBarItem.enabled": true,
 	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
 	"git.openRepositoryInParentFolders": "always",
 	"git.path": "/usr/bin/git",
-	"github.copilot.chat.alternateGeminiModelFPrompt.enabled": true,
-	"github.copilot.chat.codesearch.enabled": true,
-	"github.copilot.selectedCompletionModel": "",
 	"githubPullRequests.assignCreated": "${user}",
 	"githubPullRequests.fileListLayout": "tree",
 	"githubPullRequests.pullBranch": "always",
-	"githubPullRequests.pullRequestDescription": "Copilot",
+		"githubPullRequests.pullRequestDescription": "template",
 	"githubPullRequests.pushBranch": "always",
-	"gitlens.ai.model": "vscode",
-	"gitlens.ai.vscode.model": "copilot:gpt-4.1",
 	"gitlens.blame.fontFamily": "Source Code Pro for Powerline",
 	"gitlens.currentLine.fontFamily": "Source Code Pro for Powerline",
 	"go.toolsManagement.autoUpdate": true,
 	"http.systemCertificatesNode": true,
 	"javascript.preferences.quoteStyle": "single",
 	"javascript.updateImportsOnFileMove.enabled": "always",
-	"json.schemaDownload.trustedDomains": {
-		"https://models.dev/": true,
-		"https://opencode.ai/": true
-	},
+		"json.schemaDownload.trustedDomains": {
+			"https://models.dev/": true
+		},
 	"makefile.configureOnOpen": true,
 	"markdown.preview.fontFamily": "Source Code Pro for Powerline",
 	"nightwatch.quickSettings.parallels": 10,
@@ -246,11 +239,7 @@
 	"python.terminal.activateEnvInCurrentTerminal": true,
 	"python.venvPath": "${workspaceFolder}/.venv",
 	"redhat.telemetry.enabled": false,
-	"remote.defaultExtensionsIfInstalledLocally": [
-		"GitHub.copilot",
-		"GitHub.copilot-chat",
-		"GitHub.vscode-pull-request-github"
-	],
+		"remote.defaultExtensionsIfInstalledLocally": ["GitHub.vscode-pull-request-github"],
 	"scm.defaultViewMode": "tree",
 	"scss.showErrors": true,
 	"search.defaultViewMode": "tree",

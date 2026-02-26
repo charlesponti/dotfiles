@@ -1,8 +1,8 @@
 # Starship configuration - tuned for fast interactive startup.
 
-format = "$directory$git_branch$git_status$line_break$character"
+format = "$directory$git_branch$git_status$status$cmd_duration$jobs$line_break$character"
 add_newline = false
-command_timeout = 100
+command_timeout = 150
 scan_timeout = 20
 
 [username]
@@ -12,8 +12,8 @@ disabled = true
 disabled = true
 
 [character]
-success_symbol = "[❯](fg:250)"
-error_symbol = "[❯](fg:250)"
+success_symbol = "[❯](fg:110)"
+error_symbol = "[❯](fg:174)"
 vimcmd_symbol = "[❮](fg:245)"
 
 [directory]
@@ -42,5 +42,18 @@ staged = "[+${count}](fg:108) "
 renamed = "[»${count}](fg:146) "
 deleted = "[x${count}](fg:174) "
 
+[status]
+disabled = false
+format = "[$status]($style) "
+style = "fg:174"
+
 [cmd_duration]
-disabled = true
+disabled = false
+min_time = 300
+format = "[$duration](fg:244) "
+
+[jobs]
+symbol = "↯"
+style = "fg:110"
+number_threshold = 1
+format = "[$symbol$number]($style) "

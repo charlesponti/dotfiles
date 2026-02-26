@@ -75,4 +75,12 @@ fi
 mkdir -p "$XDG_CONFIG_HOME"
 link "$DOTFILES/.config/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 
+# ------------------------------------------------------------------------------
+# Tmux configuration
+# ------------------------------------------------------------------------------
+# Create tmux plugin directory
+mkdir -p "$HOME/.tmux"
+# Link main tmux config
+link "$DOTFILES/home/.tmux.conf" "$HOME/.tmux.conf"
+
 success "Symlinking complete"

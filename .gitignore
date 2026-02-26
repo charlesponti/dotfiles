@@ -33,3 +33,6 @@ npm-debug.log*
 
 # benchmark artifacts
 reports/bench/*.json
+
+# tmux plugin manager
+.tmux/plugins/

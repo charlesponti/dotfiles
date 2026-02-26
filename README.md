@@ -94,7 +94,8 @@ The repository includes a `Makefile` for easy management:
 - `make status`: Show dotfiles status overview
 - `make doctor`: Run system health check
 
-- `./bin/shell-maintain.sh`: Regenerate the antibody bundle and zcompdump cache after adding/removing plugins or completions
+- `./bin/shell-maintain.sh`: Regenerate the antibody bundle, enforce plugin lock pins, regenerate zcompdump cache, and compile zsh modules
+- `./bin/tmux-maintain.sh`: Install TPM if missing and run non-interactive tmux plugin install/update
 - `./bin/bench-shell.sh`: Measure interactive startup (`zsh -i -c exit`) and enforce the latency budget
 
 ### Automation and Agent Workflow
@@ -105,8 +106,18 @@ The repository includes a `Makefile` for easy management:
   - `make <target>`
   - `just <recipe>`
 - Core diagnostics and benchmarking targets are implemented via `./bin/*.sh` and do not require any non-POSIX shell.
-- Plugin source of truth is `home/antibody-plugins.txt` and generated `~/.local/share/antibody/bundle.zsh`.
+- Plugin source of truth is `home/antibody-plugins.txt`, pinned commits live in `home/antibody-plugins.lock`, and generated output is `~/.local/share/antibody/bundle.zsh`.
+- `./bin/shell-maintain.sh` now enforces strict plugin/lock parity: no missing lock entries, no extra lock entries, no duplicates.
+- `compinit -i` is used for startup stability and ignores insecure completion directory warnings; keep `fpath` trusted and refresh with `./bin/shell-maintain.sh`.
 - `DOTFILES_ENABLE_MISE_HOOK=1` enables the full `mise` shell hook; default startup path uses `mise` shims only for faster prompt time.
+
+### Hard Reset
+```bash
+tmux kill-server
+./bin/tmux-maintain.sh
+./bin/shell-maintain.sh
+exec zsh -l
+```
 
 ### Status Management
 ```bash

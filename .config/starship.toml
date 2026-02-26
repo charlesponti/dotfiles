@@ -30,17 +30,17 @@ format = "[$symbol$branch]($style) "
 
 [git_status]
 format = "[$staged$modified$untracked$renamed$deleted$conflicted$stashed$ahead_behind]($style) "
-style = "fg:240"
-conflicted = "=${count} "
-ahead = "⇡${count} "
-behind = "⇣${count} "
-diverged = "⇕⇡${ahead_count}⇣${behind_count} "
-untracked = "?${count} "
-stashed = "*${count} "
-modified = "!${count} "
-staged = "+${count} "
-renamed = "»${count} "
-deleted = "x${count} "
+style = "fg:245"
+conflicted = "[=${count}](fg:175) "
+ahead = "[⇡${count}](fg:114) "
+behind = "[⇣${count}](fg:117) "
+diverged = "[⇕](fg:145)[⇡${ahead_count}](fg:114)[⇣${behind_count}](fg:117) "
+untracked = "[?${count}](fg:110) "
+stashed = "[*${count}](fg:139) "
+modified = "[!${count}](fg:180) "
+staged = "[+${count}](fg:108) "
+renamed = "[»${count}](fg:146) "
+deleted = "[x${count}](fg:174) "
 
 [cmd_duration]
 disabled = true

@@ -47,8 +47,8 @@
 	},
 	"bicep.enableSurveys": false,
 	"chat.agent.maxRequests": 100,
-	"chat.editor.fontFamily": "Source Code Pro for Powerline",
-	"chat.fontFamily": "Source Code Pro for Powerline",
+	"chat.editor.fontFamily": "SF Mono",
+	"chat.fontFamily": "SF Mono",
 	"chat.instructionsFilesLocations": {
 		".github/instructions": true,
 		"~/.aitk/instructions/": true
@@ -163,24 +163,24 @@
 		"Ponti",
 		"Rican"
 	],
-	"debug.console.fontFamily": "Source Code Pro for Powerline",
+	"debug.console.fontFamily": "SF Mono",
 	"diffEditor.codeLens": true,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.renderSideBySide": false,
 	"docker.extension.dockerEngineAvailabilityPrompt": false,
 	"docker.extension.enableComposeLanguageServer": false,
 	"editor.accessibilitySupport": "off",
-	"editor.codeLensFontFamily": "Source Code Pro for Powerline",
+	"editor.codeLensFontFamily": "SF Mono",
 	"editor.defaultFormatter": "oxc.oxc-vscode",
-	"editor.fontFamily": "Source Code Pro for Powerline",
+	"editor.fontFamily": "SF Mono",
 	"editor.fontSize": 13,
 	"editor.fontWeight": "350",
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
-	"editor.inlayHints.fontFamily": "Source Code Pro for Powerline",
+	"editor.inlayHints.fontFamily": "SF Mono",
 	"editor.inlineSuggest.enabled": true,
 	"editor.inlineSuggest.experimental.showOnSuggestConflict": "always",
-	"editor.inlineSuggest.fontFamily": "Source Code Pro for Powerline",
+	"editor.inlineSuggest.fontFamily": "SF Mono",
 	"editor.largeFileOptimizations": true,
 	"editor.lineHeight": 2,
 	"editor.linkedEditing": true,
@@ -211,17 +211,23 @@
 	"githubPullRequests.pullBranch": "always",
 		"githubPullRequests.pullRequestDescription": "template",
 	"githubPullRequests.pushBranch": "always",
-	"gitlens.blame.fontFamily": "Source Code Pro for Powerline",
-	"gitlens.currentLine.fontFamily": "Source Code Pro for Powerline",
+	"gitlens.blame.fontFamily": "SF Mono",
+	"gitlens.currentLine.fontFamily": "SF Mono",
 	"go.toolsManagement.autoUpdate": true,
 	"http.systemCertificatesNode": true,
 	"javascript.preferences.quoteStyle": "single",
 	"javascript.updateImportsOnFileMove.enabled": "always",
 		"json.schemaDownload.trustedDomains": {
-			"https://models.dev/": true
+			"https://schemastore.azurewebsites.net/": true,
+			"https://raw.githubusercontent.com/": true,
+			"https://www.schemastore.org/": true,
+			"https://json.schemastore.org/": true,
+			"https://json-schema.org/": true,
+			"https://models.dev/": true,
+			"https://opencode.ai/config.json": true
 		},
 	"makefile.configureOnOpen": true,
-	"markdown.preview.fontFamily": "Source Code Pro for Powerline",
+	"markdown.preview.fontFamily": "SF Mono",
 	"nightwatch.quickSettings.parallels": 10,
 	"pgsql.serverGroups": [
 		{
@@ -250,7 +256,7 @@
 		"CW_NEW_SESSION": "1",
 		"Q_NEW_SESSION": "1"
 	},
-	"terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+	"terminal.integrated.fontFamily": "SF Mono",
 	"terminal.integrated.fontLigatures.enabled": true,
 	"terminal.integrated.fontSize": 12,
 	"typescript.updateImportsOnFileMove.enabled": "always",
@@ -267,5 +273,6 @@
 		"vs-kubernetes.suppress-helm-not-found-alerts": true
 	},
 	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
-	"chat.editing.confirmEditRequestRemoval": false
+	"chat.editing.confirmEditRequestRemoval": false,
+	"terminal.integrated.tabs.location": "left"
 }

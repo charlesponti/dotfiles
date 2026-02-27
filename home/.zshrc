@@ -93,3 +93,6 @@ if (( $+commands[starship] )); then
 else
   PROMPT='%F{cyan}%1~%f %F{green}>%f '
 fi
+
+# Load local customizations
+source "$HOME/.localrc"

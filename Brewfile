@@ -114,7 +114,6 @@ cask "font-geist-mono-nerd-font"
 # -------------------------
 cask "1password" # Password manager
 cask "discord" # Community
-cask "drawio"
 cask "figma" # Design tool
 cask "ghostty"
 cask "google-chrome" # Web browser
@@ -204,7 +203,6 @@ vscode "swiftlang.swift-vscode"
 vscode "takumii.markdowntable"
 vscode "tamasfe.even-better-toml"
 vscode "teabyii.ayu"
-vscode "tldraw-org.tldraw-vscode"
 vscode "twxs.cmake"
 vscode "unifiedjs.vscode-mdx"
 vscode "upstash.context7-mcp"

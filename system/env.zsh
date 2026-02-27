@@ -20,6 +20,7 @@ CORE_PATH_PARTS=(
   "/usr/sbin"
   "/bin"
   "/sbin"
+  "$HOME/Developer/scripts"
 )
 
 typeset -Ua path

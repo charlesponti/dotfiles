@@ -96,3 +96,6 @@ fi
 
 # Load local customizations
 source "$HOME/.localrc"
+
+# Add Maestro to PATH
+export PATH=$PATH:$HOME/.maestro/bin

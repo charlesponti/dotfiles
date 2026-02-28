@@ -10,50 +10,43 @@
 tap "charmbracelet/tap"
 tap "facebook/fb"
 tap "modularml/packages"
-tap "supabase/tap"
 
 # -------------------------
 # System & CLI utilities
 # (coreutils, shells, search, navigation, misc)
 # -------------------------
-brew "bat"
+brew "bat" # Cat replacement with syntax highlighting
 brew "coreutils" # GNU core utilities
-brew "curl"
+brew "curl" # A command line tool for transferring data with URL syntax
 brew "eza" # Modern ls replacement (successor to exa)
-brew "fd"
-brew "fzf"
-brew "git"
-brew "htop"
-brew "hyperfine"
-brew "just"
-brew "jq"
-brew "ripgrep"
+brew "fd" # Simple, fast and user-friendly alternative to find
+brew "fzf" # Fuzzy finder
+brew "git" # Version control
+brew "htop" # Interactive process viewer
+brew "hyperfine" # Benchmarking tool
+brew "just" # Command runner
+brew "jq" # Command-line JSON processor
+brew "ripgrep" # Fast search tool
 brew "shellcheck" # Static analysis tool for shell scripts
+brew "stow" # Symlink farm manager for dotfiles
 brew "tldr" # Better man pages
-brew "tree"
+brew "tree" # Directory tree visualizer
 brew "trash" # Safe rm replacement
-brew "watchexec"
-brew "wget"
+brew "watchexec" # Run commands when files change
+brew "wget" # Network downloader
 brew "zoxide" # Better cd
-brew "zsh"
+brew "zsh" # Shell
 
 # -------------------------
 # Development toolchain
 # (languages, build tools, CLIs)
+# NOTE: Languages (go, node, python, ruby, rust, bun, php, deno) managed by mise
 # -------------------------
-brew "composer"
-brew "cocoapods"
-brew "go"
-brew "go-air"
-brew "delve"
-brew "gopls"
-brew "mise"
-brew "node"
-brew "php"
-brew "python@3.12"
-brew "rbenv" # Ruby version manager
-brew "rust"
-brew "uv" # Python package and project manager
+brew "cocoapods" # Dependency manager for Swift and Objective-C Cocoa projects
+brew "go-air" # Live reloading for Go apps
+brew "delve" # Debugger for the Go programming language
+brew "gopls" # Language server for Go
+brew "mise" # Polyglot tool version manager
 brew "direnv"
 
 # -------------------------
@@ -63,7 +56,6 @@ brew "awscli"
 brew "docker"
 brew "kubectl"
 brew "minikube" # Local Kubernetes
-brew "terraform"
 
 # -------------------------
 # Networking, servers & infra tools
@@ -74,20 +66,20 @@ brew "cloudflared"
 # -------------------------
 # Multimedia & general utilities
 # -------------------------
-brew "bfg"
+brew "bfg" # Repo cleaner
 brew "ffmpeg" # use latest
 brew "imagemagick" # Image processing
 brew "ios-deploy"
 brew "mole"
 brew "qrencode" # QR code generator
-brew "xz"
+brew "xz" # General-purpose data compression tool
 brew "yt-dlp"
 
 # -------------------------
 # Databases & GIS
 # -------------------------
 brew "postgis"
-brew "postgresql@15"
+brew "postgresql@18"
 brew "sqlite"
 
 # -------------------------
@@ -97,17 +89,10 @@ brew "gh" # GitHub CLI
 brew "git-delta" # Better git diff
 
 # -------------------------
-# Other CLI utilities
+# Software engineering utilities
 # -------------------------
-brew "block-goose-cli"
 cask "codex"
-brew "huggingface-cli"
 brew "opencode"
-
-# -------------------------
-# Fonts (single canonical coding font)
-# -------------------------
-cask "font-geist-mono-nerd-font"
 
 # -------------------------
 # GUI applications (casks)
@@ -115,14 +100,10 @@ cask "font-geist-mono-nerd-font"
 cask "1password" # Password manager
 cask "discord" # Community
 cask "figma" # Design tool
-cask "ghostty"
 cask "google-chrome" # Web browser
 cask "obsidian" # Note taking
-cask "postman" # API development
 cask "setapp" # App store
 cask "slack" # Team communication
-cask "spotify" # Music streaming
-cask "visual-studio-code" # Code editor
 
 # -------------------------
 # Utilities (GUI)
@@ -135,7 +116,10 @@ cask "the-unarchiver"
 # -------------------------
 # Development utilities (GUI)
 # -------------------------
+cask "ghostty"
+cask "postman" # API development
 cask "proxyman" # HTTP debugging
+cask "visual-studio-code" # Code editor
 
 # -------------------------
 # VS Code extensions (keep grouped for easy review; alphabetized)

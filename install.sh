@@ -86,7 +86,7 @@ fi
 
 # 2. Setup Git Configuration
 informer "👤 Setting up Git..."
-if [[ ! -f "$DOTFILES_DIR/home/.gitconfig.local" ]]; then
+if [[ ! -f "$DOTFILES_DIR/stow/git/.gitconfig.local" ]]; then
     log "Configuring Git user information..."
     
     git_credential='cache'
@@ -100,7 +100,7 @@ if [[ ! -f "$DOTFILES_DIR/home/.gitconfig.local" ]]; then
     read -r git_authoremail
     
     # Create .gitconfig.local
-    cat > "$DOTFILES_DIR/home/.gitconfig.local" << EOF
+    cat > "$DOTFILES_DIR/stow/git/.gitconfig.local" << EOF
 [user]
     name = $git_authorname
     email = $git_authoremail
@@ -114,9 +114,10 @@ else
     success "Git configuration already exists."
 fi
 
-# 3. Create Symlinks
-informer "🔗 Creating symlinks..."
-bash "$DOTFILES_DIR/bin/symlinks.sh"
+# 3. Create Symlinks using GNU Stow
+informer "🔗 Creating symlinks with GNU Stow..."
+cd "$DOTFILES_DIR"
+stow -v -t ~ -d stow zsh git tmux starship vim vscode zed bin
 
 # 4. Create essential directories
 informer "📁 Creating essential directories..."
@@ -158,8 +159,8 @@ fi
 # Build antibody bundle from plugin list (if available)
 ANTIBODY_BUNDLE="$HOME/.local/share/antibody/bundle.zsh"
 mkdir -p "$(dirname "$ANTIBODY_BUNDLE")"
-if command -v antibody >/dev/null 2>&1 && [[ -f "$DOTFILES_DIR/home/antibody-plugins.txt" ]]; then
-    antibody bundle < "$DOTFILES_DIR/home/antibody-plugins.txt" > "$ANTIBODY_BUNDLE" || true
+if command -v antibody >/dev/null 2>&1 && [[ -f "$DOTFILES_DIR/stow/zsh/antibody-plugins.txt" ]]; then
+    antibody bundle < "$DOTFILES_DIR/stow/zsh/antibody-plugins.txt" > "$ANTIBODY_BUNDLE" || true
 fi
 
 # 5. Final Setup

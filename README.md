@@ -18,10 +18,16 @@ Take and customize to your liking 💁
 ## Quick Overview
 
 ```
-├── home/           # Dotfiles that get symlinked to ~/
-├── system/         # Shell configuration modules
-├── bin/            # Utility scripts
-└── .config/       # Application configurations
+├── stow/            # Stow packages (symlinked to ~/)
+│   ├── zsh/         # Shell configuration
+│   ├── git/         # Git configuration
+│   ├── tmux/        # Tmux configuration
+│   ├── starship/    # Starship prompt config
+│   ├── vim/         # Vim configuration
+│   ├── vscode/      # VS Code configuration
+│   ├── zed/         # Zed editor configuration
+│   └── bin/         # Utility scripts
+└── docs/            # Documentation
 ```
 
 ## Installation
@@ -106,7 +112,7 @@ The repository includes a `Makefile` for easy management:
   - `make <target>`
   - `just <recipe>`
 - Core diagnostics and benchmarking targets are implemented via `./bin/*.sh` and do not require any non-POSIX shell.
-- Plugin source of truth is `home/antibody-plugins.txt`, pinned commits live in `home/antibody-plugins.lock`, and generated output is `~/.local/share/antibody/bundle.zsh`.
+- Plugin source of truth is `stow/zsh/antibody-plugins.txt`, pinned commits live in `stow/zsh/antibody-plugins.lock`, and generated output is `~/.local/share/antibody/bundle.zsh`.
 - `./bin/shell-maintain.sh` now enforces strict plugin/lock parity: no missing lock entries, no extra lock entries, no duplicates.
 - `compinit -i` is used for startup stability and ignores insecure completion directory warnings; keep `fpath` trusted and refresh with `./bin/shell-maintain.sh`.
 - `DOTFILES_ENABLE_MISE_HOOK=1` enables the full `mise` shell hook; default startup path uses `mise` shims only for faster prompt time.

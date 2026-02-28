@@ -17,10 +17,10 @@ pass() {
 }
 
 required_modules=(
-  "system/env.zsh"
-  "system/settings.zsh"
-  "system/aliases.zsh"
-  "system/functions.zsh"
+  "stow/zsh/system/env.zsh"
+  "stow/zsh/system/settings.zsh"
+  "stow/zsh/system/aliases.zsh"
+  "stow/zsh/system/functions.zsh"
 )
 
 for module in "${required_modules[@]}"; do

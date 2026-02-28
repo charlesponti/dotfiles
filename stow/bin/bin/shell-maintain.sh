@@ -2,8 +2,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ANTIBODY_PLUGINS="$ROOT_DIR/home/antibody-plugins.txt"
-ANTIBODY_LOCK="$ROOT_DIR/home/antibody-plugins.lock"
+ANTIBODY_PLUGINS="$ROOT_DIR/stow/zsh/antibody-plugins.txt"
+ANTIBODY_LOCK="$ROOT_DIR/stow/zsh/antibody-plugins.lock"
 ANTIBODY_BUNDLE="$HOME/.local/share/antibody/bundle.zsh"
 
 mkdir -p "$(dirname "$ANTIBODY_BUNDLE")"
@@ -169,7 +169,7 @@ echo "✅ zcompdump regenerated"
 if command -v zsh >/dev/null 2>&1; then
   echo "⚙️  Compiling zsh modules..."
   zsh -fc '
-    for f in "$HOME/.dotfiles/system/"*.zsh "$HOME/.zshrc"; do
+    for f in "$HOME/.dotfiles/stow/zsh/system/"*.zsh "$HOME/.zshrc"; do
       [[ -f "$f" ]] || continue
       zcompile "$f"
     done

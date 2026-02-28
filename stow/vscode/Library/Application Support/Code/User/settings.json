@@ -141,6 +141,10 @@
 	"chat.tools.urls.autoApprove": {
 		"https://*.wikipedia.org/*": true,
 		"https://github.com/*": true,
+		"https://opencode.ai": {
+			"approveRequest": false,
+			"approveResponse": true
+		}
 	},
 	"chat.useAgentSkills": true,
 	"chat.viewSessions.orientation": "stacked",
@@ -157,7 +161,9 @@
 	"cSpell.userWords": [
 		"Amaro",
 		"Aponte",
+		"bunx",
 		"Celso",
+		"hackefeller",
 		"OLLAMA",
 		"Pagán",
 		"Ponti",

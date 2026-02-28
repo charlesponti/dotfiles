@@ -1,6 +1,6 @@
 # Starship configuration - tuned for fast interactive startup.
 
-format = "$directory$git_branch$status$cmd_duration$jobs$line_break$character"
+format = "$directory$git_branch$git_status$mise$status$cmd_duration$jobs$line_break$character"
 add_newline = false
 command_timeout = 150
 scan_timeout = 20
@@ -29,7 +29,7 @@ style = "fg:245"
 format = "[$symbol$branch]($style) "
 
 [git_status]
-disabled = true
+disabled = false
 format = "[$staged$modified$untracked$renamed$deleted$conflicted$stashed$ahead_behind]($style) "
 style = "fg:245"
 conflicted = "[=${count}](fg:175) "
@@ -42,6 +42,12 @@ modified = "[!${count}](fg:180) "
 staged = "[+${count}](fg:108) "
 renamed = "[»${count}](fg:146) "
 deleted = "[x${count}](fg:174) "
+
+[mise]
+disabled = false
+symbol = "⬡ "
+style = "fg:105"
+format = "[$symbol($version )]($style)"
 
 [status]
 disabled = false

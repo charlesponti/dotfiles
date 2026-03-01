@@ -37,7 +37,7 @@ export PATH
 unset _existing_path candidate
 
 export CORE_PATH_BASE="$(IFS=:; echo "${CORE_PATH_PARTS[*]}")"
-export ADVANCED_LANE_ACTIVE=false
+export PATH="$CORE_PATH_BASE"
 export NIX_CONFIG="extra-experimental-features = nix-command flakes"
 export EDITOR="code"
 export VISUAL="code"

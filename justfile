@@ -49,8 +49,3 @@ resource-scan:
 resource-guard max_swap_gb="2.0":
     ./bin/resource-guard.sh {{max_swap_gb}}
 
-lane-core:
-    ./bin/lane-core.sh
-
-lane-advanced:
-    ./bin/lane-advanced.sh

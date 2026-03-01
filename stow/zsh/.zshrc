@@ -23,29 +23,6 @@ for module in env.zsh settings.zsh aliases.zsh; do
   fi
 done
 
-lane-core() {
-  if [[ -n "${CORE_PATH_BASE:-}" ]]; then
-    export PATH="$CORE_PATH_BASE"
-  fi
-  export ADVANCED_LANE_ACTIVE=false
-  echo "lane-core: active"
-}
-
-lane-advanced() {
-  local extras=()
-  local p
-  for p in "$HOME/.ollama/bin" "/opt/homebrew/opt/llvm/bin" "/opt/homebrew/opt/openjdk/bin"; do
-    [[ -d "$p" ]] && extras+=("$p")
-  done
-
-  if (( ${#extras[@]} > 0 )); then
-    export PATH="$(IFS=:; echo "${extras[*]}"):$CORE_PATH_BASE"
-  else
-    export PATH="$CORE_PATH_BASE"
-  fi
-  export ADVANCED_LANE_ACTIVE=true
-  echo "lane-advanced: active"
-}
 
 : "${DOTFILES_ENABLE_MISE_HOOK:=0}"
 if [[ "$DOTFILES_ENABLE_MISE_HOOK" == "1" ]] && (( $+commands[mise] )); then

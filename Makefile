@@ -1,4 +1,4 @@
-.PHONY: help install update symlinks status lint doctor brew-sync snapshot-baseline bench-shell bench-git bench-fs bench-corpus watch-test watch-lint resource-scan resource-guard lane-core lane-advanced shell-audit
+.PHONY: help install update symlinks status lint doctor brew-sync snapshot-baseline bench-shell bench-git bench-fs bench-corpus watch-test watch-lint resource-scan resource-guard shell-audit
 
 # Colors
 BLUE := \033[0;34m
@@ -61,11 +61,7 @@ resource-scan: ## Print memory/swap/thermal resource telemetry snapshot
 resource-guard: ## Fail if resource pressure exceeds thresholds
 	./bin/resource-guard.sh
 
-lane-core: ## Print strict core lane PATH export command
-	./bin/lane-core.sh
 
-lane-advanced: ## Print advanced compute lane PATH export command
-	./bin/lane-advanced.sh
 
 shell-audit: ## Audit shell command surface and required aliases/functions
 	./bin/shell-surface-audit.sh

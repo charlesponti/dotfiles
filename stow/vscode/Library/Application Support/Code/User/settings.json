@@ -125,8 +125,8 @@
 		"stat": true,
 		"Stop-Process": false,
 		"tail": true,
-		"taskkill": false,
 		"taskkill.exe": false,
+		"taskkill": false,
 		"top": false,
 		"tr": true,
 		"tree": true,
@@ -136,7 +136,8 @@
 		"which": true,
 		"Write-Host": true,
 		"Write-Output": true,
-		"xargs": false
+		"xargs": false,
+	  "bunx": true,
 	},
 	"chat.tools.urls.autoApprove": {
 		"https://*.wikipedia.org/*": true,
@@ -144,7 +145,18 @@
 		"https://opencode.ai": {
 			"approveRequest": false,
 			"approveResponse": true
-		}
+		},
+		"https://developers.openai.com": true,
+		"https://claude.ai/docs": true,
+		"https://claude.ai": true,
+		"https://learn.openai.com": true,
+		"https://*.openai.com": true,
+		"https://github.com/features/copilot": true,
+		"https://github.com/features": true,
+		"https://github.com": true,
+		"https://*.anthropic.com": true,
+		"https://*.visualstudio.com": true,
+		"https://*.github.com": true
 	},
 	"chat.useAgentSkills": true,
 	"chat.viewSessions.orientation": "stacked",
@@ -230,7 +242,8 @@
 			"https://json.schemastore.org/": true,
 			"https://json-schema.org/": true,
 			"https://models.dev/": true,
-			"https://opencode.ai/config.json": true
+			"https://opencode.ai/config.json": true,
+			"https://unpkg.com": true
 		},
 	"makefile.configureOnOpen": true,
 	"markdown.preview.fontFamily": "SF Mono",
@@ -245,7 +258,7 @@
 	"python.analysis.autoImportCompletions": true,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.languageServerMode": "full",
-	"python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+	"python.defaultInterpreterPath": "",
 	"python.experiments.enabled": false,
 	"python.languageServer": "Pylance",
 	"python.terminal.activateEnvInCurrentTerminal": true,
@@ -280,5 +293,28 @@
 	},
 	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
 	"chat.editing.confirmEditRequestRemoval": false,
-	"terminal.integrated.tabs.location": "left"
+	"terminal.integrated.tabs.location": "left",
+	"pgsql.connections": [
+		{
+			"id": "C4D52CB0-2BAA-463D-90F2-7DC0AE4F46B4",
+			"groupId": "12D3B4D3-DC16-4D56-BE8D-65FF99D6C1D6",
+			"authenticationType": "SqlLogin",
+			"connectTimeout": 15,
+			"applicationName": "vscode-pgsql",
+			"clientEncoding": "utf8",
+			"sslmode": "prefer",
+			"sshSavePassword": true,
+			"savePassword": true,
+			"sslRootCertMode": "none",
+			"server": "localhost",
+			"connectionString": "postgresql://postgres:postgres@localhost/hominem?statusColor=686B6F&env=&name=hominem%20%7C%20local&tLSMode=0&usePrivateKey=false&safeModeLevel=0&advancedSafeModeLevel=0&driverVersion=0&lazyload=false",
+			"user": "postgres",
+			"port": "",
+			"database": "hominem",
+			"password": "",
+			"profileName": "hominem | local",
+			"expiresOn": 0,
+			"sshPassword": ""
+		}
+	]
 }

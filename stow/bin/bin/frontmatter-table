@@ -1,0 +1,341 @@
+#!/usr/bin/env python3
+"""
+Frontmatter Table Generator
+Generates a sortable table of all markdown files with YAML frontmatter in a directory.
+
+Usage:
+    python3 frontmatter-table.py <directory> [-o html|markdown] [-f field1,field2,...]
+
+Examples:
+    python3 frontmatter-table.py ./ideas                     # Markdown table
+    python3 frontmatter-table.py ./ideas -o html             # Interactive HTML table
+    python3 frontmatter-table.py ./ideas -f title,status     # Custom fields
+    python3 frontmatter-table.py ../other-dir -o html       # Different directory
+"""
+
+import re
+import sys
+from pathlib import Path
+
+
+def parse_frontmatter(content):
+    """Extract YAML frontmatter from markdown file - simple parser."""
+    match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+    if not match:
+        return {}
+
+    fm = {}
+    lines = match.group(1).strip().split("\n")
+
+    current_key = None
+    current_list = []
+
+    for line in lines:
+        # Check for key: value
+        key_match = re.match(r"^(\w+):\s*(.*)$", line)
+        if key_match:
+            # Save previous list if any
+            if current_key and current_list:
+                fm[current_key] = current_list
+                current_list = []
+
+            key = key_match.group(1)
+            value = key_match.group(2).strip()
+
+            if value.startswith("[") and value.endswith("]"):
+                # List format: [item1, item2]
+                items = value[1:-1].split(",")
+                fm[key] = [i.strip().strip('"').strip("'") for i in items if i.strip()]
+            elif value:
+                fm[key] = value
+            else:
+                current_key = key
+        elif line.startswith("  - "):
+            # List item
+            item = line[4:].strip().strip('"').strip("'")
+            current_list.append(item)
+        elif line.startswith("- "):
+            # Simple list item
+            item = line[2:].strip().strip('"').strip("'")
+            current_list.append(item)
+
+    # Save last list
+    if current_key and current_list:
+        fm[current_key] = current_list
+
+    return fm
+
+
+def get_files(target_dir, extensions=None):
+    """Get all files from the target directory."""
+    if extensions is None:
+        extensions = [".md"]
+
+    path = Path(target_dir)
+    if not path.exists():
+        print(f"Error: Directory '{target_dir}' does not exist")
+        sys.exit(1)
+
+    if not path.is_dir():
+        print(f"Error: '{target_dir}' is not a directory")
+        sys.exit(1)
+
+    files = []
+    for ext in extensions:
+        files.extend(path.glob(f"*{ext}"))
+
+    return sorted(files)
+
+
+def extract_data(files, fields=None):
+    """Extract frontmatter data from files."""
+    if fields is None:
+        fields = [
+            "title",
+            "status",
+            "category",
+            "tags",
+            "created",
+            "updated",
+            "owner",
+            "stage",
+            "summary",
+        ]
+
+    data = []
+
+    for f in files:
+        content = f.read_text()
+        fm = parse_frontmatter(content)
+
+        row = {"file": f.name}
+        for field in fields:
+            value = fm.get(field, "")
+            if isinstance(value, list):
+                value = ", ".join(value)
+            row[field] = value
+
+        data.append(row)
+
+    return data
+
+
+def generate_markdown_table(data, fields):
+    """Generate a markdown table."""
+    # Header
+    header = "| " + " | ".join(fields) + " |\n"
+    header += "| " + " | ".join(["---"] * len(fields)) + " |"
+
+    rows = []
+    for item in data:
+        row_parts = []
+        for field in fields:
+            value = item.get(field, "")
+            if field == "file":
+                value = f"[{value}]({value})"
+            row_parts.append(str(value))
+        rows.append("| " + " | ".join(row_parts) + " |")
+
+    return header + "\n" + "\n".join(rows)
+
+
+def generate_html_table(data, fields):
+    """Generate an HTML table with sorting and filtering."""
+    html = """<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontmatter Table</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; }
+        h1 { margin-bottom: 10px; }
+        .controls { margin-bottom: 15px; }
+        input, select { padding: 8px; margin-right: 10px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f5f5f5; cursor: pointer; user-select: none; }
+        th:hover { background-color: #e5e5e5; }
+        tr:hover { background-color: #f9f9f9; }
+        .status-concept { color: #007bff; }
+        .status-validated { color: #28a745; }
+        .status-in-progress { color: #ffc107; }
+        .status-archived { color: #6c757d; }
+    </style>
+</head>
+<body>
+    <h1>Frontmatter Table</h1>
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search..." onkeyup="filterTable()">
+        <select id="statusFilter" onchange="filterTable()">
+            <option value="">All Status</option>
+        </select>
+        <select id="categoryFilter" onchange="filterTable()">
+            <option value="">All Categories</option>
+        </select>
+    </div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+"""
+
+    for field in fields:
+        html += f'                <th onclick="sortTable({fields.index(field)})">{field.title()}</th>\n'
+
+    html += """            </tr>
+        </thead>
+        <tbody>
+"""
+
+    for item in data:
+        status = item.get("status", "")
+        status_class = f"status-{status}" if status else ""
+        html += f'            <tr class="{status_class}">\n'
+        for field in fields:
+            value = item.get(field, "")
+            if field == "file":
+                html += f'                <td><a href="{value}">{value}</a></td>\n'
+            else:
+                html += f"                <td>{value}</td>\n"
+        html += "            </tr>\n"
+
+    html += """        </tbody>
+    </table>
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("dataTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) { shouldSwitch = true; break; }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) { shouldSwitch = true; break; }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") { dir = "desc"; switching = true; }
+                }
+            }
+        }
+        
+        function filterTable() {
+            var input, filter, table, tr, td, i, j, statusFilter, categoryFilter;
+            input = document.getElementById("search");
+            filter = input.value.toLowerCase();
+            statusFilter = document.getElementById("statusFilter").value;
+            categoryFilter = document.getElementById("categoryFilter").value;
+            table = document.getElementById("dataTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                var show = true;
+                if (filter) {
+                    show = false;
+                    td = tr[i].getElementsByTagName("td");
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j] && td[j].innerHTML.toLowerCase().indexOf(filter) > -1) {
+                            show = true;
+                            break;
+                        }
+                    }
+                }
+                if (show && statusFilter) {
+                    show = false;
+                    td = tr[i].getElementsByTagName("td");
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j] && td[j].innerHTML.toLowerCase() === statusFilter.toLowerCase()) {
+                            show = true;
+                            break;
+                        }
+                    }
+                }
+                if (show && categoryFilter) {
+                    show = false;
+                    td = tr[i].getElementsByTagName("td");
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j] && td[j].innerHTML.toLowerCase() === categoryFilter.toLowerCase()) {
+                            show = true;
+                            break;
+                        }
+                    }
+                }
+                tr[i].style.display = show ? "" : "none";
+            }
+        }
+        
+        // Populate filter dropdowns
+        (function() {
+            var statuses = new Set();
+            var categories = new Set();
+            var table = document.getElementById("dataTable");
+            var tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                if (td.length > 1) statuses.add(td[1].innerHTML);
+                if (td.length > 2) categories.add(td[2].innerHTML);
+            }
+            var statusSelect = document.getElementById("statusFilter");
+            var categorySelect = document.getElementById("categoryFilter");
+            statuses.forEach(function(s) { if(s) { var opt = document.createElement("option"); opt.value = s; opt.innerHTML = s; statusSelect.appendChild(opt); }});
+            categories.forEach(function(c) { if(c) { var opt = document.createElement("option"); opt.value = c; opt.innerHTML = c; categorySelect.appendChild(opt); }});
+        })();
+    </script>
+</body>
+</html>
+"""
+    return html
+
+
+def main():
+    # Default values
+    target_dir = "."
+    output_format = "markdown"
+    fields = ["title", "status", "category", "tags", "created"]
+
+    # Parse arguments
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        arg = args[i]
+        if arg == "-d" or arg == "--dir":
+            target_dir = args[i + 1]
+            i += 2
+        elif arg == "-o" or arg == "--output":
+            output_format = args[i + 1]
+            i += 2
+        elif arg == "-f" or arg == "--fields":
+            fields = args[i + 1].split(",")
+            i += 2
+        elif arg == "-h" or arg == "--help":
+            print(__doc__)
+            sys.exit(0)
+        else:
+            target_dir = arg
+            i += 1
+
+    # Get files and extract data
+    files = get_files(target_dir)
+    data = extract_data(files, fields)
+
+    # Generate output
+    if output_format == "html":
+        html = generate_html_table(data, ["file"] + fields)
+        output_file = Path(target_dir) / "frontmatter-table.html"
+        output_file.write_text(html)
+        print(f"HTML table generated: {output_file}")
+    else:
+        print(f"# Files in {target_dir} ({len(data)} files)\n")
+        print(generate_markdown_table(data, ["file"] + fields))
+
+
+if __name__ == "__main__":
+    main()

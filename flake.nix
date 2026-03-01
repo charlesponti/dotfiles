@@ -43,10 +43,7 @@
           buildInputs = shellPackages;
 
           shellHook = ''
-            export DOTFILES_RUNTIME_MODE="''${DOTFILES_RUNTIME_MODE:-hybrid}"
-            export DOTFILES_PROFILE="''${DOTFILES_PROFILE:-power}"
-            echo "runtime mode: $DOTFILES_RUNTIME_MODE"
-            echo "profile: $DOTFILES_PROFILE"
+            # no profile or runtime environment variables exported by default
           '';
         };
       }

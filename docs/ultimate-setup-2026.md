@@ -23,12 +23,8 @@
 - `just doctor`: environment diagnostics and policy checks.
 - `just perf`: shell and prompt performance checks.
 - `just runtime-check`: hybrid runtime contract verification.
-- `bin/ux-profile.sh <core|power>`: emit profile exports.
 - `bin/workspace-new.sh <name> <template>`: deterministic tmux workspace provisioning.
 
-## Profile Model
-- `core`: minimal and CI-safe.
-- `power`: richer UX while preserving startup budget.
 
 ## Budgets
 - Shell startup p95: `<= 120ms`.

@@ -1,7 +1,23 @@
 # zsh primary shell configuration
 
-DOTFILES_SYSTEM_PATH="$HOME/.dotfiles/system"
-for module in env.zsh settings.zsh aliases.zsh functions.zsh; do
+# make sure bytecode caches exist for our stowed modules. zsh will
+# automatically load the .zwc file instead of reparsing the source when
+# it's newer, so compiling them ahead of time speeds up startup.
+#
+# this duplicate work is also performed by `shell-maintain.sh`; keep the
+# snippet here to guarantee caches are fresh even if you haven't run the
+# maintenance script immediately after editing.  the overhead is a couple of
+# timestamp checks and is negligible in steady state.
+if (( ${+commands[zcompile]} )); then
+  for f in "$HOME/.dotfiles/stow/zsh/system"/*.zsh; do
+    [[ -f "$f" ]] || continue
+    [[ "$f" -nt "${f}c" ]] && zcompile "$f"
+  done
+fi
+
+# directory where stowed zsh config files live
+DOTFILES_SYSTEM_PATH="$HOME/.dotfiles/stow/zsh/system"
+for module in env.zsh settings.zsh aliases.zsh; do
   if [[ -f "$DOTFILES_SYSTEM_PATH/$module" ]]; then
     source "$DOTFILES_SYSTEM_PATH/$module"
   fi

@@ -23,6 +23,3 @@
 - Grouped and cached completion results.
 - Deterministic behavior after `./bin/shell-maintain.sh`.
 
-## Profile Variables
-- `DOTFILES_PROFILE=core|power`
-- `DOTFILES_RUNTIME_MODE=hybrid|nix-heavy|brew-heavy`

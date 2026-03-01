@@ -34,18 +34,6 @@ else
   fail=1
 fi
 
-profile="${DOTFILES_PROFILE:-}"
-runtime_mode="${DOTFILES_RUNTIME_MODE:-}"
-
-case "$profile" in
-  ''|core|power) : ;;
-  *) echo "invalid DOTFILES_PROFILE=$profile"; fail=1 ;;
-esac
-
-case "$runtime_mode" in
-  ''|hybrid|nix-heavy|brew-heavy) : ;;
-  *) echo "invalid DOTFILES_RUNTIME_MODE=$runtime_mode"; fail=1 ;;
-esac
 
 if command -v nix >/dev/null 2>&1; then
   if nix flake show "$HOME/.dotfiles" >/dev/null 2>&1; then

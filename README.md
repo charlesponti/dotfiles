@@ -236,15 +236,9 @@ just setup
 just doctor
 just perf
 just runtime-check
-./bin/ux-profile.sh core --exports
-./bin/ux-profile.sh power --exports
 ./bin/workspace-new.sh myproject power
 ```
 
-Profile env vars:
-
-- `DOTFILES_PROFILE=core|power`
-- `DOTFILES_RUNTIME_MODE=hybrid|nix-heavy|brew-heavy`
 
 ## Core Tools
 

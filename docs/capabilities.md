@@ -12,11 +12,6 @@ This document describes what the new Ultimate 2026+ setup can do in practice.
 - `just runtime-check` validates that both layers are present and coherent.
 - Result: local ergonomics without losing deterministic environments.
 
-## 3) Profile-driven UX modes
-- `./bin/ux-profile.sh core --exports`
-- `./bin/ux-profile.sh power --exports`
-- These map to `DOTFILES_PROFILE` and `DOTFILES_RUNTIME_MODE`.
-- Result: explicit, scriptable behavior switching for shell/automation workflows.
 
 ## 4) High-performance shell interaction
 - Fast zsh startup with measured budget enforcement.
@@ -41,7 +36,7 @@ This document describes what the new Ultimate 2026+ setup can do in practice.
 
 ## 8) Fail-fast integrity checks
 - Plugin lock parity is strict (missing/extra/duplicate entries fail).
-- Runtime verification fails on missing prerequisites or invalid mode variables.
+- Runtime verification fails on missing prerequisites.
 - Health/perf failures are explicit non-zero exits.
 - Result: breakage is detected early, not after workflow drift.
 
@@ -61,7 +56,6 @@ This document describes what the new Ultimate 2026+ setup can do in practice.
 | Health | `just doctor` | System and policy diagnostics |
 | Performance | `just perf` | Startup + prompt budget enforcement |
 | AI tooling | `brew bundle` | `codex` and `opencode` CLI installed |
-| Profile switching | `bin/ux-profile.sh` | Explicit behavior mode exports |
 | Workspace provisioning | `bin/workspace-new.sh` | Deterministic tmux workspace |
 | Recovery | hard reset sequence | Known-good baseline restoration |
 

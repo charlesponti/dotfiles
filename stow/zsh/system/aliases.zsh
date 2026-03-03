@@ -8,20 +8,6 @@ alias reload='source ~/.zshrc'
 # show each component of $PATH on its own line with numbers for readability
 alias path='echo $PATH | tr ":" "\n" | nl -ba'
 
-alias g='git'
-alias gs='git status -sb'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gp='git push'
-alias gpl='git pull --all --prune'
-alias gco='git checkout'
-alias gsw='git switch'
-alias gb='git branch'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gcam='git commit -am'
-alias gstash='git stash'
-alias gstashp='git stash pop'
 
 alias d='docker'
 alias dc='docker compose'

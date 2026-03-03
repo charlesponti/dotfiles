@@ -2,27 +2,48 @@
     excludesfile = ~/.dotfiles/home/.gitignore_global
     editor = code
 [alias]
-    c = commit
-    cn = commit -n
-    co = checkout
-    cob = checkout -b
-    count   = !git shortlog -sn
-    force-amend = !git commit --amend && git push --force
-    fix-pnpm = !git add . && git commit -m 'fix(package) fix pnpm-lock'
-    list-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}'
-    mc = merge --continue
-    p = push
-    pl = pull
-    pl = !git pull --all --prune
-    rhh = !git reset HEAD --hard
-    s = status
-    remove-deleted-branches = !git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
-    squash = !git merge --no-commit --squash
-    stash-index = stash save --keep-index
+    # commit & editing
+    amend = !git commit --amend  # amend then force-push
+    c = commit                      # shorthand for git commit
+    cn = commit -n                  # commit without running hooks
+    ca = commit -a                  # commit all tracked changes
+    cam = commit -am                # commit all with message
+
+    # branch operations
+    sw = switch                     # newer alternate to checkout for branches
+    new = switch -c                 # switch to new branch
+    b = branch                      # list, create, delete branches
+
+
+    # synchronization
+    p = push                        # push to origin
+    pl = pull                       # pull from origin (simple)
+    pl = !git pull --all --prune   # pull all remotes and prune deleted branches
+
+    # status/log/diff
+    s = status                      # show status
+    gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative  # graphical log
+    d = diff                        # show diff
+
+    # merge/reset helpers
+    mc = merge --continue           # continue an in-progress merge
+    rhh = !git reset HEAD --hard    # reset working tree to HEAD cleanly
+    squash = !git merge --no-commit --squash  # prepare squash merge
+
+    # diagnostics/counts
+    count = !git shortlog -sn      # commit counts per author
+
+    # stash shortcuts
+    stash = stash                  # stash current changes
+    stashp = stash pop             # pop latest stash
+    stash-index = stash save --keep-index      # stash but keep index
     stash-index-all = stash save --keep-index --include-untracked
-    list-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}'
-    remove-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D
-    prune-deleted-branches = !git fetch --prune && git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D
+
+    # branch cleanup
+    list-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}'  # branches without upstream
+    remove-deleted-branches = !git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D  # delete those branches
+    prune-deleted-branches = !git fetch --prune && git branch -vv | awk '/: gone]/{print $1}' | xargs -n 1 git branch -D  # fetch then remove
+
 [color]
     diff = auto
     status = auto

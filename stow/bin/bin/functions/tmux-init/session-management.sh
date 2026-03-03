@@ -45,22 +45,39 @@ attach_session() {
 }
 
 # Main tmux initialization logic
+# Accepts two optional positional arguments:
+#   1. session name (defaults to "main")
+#   2. work directory (defaults to ~/Developer if it exists, otherwise $HOME)
 main() {
-    # Verify tmux is installed
+    # parse arguments with reasonable defaults
+    SESSION_NAME="${1:-main}"
+
+    # choose a sensible default work directory
+    if [[ -n "${2:-}" ]]; then
+        WORK_DIR="$2"
+    else
+        if [[ -d "$HOME/Developer" ]]; then
+            WORK_DIR="$HOME/Developer"
+        else
+            WORK_DIR="$HOME"
+        fi
+    fi
+
+    # verify tmux is installed
     check_tmux_installed || exit 1
     
-    # Ensure work directory exists
+    # ensure work directory exists (may create it)
     ensure_work_dir
     
-    # Check if session exists
+    # check if session exists
     if session_exists; then
-        # Attach to existing session
+        # attach to existing session
         attach_session
     else
-        # Create new session
+        # create new session
         create_session
         
-        # If not attached, attach now
+        # if not inside tmux already, attach now
         if [[ -z "${TMUX:-}" ]]; then
             attach_session
         fi

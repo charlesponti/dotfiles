@@ -137,7 +137,8 @@
 		"Write-Host": true,
 		"Write-Output": true,
 		"xargs": false,
-	  "bunx": true,
+		"bunx": true,
+		"openspec": true
 	},
 	"chat.tools.urls.autoApprove": {
 		"https://*.wikipedia.org/*": true,

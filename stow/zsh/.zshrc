@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/charlesponti/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # zsh primary shell configuration
 
 # make sure bytecode caches exist for our stowed modules. zsh will
@@ -92,3 +99,5 @@ source "$HOME/.localrc"
 
 # Add Maestro to PATH
 export PATH=$PATH:$HOME/.maestro/bin
+# bun completions
+[ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"

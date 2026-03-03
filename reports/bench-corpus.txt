@@ -1,6 +1,0 @@
-# label|path
-# Fixed benchmark corpus for deterministic P95 tracking.
-# Primary repositories under ~/Developer (non-archive set).
-small-charlesponti|~/Developer/charlesponti
-medium-estate|~/Developer/estate
-large-hominem|~/Developer/hominem

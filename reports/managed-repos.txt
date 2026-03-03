@@ -1,6 +1,0 @@
-# Managed repository roots for runtime policy checks.
-# One absolute or ~-prefixed path per line.
-# doctor will enforce presence of .tool-versions and .envrc in each existing path.
-~/Developer/charlesponti
-~/Developer/estate
-~/Developer/hominem

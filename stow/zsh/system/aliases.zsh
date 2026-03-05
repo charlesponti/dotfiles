@@ -55,16 +55,16 @@ fi
 # see: https://man.tmux.org/ and the TMUX_GUIDE.md in this repo
 # for more background on tmux session management.
 
-_tmux_auto() {
-  # if the TMUX variable is set we are already in a session; just proxy
-  # the command so that nested invocations still create windows/panes as
-  # expected.
-  if [[ -n "$TMUX" ]]; then
-    command tmux "$@"
-  else
-    # try to re‑attach; if that fails (no sessions) create a new one using
-    # whatever arguments were supplied.
-    command tmux attach "$@" 2>/dev/null || command tmux new-session "$@"
-  fi
-}
-alias tmux='_tmux_auto'
+# _tmux_auto() {
+#   # if the TMUX variable is set we are already in a session; just proxy
+#   # the command so that nested invocations still create windows/panes as
+#   # expected.
+#   if [[ -n "$TMUX" ]]; then
+#     command tmux "$@"
+#   else
+#     # try to re‑attach; if that fails (no sessions) create a new one using
+#     # whatever arguments were supplied.
+#     command tmux attach "$@" 2>/dev/null || command tmux new-session "$@"
+#   fi
+# }
+# alias tmux='_tmux_auto'

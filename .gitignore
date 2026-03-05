@@ -25,6 +25,7 @@ npm-debug.log*
 
 # misc
 .DS_Store
+.stow-global-ignore
 .vscode
 .idea
 .gitconfig.local

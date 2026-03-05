@@ -114,6 +114,11 @@ cask "rectangle" # Window management
 cask "the-unarchiver"
 
 # -------------------------
+# Fonts
+# -------------------------
+cask "font-sf-mono-nerd-font-ligaturized"
+
+# -------------------------
 # Development utilities (GUI)
 # -------------------------
 cask "ghostty"

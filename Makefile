@@ -61,8 +61,6 @@ resource-scan: ## Print memory/swap/thermal resource telemetry snapshot
 resource-guard: ## Fail if resource pressure exceeds thresholds
 	./bin/resource-guard.sh
 
-
-
 shell-audit: ## Audit shell command surface and required aliases/functions
 	./bin/shell-surface-audit.sh
 

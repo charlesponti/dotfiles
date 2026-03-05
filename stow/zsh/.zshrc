@@ -99,5 +99,6 @@ source "$HOME/.localrc"
 
 # Add Maestro to PATH
 export PATH=$PATH:$HOME/.maestro/bin
+
 # bun completions
 [ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"

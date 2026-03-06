@@ -1,0 +1,76 @@
+# =============================================================================
+# Ghostty Configuration
+# XDG-compliant config in ~/.config/ghostty/
+# =============================================================================
+
+# =============================================================================
+# Appearance - Apple-Inspired Minimalist Theme
+# =============================================================================
+
+# Font
+font-family = SF Mono
+font-size = 12
+
+# Colors: Native macOS palette
+background = #1d1d1d
+foreground = #f5f5f7
+cursor-color = #007aff
+cursor-text = #1d1d1d
+
+# Selection
+selection-background = #007aff
+selection-foreground = #1d1d1d
+
+# ANSI Colors (Apple-inspired)
+palette = 0=#5e5e5e
+palette = 1=#ff3b30
+palette = 2=#34c759
+palette = 3=#ff9500
+palette = 4=#007aff
+palette = 5=#af52de
+palette = 6=#00c7d4
+palette = 7=#a1a1a6
+palette = 8=#8e8e93
+palette = 9=#ff453a
+palette = 10=#32de3a
+palette = 11=#ffa453
+palette = 12=#0a84ff
+palette = 13=#bf5af0
+palette = 14=#30b0c0
+palette = 15=#f5f5f7
+
+# =============================================================================
+# Window & Behavior
+# =============================================================================
+
+# Window decoration (minimal)
+window-decoration = false
+macos-titlebar-style = transparent
+
+# Padding
+padding = 12x8
+
+# Tab bar
+tab-bar-style = compact
+tab-title-template = {{ index .Tabs .ActiveIdx | add 1 }}: {{ .Title }}
+
+# Custom shader (optional, for visual polish)
+custom-shader = ~/.config/ghostty/shader.glsl
+
+# =============================================================================
+# Performance & Features
+# =============================================================================
+
+# Graphics/rendering
+unfocused-split-opacity = 0.8
+
+# Keybinds - minimal set (let tmux handle most)
+# Override defaults only as needed
+keybind = super+comma=open_config
+
+# =============================================================================
+# Shell Integration (optional, for advanced features)
+# =============================================================================
+
+# Uncomment to enable shell integration bells/notifications
+# shell-integration = true

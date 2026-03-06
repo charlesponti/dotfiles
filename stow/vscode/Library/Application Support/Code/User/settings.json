@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Ayu Mirage Bordered",
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "git.path": "/usr/bin/git",
@@ -13,8 +13,29 @@
         "scminput": false
     },
     "chat.tools.global.autoApprove": true,
-    "chat.viewSessions.orientation": "stacked",
     "makefile.configureOnOpen": true,
     "explorer.confirmDelete": false,
-    "workbench.secondarySideBar.showLabels": false
+    "workbench.secondarySideBar.showLabels": false,
+    "docker.extension.enableComposeLanguageServer": false,
+    "editor.accessibilitySupport": "off",
+    "workbench.iconTheme": "ayu",
+    "svelte.enable-ts-plugin": true,
+    "git.autofetch": true,
+    "editor.fontFamily": "SF Mono",
+    "editor.codeLensFontFamily": "SF Mono",
+    "editor.inlayHints.fontFamily": "SF Mono",
+    "editor.inlineSuggest.fontFamily": "SF Mono",
+    "chat.editor.fontFamily": "SF Mono",
+    "chat.fontFamily": "SF Compact",
+    "debug.console.fontFamily": "SF Mono",
+    "scm.inputFontFamily": "SF Compact",
+    "terminal.integrated.fontFamily": "SF Mono",
+    "notebook.markup.fontFamily": "SF Mono",
+    "gitlens.currentLine.fontFamily": "SF Mono",
+    "gitlens.blame.fontFamily": "SF Mono",
+    "markdown.preview.fontFamily": "SF Mono",
+    "workbench.activityBar.location": "bottom",
+    "workbench.browser.enableChatTools": true,
+    "workbench.browser.openLocalhostLinks": true,
+    "chat.viewSessions.orientation": "stacked"
 }

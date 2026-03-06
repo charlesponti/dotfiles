@@ -1,5 +1,6 @@
 [core]
-    excludesfile = ~/.dotfiles/home/.gitignore_global
+    # the global ignore file is stowed alongside the git config
+    excludesfile = ~/.dotfiles/stow/git/.gitignore_global
     editor = code
 [alias]
     # commit & editing

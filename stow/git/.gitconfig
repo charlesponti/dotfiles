@@ -1,6 +1,9 @@
 [include]
-    path = ~/.dotfiles/home/.gitconfig.base
-    path = ~/.dotfiles/home/.gitconfig.local
+    # When this file is stowed the actual location of the
+    # base/local files is inside the stow package itself.
+    # Use paths that exist after stow runs so Git can load them.
+    path = ~/.dotfiles/stow/git/.gitconfig.base
+    path = ~/.dotfiles/stow/git/.gitconfig.local
 
 [user]
 	name = Charles Ponti

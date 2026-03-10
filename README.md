@@ -21,11 +21,13 @@ Take and customize to your liking 💁
 ├── stow/            # Stow packages (symlinked to ~/)
 │   ├── zsh/         # Shell configuration
 │   ├── git/         # Git configuration
+│   ├── ghostty/     # Terminal
 │   ├── tmux/        # Tmux configuration
 │   ├── starship/    # Starship prompt config
 │   ├── vim/         # Vim configuration
 │   ├── vscode/      # VS Code configuration
 │   ├── zed/         # Zed editor configuration
+│   ├── raycast/     # Raycast app settings (~/.raycast)
 │   └── bin/         # Utility scripts
 └── docs/            # Documentation
 ```
@@ -96,7 +98,7 @@ The repository includes a `Makefile` for easy management:
 
 - `make help`: Show available commands
 - `make update`: Update dotfiles and packages
-- `make symlinks`: Refresh symlinks
+- `make symlinks`: Refresh symlinks (remember to include new `raycast` package when needed)
 - `make status`: Show dotfiles status overview
 - `make doctor`: Run system health check
 

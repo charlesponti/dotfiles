@@ -37,3 +37,4 @@ reports/bench/*.json
 
 # tmux plugin manager
 .tmux/plugins/
+*.mdb

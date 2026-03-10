@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# make sure we can see binaries installed in ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# determine repo root (four levels above this script) and script dir
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+
 ANTIBODY_PLUGINS="$ROOT_DIR/stow/zsh/antibody-plugins.txt"
 ANTIBODY_LOCK="$ROOT_DIR/stow/zsh/antibody-plugins.lock"
 ANTIBODY_BUNDLE="$HOME/.local/share/antibody/bundle.zsh"
@@ -23,6 +28,44 @@ LOCK_JOINED="$TMP_DIR/joined.txt"
 # Source functions
 source "$SCRIPT_DIR/functions/common/messaging.sh"
 source "$SCRIPT_DIR/functions/shell-maintain/antibody.sh"
+
+# make sure antibody is available before trying to use it
+install_antibody_if_missing() {
+  if command -v antibody >/dev/null 2>&1; then
+    return 0
+  fi
+
+  echo "🔧 antibody not found; attempting to install..."
+  if command -v brew >/dev/null 2>&1; then
+    brew install getantibody/tap/antibody >/dev/null 2>&1 || brew install antibody >/dev/null 2>&1 || true
+  fi
+
+  if ! command -v antibody >/dev/null 2>&1; then
+    mkdir -p "$HOME/.local/bin"
+    TMP_ARCHIVE="/tmp/antibody.tar.gz"
+    TMP_DIR="/tmp/antibody-extract"
+    ARCH="$(uname -m)"
+    if [[ "$ARCH" == "arm64" || "$ARCH" == "aarch64" ]]; then
+      curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_arm64.tar.gz" -o "$TMP_ARCHIVE" \
+        || curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" \
+        || true
+    else
+      curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" || true
+    fi
+    if [[ -f "$TMP_ARCHIVE" ]]; then
+      rm -rf "$TMP_DIR"
+      mkdir -p "$TMP_DIR"
+      if tar -xzf "$TMP_ARCHIVE" -C "$TMP_DIR" >/dev/null 2>&1 && [[ -f "$TMP_DIR/antibody" ]]; then
+        cp "$TMP_DIR/antibody" "$HOME/.local/bin/antibody"
+        chmod +x "$HOME/.local/bin/antibody"
+      fi
+    fi
+  fi
+}
+
+install_antibody_if_missing
+# make sure newly-installed tools are discoverable
+hash -r
 
 if command -v antibody >/dev/null 2>&1 && [[ -f "$ANTIBODY_PLUGINS" ]]; then
   if [[ -f "$ANTIBODY_LOCK" ]]; then

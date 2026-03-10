@@ -24,6 +24,23 @@ alias py='python3'
 alias pip='pip3'
 alias venv='python3 -m venv'
 
+# frequently used long commands from history
+alias pgstart='brew services start postgresql'   # start/stop Postgres quickly
+alias pgstop='brew services stop postgresql'
+alias pgstatus='brew services list | grep postgresql'
+
+alias make-dev='make dev-up'                      # project bootstrap
+alias brun='bun run'                              # shorter bun runner
+alias brd='bun run dev'
+alias brdb='bun run build:dev'
+
+# helper to commit everything with a message
+# usage: gcm "fix xyz"
+gcm() { git add --all && git commit -m "$*"; }
+
+# open current directory in VS Code (history had `code labs` etc.)
+alias code='code .'
+
 if command -v eza >/dev/null 2>&1; then
   alias l='eza -la --group-directories-first --git'
   alias ls='eza --group-directories-first'

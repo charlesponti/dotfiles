@@ -117,7 +117,7 @@ fi
 # 3. Create Symlinks using GNU Stow
 informer "🔗 Creating symlinks with GNU Stow..."
 cd "$DOTFILES_DIR"
-stow -v -t ~ -d stow zsh git tmux starship vim vscode zed bin
+stow -v -t ~ -d stow zsh git tmux starship vim vscode zed raycast bin
 
 # 4. Create essential directories
 informer "📁 Creating essential directories..."

@@ -6,7 +6,7 @@ CORE_PATH_PARTS=(
   "/opt/homebrew/sbin"
   "/usr/local/bin"
   "/usr/local/sbin"
-  "/usr/local/opt/postgresql@18/bin"
+  "/opt/homebrew/opt/postgresql@18/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
   "$HOME/.local/bin"
@@ -33,11 +33,17 @@ if [[ -n "${PATH:-}" ]]; then
     [[ -d "$candidate" ]] && path+=("$candidate")
   done
 fi
-export PATH
+
+# the original code mistakenly exported an empty PATH and then
+# replaced it with CORE_PATH_BASE, effectively discarding the
+# computed list; use the assembled variable instead
+export PATH="${(j/:/)path}"
 unset _existing_path candidate
 
 export CORE_PATH_BASE="$(IFS=:; echo "${CORE_PATH_PARTS[*]}")"
-export PATH="$CORE_PATH_BASE"
+# keep CORE_PATH_BASE for reference but PATH should reflect the
+# filtered/combined list above
+
 export NIX_CONFIG="extra-experimental-features = nix-command flakes"
 export EDITOR="code"
 export VISUAL="code"

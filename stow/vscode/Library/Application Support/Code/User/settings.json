@@ -1,17 +1,10 @@
 {
-    "workbench.colorTheme": "Ayu Mirage Bordered",
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "git.path": "/usr/bin/git",
     "python.defaultInterpreterPath": "",
     "python.venvPath": "${workspaceFolder}/.venv",
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
     "chat.tools.global.autoApprove": true,
     "makefile.configureOnOpen": true,
     "explorer.confirmDelete": false,
@@ -37,5 +30,12 @@
     "workbench.activityBar.location": "bottom",
     "workbench.browser.enableChatTools": true,
     "workbench.browser.openLocalhostLinks": true,
-    "chat.viewSessions.orientation": "stacked"
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Ayu Light Bordered",
+    "explorer.confirmDragAndDrop": false,
+    "chat.editing.confirmEditRequestRemoval": false,
+    "chat.viewSessions.orientation": "stacked",
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }

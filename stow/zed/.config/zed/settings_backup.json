@@ -6,9 +6,6 @@
     "tree_view": false
   },
   "agent_servers": {
-    "github-copilot-cli": {
-      "type": "registry"
-    },
     "opencode": {
       "favorite_models": ["github-copilot/gpt-5-mini", "opencode/claude-haiku-4-5"],
       "type": "registry"
@@ -28,7 +25,7 @@
   "base_keymap": "VSCode",
   "ui_font_size": 16,
   "buffer_font_size": 13,
-  "buffer_font_family": "SF Mono",
+  "buffer_font_family": "LigaSFMonoNerdFont",
   "buffer_font_weight": 350,
   "buffer_line_height": "comfortable",
   "tab_size": 2,
@@ -323,9 +320,9 @@
     ],
     "always_allow_tool_actions": true,
     "default_model": {
-      "enable_thinking": false,
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5"
+      "enable_thinking": true,
+      "provider": "openrouter",
+      "model": "anthropic/claude-haiku-4.5"
     }
   },
   "telemetry": {

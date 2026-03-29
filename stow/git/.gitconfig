@@ -6,8 +6,6 @@
     path = ~/.dotfiles/stow/git/.gitconfig.local
 
 [user]
-	name = Charles Ponti
-	email = 1757624+charlesponti@users.noreply.github.com
 [init]
 	defaultBranch = main
 [filter "lfs"]

@@ -5,9 +5,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 dotfiles_root="$(cd "$script_dir/../../.." && pwd)"
 
 required_scripts=(
-  doctor.sh
   bench-shell.sh
-  prompt-bench.sh
   runtime-verify.sh
   shell-surface-audit.sh
   status.sh

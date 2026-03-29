@@ -9,11 +9,10 @@ setup:
     ./bin/runtime-verify.sh
 
 doctor:
-    ./bin/doctor.sh
+    ./bin/status.sh health
 
 perf:
     ./bin/bench-shell.sh --runs 20
-    ./bin/prompt-bench.sh 30
 
 runtime-check:
     ./bin/runtime-verify.sh
@@ -24,6 +23,27 @@ brew-sync:
 
 snapshot-baseline:
     ./bin/snapshot-baseline.sh
+
+install:
+    ./install.sh
+
+bootstrap:
+    ./install.sh --bootstrap
+
+update:
+    ./update.sh
+
+symlinks:
+    ./bin/symlinks.sh
+
+status:
+    ./bin/status.sh
+
+lint:
+    ./bin/lint.sh
+
+shell-audit:
+    ./bin/shell-surface-audit.sh
 
 bench-shell:
     ./bin/bench-shell.sh

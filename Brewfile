@@ -29,6 +29,7 @@ brew "jq" # Command-line JSON processor
 brew "ripgrep" # Fast search tool
 brew "shellcheck" # Static analysis tool for shell scripts
 brew "stow" # Symlink farm manager for dotfiles
+brew "sheldon" # Fast shell plugin manager
 brew "tldr" # Better man pages
 brew "tree" # Directory tree visualizer
 brew "trash" # Safe rm replacement

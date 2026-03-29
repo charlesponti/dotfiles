@@ -1,24 +1,4 @@
-# `fpath` is the array of directories that zsh searches for completion functions. By adding
-# the custom completions directory from oh-my-zsh, we can use any completions defined there.
-fpath=("$HOME/.oh-my-zsh/custom/completions" $fpath)
-
-
 # zsh primary shell configuration
-
-# make sure bytecode caches exist for our stowed modules. zsh will
-# automatically load the .zwc file instead of reparsing the source when
-# it's newer, so compiling them ahead of time speeds up startup.
-#
-# this duplicate work is also performed by `shell-maintain.sh`; keep the
-# snippet here to guarantee caches are fresh even if you haven't run the
-# maintenance script immediately after editing.  the overhead is a couple of
-# timestamp checks and is negligible in steady state.
-if (( ${+commands[zcompile]} )); then
-  for f in "$HOME/.dotfiles/stow/zsh/system"/*.zsh; do
-    [[ -f "$f" ]] || continue
-    [[ "$f" -nt "${f}c" ]] && zcompile "$f"
-  done
-fi
 
 # directory where stowed zsh config files live
 DOTFILES_SYSTEM_PATH="$HOME/.dotfiles/stow/zsh/system"
@@ -42,7 +22,9 @@ if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
 
-[[ -f "$HOME/.local/share/antibody/bundle.zsh" ]] && source "$HOME/.local/share/antibody/bundle.zsh"
+if (( $+commands[sheldon] )); then
+  eval "$(sheldon source)"
+fi
 
 export FAST_WORK_DIR="$HOME/.config/fsh"
 # fast-theme is idempotent once activated; run it manually when the overlay
@@ -108,7 +90,3 @@ export PATH=$PATH:$HOME/.maestro/bin
 
 # bun completions
 [[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
-
-export PATH="/opt/homebrew/opt/postgresql@18/bin:/opt/homebrew/opt/libpq/bin:$PATH"
-export CPPFLAGS="-I$(/opt/homebrew/opt/postgresql@18/bin/pg_config --includedir)"
-export LDFLAGS="-L$(/opt/homebrew/opt/postgresql@18/bin/pg_config --libdir)"

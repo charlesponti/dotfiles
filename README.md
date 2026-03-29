@@ -9,7 +9,7 @@ Take and customize to your liking 💁
 ## Features
 
 - 🚀 [Starship](https://starship.rs/) prompt tuned for low startup latency
-- ⚡ [Antibody](https://getantibody.github.io/) as the single plugin manager with a precompiled bundle
+- ⚡ [sheldon](https://sheldon.cli.rs/) as the plugin manager with a generated lockfile
 - 🔍 Enhanced Git workflow with custom aliases and functions
 - 🛠️ Development tools setup (Node.js, Python, Docker, etc.)
 - 💻 VS Code and Zed editor configurations
@@ -94,15 +94,15 @@ curl -s https://raw.githubusercontent.com/charlesponti/dotfiles/main/install.sh 
 
 ## Maintenance
 
-The repository includes a `Makefile` for easy management:
+The repository includes a `justfile` for easy management:
 
-- `make help`: Show available commands
-- `make update`: Update dotfiles and packages
-- `make symlinks`: Refresh symlinks (remember to include new `raycast` package when needed)
-- `make status`: Show dotfiles status overview
-- `make doctor`: Run system health check
+- `just --list`: Show available commands
+- `just update`: Update dotfiles and packages
+- `just symlinks`: Refresh symlinks (remember to include new `raycast` package when needed)
+- `just status`: Show dotfiles status overview
+- `just doctor`: Run system health check
 
-- `./bin/shell-maintain.sh`: Regenerate the antibody bundle, enforce plugin lock pins, regenerate zcompdump cache, and compile zsh modules
+- `./bin/shell-maintain.sh`: Regenerate sheldon plugin state, refresh zcompdump cache, and compile zsh modules
 - `./bin/tmux-maintain.sh`: Install TPM if missing and run non-interactive tmux plugin install/update
 - `./bin/bench-shell.sh`: Measure interactive startup (`zsh -i -c exit`) and enforce the latency budget
 
@@ -114,8 +114,8 @@ The repository includes a `Makefile` for easy management:
   - `make <target>`
   - `just <recipe>`
 - Core diagnostics and benchmarking targets are implemented via `./bin/*.sh` and do not require any non-POSIX shell.
-- Plugin source of truth is `stow/zsh/antibody-plugins.txt`, pinned commits live in `stow/zsh/antibody-plugins.lock`, and generated output is `~/.local/share/antibody/bundle.zsh`.
-- `./bin/shell-maintain.sh` now enforces strict plugin/lock parity: no missing lock entries, no extra lock entries, no duplicates.
+- Plugin source of truth is `stow/zsh/.config/sheldon/plugins.toml`, and the generated lockfile is `stow/zsh/.config/sheldon/plugins.lock`.
+- `./bin/shell-maintain.sh` now refreshes sheldon state and zsh completion caches.
 - `compinit -i` is used for startup stability and ignores insecure completion directory warnings; keep `fpath` trusted and refresh with `./bin/shell-maintain.sh`.
 - `DOTFILES_ENABLE_MISE_HOOK=1` enables the full `mise` shell hook; default startup path uses `mise` shims only for faster prompt time.
 
@@ -206,7 +206,7 @@ Thank you for helping keep secrets out of the repository — these checks are in
 
 ### Health Check
 ```bash
-./bin/doctor.sh
+just doctor
 ```
 
 ### Install New Apps from Brewfile
@@ -245,7 +245,7 @@ just runtime-check
 ## Core Tools
 
 - **Package Management**: Homebrew with Brewfile
-- **Shell**: Zsh with a performance-tuned Starship prompt, Antibody bundle, and cached zsh completions
+- **Shell**: Zsh with a performance-tuned Starship prompt, sheldon-managed plugins, and cached zsh completions
 - **Version Control**: Git with enhanced aliases and GitHub CLI
 - **Development**: Node.js, Python 3, Docker
 - **Editors**: VS Code, Zed (optional)

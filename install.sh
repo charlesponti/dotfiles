@@ -125,42 +125,16 @@ mkdir -p "$HOME/Developer"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
 
-# Ensure antibody (plugin manager) is installed
-if ! command -v antibody >/dev/null 2>&1; then
-    log "Installing antibody plugin manager..."
+# Ensure sheldon is installed and materialize the plugin lock if available.
+if ! command -v sheldon >/dev/null 2>&1; then
+    log "Installing sheldon plugin manager..."
     if command -v brew >/dev/null 2>&1; then
-        brew install getantibody/tap/antibody >/dev/null 2>&1 || brew install antibody >/dev/null 2>&1 || true
-    fi
-
-    # Fallback to direct binary download if antibody is still unavailable.
-    if ! command -v antibody >/dev/null 2>&1; then
-        mkdir -p "$HOME/.local/bin"
-        TMP_ARCHIVE="/tmp/antibody.tar.gz"
-        TMP_DIR="/tmp/antibody-extract"
-        ARCH="$(uname -m)"
-        if [[ "$ARCH" == "arm64" || "$ARCH" == "aarch64" ]]; then
-            curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_arm64.tar.gz" -o "$TMP_ARCHIVE" \
-              || curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" \
-              || true
-        else
-            curl -fsSL "https://github.com/getantibody/antibody/releases/latest/download/antibody_Darwin_x86_64.tar.gz" -o "$TMP_ARCHIVE" || true
-        fi
-        if [[ -f "$TMP_ARCHIVE" ]]; then
-            rm -rf "$TMP_DIR"
-            mkdir -p "$TMP_DIR"
-            if tar -xzf "$TMP_ARCHIVE" -C "$TMP_DIR" >/dev/null 2>&1 && [[ -f "$TMP_DIR/antibody" ]]; then
-                cp "$TMP_DIR/antibody" "$HOME/.local/bin/antibody"
-                chmod +x "$HOME/.local/bin/antibody"
-            fi
-        fi
+        brew install sheldon
     fi
 fi
 
-# Build antibody bundle from plugin list (if available)
-ANTIBODY_BUNDLE="$HOME/.local/share/antibody/bundle.zsh"
-mkdir -p "$(dirname "$ANTIBODY_BUNDLE")"
-if command -v antibody >/dev/null 2>&1 && [[ -f "$DOTFILES_DIR/stow/zsh/antibody-plugins.txt" ]]; then
-    antibody bundle < "$DOTFILES_DIR/stow/zsh/antibody-plugins.txt" > "$ANTIBODY_BUNDLE" || true
+if command -v sheldon >/dev/null 2>&1 && [[ -f "$DOTFILES_DIR/stow/zsh/.config/sheldon/plugins.toml" ]]; then
+    sheldon lock --update
 fi
 
 # 5. Final Setup

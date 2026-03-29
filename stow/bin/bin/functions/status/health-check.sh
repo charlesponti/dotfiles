@@ -39,15 +39,6 @@ show_health() {
     fi
 
     echo
-    echo "Doctor:"
-    if "$HOME/.dotfiles/bin/doctor.sh" >/dev/null 2>&1; then
-        echo -e "${GREEN}✓${NC} Doctor checks passed"
-    else
-        echo -e "${RED}✗${NC} Doctor checks failed"
-        ((ERRORS++))
-    fi
-    
-    echo
     echo "Git Configuration:"
     if git config user.name >/dev/null 2>&1; then
         echo -e "${GREEN}✓${NC} Git user name is set: $(git config user.name)"

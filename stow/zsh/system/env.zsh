@@ -40,10 +40,6 @@ fi
 export PATH="${(j/:/)path}"
 unset _existing_path candidate
 
-export CORE_PATH_BASE="$(IFS=:; echo "${CORE_PATH_PARTS[*]}")"
-# keep CORE_PATH_BASE for reference but PATH should reflect the
-# filtered/combined list above
-
 export NIX_CONFIG="extra-experimental-features = nix-command flakes"
 export EDITOR="code"
 export VISUAL="code"

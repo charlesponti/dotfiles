@@ -5,9 +5,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 dotfiles_root="$(cd "$script_dir/../../.." && pwd)"
 
 required_scripts=(
-  doctor.sh
   bench-shell.sh
-  prompt-bench.sh
   runtime-verify.sh
   shell-surface-audit.sh
   status.sh
@@ -27,7 +25,7 @@ done
 zsh -f -i -c '
   source "$0/stow/zsh/.zshrc" >/dev/null 2>&1
 
-  required_aliases=(reload path make-dev brun brd)
+  required_aliases=(reload path brun rm)
   for name in "${required_aliases[@]}"; do
     if ! alias "$name" >/dev/null 2>&1; then
       print -u2 "Missing alias: $name"

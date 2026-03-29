@@ -18,6 +18,7 @@ REQUIRED_PATH=(
   "$HOME/.dotfiles/bin"
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
+  "/opt/homebrew/opt/perl/bin"
   "/usr/local/bin"
   "/usr/local/sbin"
   "/usr/local/opt/python@3.12/libexec/bin"

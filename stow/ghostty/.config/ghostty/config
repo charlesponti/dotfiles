@@ -1,5 +1,5 @@
 # =============================================================================
-# Ghostty Configuration - Apple Design System
+# Ghostty Configuration - Light Mode with Apple System Colors
 # XDG-compliant config in ~/.config/ghostty/
 # =============================================================================
 
@@ -17,29 +17,35 @@ font-size = 14
 # font-family-bold-italic = SF Mono Bold Italic
 
 # =============================================================================
-# LIGHT MODE (Default) - Apple System Colors
+# Hardcore High‑Contrast Light Theme (Apple System Colors)
 # =============================================================================
 
-background = #f5f5f7
-foreground = #1d1d1d
-cursor-color = #007aff
+# Maximum contrast: pure black text on pure white background
+background = #ffffff
+foreground = #000000
+
+# Make the cursor extremely visible (red on white)
+cursor-color = #ff3b30
+# Keep the cursor text dark so it never disappears
 cursor-text = #000000
 
-# Selection: Blue accent
+# High‑contrast selection (blue fill, white text)
 selection-background = #007aff
-selection-foreground = #f5f5f7
+selection-foreground = #ffffff
 
-# ANSI Colors (Apple System Colors - Light optimized)
-# WCAG AA Compliant: All colors tested for 4.5:1+ contrast ratio on #f5f5f7 background
-palette = 0=#5a5a5f
-palette = 1=#d70015
-palette = 2=#248a3d
-palette = 3=#8b4107
-palette = 4=#0051d5
-palette = 5=#5a2a9f
-palette = 6=#004d63
-palette = 7=#1d1d1d
-palette = 8=#6a6a70
+# ANSI Colors - Apple System Colors palette (high-contrast tweaks)
+# These are mapped to ensure no “dim” or “bright black” text becomes hard to read.
+# Use pure black for both standard and bright black for maximum contrast.
+palette = 0=#000000
+palette = 1=#ff3b30
+palette = 2=#34c759
+palette = 3=#ff9500
+palette = 4=#007aff
+palette = 5=#af52de
+palette = 6=#00c7d4
+# Use solid black for ANSI bright white to avoid invisibility on white bg.
+palette = 7=#000000
+palette = 8=#000000
 palette = 9=#ff3b30
 palette = 10=#34c759
 palette = 11=#ff9500
@@ -48,18 +54,47 @@ palette = 13=#af52de
 palette = 14=#00c7d4
 palette = 15=#000000
 
+# Force the 256-color gray ramp to be dark so any “dim”/“faint” text remains readable.
+# This covers common prompt themes that use 244–255 for low-contrast status info.
+palette = 232=#000000
+palette = 233=#000000
+palette = 234=#000000
+palette = 235=#000000
+palette = 236=#000000
+palette = 237=#000000
+palette = 238=#000000
+palette = 239=#000000
+palette = 240=#000000
+palette = 241=#000000
+palette = 242=#000000
+palette = 243=#000000
+palette = 244=#000000
+palette = 245=#000000
+palette = 246=#000000
+palette = 247=#000000
+palette = 248=#000000
+palette = 249=#000000
+palette = 250=#000000
+palette = 251=#000000
+palette = 252=#000000
+palette = 253=#000000
+palette = 254=#000000
+palette = 255=#000000
 
 
 # =============================================================================
 # Window & Behavior - Minimal Apple Aesthetic
 # =============================================================================
 
-# Window decoration - use client for native titlebar (allows window movement)
+# Window decoration - maximize contrast / reduce distraction
 window-decoration = client
 macos-titlebar-style = transparent
+# Hardcore mode: fully opaque solid background
+background-opacity = 1.0
+background-blur-radius = 0
 
-# Make unfocused splits subtle (60% opacity)
-unfocused-split-opacity = 0.6
+# Keep splits fully visible (no fading) for maximum contrast
+unfocused-split-opacity = 1.0
 
 # macOS-specific: Use Option key as Alt (common in terminals)
 # Uncomment if needed:
@@ -69,8 +104,7 @@ unfocused-split-opacity = 0.6
 # Visual Effects & Polish
 # =============================================================================
 
-# No custom shader - Apple design principle: minimize unnecessary effects
-# Focus on typography and color clarity
+# The screenshot look depends more on translucency than heavy shader effects.
 
 # =============================================================================
 # Keyboard Shortcuts - Minimal Override

@@ -42,7 +42,10 @@ check_symlink() {
     if [[ -L "$file" ]]; then
         local target
         target=$(readlink "$file")
-        if [[ -f "$target" ]]; then
+        if [[ "$target" != /* ]]; then
+            target="$(cd "$(dirname "$file")" && pwd)/$target"
+        fi
+        if [[ -e "$target" ]]; then
             echo -e "${GREEN}✓${NC} $description"
         else
             echo -e "${YELLOW}⚠${NC} $description (broken symlink: $target)"

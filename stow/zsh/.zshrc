@@ -1,9 +1,7 @@
-# OPENSPEC:START
-# OpenSpec shell completions configuration
-fpath=("/Users/charlesponti/.oh-my-zsh/custom/completions" $fpath)
-autoload -Uz compinit
-compinit
-# OPENSPEC:END
+# `fpath` is the array of directories that zsh searches for completion functions. By adding
+# the custom completions directory from oh-my-zsh, we can use any completions defined there.
+fpath=("$HOME/.oh-my-zsh/custom/completions" $fpath)
+
 
 # zsh primary shell configuration
 
@@ -44,12 +42,20 @@ if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
 
-if [[ -f "$HOME/.local/share/antibody/bundle.zsh" ]]; then
-  source "$HOME/.local/share/antibody/bundle.zsh"
-fi
+[[ -f "$HOME/.local/share/antibody/bundle.zsh" ]] && source "$HOME/.local/share/antibody/bundle.zsh"
+
+export FAST_WORK_DIR="$HOME/.config/fsh"
+# fast-theme is idempotent once activated; run it manually when the overlay
+# changes rather than on every shell startup (it also prints style errors).
 
 autoload -Uz compinit
-compinit -i -d "$HOME/.zcompdump"
+# Only rebuild the completion dump when it is older than 20 hours, saving the
+# full fpath scan on every interactive shell open.
+if [[ -n $HOME/.zcompdump(#qN.mh+20) ]]; then
+  compinit -i -d "$HOME/.zcompdump"
+else
+  compinit -C -i -d "$HOME/.zcompdump"
+fi
 
 mkdir -p "$HOME/.cache/zsh"
 zstyle ':completion:*' use-cache on
@@ -95,10 +101,14 @@ else
 fi
 
 # Load local customizations
-source "$HOME/.localrc"
+[[ -f "$HOME/.localrc" ]] && source "$HOME/.localrc"
 
 # Add Maestro to PATH
 export PATH=$PATH:$HOME/.maestro/bin
 
 # bun completions
-[ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"
+[[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
+
+export PATH="/opt/homebrew/opt/postgresql@18/bin:/opt/homebrew/opt/libpq/bin:$PATH"
+export CPPFLAGS="-I$(/opt/homebrew/opt/postgresql@18/bin/pg_config --includedir)"
+export LDFLAGS="-L$(/opt/homebrew/opt/postgresql@18/bin/pg_config --libdir)"

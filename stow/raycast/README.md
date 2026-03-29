@@ -29,3 +29,16 @@ chmod +x ~/.raycast/scripts/*.sh
 The sample scripts contain static dropdowns; if you’d rather have
 devices listed dynamically (works when you plug things in/out), edit
 or replace the scripts accordingly.
+
+### Dotfiles script commands
+
+Available commands in `.raycast/scripts/`:
+
+* `dotfiles-status.sh` – one command with a Raycast dropdown for `summary`, `health`, `help`, or `dashboard`
+* `dotfiles-shell-maintain.sh`
+* `dotfiles-tmux-maintain.sh`
+* `dotfiles-resource-scan.sh`
+* `dotfiles-resource-guard.sh`
+
+You can override command discovery with `DOTFILES_BIN_DIR`, and you can
+override the checkout fallback path with `DOTFILES`.

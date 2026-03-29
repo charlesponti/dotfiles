@@ -2,7 +2,7 @@
 
 format = "$directory$git_branch$git_status$mise$status$cmd_duration$jobs$line_break$character"
 add_newline = false
-command_timeout = 150
+command_timeout = 800 # increased to avoid git timeout in huge repos like hominem
 scan_timeout = 20
 
 [username]
@@ -24,24 +24,24 @@ read_only = " [ro]"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = "・"
+symbol = "🪾 "
 style = "fg:245"
 format = "[$symbol$branch]($style) "
 
 [git_status]
 disabled = false
-format = "[$staged$modified$untracked$renamed$deleted$conflicted$stashed$ahead_behind]($style) "
+format = "[ $staged$modified$untracked$renamed$deleted$conflicted$stashed$ahead_behind ]($style) "
 style = "fg:245"
-conflicted = "[=${count}](fg:175) "
-ahead = "[⇡${count}](fg:114) "
-behind = "[⇣${count}](fg:117) "
-diverged = "[⇕](fg:145)[⇡${ahead_count}](fg:114)[⇣${behind_count}](fg:117) "
-untracked = "[?${count}](fg:110) "
-stashed = "[*${count}](fg:139) "
-modified = "[!${count}](fg:180) "
-staged = "[+${count}](fg:108) "
-renamed = "[»${count}](fg:146) "
-deleted = "[x${count}](fg:174) "
+conflicted = "[⚡ ${count}](fg:175) "
+ahead = "[↑ ${count}](fg:114) "
+behind = "[↓ ${count}](fg:117) "
+diverged = "[⇕](fg:145)[↑ ${ahead_count}](fg:114)[↓ ${behind_count}](fg:117) "
+untracked = "[⊘ ${count}](fg:110) "
+stashed = "[❂ ${count}](fg:139) "
+modified = "[✎ ${count}](fg:180) "
+staged = "[✓ ${count}](fg:108) "
+renamed = "[➜ ${count}](fg:146) "
+deleted = "[✖ ${count}](fg:174) "
 
 [mise]
 disabled = false

@@ -11,7 +11,7 @@
     "workbench.secondarySideBar.showLabels": false,
     "docker.extension.enableComposeLanguageServer": false,
     "editor.accessibilitySupport": "off",
-    "workbench.iconTheme": "ayu",
+    "workbench.iconTheme": "vs-seti",
     "svelte.enable-ts-plugin": true,
     "git.autofetch": true,
     "editor.fontFamily": "SF Mono",
@@ -31,11 +31,101 @@
     "workbench.browser.enableChatTools": true,
     "workbench.browser.openLocalhostLinks": true,
     "git.confirmSync": false,
-    "workbench.colorTheme": "Ayu Light Bordered",
     "explorer.confirmDragAndDrop": false,
     "chat.editing.confirmEditRequestRemoval": false,
-    "chat.viewSessions.orientation": "stacked",
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "window.confirmSaveUntitledWorkspace": false,
+    "editor.tabCompletion": "on",
+    "json.schemaDownload.trustedDomains": {
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://opencode.ai": true,
+        "https://railway.com": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://unpkg.com": true,
+        "https://www.schemastore.org/": true
+    },
+    "editor.detectIndentation": false,
+    "claudeCode.preferredLocation": "panel",
+    "[csv]": {
+        "editor.inlayHints.maximumLength": 0,
+        "editor.inlayHints.fontFamily": ""
+    },
+    "js/ts.updateImportsOnFileMove.enabled": "always",
+    "claudeCode.useTerminal": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/.cache/**": true,
+        "**/.tsbuildinfo": true,
+        "**/.turbo/**": true,
+        "**/.react-router/cache/**": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/.cache": true,
+        "**/.turbo": true
+    },
+    "chat.tools.terminal.autoApprove": {
+        "bunx": true,
+        ".specify/scripts/bash/": true,
+        ".specify/scripts/powershell/": true
+    },
+    "typescript.tsserver.enableTracing": false,
+    "typescript.tsserver.log": "off",
+    "typescript.tsserver.useSyntaxServer": "auto",
+    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+    "typescript.tsserver.watchOptions": {
+        "excludeDirectories": [
+            ".turbo",
+            "coverage",
+            "dist",
+            "build",
+            "**/node_modules/**"
+        ]
+    },
+    "typescript.preferences.includePackageJsonAutoImports": "off",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "chat.promptFilesRecommendations": {
+        "speckit.constitution": true,
+        "speckit.specify": true,
+        "speckit.plan": true,
+        "speckit.tasks": true,
+        "speckit.implement": true
+    },
+    "css.customData": [
+        ".vscode/tailwind.custom-data.json"
+    ],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.codeActionsOnSave": {
+        "source.sortImports": "always"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     }
 }

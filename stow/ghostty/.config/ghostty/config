@@ -1,124 +1,129 @@
 # =============================================================================
-# Ghostty Configuration - Light Mode with Apple System Colors
-# XDG-compliant config in ~/.config/ghostty/
+# Ghostty Configuration - Hermès Sellier
+# Deep leather, signature orange, warm ivory — the house aesthetic.
 # =============================================================================
 
 # =============================================================================
-# Typography - Apple's SF Mono
+# Typography
 # =============================================================================
 
-# Primary font settings - larger text for big monitor + comfort
 font-family = SF Mono
-font-size = 14
-
-# Font variants (specify per-style fonts)
-# font-family-bold = SF Mono Bold
-# font-family-italic = SF Mono Italic
-# font-family-bold-italic = SF Mono Bold Italic
+font-size = 13
+font-feature = -calt, -liga, -dlig
+adjust-cell-height = 8%
+adjust-font-baseline = -1
 
 # =============================================================================
-# Hardcore High‑Contrast Light Theme (Apple System Colors)
+# Theme
 # =============================================================================
 
-# Maximum contrast: pure black text on pure white background
-background = #ffffff
-foreground = #000000
+# Hermès orange:    #E8650A  (Pantone 165 C — the box, the brand)
+# Leather dark:     #17100A  (selle / interior of a Birkin)
+# Warm ivory:       #F2E4CC  (Toile H, scarves)
+# Saddle gold:      #C4832C  (hardware, buckles)
+background = #17100A
+foreground = #F2E4CC
+bold-color = bright
+minimum-contrast = 2.5
 
-# Make the cursor extremely visible (red on white)
-cursor-color = #ff3b30
-# Keep the cursor text dark so it never disappears
-cursor-text = #000000
+# Cursor = signature orange bar — always on brand
+cursor-color = #E8650A
+cursor-text = #17100A
+cursor-style = bar
+cursor-style-blink = false
 
-# High‑contrast selection (blue fill, white text)
-selection-background = #007aff
-selection-foreground = #ffffff
+# Selection: deep saddle leather
+selection-background = #4D2A0A
+selection-foreground = #F2E4CC
 
-# ANSI Colors - Apple System Colors palette (high-contrast tweaks)
-# These are mapped to ensure no “dim” or “bright black” text becomes hard to read.
-# Use pure black for both standard and bright black for maximum contrast.
-palette = 0=#000000
-palette = 1=#ff3b30
-palette = 2=#34c759
-palette = 3=#ff9500
-palette = 4=#007aff
-palette = 5=#af52de
-palette = 6=#00c7d4
-# Use solid black for ANSI bright white to avoid invisibility on white bg.
-palette = 7=#000000
-palette = 8=#000000
-palette = 9=#ff3b30
-palette = 10=#34c759
-palette = 11=#ff9500
-palette = 12=#007aff
-palette = 13=#af52de
-palette = 14=#00c7d4
-palette = 15=#000000
+# Search: saffron highlight / gold selected
+search-background = #C4832C
+search-foreground = #17100A
+search-selected-background = #E8650A
+search-selected-foreground = #17100A
 
-# Force the 256-color gray ramp to be dark so any “dim”/“faint” text remains readable.
-# This covers common prompt themes that use 244–255 for low-contrast status info.
-palette = 232=#000000
-palette = 233=#000000
-palette = 234=#000000
-palette = 235=#000000
-palette = 236=#000000
-palette = 237=#000000
-palette = 238=#000000
-palette = 239=#000000
-palette = 240=#000000
-palette = 241=#000000
-palette = 242=#000000
-palette = 243=#000000
-palette = 244=#000000
-palette = 245=#000000
-palette = 246=#000000
-palette = 247=#000000
-palette = 248=#000000
-palette = 249=#000000
-palette = 250=#000000
-palette = 251=#000000
-palette = 252=#000000
-palette = 253=#000000
-palette = 254=#000000
-palette = 255=#000000
+# -------------------------------------------------------
+# ANSI Palette — Hermès house palette
+# -------------------------------------------------------
+# Normal
+palette = 0=#17100A
+palette = 1=#B8391E
+palette = 2=#6E8030
+palette = 3=#C4832C
+palette = 4=#4E6882
+palette = 5=#8C5030
+palette = 6=#5A7C6A
+palette = 7=#D8C8A4
+# Bright
+palette = 8=#3D2010
+palette = 9=#E8650A
+palette = 10=#96A848
+palette = 11=#E8A830
+palette = 12=#7090A8
+palette = 13=#C47840
+palette = 14=#7AA890
+palette = 15=#F5EBD5
 
+palette-generate = true
 
 # =============================================================================
-# Window & Behavior - Minimal Apple Aesthetic
+# Window & Layout
 # =============================================================================
 
-# Window decoration - maximize contrast / reduce distraction
 window-decoration = client
 macos-titlebar-style = transparent
-# Hardcore mode: fully opaque solid background
+macos-window-shadow = true
+# Fully opaque — leather objects don't fade at the edges
 background-opacity = 1.0
-background-blur-radius = 0
-
-# Keep splits fully visible (no fading) for maximum contrast
-unfocused-split-opacity = 1.0
-
-# macOS-specific: Use Option key as Alt (common in terminals)
-# Uncomment if needed:
-# macos-option-as-alt = true
-
-# =============================================================================
-# Visual Effects & Polish
-# =============================================================================
-
-# The screenshot look depends more on translucency than heavy shader effects.
+background-blur = false
+unfocused-split-opacity = 0.88
+# Orange Hermès divider on splits
+split-divider-color = #E8650A
+# Generous marges — maison-quality whitespace
+window-padding-x = 16
+window-padding-y = 14
+window-padding-balance = true
+window-padding-color = background
+scrollbar = never
+window-save-state = always
 
 # =============================================================================
-# Keyboard Shortcuts - Minimal Override
+# Selection, Links, and Comfort
 # =============================================================================
 
-# Open config with ⌘+,
+copy-on-select = clipboard
+selection-clear-on-copy = true
+mouse-hide-while-typing = true
+link-url = true
+link-previews = osc8
+
+# =============================================================================
+# Shell Integration
+# =============================================================================
+
+shell-integration = detect
+shell-integration-features = cursor,title,path,ssh-env,ssh-terminfo
+
+# =============================================================================
+# Command Palette / Quick Terminal
+# =============================================================================
+
+quick-terminal-position = bottom
+quick-terminal-size = 28%
+quick-terminal-autohide = true
+keybind = f12=toggle_quick_terminal
+
+# =============================================================================
+# Keyboard Shortcuts
+# =============================================================================
+
 keybind = super+comma=open_config
-
-# Reload config with ⌘+Shift+,
 keybind = super+shift+comma=reload_config
 
 # =============================================================================
-# Shell Integration (Optional - for advanced features)
+# macOS Convenience
 # =============================================================================
 
-# Uncomment to enable shell integration (requires compatible shell config)
-# shell-integration = true
+macos-option-as-alt = true
+macos-auto-secure-input = true
+macos-secure-input-indication = true

@@ -127,5 +127,6 @@
     },
     "[jsonc]": {
         "editor.defaultFormatter": "oxc.oxc-vscode"
-    }
+    },
+    "workbench.colorTheme": "VS Code Light"
 }

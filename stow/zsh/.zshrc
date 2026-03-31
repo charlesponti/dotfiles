@@ -82,11 +82,8 @@ else
   PROMPT='%F{cyan}%1~%f %F{green}>%f '
 fi
 
-# Load local customizations
-[[ -f "$HOME/.localrc" ]] && source "$HOME/.localrc"
-
-# Add Maestro to PATH
-export PATH=$PATH:$HOME/.maestro/bin
-
 # bun completions
 [[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
+
+# Load local customizations
+[[ -f "$HOME/.localrc" ]] && source "$HOME/.localrc"

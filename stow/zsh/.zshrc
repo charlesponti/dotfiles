@@ -1,4 +1,11 @@
+fpath=("/Users/charlesponti/.oh-my-zsh/custom/completions" $fpath)
+# NOTE: compinit is called later after sheldon plugins are loaded
+
+
 # zsh primary shell configuration
+
+source "$HOME/.dotfiles/stow/zsh/system/bytecode.zsh"
+zsh_compile_stowed_modules
 
 # directory where stowed zsh config files live
 DOTFILES_SYSTEM_PATH="$HOME/.dotfiles/stow/zsh/system"
@@ -9,8 +16,7 @@ for module in env.zsh settings.zsh aliases.zsh; do
 done
 
 
-: "${DOTFILES_ENABLE_MISE_HOOK:=0}"
-if [[ "$DOTFILES_ENABLE_MISE_HOOK" == "1" ]] && (( $+commands[mise] )); then
+if (( $+commands[mise] )); then
   eval "$(mise activate zsh)"
 fi
 
@@ -27,17 +33,13 @@ if (( $+commands[sheldon] )); then
 fi
 
 export FAST_WORK_DIR="$HOME/.config/fsh"
-# fast-theme is idempotent once activated; run it manually when the overlay
-# changes rather than on every shell startup (it also prints style errors).
+
+if (( $+commands[fast-theme] )); then
+  fast-theme XDG:overlay >/dev/null 2>&1
+fi
 
 autoload -Uz compinit
-# Only rebuild the completion dump when it is older than 20 hours, saving the
-# full fpath scan on every interactive shell open.
-if [[ -n $HOME/.zcompdump(#qN.mh+20) ]]; then
-  compinit -i -d "$HOME/.zcompdump"
-else
-  compinit -C -i -d "$HOME/.zcompdump"
-fi
+compinit -i -d "$HOME/.zcompdump"
 
 mkdir -p "$HOME/.cache/zsh"
 zstyle ':completion:*' use-cache on
@@ -82,8 +84,17 @@ else
   PROMPT='%F{cyan}%1~%f %F{green}>%f '
 fi
 
-# bun completions
-[[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
-
 # Load local customizations
-[[ -f "$HOME/.localrc" ]] && source "$HOME/.localrc"
+source "$HOME/.localrc"
+
+# Add Maestro to PATH
+export PATH=$PATH:$HOME/.maestro/bin
+
+# bun completions
+[ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"
+
+# Hominem Global Skills & Agents
+export HOMINEM_GLOBALS="$HOME/.local/share/hominem"
+
+# opencode
+export PATH=/Users/charlesponti/.opencode/bin:$PATH

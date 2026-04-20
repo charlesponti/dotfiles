@@ -45,10 +45,8 @@ echo "✅ zcompdump regenerated"
 if command -v zsh >/dev/null 2>&1; then
   echo "⚙️  Compiling zsh modules..."
   zsh -fc '
-    for f in "$HOME/.dotfiles/stow/zsh/system/"*.zsh "$HOME/.zshrc"; do
-      [[ -f "$f" ]] || continue
-      zcompile "$f"
-    done
+    source "$HOME/.dotfiles/stow/zsh/system/bytecode.zsh"
+    zsh_compile_stowed_modules
   ' >/dev/null 2>&1
   echo "✅ zsh modules compiled"
 fi

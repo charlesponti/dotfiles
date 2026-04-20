@@ -4,13 +4,6 @@ set -euo pipefail
 # make sure we can see binaries installed in ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# determine repo root (four levels above this script) and script dir
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
-
-# Source functions
-source "$SCRIPT_DIR/functions/common/messaging.sh"
-
 if command -v sheldon >/dev/null 2>&1; then
   echo "🔁 Updating sheldon plugins..."
   sheldon lock --update
@@ -29,6 +22,13 @@ fi
 echo "🔁 Regenerating zcompdump..."
 ZSH_SITE_FUNCS="$HOME/.local/share/zsh/site-functions"
 mkdir -p "$ZSH_SITE_FUNCS"
+
+# Remove dangling symlinks in the specified directory
+prune_dangling_symlinks() {
+    local dir="$1"
+    [[ -d "$dir" ]] || return 0
+    find -L "$dir" -type l -delete 2>/dev/null || true
+}
 
 prune_dangling_symlinks "$ZSH_SITE_FUNCS"
 prune_dangling_symlinks "/opt/homebrew/share/zsh/site-functions"
@@ -49,6 +49,6 @@ if command -v zsh >/dev/null 2>&1; then
       [[ -f "$f" ]] || continue
       zcompile "$f"
     done
-  ' >/dev/null 2>&1 || true
+  ' >/dev/null 2>&1
   echo "✅ zsh modules compiled"
 fi

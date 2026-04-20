@@ -1,5 +1,5 @@
-typeset -ga CORE_PATH_PARTS
-CORE_PATH_PARTS=(
+typeset -ga PATH_PARTS
+PATH_PARTS=(
   "$HOME/.local/share/mise/shims"
   "$HOME/.dotfiles/bin"
   "/opt/homebrew/bin"
@@ -24,7 +24,7 @@ CORE_PATH_PARTS=(
 typeset -Ua path
 typeset -a _existing_path
 path=()
-for candidate in "${CORE_PATH_PARTS[@]}"; do
+for candidate in "${PATH_PARTS[@]}"; do
   [[ -d "$candidate" ]] && path+=("$candidate")
 done
 if [[ -n "${PATH:-}" ]]; then

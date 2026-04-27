@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # @raycast.schemaVersion 1
-# @raycast.title Fix Audio Devices
+# @raycast.title Set Audio Devices
 # @raycast.mode silent
 # @raycast.packageName Audio
 # @raycast.icon 🎧

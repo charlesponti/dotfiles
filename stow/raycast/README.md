@@ -30,6 +30,15 @@ The sample scripts contain static dropdowns; if you’d rather have
 devices listed dynamically (works when you plug things in/out), edit
 or replace the scripts accordingly.
 
+### Script command scope
+
+Keep scripts here when they make sense as Raycast commands: clipboard
+actions, one-click macOS toggles, explicit argument forms, or commands
+whose output is useful directly in Raycast.
+
+Project-local Git helpers and interactive terminal workflows live in
+the repository's top-level `bin/` directory instead.
+
 ### Dotfiles maintenance commands
 
 Raycast-facing dotfiles maintenance commands live in the repository's

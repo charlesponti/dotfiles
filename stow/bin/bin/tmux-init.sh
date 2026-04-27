@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Tmux session management functions
 
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+source "$SCRIPT_DIR/lib.sh"
+
 # Check if tmux is installed
 check_tmux_installed() {
     if ! command -v tmux &>/dev/null; then
@@ -106,7 +111,16 @@ Examples:
     $(basename "$0") myproject /path/to/project
     
     # Use with Ghostty (add to ~/.config/ghostty/config):
-    # command = $HOME/.dotfiles/bin/tmux-init.sh
+    # command = $HOME/.dotfiles/stow/bin/bin/tmux-init.sh
 
 EOF
 }
+
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+        usage
+        exit 0
+    fi
+
+    main "$@"
+fi

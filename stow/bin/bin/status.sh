@@ -1,28 +1,12 @@
 #!/usr/bin/env bash
-# Consolidated status and help system for dotfiles
-# Usage: ./status.sh [health|help|dashboard|summary]
-
 set -euo pipefail
 
-# Get the directory where this script is located  
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Load library
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$SCRIPT_DIR/lib.sh"
+source "$SCRIPT_DIR/status-health.sh"
 
-# Source status functions
-source "$SCRIPT_DIR/functions/status/health-check.sh"
-
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 WHITE='\033[1;37m'
-NC='\033[0m'
-
-# Unicode symbols
 GEAR="⚙️"
 FOLDER="📁"
 

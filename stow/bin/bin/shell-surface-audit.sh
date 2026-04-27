@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-dotfiles_root="$(cd "$script_dir/../../.." && pwd)"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+source "$script_dir/lib.sh"
+dotfiles_root="$(resolve_dotfiles_root "$script_dir")"
 
 required_scripts=(
   bench-shell.sh
@@ -10,6 +11,7 @@ required_scripts=(
   shell-surface-audit.sh
   status.sh
   shell-maintain.sh
+  tmux-init.sh
   tmux-maintain.sh
   resource-scan.sh
   resource-guard.sh
@@ -25,7 +27,7 @@ done
 zsh -f -i -c '
   source "$0/stow/zsh/.zshrc" >/dev/null 2>&1
 
-  required_aliases=(reload path brun rm)
+  required_aliases=(reload path python pip venv rm)
   for name in "${required_aliases[@]}"; do
     if ! alias "$name" >/dev/null 2>&1; then
       print -u2 "Missing alias: $name"

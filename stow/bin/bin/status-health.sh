@@ -62,7 +62,7 @@ show_health() {
         echo -e "${YELLOW}⚠ $WARNINGS warning(s) found, but no errors.${NC}"
     else
         echo -e "${RED}❌ $ERRORS error(s) and $WARNINGS warning(s) found.${NC}"
-        echo -e "Consider running: ${YELLOW}~/.dotfiles/update.sh${NC}"
+        echo -e "Consider running: ${YELLOW}~/.dotfiles/stow/bin/bin/update.sh${NC}"
     fi
     
     return $ERRORS

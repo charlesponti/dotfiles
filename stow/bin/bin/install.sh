@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+[[ "$OSTYPE" == "darwin"* ]] || fail "This script is designed for macOS only."
+
 BOOTSTRAP_MODE=false
 if [[ "${1:-}" == "--bootstrap" ]]; then
     BOOTSTRAP_MODE=true
@@ -9,51 +11,27 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$SCRIPT_DIR/lib.sh"
 DOTFILES_DIR="$(resolve_dotfiles_root "$SCRIPT_DIR")"
-
 DOTFILES_REPO="https://github.com/charlesponti/dotfiles.git"
 
-# Bootstrap mode: clone and install
 if [[ "$BOOTSTRAP_MODE" == true ]]; then
-    log_info "🚀 Bootstrap mode: cloning dotfiles repository..."
-    
-    # Check if running on macOS
-    if [[ "$OSTYPE" != "darwin"* ]]; then
-        fail "This script is designed for macOS only."
-    fi
-    
-    # Check if Xcode Command Line Tools are installed
+    informer "🚀 Bootstrap mode: cloning dotfiles repository..."
     if ! xcode-select -p &> /dev/null; then
         log_info "Installing Xcode Command Line Tools..."
         xcode-select --install
-        
-        # Wait for installation to complete
-        until xcode-select -p &> /dev/null; do
-            sleep 5
-        done
-        
+        until xcode-select -p &> /dev/null; do sleep 5; done
         success "Xcode Command Line Tools installed"
     fi
-    
-    # Clone or update dotfiles repository
     if [[ -d "$DOTFILES_DIR" ]]; then
         log_info "Dotfiles directory exists. Updating..."
-        cd "$DOTFILES_DIR"
-        git pull origin main
+        cd "$DOTFILES_DIR" && git pull origin main
     else
         log_info "Cloning dotfiles repository..."
         git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
     fi
-    
     cd "$DOTFILES_DIR"
 fi
 
-# Core installation
 informer "🚀 Starting dotfiles installation..."
-
-# Check OS
-if [[ "$OSTYPE" != "darwin"* ]]; then
-    fail "This script is designed for macOS only."
-fi
 
 # 1. Install Homebrew & Packages
 informer "🍺 Installing Homebrew and packages..."

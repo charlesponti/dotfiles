@@ -34,11 +34,5 @@ if command -v brew >/dev/null 2>&1; then
     brew cleanup
 fi
 
-# Update npm global packages
-if command -v npm >/dev/null 2>&1; then
-    informer "📦 Updating npm global packages..."
-    npm update -g
-fi
-
 success "✅ Dotfiles updated successfully!"
 informer "🔄 Please restart your terminal or run 'source ~/.zshrc'"

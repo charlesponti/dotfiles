@@ -30,9 +30,10 @@ The sample scripts contain static dropdowns; if you’d rather have
 devices listed dynamically (works when you plug things in/out), edit
 or replace the scripts accordingly.
 
-### Dotfiles script commands
+### Dotfiles maintenance commands
 
-Available commands in `.raycast/scripts/`:
+Raycast-facing dotfiles maintenance commands live in the repository's
+top-level `bin/` directory:
 
 * `dotfiles-status.sh` – one command with a Raycast dropdown for `summary`, `health`, `help`, or `dashboard`
 * `dotfiles-shell-maintain.sh`

@@ -9,23 +9,10 @@
 
 set -euo pipefail
 
-DOTFILES_ROOT="${DOTFILES:-$HOME/.dotfiles}"
-SCRIPT="${DOTFILES_BIN_DIR:-$HOME/bin}/status.sh"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/_dotfiles-launch.sh"
+
 MODE="${1:-summary}"
-
-if [[ ! -x "$SCRIPT" ]]; then
-  SCRIPT="$DOTFILES_ROOT/stow/bin/bin/status.sh"
-fi
-
-if [[ ! -x "$SCRIPT" ]]; then
-  SCRIPT="$DOTFILES_ROOT/bin/status.sh"
-fi
-
-if [[ ! -x "$SCRIPT" ]]; then
-  echo "Missing executable: $SCRIPT"
-  echo "Set DOTFILES_BIN_DIR, install the stowed scripts into ~/bin, or keep the repo at ~/.dotfiles."
-  exit 1
-fi
 
 case "$MODE" in
   summary|health|help|dashboard)
@@ -37,4 +24,4 @@ case "$MODE" in
     ;;
 esac
 
-exec "$SCRIPT" "$MODE"
+dotfiles_exec_script status.sh "$MODE"

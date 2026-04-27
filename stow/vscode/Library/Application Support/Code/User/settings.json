@@ -33,10 +33,7 @@
     "git.confirmSync": false,
     "explorer.confirmDragAndDrop": false,
     "chat.editing.confirmEditRequestRemoval": false,
-    "[github-actions-workflow]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "chat.viewSessions.orientation": "stacked",
+    "[github-actions-workflow]": {},
     "window.confirmSaveUntitledWorkspace": false,
     "editor.tabCompletion": "on",
     "json.schemaDownload.trustedDomains": {
@@ -68,25 +65,38 @@
         "**/.cache/**": true,
         "**/.tsbuildinfo": true,
         "**/.turbo/**": true,
-        "**/.react-router/cache/**": true
+        "**/.react-router/cache/**": true,
+        "**/.next/**": true,
+        "**/.output/**": true,
+        "**/.vercel/**": true,
+        "**/.netlify/**": true,
+        "**/.svelte-kit/**": true,
+        "**/coverage/**": true,
+        "**/__pycache__/**": true,
+        "**/.ruff_cache/**": true,
+        "**/.mypy_cache/**": true
     },
     "search.exclude": {
         "**/node_modules": true,
         "**/build": true,
         "**/dist": true,
         "**/.cache": true,
-        "**/.turbo": true
+        "**/.turbo": true,
+        "**/.next": true,
+        "**/.output": true,
+        "**/.vercel": true,
+        "**/.netlify": true
     },
     "chat.tools.terminal.autoApprove": {
         "bunx": true,
         ".specify/scripts/bash/": true,
         ".specify/scripts/powershell/": true
     },
-    "typescript.tsserver.enableTracing": false,
-    "typescript.tsserver.log": "off",
-    "typescript.tsserver.useSyntaxServer": "auto",
-    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
-    "typescript.tsserver.watchOptions": {
+    "js/ts.tsserver.tracing.enabled": false,
+    "js/ts.tsserver.log": "off",
+    "js/ts.tsserver.useSyntaxServer": "auto",
+    "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+    "js/ts.tsserver.watchOptions": {
         "excludeDirectories": [
             ".turbo",
             "coverage",
@@ -95,9 +105,9 @@
             "**/node_modules/**"
         ]
     },
-    "typescript.preferences.includePackageJsonAutoImports": "off",
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "typescript.disableAutomaticTypeAcquisition": true,
+    "js/ts.preferences.includePackageJsonAutoImports": "off",
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.tsserver.automaticTypeAcquisition.enabled": false,
     "chat.promptFilesRecommendations": {
         "speckit.constitution": true,
         "speckit.specify": true,
@@ -120,13 +130,73 @@
         "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode",
+        "editor.formatOnSave": true
     },
     "[typescriptreact]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode",
+        "editor.formatOnSave": true
     },
     "[jsonc]": {
         "editor.defaultFormatter": "oxc.oxc-vscode"
     },
-    "workbench.colorTheme": "VS Code Light"
+    "git.enableSmartCommit": true,
+
+    "editor.inlayHints.enabled": "on",
+    "editor.inlayHints.parameterHints.enabled": true,
+    "editor.inlayHints.typeHints.enabled": true,
+    "editor.inlayHints.inlineMinColumn": 0,
+    "editor.inlayHints.maxColumn": 120,
+
+    "diagnostics.showCurrentInStatus": true,
+    "problems.showCurrentInStatus": true,
+    "editor.codeActionWidget.showHeaders": true,
+
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.cursorStyling": "bar",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.scrollback": 100000,
+
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.showWhitespaceOnSelection": true,
+    "editor.minimap.showCurrentLine": true,
+    "editor.renderLineHighlight": "all",
+    "editor.relativeLineNumbers": "enabled",
+
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true,
+        "editor.defaultLineLength": 100,
+        "editor.inlayHints.enabled": "on"
+    },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true,
+        "editor.defaultLineLength": 100
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.defaultLineLength": 88,
+        "editor.inlayHints.enabled": "on"
+    },
+    "python.analysis.typeCheckingMode": "standard",
+    "cSpell.userWords": [
+      "michaelson"
+    ],
+    "chat.editing.autoAcceptDelay": 1,
+    "chat.viewSessions.orientation": "stacked",
+    "git.replaceTagsWhenPull": true,
+    "[markdown]": {
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.format.preview": true,
+    "ruff.lint.preview": true,
+    "zig.zls.enabled": "on",
+    "chat.experimental.incrementalRendering.enabled": true,
+    "chat.agent.thinkingStyle": "collapsedPreview",
+    "python.terminal.useEnvFile": true,
+    "editor.fontSize": 11,
+    "swift.disableSwiftlyInstallPrompt": true
 }

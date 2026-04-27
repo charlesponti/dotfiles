@@ -1,4 +1,4 @@
 .PHONY: chmod-all
 
 chmod-all:
-	chmod +x *.sh
+	chmod +x ./scripts/*.sh

@@ -10,39 +10,18 @@ stow -t ~ raycast
 
 * Add your own Raycast files (e.g. `preferences.json`, `extensions/`, etc.) inside `.raycast/` and commit them.
 
-### Sample script commands
+### Script commands
 
-The repository includes two script commands that use the Homebrew
-`switchaudio-osx` utility to change CoreAudio devices from Raycast:
-
-* `set-audio-output.sh` – switch output device
-* `set-audio-input.sh` – switch input device
-
-They live in `.raycast/scripts/` and will be discovered when you add
-that folder in Raycast’s **Extensions → Script Commands** settings.
+Raycast script command implementations live in `stow/bin/bin/`.
+The files in `.raycast/scripts/` are symlinks so Raycast can still
+discover them from its expected script directory.
 
 ```sh
 brew install switchaudio-osx    # provides the SwitchAudioSource CLI
 chmod +x ~/.raycast/scripts/*.sh
 ```
 
-The sample scripts contain static dropdowns; if you’d rather have
-devices listed dynamically (works when you plug things in/out), edit
-or replace the scripts accordingly.
-
-### Script command scope
-
-Keep scripts here when they make sense as Raycast commands: clipboard
-actions, one-click macOS toggles, explicit argument forms, or commands
-whose output is useful directly in Raycast.
-
-Project-local Git helpers and interactive terminal workflows live in
-the repository's top-level `bin/` directory instead.
-
-### Dotfiles maintenance commands
-
-Raycast-facing dotfiles maintenance commands live in the repository's
-top-level `bin/` directory:
+Raycast-facing dotfiles maintenance commands:
 
 * `dotfiles-status.sh` – one command with a Raycast dropdown for `summary`, `health`, `help`, or `dashboard`
 * `dotfiles-shell-maintain.sh`

@@ -1,7 +1,7 @@
 typeset -ga PATH_PARTS
 PATH_PARTS=(
   "$HOME/.local/share/mise/shims"
-  "$HOME/.dotfiles/bin"
+  "$HOME/.dotfiles/stow/bin/bin"
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
   "/usr/local/bin"

@@ -1,71 +1,55 @@
 set shell := ["/usr/bin/env", "sh", "-c"]
 
-# POSIX-shell operational commands
+# Dotfiles commands. Script implementations live in ./stow/bin/bin.
 
 setup:
     brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile
-    ./bin/tmux-maintain.sh
-    ./bin/shell-maintain.sh
-    ./bin/runtime-verify.sh
+    ./stow/bin/bin/tmux-maintain.sh
+    ./stow/bin/bin/shell-maintain.sh
+    ./stow/bin/bin/runtime-verify.sh
 
 doctor:
-    ./bin/status.sh health
+    ./stow/bin/bin/status.sh health
 
 perf:
-    ./bin/bench-shell.sh --runs 20
+    ./stow/bin/bin/bench-shell.sh --runs 20
 
 runtime-check:
-    ./bin/runtime-verify.sh
+    ./stow/bin/bin/runtime-verify.sh
 
 brew-sync:
     brew bundle check --file ./Brewfile || brew bundle install --file ./Brewfile
     brew bundle cleanup --file ./Brewfile --force
 
-snapshot-baseline:
-    ./bin/snapshot-baseline.sh
-
 install:
-    ./install.sh
+    ./stow/bin/bin/install.sh
 
 bootstrap:
-    ./install.sh --bootstrap
+    ./stow/bin/bin/install.sh --bootstrap
 
 update:
-    ./update.sh
+    ./stow/bin/bin/update.sh
 
 symlinks:
-    ./bin/symlinks.sh
+    ./stow/bin/bin/symlinks.sh
 
 status:
-    ./bin/status.sh
+    ./stow/bin/bin/status.sh
 
 lint:
-    ./bin/lint.sh
+    find ./stow/bin/bin -maxdepth 1 -type f -name '*.sh' -print0 | xargs -0 -n1 bash -n
 
 shell-audit:
-    ./bin/shell-surface-audit.sh
+    ./stow/bin/bin/shell-surface-audit.sh
 
 bench-shell:
-    ./bin/bench-shell.sh
+    ./stow/bin/bin/bench-shell.sh
 
-bench-git repo=".":
-    ./bin/bench-git.sh --repo {{repo}}
-
-bench-fs path=".":
-    ./bin/bench-fs.sh --path {{path}}
-
-bench-corpus runs="20":
-    ./bin/bench-corpus.sh --runs {{runs}}
-
-watch-test cmd="npm test":
-    ./bin/watch-test.sh "{{cmd}}"
-
-watch-lint cmd="npm run lint && npm run typecheck":
-    ./bin/watch-lint.sh "{{cmd}}"
+tmux-init session="main" dir="":
+    ./stow/bin/bin/tmux-init.sh {{session}} {{dir}}
 
 resource-scan:
-    ./bin/resource-scan.sh
+    ./stow/bin/bin/resource-scan.sh
 
 resource-guard max_swap_gb="2.0":
-    ./bin/resource-guard.sh {{max_swap_gb}}
-
+    ./stow/bin/bin/resource-guard.sh {{max_swap_gb}}

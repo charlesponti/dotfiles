@@ -57,4 +57,5 @@ if ((${#paths[@]} == 0)); then
 fi
 
 printf 'Converting %d selected path(s)...\n\n' "${#paths[@]}"
-exec docx-to-md "${paths[@]}"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+exec "$script_dir/docx-to-md" "${paths[@]}"

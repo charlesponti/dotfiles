@@ -29,7 +29,11 @@ Common entry points:
 - `stow/bin/bin/shell-maintain.sh` / `stow/bin/bin/tmux-maintain.sh` - refresh shell and tmux support files.
 - `stow/bin/bin/tmux-init.sh` - create or attach to a named tmux session.
 - `stow/bin/bin/bench-shell.sh` - measure interactive zsh startup.
+- `docx-to-md` / `stow/bin/bin/docx-to-md.sh` - convert `.docx` files to Markdown from any directory using pandoc.
+- `stow/bin/bin/docx-to-md-selected.sh` - convert the current Finder selection (or explicit paths) to Markdown.
 - `stow/bin/bin/resource-scan.sh` / `stow/bin/bin/resource-guard.sh` - inspect macOS memory/thermal pressure.
 - `stow/bin/bin/hominem-db-snapshot.sh` - snapshot the local Hominem Postgres container.
 
 Raycast-facing commands are prefixed with `dotfiles-`. Shared helpers are non-executable files in `stow/bin/bin/`.
+
+Finder Quick Actions can also be managed from dotfiles via the `services` stow package (for example, `Convert DOCX to Markdown`).

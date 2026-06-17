@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSServices</key>
+  <array>
+    <dict>
+      <key>CFBundleIdentifier</key>
+      <string>com.charlesponti.workflow.docx-to-markdown</string>
+      <key>NSMenuItem</key>
+      <dict>
+        <key>default</key>
+        <string>Convert DOCX to Markdown</string>
+      </dict>
+      <key>NSMessage</key>
+      <string>runWorkflowAsService</string>
+      <key>NSSendFileTypes</key>
+      <array>
+        <string>org.openxmlformats.wordprocessingml.document</string>
+        <string>public.folder</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+</plist>

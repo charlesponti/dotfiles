@@ -28,6 +28,7 @@ Raycast-facing dotfiles maintenance commands:
 * `dotfiles-tmux-maintain.sh`
 * `dotfiles-resource-scan.sh`
 * `dotfiles-resource-guard.sh`
+* `dotfiles-docx-to-md.sh` – convert the current Finder selection from `.docx` to `.md`
 
 You can override command discovery with `DOTFILES_BIN_DIR`, and you can
 override the checkout fallback path with `DOTFILES`.

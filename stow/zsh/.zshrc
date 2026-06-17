@@ -1,4 +1,4 @@
-fpath=("/Users/charlesponti/.oh-my-zsh/custom/completions" $fpath)
+fpath=("$HOME/.oh-my-zsh/custom/completions" $fpath)
 # NOTE: compinit is called later after sheldon plugins are loaded
 
 
@@ -85,16 +85,10 @@ else
 fi
 
 # Load local customizations
-source "$HOME/.localrc"
+[[ -f "$HOME/.localrc" ]] && source "$HOME/.localrc"
 
 # Add Maestro to PATH
 export PATH=$PATH:$HOME/.maestro/bin
 
 # bun completions
-[ -s "/Users/charlesponti/.bun/_bun" ] && source "/Users/charlesponti/.bun/_bun"
-
-# Hominem Global Skills & Agents
-export HOMINEM_GLOBALS="$HOME/.local/share/hominem"
-
-# opencode
-export PATH=/Users/charlesponti/.opencode/bin:$PATH
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

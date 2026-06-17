@@ -19,7 +19,7 @@
     # synchronization
     p = push                        # push to origin
     pl = pull                       # pull from origin (simple)
-    pl = !git pull --all --prune   # pull all remotes and prune deleted branches
+    pla = !git pull --all --prune   # pull all remotes and prune deleted branches
 
     # status/log/diff
     s = status                      # show status
@@ -35,7 +35,6 @@
     count = !git shortlog -sn      # commit counts per author
 
     # stash shortcuts
-    stash = stash                  # stash current changes
     stashp = stash pop             # pop latest stash
     stash-index = stash save --keep-index      # stash but keep index
     stash-index-all = stash save --keep-index --include-untracked

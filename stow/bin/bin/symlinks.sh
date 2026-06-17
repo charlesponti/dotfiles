@@ -6,7 +6,7 @@ source "$script_dir/lib.sh"
 dotfiles_root="$(resolve_dotfiles_root "$script_dir")"
 cd "$dotfiles_root"
 
-packages=(ghostty zsh git tmux starship vim vscode zed raycast bin)
+packages=(ghostty zsh git tmux starship vim vscode zed raycast bin services)
 stow_args=(-v -t "$HOME" -d stow --ignore='\.DS_Store')
 
 usage() {

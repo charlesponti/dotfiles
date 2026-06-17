@@ -54,6 +54,11 @@ log_error() {
     echo "[ERROR] $*" >&2
 }
 
+# Counters used by check_* functions below; initialize here so ((++ERRORS))
+# never evaluates to 0 (falsy) and exits under set -e on the first failure.
+ERRORS=${ERRORS:-0}
+WARNINGS=${WARNINGS:-0}
+
 # Checking functions
 check_cmd() {
   if ! command -v "$1" &> /dev/null; then
@@ -69,7 +74,7 @@ check_command() {
         echo -e "${GREEN}✓${NC} $description"
     else
         echo -e "${RED}✗${NC} $description"
-        ((ERRORS++))
+        ((++ERRORS))
     fi
 }
 
@@ -81,7 +86,7 @@ check_file() {
         echo -e "${GREEN}✓${NC} $description"
     else
         echo -e "${RED}✗${NC} $description"
-        ((ERRORS++))
+        ((++ERRORS))
     fi
 }
 
@@ -99,10 +104,10 @@ check_symlink() {
             echo -e "${GREEN}✓${NC} $description"
         else
             echo -e "${YELLOW}⚠${NC} $description (broken symlink: $target)"
-            ((WARNINGS++))
+            ((++WARNINGS))
         fi
     else
         echo -e "${RED}✗${NC} $description"
-        ((ERRORS++))
+        ((++ERRORS))
     fi
 }

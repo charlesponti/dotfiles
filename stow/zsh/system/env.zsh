@@ -40,7 +40,6 @@ fi
 export PATH="${(j/:/)path}"
 unset _existing_path candidate
 
-export NIX_CONFIG="extra-experimental-features = nix-command flakes"
 export EDITOR="code"
 export VISUAL="code"
 export LANG="en_US.UTF-8"

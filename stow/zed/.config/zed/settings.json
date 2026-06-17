@@ -1,342 +1,178 @@
 {
-  "edit_predictions": {
-    "provider": "zed"
-  },
-  "git_panel": {
-    "tree_view": false
+  "diff_view_style": "unified",
+  "cli_default_open_behavior": "new_window",
+  "agent": {
+    "tool_permissions": {
+      "tools": {
+        "skill": {
+          "default": "allow"
+        },
+        "create_directory": {
+          "default": "allow",
+        },
+        "terminal": {
+          "default": "allow",
+        },
+      },
+    },
+    "default_model": {
+      "effort": "medium",
+      "provider": "copilot_chat",
+      "model": "gpt-5.4-mini",
+      "enable_thinking": true,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
   },
   "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "medium",
+        "model": "gpt-5.4-mini",
+      },
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "bypassPermissions",
+        "model": "default",
+      },
+      "type": "registry",
+    },
     "github-copilot-cli": {
-      "type": "registry"
+      "default_config_options": {
+        "allow_all": "on",
+        "model": "gpt-5.4-mini",
+      },
+      "favorite_config_option_values": {
+        "model": ["gpt-5.4", "gpt-5.4-mini"],
+      },
+      "type": "registry",
     },
-    "opencode": {
-      "favorite_models": ["github-copilot/gpt-5-mini", "opencode/claude-haiku-4-5"],
-      "type": "registry"
-    },
-    "github-copilot": {
-      "type": "registry"
-    },
-    "claude": {
-      "default_model": "haiku",
-      "favorite_models": [],
-      "default_config_options": {},
-      "favorite_config_option_values": {}
-    }
   },
-  "theme": "Ayu Light",
-  "icon_theme": "Zed (Default)",
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "github-actions": true,
+    "make": true,
+    "oxc": true,
+    "rainbow-csv": true,
+    "seti-icons": true,
+    "svelte": true,
+    "swift": true,
+    "zig": true,
+  },
   "base_keymap": "VSCode",
-  "ui_font_size": 16,
-  "buffer_font_size": 13,
   "buffer_font_family": "SF Mono",
-  "buffer_font_weight": 350,
-  "buffer_line_height": "comfortable",
-  "tab_size": 2,
-  "format_on_save": "on",
-  "formatter": "language_server",
-  "indent_guides": {
-    "enabled": true,
-    "coloring": "indent_aware"
-  },
-  "scrollbar": {
-    "show": "never"
-  },
-  "project_panel": {
-    "button": true,
-    "dock": "left",
-    "git_status": true
-  },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "collaboration_panel": {
-    "dock": "left"
-  },
-  "notification_panel": {
-    "dock": "left"
-  },
-  "terminal": {
-    "font_family": "LigaSFMonoNerdFont",
-    "font_size": 12,
-    "env": {
-      "EDITOR": "zed --wait"
+  "buffer_font_size": 11,
+  "colorize_brackets": true,
+  "current_line_highlight": "all",
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.git/objects/**",
+    "**/.git/subtree-cache/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.cache/**",
+    "**/.tsbuildinfo",
+    "**/.turbo/**",
+    "**/.react-router/cache/**",
+    "**/.next/**",
+    "**/.output/**",
+    "**/.vercel/**",
+    "**/.netlify/**",
+    "**/.svelte-kit/**",
+    "**/coverage/**",
+    "**/__pycache__/**",
+    "**/.ruff_cache/**",
+    "**/.mypy_cache/**",
+  ],
+  "formatter": {
+    "external": {
+      "command": "oxfmt",
+      "arguments": ["--stdin-filepath", "{buffer_path}"]
     }
   },
   "languages": {
-    "CSS": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
+    "Go": {
+      "formatter": {
+        "external": {
+          "command": "gofmt",
+          "arguments": []
         }
-      ]
+      }
     },
-    "HTML": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "JavaScript": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "JSX": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "JSON": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "JSON5": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "JSONC": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "Less": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "Markdown": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "MDX": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "SCSS": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "TypeScript": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "TSX": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "Vue.js": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    },
-    "YAML": {
-      "format_on_save": "on",
-      "prettier": {
-        "allowed": false
-      },
-      "formatter": [
-        {
-          "language_server": {
-            "name": "oxfmt"
-          }
-        }
-      ]
-    }
+  },
+  "tab_size": 2,
+  "hard_tabs": false,
+  "file_types": {
+    "tailwindcss": ["*.css"],
+    "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
+  },
+  "git_panel": {
+    "tree_view": true,
+  },
+  "gutter": {
+    "line_numbers": true,
+  },
+  "icon_theme": "Catppuccin Frappé",
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
+    "show_other_hints": false,
   },
   "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "typeCheckingMode": "standard",
+        },
+      },
+    },
     "vtsls": {
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
-      },
-      "enable_lsp_tasks": true
-    },
-    "rust-analyzer": {
-      "binary": {
-        "path_lookup": true
-      }
-    },
-    "tailwindcss-language-server": {
-      "settings": {
-        "classAttributes": ["class", "className", "ngClass", "styles"]
-      }
-    },
-    "oxfmt": {
-      "initialization_options": {
-        "settings": {
-          "fmt.configPath": null
-        }
-      }
-    }
-  },
-  "agent": {
-    "default_profile": "write",
-    "profiles": {
-      "ask": {
-        "default_model": {
-          "provider": "copilot_chat",
-          "model": "gemini-3-flash-preview"
+            "enabled": "always",
+          },
         },
-        "name": "Ask",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {}
-      }
+      },
+      "enable_lsp_tasks": true,
     },
-    "favorite_models": [
-      {
-        "provider": "copilot_chat",
-        "model": "grok-code-fast-1"
-      },
-      {
-        "provider": "copilot_chat",
-        "model": "gpt-5-mini"
-      },
-      {
-        "provider": "copilot_chat",
-        "model": "gemini-3-flash-preview"
-      }
-    ],
-    "always_allow_tool_actions": true,
-    "default_model": {
-      "enable_thinking": false,
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5"
-    }
   },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
+  "format_on_save": "on",
+  "preferred_line_length": 100,
+  "session": {
+    "trust_all_worktrees": true,
   },
-  "file_types": {
-    "Dockerfile": ["*.dockerfile", "*.Dockerfile", "Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"]
+  "show_whitespaces": "selection",
+  "soft_wrap": "bounded",
+  "terminal": {
+    "cursor_shape": "bar",
+    "font_family": "SF Mono",
+    "max_scroll_history_lines": 100000,
+    "shell": {
+      "program": "/bin/zsh",
+    },
   },
-  "inlay_hints": {
-    "enabled": false
-  }
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Ayu Dark",
+  },
+  "ui_font_size": 16,
 }

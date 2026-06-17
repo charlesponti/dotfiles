@@ -28,6 +28,7 @@ npm-debug.log*
 .stow-global-ignore
 .vscode
 .idea
+.claude/settings.local.json
 .gitconfig.local
 .idea
 .localrc
@@ -39,3 +40,9 @@ reports/bench/*.json
 .tmux/plugins/
 *.mdb
 *.zwc
+
+# local compiled helpers
+stow/bin/bin/careerkit
+stow/bin/bin/dedup-numbered
+stow/bin/bin/kernel
+stow/bin/bin/resume

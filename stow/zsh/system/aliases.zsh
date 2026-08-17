@@ -6,7 +6,6 @@ alias path='echo $PATH | tr ":" "\n" | nl -ba'
 alias python='python3'
 alias pip='pip3'
 alias venv='python3 -m venv'
-alias rm='trash' # safer than `rm`
 
 # helper to commit everything with a message
 # usage: gcm "fix xyz"

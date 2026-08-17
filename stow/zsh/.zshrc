@@ -90,5 +90,23 @@ fi
 # Add Maestro to PATH
 export PATH=$PATH:$HOME/.maestro/bin
 
+# Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Added by swiftly
+. "/Users/charlesponti/.swiftly/env.sh"
+
+# opencode
+export PATH=/Users/charlesponti/.opencode/bin:$PATH
+
+# Hermes Agent — ensure ~/.local/bin is on PATH (appended, not prepended,
+# so it doesn't shadow mise-managed tools like node/npm/pnpm)
+export PATH="$PATH:$HOME/.local/bin"
+
+# sentry
+fpath=("/Users/charlesponti/.local/share/zsh/site-functions" $fpath)
+
+export LANG=en_US.UTF-8

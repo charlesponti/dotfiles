@@ -1,0 +1,157 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "autosave": "on_focus_change",
+  "restore_on_startup": "last_session",
+  "relative_line_numbers": "enabled",
+  "show_whitespaces": "selection",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "preferred_line_length": 100,
+  "indent_guides": {
+    "show": "always"
+  },
+  "bracket_matching": true,
+  "linked_edits": true,
+  "use_autoclose": true,
+  "inlay_hints": {
+    "enabled": true
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "cursor_shape": "bar",
+  "cursor_blink": true,
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left",
+    "group_by": "none",
+    "tree_view": true
+  },
+  "agent": {
+    "dock": "right",
+    "sandbox_permissions": {
+      "allow_unsandboxed": true,
+      "network_hosts": ["registry.npmjs.org"],
+      "write_paths": [
+        {
+          "requested": "/Users/charlesponti/Developer/hominem/node_modules",
+          "resolved": "/Users/charlesponti/Developer/hominem/node_modules"
+        },
+        {
+          "requested": "/Users/charlesponti/Developer/hominem/services/api/src/mcp",
+          "resolved": "/Users/charlesponti/Developer/hominem/services/api/src/mcp"
+        }
+      ]
+    },
+    "tool_permissions": {
+      "tools": {
+        "create_directory": {
+          "default": "allow"
+        },
+        "fetch": {
+          "default": "allow"
+        },
+        "terminal": {
+          "default": "allow"
+        },
+        "skill": {
+          "default": "allow"
+        }
+      }
+    },
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "gpt-5.4",
+      "enable_thinking": true,
+      "effort": "medium"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "terminal": {
+    "font_family": "SF Mono",
+    "max_scroll_history_lines": 100000
+  },
+  "minimap": {
+    "show": "always"
+  },
+  "current_line_highlight": "all",
+  "buffer_font_family": "SF Mono",
+  "file_types": {
+    "tailwindcss": ["*.css"]
+  },
+  "colorize_brackets": true,
+  "languages": {
+    "Markdown": {
+      "soft_wrap": "editor_width"
+    }
+  },
+  "format_on_save": "on",
+  "formatter": {
+    "external": {
+      "command": "oxfmt",
+      "arguments": ["--stdin-filepath", "{buffer_path}"]
+    }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/node_modules"
+  ],
+  "search": {
+    "include_ignored": false
+  },
+  "wrap_guides": [],
+  "soft_wrap": "none",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    }
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 11.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Ayu Dark"
+  }
+}

@@ -21,7 +21,7 @@
   "linked_edits": true,
   "use_autoclose": true,
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "diagnostics": {
     "inline": {
@@ -62,6 +62,9 @@
     },
     "tool_permissions": {
       "tools": {
+        "delete_path": {
+          "default": "allow"
+        },
         "create_directory": {
           "default": "allow"
         },
@@ -78,7 +81,7 @@
     },
     "default_model": {
       "provider": "zed.dev",
-      "model": "gpt-5.6-luna",
+      "model": "claude-sonnet-5",
       "enable_thinking": true,
       "effort": "medium"
     },

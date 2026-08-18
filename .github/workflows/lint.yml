@@ -8,9 +8,9 @@ on:
 
 jobs:
   lint:
-    runs-with: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - name: Run ShellCheck
         run: |
           find . -type f -name "*.sh" -not -path "./.git/*" | xargs shellcheck -e SC1090,SC1091

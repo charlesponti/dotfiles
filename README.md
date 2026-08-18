@@ -30,7 +30,7 @@ Common entry points:
 - `stow/bin/bin/tmux-init.sh` - create or attach to a named tmux session.
 - `stow/bin/bin/bench-shell.sh` - measure interactive zsh startup.
 - `docx-to-md` / `stow/bin/bin/docx-to-md.sh` - convert `.docx` files to Markdown from any directory using pandoc.
-- `openspeek` (Bun, lives in `~/Developer/toolbox/scripts/`, symlinked here) - convert a Markdown file to AAC/M4A narration via OpenRouter neural TTS (Deepgram Flux / Gemini), falling back to local piper or macOS `say`. `--voices` lists all Flux voices with hearable samples, `-v`/`-s` tune voice and speed, plus `$VAR`/`~` path expansion, parallel chunking, progress bars, and per-generation usage logs.
+- `openspeek` (Bun, lives in `~/Developer/toolbox/apps/openspeek/` as the `@ponti-studios/openspeek` npm package, symlinked here) - convert a Markdown file to AAC/M4A narration via OpenRouter neural TTS (Deepgram Flux / Gemini), falling back to local piper or macOS `say`. `--voices` lists all Flux voices with hearable samples, `-v`/`-s` tune voice and speed, plus `$VAR`/`~` path expansion, parallel chunking, progress bars, and per-generation usage logs.
 - `stow/bin/bin/docx-to-md-selected.sh` - convert the current Finder selection (or explicit paths) to Markdown.
 - `stow/bin/bin/resource-scan.sh` / `stow/bin/bin/resource-guard.sh` - inspect macOS memory/thermal pressure.
 - `stow/bin/bin/hominem-db-snapshot.sh` - snapshot the local Hominem Postgres container.

@@ -29,7 +29,7 @@ Raycast-facing dotfiles maintenance commands:
 * `dotfiles-resource-scan.sh`
 * `dotfiles-resource-guard.sh`
 * `dotfiles-docx-to-md.sh` – convert the current Finder selection from `.docx` to `.md`
-* `openspeek.sh` – convert a Markdown file path to AAC/M4A narration (Bun, in `~/Developer/toolbox/scripts/`; OpenRouter Flux TTS with piper/`say` fallback)
+* `openspeek.sh` – convert a Markdown file path to AAC/M4A narration (Bun, in `~/Developer/toolbox/apps/openspeek/`; OpenRouter Flux TTS with piper/`say` fallback)
 
 You can override command discovery with `DOTFILES_BIN_DIR`, and you can
 override the checkout fallback path with `DOTFILES`.

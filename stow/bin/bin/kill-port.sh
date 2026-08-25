@@ -5,4 +5,4 @@
 # @raycast.mode silent
 # @raycast.argument1 { "type": "text", "placeholder": "Port" }
 
-lsof -ti :$1 | xargs kill -9
+lsof -ti :"$1" | xargs kill -9

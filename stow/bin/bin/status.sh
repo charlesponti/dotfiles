@@ -5,11 +5,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$SCRIPT_DIR/lib.sh"
 source "$SCRIPT_DIR/status-health.sh"
 
-CYAN='\033[0;36m'
-WHITE='\033[1;37m'
-GEAR="⚙️"
-FOLDER="📁"
-
 # Main routing
 case "${1:-summary}" in
     health)

@@ -130,7 +130,7 @@ show_dashboard() {
     
     # Git status
     if [[ -d "$DOTFILES/.git" ]]; then
-        cd "$DOTFILES"
+        cd "$DOTFILES" || exit
         local git_status
         git_status=$(git status --porcelain | wc -l | tr -d ' ')
         if [[ $git_status -eq 0 ]]; then
@@ -138,7 +138,7 @@ show_dashboard() {
         else
             echo -e "  Dotfiles repo: ${YELLOW}$git_status uncommitted changes${NC}"
         fi
-        cd - >/dev/null
+        cd - >/dev/null || exit
     fi
     
     # Shell info

@@ -1,202 +1,187 @@
 {
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-    "git.path": "/usr/bin/git",
-    "python.defaultInterpreterPath": "",
-    "python.venvPath": "${workspaceFolder}/.venv",
-    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
-    "chat.tools.global.autoApprove": true,
-    "makefile.configureOnOpen": true,
-    "explorer.confirmDelete": false,
-    "workbench.secondarySideBar.showLabels": false,
-    "docker.extension.enableComposeLanguageServer": false,
-    "editor.accessibilitySupport": "off",
-    "workbench.iconTheme": "vs-seti",
-    "svelte.enable-ts-plugin": true,
-    "git.autofetch": true,
-    "editor.fontFamily": "SF Mono",
-    "editor.codeLensFontFamily": "SF Mono",
-    "editor.inlayHints.fontFamily": "SF Mono",
-    "editor.inlineSuggest.fontFamily": "SF Mono",
-    "chat.editor.fontFamily": "SF Mono",
-    "chat.fontFamily": "SF Compact",
-    "debug.console.fontFamily": "SF Mono",
-    "scm.inputFontFamily": "SF Compact",
-    "terminal.integrated.fontFamily": "SF Mono",
-    "notebook.markup.fontFamily": "SF Mono",
-    "gitlens.currentLine.fontFamily": "SF Mono",
-    "gitlens.blame.fontFamily": "SF Mono",
-    "markdown.preview.fontFamily": "SF Mono",
-    "workbench.activityBar.location": "bottom",
-    "workbench.browser.enableChatTools": true,
-    "workbench.browser.openLocalhostLinks": true,
-    "git.confirmSync": false,
-    "explorer.confirmDragAndDrop": false,
-    "chat.editing.confirmEditRequestRemoval": false,
-    "[github-actions-workflow]": {},
-    "window.confirmSaveUntitledWorkspace": false,
-    "editor.tabCompletion": "on",
-    "json.schemaDownload.trustedDomains": {
-        "https://developer.microsoft.com/json-schemas/": true,
-        "https://json-schema.org/": true,
-        "https://json.schemastore.org/": true,
-        "https://opencode.ai": true,
-        "https://railway.com": true,
-        "https://raw.githubusercontent.com/devcontainers/spec/": true,
-        "https://raw.githubusercontent.com/microsoft/vscode/": true,
-        "https://schemastore.azurewebsites.net/": true,
-        "https://unpkg.com": true,
-        "https://www.schemastore.org/": true
-    },
-    "editor.detectIndentation": false,
-    "claudeCode.preferredLocation": "panel",
-    "[csv]": {
-        "editor.inlayHints.maximumLength": 0,
-        "editor.inlayHints.fontFamily": ""
-    },
-    "js/ts.updateImportsOnFileMove.enabled": "always",
-    "claudeCode.useTerminal": true,
-    "files.watcherExclude": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true,
-        "**/dist/**": true,
-        "**/build/**": true,
-        "**/.cache/**": true,
-        "**/.tsbuildinfo": true,
-        "**/.turbo/**": true,
-        "**/.react-router/cache/**": true,
-        "**/.next/**": true,
-        "**/.output/**": true,
-        "**/.vercel/**": true,
-        "**/.netlify/**": true,
-        "**/.svelte-kit/**": true,
-        "**/coverage/**": true,
-        "**/__pycache__/**": true,
-        "**/.ruff_cache/**": true,
-        "**/.mypy_cache/**": true
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/build": true,
-        "**/dist": true,
-        "**/.cache": true,
-        "**/.turbo": true,
-        "**/.next": true,
-        "**/.output": true,
-        "**/.vercel": true,
-        "**/.netlify": true
-    },
-    "chat.tools.terminal.autoApprove": {
-        "bunx": true,
-        ".specify/scripts/bash/": true,
-        ".specify/scripts/powershell/": true
-    },
-    "js/ts.tsserver.tracing.enabled": false,
-    "js/ts.tsserver.log": "off",
-    "js/ts.tsserver.useSyntaxServer": "auto",
-    "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
-    "js/ts.tsserver.watchOptions": {
-        "excludeDirectories": [
-            ".turbo",
-            "coverage",
-            "dist",
-            "build",
-            "**/node_modules/**"
-        ]
-    },
-    "js/ts.preferences.includePackageJsonAutoImports": "off",
-    "js/ts.tsdk.path": "node_modules/typescript/lib",
-    "js/ts.tsserver.automaticTypeAcquisition.enabled": false,
-    "chat.promptFilesRecommendations": {
-        "speckit.constitution": true,
-        "speckit.specify": true,
-        "speckit.plan": true,
-        "speckit.tasks": true,
-        "speckit.implement": true
-    },
-    "css.customData": [
-        ".vscode/tailwind.custom-data.json"
-    ],
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "git.path": "/usr/bin/git",
+  "python.defaultInterpreterPath": "",
+  "python.venvPath": "${workspaceFolder}/.venv",
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+  "chat.tools.global.autoApprove": true,
+  "makefile.configureOnOpen": true,
+  "explorer.confirmDelete": false,
+  "workbench.secondarySideBar.showLabels": false,
+  "docker.extension.enableComposeLanguageServer": false,
+  "editor.accessibilitySupport": "off",
+  "workbench.iconTheme": "vs-seti",
+  "svelte.enable-ts-plugin": true,
+  "git.autofetch": true,
+  "editor.fontFamily": "SF Mono",
+  "editor.codeLensFontFamily": "SF Mono",
+  "editor.inlayHints.fontFamily": "SF Mono",
+  "editor.inlineSuggest.fontFamily": "SF Mono",
+  "chat.editor.fontFamily": "SF Mono",
+  "chat.fontFamily": "SF Compact",
+  "debug.console.fontFamily": "SF Mono",
+  "scm.inputFontFamily": "SF Compact",
+  "terminal.integrated.fontFamily": "SF Mono",
+  "notebook.markup.fontFamily": "SF Mono",
+  "gitlens.currentLine.fontFamily": "SF Mono",
+  "gitlens.blame.fontFamily": "SF Mono",
+  "markdown.preview.fontFamily": "SF Mono",
+  "workbench.activityBar.location": "bottom",
+  "workbench.browser.enableChatTools": true,
+  "workbench.browser.openLocalhostLinks": true,
+  "git.confirmSync": false,
+  "explorer.confirmDragAndDrop": false,
+  "chat.editing.confirmEditRequestRemoval": false,
+  "[github-actions-workflow]": {},
+  "window.confirmSaveUntitledWorkspace": false,
+  "editor.tabCompletion": "on",
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://opencode.ai": true,
+    "https://railway.com": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://unpkg.com": true,
+    "https://www.schemastore.org/": true
+  },
+  "editor.detectIndentation": false,
+  "claudeCode.preferredLocation": "panel",
+  "[csv]": {
+    "editor.inlayHints.maximumLength": 0,
+    "editor.inlayHints.fontFamily": ""
+  },
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "claudeCode.useTerminal": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.cache/**": true,
+    "**/.tsbuildinfo": true,
+    "**/.turbo/**": true,
+    "**/.react-router/cache/**": true,
+    "**/.next/**": true,
+    "**/.output/**": true,
+    "**/.vercel/**": true,
+    "**/.netlify/**": true,
+    "**/.svelte-kit/**": true,
+    "**/coverage/**": true,
+    "**/__pycache__/**": true,
+    "**/.ruff_cache/**": true,
+    "**/.mypy_cache/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.cache": true,
+    "**/.turbo": true,
+    "**/.next": true,
+    "**/.output": true,
+    "**/.vercel": true,
+    "**/.netlify": true
+  },
+  "chat.tools.terminal.autoApprove": {
+    "bunx": true,
+    ".specify/scripts/bash/": true,
+    ".specify/scripts/powershell/": true
+  },
+  "js/ts.tsserver.tracing.enabled": false,
+  "js/ts.tsserver.log": "off",
+  "js/ts.tsserver.useSyntaxServer": "auto",
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+  "js/ts.tsserver.watchOptions": {
+    "excludeDirectories": [".turbo", "coverage", "dist", "build", "**/node_modules/**"]
+  },
+  "js/ts.preferences.includePackageJsonAutoImports": "off",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsserver.automaticTypeAcquisition.enabled": false,
+  "chat.promptFilesRecommendations": {
+    "speckit.constitution": true,
+    "speckit.specify": true,
+    "speckit.plan": true,
+    "speckit.tasks": true,
+    "speckit.implement": true
+  },
+  "css.customData": [".vscode/tailwind.custom-data.json"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "git.enableSmartCommit": true,
+
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.parameterHints.enabled": true,
+  "editor.inlayHints.typeHints.enabled": true,
+  "editor.inlayHints.inlineMinColumn": 0,
+  "editor.inlayHints.maxColumn": 120,
+
+  "diagnostics.showCurrentInStatus": true,
+  "problems.showCurrentInStatus": true,
+  "editor.codeActionWidget.showHeaders": true,
+
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.cursorStyling": "bar",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.scrollback": 100000,
+
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.showWhitespaceOnSelection": true,
+  "editor.minimap.showCurrentLine": true,
+  "editor.renderLineHighlight": "all",
+  "editor.relativeLineNumbers": "enabled",
+
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "oxc.oxc-vscode",
-    "editor.codeActionsOnSave": {
-        "source.sortImports": "always"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode",
-        "editor.formatOnSave": true
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode",
-        "editor.formatOnSave": true
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "oxc.oxc-vscode"
-    },
-    "git.enableSmartCommit": true,
-
-    "editor.inlayHints.enabled": "on",
-    "editor.inlayHints.parameterHints.enabled": true,
-    "editor.inlayHints.typeHints.enabled": true,
-    "editor.inlayHints.inlineMinColumn": 0,
-    "editor.inlayHints.maxColumn": 120,
-
-    "diagnostics.showCurrentInStatus": true,
-    "problems.showCurrentInStatus": true,
-    "editor.codeActionWidget.showHeaders": true,
-
-    "terminal.integrated.shellIntegration.enabled": true,
-    "terminal.integrated.cursorStyling": "bar",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.scrollback": 100000,
-
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "editor.showWhitespaceOnSelection": true,
-    "editor.minimap.showCurrentLine": true,
-    "editor.renderLineHighlight": "all",
-    "editor.relativeLineNumbers": "enabled",
-
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust-analyzer",
-        "editor.formatOnSave": true,
-        "editor.defaultLineLength": 100,
-        "editor.inlayHints.enabled": "on"
-    },
-    "[go]": {
-        "editor.defaultFormatter": "golang.go",
-        "editor.formatOnSave": true,
-        "editor.defaultLineLength": 100
-    },
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.defaultLineLength": 88,
-        "editor.inlayHints.enabled": "on"
-    },
-    "python.analysis.typeCheckingMode": "standard",
-    "cSpell.userWords": [
-      "michaelson"
-    ],
-    "chat.editing.autoAcceptDelay": 1,
-    "chat.viewSessions.orientation": "stacked",
-    "git.replaceTagsWhenPull": true,
-    "[markdown]": {
-      "editor.defaultFormatter": "charliermarsh.ruff"
-    },
-    "ruff.format.preview": true,
-    "ruff.lint.preview": true,
-    "zig.zls.enabled": "on",
-    "chat.experimental.incrementalRendering.enabled": true,
-    "chat.agent.thinkingStyle": "collapsedPreview",
-    "python.terminal.useEnvFile": true,
-    "editor.fontSize": 11,
-    "swift.disableSwiftlyInstallPrompt": true
+    "editor.defaultLineLength": 100,
+    "editor.inlayHints.enabled": "on"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.defaultLineLength": 100
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.defaultLineLength": 88,
+    "editor.inlayHints.enabled": "on"
+  },
+  "python.analysis.typeCheckingMode": "standard",
+  "cSpell.userWords": ["michaelson"],
+  "chat.editing.autoAcceptDelay": 1,
+  "chat.viewSessions.orientation": "stacked",
+  "git.replaceTagsWhenPull": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.markdown-language-features"
+  },
+  "ruff.format.preview": true,
+  "ruff.lint.preview": true,
+  "zig.zls.enabled": "on",
+  "chat.experimental.incrementalRendering.enabled": true,
+  "chat.agent.thinkingStyle": "collapsedPreview",
+  "python.terminal.useEnvFile": true,
+  "editor.fontSize": 11,
+  "swift.disableSwiftlyInstallPrompt": true
 }

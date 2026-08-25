@@ -15,9 +15,8 @@
   "ensure_final_newline_on_save": true,
   "preferred_line_length": 100,
   "indent_guides": {
-    "show": "always"
+    "coloring": "indent_aware"
   },
-  "bracket_matching": true,
   "linked_edits": true,
   "use_autoclose": true,
   "inlay_hints": {
@@ -80,8 +79,8 @@
       }
     },
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-5",
+      "provider": "copilot_chat",
+      "model": "gpt-5.6-luna",
       "enable_thinking": true,
       "effort": "medium"
     },
@@ -108,15 +107,19 @@
   },
   "current_line_highlight": "all",
   "buffer_font_family": "SF Mono",
-  "file_types": {
-    "tailwindcss": ["*.css"]
-  },
-  "colorize_brackets": true,
   "languages": {
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-intellisense-css",
+        "!vscode-css-language-server",
+        "..."
+      ]
+    },
     "Markdown": {
       "soft_wrap": "editor_width"
     }
   },
+  "colorize_brackets": true,
   "format_on_save": "on",
   "formatter": {
     "external": {
@@ -146,6 +149,10 @@
       "type": "registry"
     },
     "github-copilot-cli": {
+      "default_config_options": {
+        "model": "gpt-5.6-luna",
+        "allow_all": "on"
+      },
       "type": "registry"
     }
   },
